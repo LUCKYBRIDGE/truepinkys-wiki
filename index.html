@@ -376,51 +376,142 @@
       return labels;
     }
 
+    function renderEntryIndex(docs = wikiDocs) {
+      return docs
+        .slice()
+        .sort((a, b) => a.title.localeCompare(b.title, "ko"))
+        .map(doc => `
+          <a href="#/doc/${doc.id}" class="flex items-start justify-between gap-3 py-3 border-b border-slate-100 last:border-0 hover:text-teal-700 transition">
+            <span>
+              <strong class="block text-[15px] text-slate-950">${escapeHtml(doc.title)}</strong>
+              <span class="block text-xs text-slate-500 mt-0.5">${escapeHtml(doc.definition || doc.summary)}</span>
+            </span>
+            <span class="text-[11px] text-slate-400 font-black whitespace-nowrap">${escapeHtml(doc.documentKind || "문서")}</span>
+          </a>
+        `).join("");
+    }
+
+    function renderCompactDocList(docs) {
+      return docs.map(doc => `
+        <li class="py-2 border-b border-slate-100 last:border-0">
+          <a href="#/doc/${doc.id}" class="font-extrabold text-slate-900 hover:text-teal-700">${escapeHtml(doc.title)}</a>
+          <p class="text-xs text-slate-500 mt-0.5 line-clamp-1">${escapeHtml(doc.summary)}</p>
+        </li>
+      `).join("");
+    }
+
+    function renderSubjectDirectory() {
+      return wikiConfig.subjects.map(subject => {
+        const docs = wikiDocs.filter(doc => Array.isArray(doc.subjects) && doc.subjects.includes(subject));
+        return `
+          <a href="#/subject/${subject}" class="block border border-slate-200 bg-white px-4 py-3 hover:border-teal-500 hover:bg-teal-50 transition">
+            <span class="flex items-center justify-between gap-3">
+              <strong class="text-[15px] text-slate-950">${escapeHtml(subject)}</strong>
+              <span class="text-xs font-black text-slate-400">${docs.length}</span>
+            </span>
+            <span class="block text-xs text-slate-500 mt-1 line-clamp-1">${docs.slice(0, 3).map(doc => doc.title).join(", ") || "문서 준비 중"}</span>
+          </a>
+        `;
+      }).join("");
+    }
+
     function renderHome() {
-      const featured = wikiDocs.slice(0, 6);
+      const todayDoc = wikiDocs.find(doc => doc.id === "fake-news") || wikiDocs[0];
+      const recentDocs = wikiDocs.slice().sort((a, b) => String(b.lastReviewed || "").localeCompare(String(a.lastReviewed || ""))).slice(0, 5);
       rerenderWithTransition(`
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
-          <div class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
-            <p class="text-sm font-black text-teal-700 mb-3">초등학생 전용 정보 찾기</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">궁금한 단어를 검색하고, 교과목과 주제태그로 다시 찾아보세요.</h2>
-            <p class="text-[16px] text-slate-600 leading-relaxed mb-6">트루핑키스 위키는 제목, 본문, 교과목, 주제태그, 키워드, 별칭을 함께 살펴 검색 결과를 정렬합니다. 정확히 포함되는 정도와 자주 언급된 정도를 같이 반영합니다.</p>
+        <section class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 mb-6">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 border-b border-slate-200 pb-6">
+            <div>
+              <p class="text-sm font-black text-teal-700 mb-3">초등학생용 온라인 백과</p>
+              <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">표제어를 찾고, 목차처럼 살펴보는 트루핑키스 위키</h2>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">문서는 개요, 어린이 설명, 헷갈리기 쉬운 점, 확인 포인트, 출처와 관련 문서 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그, 키워드와 별칭을 함께 봅니다.</p>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
+              <div class="border border-slate-200 rounded-lg px-3 py-3">
+                <strong class="block text-2xl text-slate-950">${wikiDocs.length}</strong>
+                <span class="text-xs font-black text-slate-500">문서</span>
+              </div>
+              <div class="border border-slate-200 rounded-lg px-3 py-3">
+                <strong class="block text-2xl text-slate-950">${wikiConfig.subjects.length}</strong>
+                <span class="text-xs font-black text-slate-500">교과목</span>
+              </div>
+              <div class="border border-slate-200 rounded-lg px-3 py-3">
+                <strong class="block text-2xl text-slate-950">${wikiConfig.topicTags.filter(tag => countBy("topicTags", tag) > 0).length}</strong>
+                <span class="text-xs font-black text-slate-500">주제태그</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-5">
+            <p class="text-xs font-black text-slate-400 mb-2">빠른 검색어</p>
             <div class="flex flex-wrap gap-2">
               ${wikiConfig.popularQueries.map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 hover:text-teal-800 px-3 py-2 text-sm font-extrabold transition">${query}</button>`).join("")}
             </div>
           </div>
-          <aside class="lg:col-span-4 bg-slate-950 text-white rounded-xl p-6">
-            <h3 class="text-lg font-black mb-4">검색 점수 기준</h3>
-            <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
-              <li><strong class="text-white">제목</strong>에 정확히 들어맞으면 가장 높게 봅니다.</li>
-              <li><strong class="text-white">내용</strong>에서 자주 나오는 단어도 반영합니다.</li>
-              <li><strong class="text-white">교과목·주제태그·키워드</strong>와 연결된 문서도 찾습니다.</li>
-              <li><strong class="text-white">별칭</strong>으로 다른 표현과 쉬운 말을 함께 찾습니다.</li>
-            </ul>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6">
+          <section class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6">
+            <div class="flex items-end justify-between gap-4 border-b border-slate-200 pb-3 mb-2">
+              <h2 class="text-2xl font-black text-slate-950">표제어 색인</h2>
+              <span class="text-xs font-black text-slate-400">가나다순</span>
+            </div>
+            <div class="divide-y divide-slate-100">
+              ${renderEntryIndex(wikiDocs)}
+            </div>
+          </section>
+
+          <aside class="lg:col-span-4 space-y-6">
+            <section class="bg-slate-950 text-white rounded-xl p-6">
+              <p class="text-xs font-black text-teal-200 mb-2">오늘의 표제어</p>
+              <h3 class="text-2xl font-black mb-3">${escapeHtml(todayDoc.title)}</h3>
+              <p class="text-sm text-slate-300 leading-relaxed mb-4">${escapeHtml(todayDoc.summary)}</p>
+              <a href="#/doc/${todayDoc.id}" class="inline-flex items-center gap-2 text-sm font-black text-white hover:text-teal-200">문서 읽기 <i class="fa-solid fa-arrow-right"></i></a>
+            </section>
+
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="text-lg font-black text-slate-950 mb-3">최근 검토 문서</h3>
+              <ul>${renderCompactDocList(recentDocs)}</ul>
+            </section>
           </aside>
         </section>
 
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div class="bg-white border border-slate-200 rounded-xl p-6">
-            <h2 class="text-xl font-black text-slate-950 mb-4">교과목으로 찾기</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              ${wikiConfig.subjects.map(subject => `<a href="#/subject/${subject}" class="rounded-lg border border-slate-200 px-3 py-3 font-extrabold text-sm hover:border-teal-500 hover:bg-teal-50 transition">${subject}<span class="block text-xs text-slate-400 mt-1">${countBy("subjects", subject)}개 문서</span></a>`).join("")}
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <section class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-black text-slate-950 mb-4">교과목 분류</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              ${renderSubjectDirectory()}
             </div>
-          </div>
-          <div class="bg-white border border-slate-200 rounded-xl p-6">
-            <h2 class="text-xl font-black text-slate-950 mb-4">주제태그로 찾기</h2>
-            <div class="flex flex-wrap gap-2">
+          </section>
+
+          <section class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-black text-slate-950 mb-4">주제태그 찾아보기</h2>
+            <div class="flex flex-wrap gap-2 mb-5">
               ${wikiConfig.topicTags.filter(tag => countBy("topicTags", tag) > 0).map(tag => `<a href="#/tag/${tag}" class="rounded-full border border-amber-100 bg-amber-50 text-amber-900 px-3 py-2 text-sm font-extrabold hover:border-amber-400 transition">${tag} ${countBy("topicTags", tag)}</a>`).join("")}
             </div>
-          </div>
+            <div class="border-t border-slate-200 pt-4">
+              <h3 class="text-sm font-black text-slate-900 mb-2">문서 읽는 순서</h3>
+              <ol class="space-y-2 text-sm text-slate-600 font-medium">
+                <li>1. 표제어와 한 줄 뜻을 먼저 확인합니다.</li>
+                <li>2. 목차에서 필요한 문단을 고릅니다.</li>
+                <li>3. 출처와 관련 문서를 함께 봅니다.</li>
+              </ol>
+            </div>
+          </section>
         </section>
 
-        <section>
-          <div class="flex items-end justify-between gap-4 mb-4">
-            <h2 class="text-2xl font-black text-slate-950">처음 넣은 위키 문서</h2>
-            <span class="text-sm text-slate-500 font-bold">${wikiDocs.length}개</span>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            ${featured.map(doc => docCard(doc)).join("")}
+        <section class="mt-6 bg-white border border-slate-200 rounded-xl p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div>
+              <h2 class="text-xl font-black text-slate-950 mb-1">트루핑키스 위키 문서 원칙</h2>
+              <p class="text-sm text-slate-600 font-medium">어린이 백과처럼 쉽게 쓰고, 위키처럼 분류와 관련 문서를 연결합니다.</p>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-black text-slate-600">
+              <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">쉬운 설명</span>
+              <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">출처 확인</span>
+              <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">관련 문서</span>
+              <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">교과 연결</span>
+            </div>
           </div>
         </section>
       `);
