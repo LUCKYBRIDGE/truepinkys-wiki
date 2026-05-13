@@ -705,11 +705,16 @@
 
             <section class="mt-8 border-t border-slate-200 pt-5">
               <h3 class="text-lg font-black text-slate-950 mb-3">분류</h3>
-              <p class="text-sm text-slate-600 font-bold leading-relaxed">
-                ${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">분류:${escapeHtml(subject)}</a>`).join(" · ")}
-                ${(doc.topicTags || []).length ? " · " : ""}
-                ${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">태그:${escapeHtml(tag)}</a>`).join(" · ")}
-              </p>
+              <div class="space-y-2 text-sm sm:text-base font-bold leading-relaxed">
+                <p>
+                  <span class="text-slate-500 mr-2">관련 교과:</span>
+                  ${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join(", ")}
+                </p>
+                <p>
+                  <span class="text-slate-500 mr-2">태그:</span>
+                  ${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join(" ")}
+                </p>
+              </div>
             </section>
 
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
