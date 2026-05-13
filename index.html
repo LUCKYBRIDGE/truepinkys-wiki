@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트루핑키스 위키</title>
+  <meta name="description" content="초등학생을 위한 안전한 정보 찾기 위키">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5b667a;
+      --line: #d8dee9;
+      --soft: #f5f7fb;
+      --brand: #0f766e;
+      --accent: #b45309;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f7f8fb;
+      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .service-tab {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .service-tab.active {
+      background: #ffffff;
+      color: #0f766e;
+      border-color: #ffffff;
+    }
+
+    .page-enter {
+      animation: pageEnter 180ms ease-out;
+    }
+
+    @keyframes pageEnter {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .wiki-body p {
+      margin-bottom: 1rem;
+      line-height: 1.9;
+    }
+
+    .wiki-body mark {
+      background: #fef3c7;
+      color: #78350f;
+      padding: 0 0.15rem;
+      border-radius: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-slate-950 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <a href="https://luckybridge.github.io/truepinkys-news/" class="service-tab rounded-full px-4 py-2 text-sm font-extrabold hover:bg-white hover:text-slate-900 transition">
+          트루핑키스 뉴스
+        </a>
+        <a href="./" class="service-tab active rounded-full px-4 py-2 text-sm font-extrabold transition">
+          트루핑키스 위키
+        </a>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-300 font-medium">뉴스는 읽고 판단하고, 위키는 찾아보고 이해합니다.</p>
+    </div>
+  </div>
+
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <a href="#/" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-lg bg-teal-700 text-white flex items-center justify-center font-black text-lg">TW</div>
+        <div>
+          <p class="text-[11px] font-black text-teal-700 uppercase leading-none tracking-widest">Truepinky's</p>
+          <h1 class="text-2xl sm:text-[30px] font-black tracking-tight text-slate-950 leading-tight">트루핑키스 위키</h1>
+        </div>
+      </a>
+      <form id="search-form" class="w-full lg:max-w-xl">
+        <label for="search-input" class="sr-only">위키 검색</label>
+        <div class="flex h-12 rounded-xl border-2 border-slate-900 bg-white overflow-hidden shadow-sm">
+          <input id="search-input" type="search" class="flex-1 min-w-0 px-4 text-[16px] outline-none" placeholder="궁금한 단어, 문장, 교과목을 검색하세요">
+          <button class="w-14 bg-slate-900 text-white hover:bg-teal-800 transition" type="submit" aria-label="검색">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <main id="app" class="max-w-6xl mx-auto px-4 py-8 page-enter"></main>
+
+  <footer class="border-t border-slate-200 bg-white mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 leading-relaxed">
+      <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 초등학생 정보 탐색 연습을 위한 교육용 위키입니다.</p>
+      <p>문서는 교과목, 주제태그, 키워드/별칭을 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
+    </div>
+  </footer>
+
+  <script>
+    const NEWS_URL = "https://luckybridge.github.io/truepinkys-news/";
+    const WIKI_CONFIG = {
+      subjects: ["국어", "수학", "사회", "과학", "도덕", "실과", "체육", "음악", "미술", "영어"],
+      topicTags: ["학교생활", "친구관계", "디지털", "안전", "건강", "환경", "돈과 경제", "역사", "진로", "뉴스와 미디어", "동물과 식물", "우주와 날씨", "통계", "정보읽기", "생활", "문화", "창작", "음식", "몸"],
+      popularQueries: ["AI", "가짜뉴스", "개인정보", "학교폭력", "미세먼지", "그래프", "저작권", "스마트폰 중독", "키 크는 법", "용돈"]
+    };
+
+    const SEARCH_FIELDS = [
+      { id: "title", label: "제목", weight: 5.0, group: "title" },
+      { id: "aliases", label: "별칭", weight: 4.0, group: "category" },
+      { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
+      { id: "topicTags", label: "주제태그", weight: 3.1, group: "category" },
+      { id: "keywords", label: "키워드", weight: 2.7, group: "category" },
+      { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
+      { id: "sections", label: "본문", weight: 1.4, group: "content" },
+      { id: "checkpoints", label: "확인 포인트", weight: 1.5, group: "content" }
+    ];
+
+    let wikiDocs = [];
+
+    async function init() {
+      try {
+        const cacheKey = Date.now();
+        const res = await fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" });
+        wikiDocs = await res.json();
+        window.addEventListener("hashchange", renderRoute);
+        document.getElementById("search-form").addEventListener("submit", handleSearchSubmit);
+        renderRoute();
+      } catch (error) {
+        document.getElementById("app").innerHTML = `
+          <section class="bg-red-50 border border-red-200 rounded-xl p-6">
+            <h2 class="text-xl font-black text-red-800 mb-2">문서를 불러오지 못했습니다.</h2>
+            <p class="text-red-700">로컬 서버 또는 GitHub Pages 배포 상태를 확인해주세요.</p>
+          </section>
+        `;
+      }
+    }
+
+    function normalize(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}]+/gu, "");
+    }
+
+    function normalizeLoose(value) {
+      return String(value || "")
+        .toLowerCase()
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function tokenize(query) {
+      return normalizeLoose(query)
+        .split(/[\s,./?~!@#$%^&*()_+=|;:'"<>[\]{}-]+/g)
+        .map(normalize)
+        .filter(token => token.length > 0);
+    }
+
+    function fieldText(doc, fieldId) {
+      if (fieldId === "sections") {
+        return (doc.sections || []).map(section => [section.heading, ...(section.body || [])].join(" ")).join(" ");
+      }
+      const value = doc[fieldId];
+      return Array.isArray(value) ? value.join(" ") : String(value || "");
+    }
+
+    function countOccurrences(target, term) {
+      const text = normalize(target);
+      const needle = normalize(term);
+      if (!text || !needle) return 0;
+
+      let count = 0;
+      let index = text.indexOf(needle);
+      while (index !== -1) {
+        count += 1;
+        index = text.indexOf(needle, index + Math.max(needle.length, 1));
+      }
+      return count;
+    }
+
+    function scoreField(text, query, field) {
+      const normalizedText = normalize(text);
+      const normalizedQuery = normalize(query);
+      const tokens = tokenize(query);
+
+      let accuracy = 0;
+      let frequency = 0;
+      const matchedTokens = tokens.filter(token => normalizedText.includes(token));
+      const phraseCount = countOccurrences(text, query);
+
+      if (normalizedQuery && normalizedText.includes(normalizedQuery)) {
+        accuracy += 120;
+      }
+
+      if (tokens.length > 0) {
+        const coverage = matchedTokens.length / tokens.length;
+        accuracy += coverage * 70;
+        if (matchedTokens.length === tokens.length && tokens.length > 1) accuracy += 25;
+      }
+
+      frequency += phraseCount * 12;
+      for (const token of tokens) {
+        frequency += countOccurrences(text, token) * 3;
+      }
+      frequency = Math.min(frequency, 60);
+
+      const raw = accuracy + frequency;
+      return {
+        field: field.label,
+        group: field.group,
+        score: raw * field.weight,
+        accuracy,
+        frequency,
+        phraseCount,
+        tokenCount: matchedTokens.length,
+        matchedTokens
+      };
+    }
+
+    function scoreDocument(doc, query) {
+      const fieldScores = SEARCH_FIELDS
+        .map(field => scoreField(fieldText(doc, field.id), query, field))
+        .filter(result => result.score > 0);
+
+      const grouped = fieldScores.reduce((acc, item) => {
+        acc[item.group] = (acc[item.group] || 0) + item.score;
+        return acc;
+      }, {});
+
+      const total = fieldScores.reduce((sum, item) => sum + item.score, 0);
+      const frequencyTotal = fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
+      return { doc, total, fieldScores, grouped, frequencyTotal };
+    }
+
+    function searchDocs(query) {
+      return wikiDocs
+        .map(doc => scoreDocument(doc, query))
+        .filter(result => result.total > 0)
+        .sort((a, b) => b.total - a.total || b.frequencyTotal - a.frequencyTotal || a.doc.title.localeCompare(b.doc.title, "ko"));
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function handleSearchSubmit(event) {
+      event.preventDefault();
+      const query = document.getElementById("search-input").value.trim();
+      if (!query) {
+        location.hash = "#/";
+        return;
+      }
+      location.hash = `#/search/${encodeURIComponent(query)}`;
+    }
+
+    function rerenderWithTransition(html) {
+      const app = document.getElementById("app");
+      app.classList.remove("page-enter");
+      void app.offsetWidth;
+      app.innerHTML = html;
+      app.classList.add("page-enter");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderRoute() {
+      const hash = decodeURIComponent(location.hash || "#/");
+      if (hash.startsWith("#/doc/")) {
+        renderDoc(hash.replace("#/doc/", ""));
+        return;
+      }
+      if (hash.startsWith("#/subject/")) {
+        renderFiltered("subject", hash.replace("#/subject/", ""));
+        return;
+      }
+      if (hash.startsWith("#/tag/")) {
+        renderFiltered("tag", hash.replace("#/tag/", ""));
+        return;
+      }
+      if (hash.startsWith("#/search/")) {
+        const query = hash.replace("#/search/", "");
+        document.getElementById("search-input").value = query;
+        renderSearch(query);
+        return;
+      }
+      renderHome();
+    }
+
+    function badgeList(items, baseClass = "bg-white border-slate-200 text-slate-700") {
+      return (items || []).map(item => `
+        <span class="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-extrabold ${baseClass}">${escapeHtml(item)}</span>
+      `).join("");
+    }
+
+    function docCard(doc, result = null) {
+      const matchLabels = result ? summarizeMatches(result) : [];
+      return `
+        <a href="#/doc/${doc.id}" class="block bg-white border border-slate-200 rounded-lg p-5 hover:border-teal-500 hover:shadow-md transition">
+          <div class="flex flex-col gap-3">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-2">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
+              <h3 class="text-xl font-black text-slate-950 leading-snug">${escapeHtml(doc.title)}</h3>
+            </div>
+            <p class="text-[15px] text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
+            <div class="flex flex-wrap gap-1.5">${badgeList(doc.topicTags, "bg-amber-50 border-amber-100 text-amber-800")}</div>
+            ${matchLabels.length ? `<div class="pt-2 border-t border-slate-100 text-xs text-slate-500 font-bold">${matchLabels.join(" · ")}</div>` : ""}
+          </div>
+        </a>
+      `;
+    }
+
+    function summarizeMatches(result) {
+      const labels = [];
+      if (result.grouped.title) labels.push(`제목 정확도 ${Math.round(result.grouped.title)}`);
+      if (result.grouped.category) labels.push(`분류/키워드 ${Math.round(result.grouped.category)}`);
+      if (result.grouped.content) labels.push(`내용 ${Math.round(result.grouped.content)}`);
+      const frequent = result.fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
+      if (frequent > 0) labels.push(`언급 ${frequent}회`);
+      return labels;
+    }
+
+    function renderHome() {
+      const featured = wikiDocs.slice(0, 6);
+      rerenderWithTransition(`
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+          <div class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
+            <p class="text-sm font-black text-teal-700 mb-3">초등학생 전용 정보 찾기</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">궁금한 단어를 검색하고, 교과목과 주제태그로 다시 찾아보세요.</h2>
+            <p class="text-[16px] text-slate-600 leading-relaxed mb-6">트루핑키스 위키는 제목, 본문, 교과목, 주제태그, 키워드, 별칭을 함께 살펴 검색 결과를 정렬합니다. 정확히 포함되는 정도와 자주 언급된 정도를 같이 반영합니다.</p>
+            <div class="flex flex-wrap gap-2">
+              ${WIKI_CONFIG.popularQueries.map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 hover:text-teal-800 px-3 py-2 text-sm font-extrabold transition">${query}</button>`).join("")}
+            </div>
+          </div>
+          <aside class="lg:col-span-4 bg-slate-950 text-white rounded-xl p-6">
+            <h3 class="text-lg font-black mb-4">검색 점수 기준</h3>
+            <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+              <li><strong class="text-white">제목</strong>에 정확히 들어맞으면 가장 높게 봅니다.</li>
+              <li><strong class="text-white">내용</strong>에서 자주 나오는 단어도 반영합니다.</li>
+              <li><strong class="text-white">교과목·주제태그·키워드</strong>와 연결된 문서도 찾습니다.</li>
+              <li><strong class="text-white">별칭</strong>으로 다른 표현과 쉬운 말을 함께 찾습니다.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-black text-slate-950 mb-4">교과목으로 찾기</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              ${WIKI_CONFIG.subjects.map(subject => `<a href="#/subject/${subject}" class="rounded-lg border border-slate-200 px-3 py-3 font-extrabold text-sm hover:border-teal-500 hover:bg-teal-50 transition">${subject}<span class="block text-xs text-slate-400 mt-1">${countBy("subjects", subject)}개 문서</span></a>`).join("")}
+            </div>
+          </div>
+          <div class="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 class="text-xl font-black text-slate-950 mb-4">주제태그로 찾기</h2>
+            <div class="flex flex-wrap gap-2">
+              ${WIKI_CONFIG.topicTags.filter(tag => countBy("topicTags", tag) > 0).map(tag => `<a href="#/tag/${tag}" class="rounded-full border border-amber-100 bg-amber-50 text-amber-900 px-3 py-2 text-sm font-extrabold hover:border-amber-400 transition">${tag} ${countBy("topicTags", tag)}</a>`).join("")}
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-end justify-between gap-4 mb-4">
+            <h2 class="text-2xl font-black text-slate-950">처음 넣은 위키 문서</h2>
+            <span class="text-sm text-slate-500 font-bold">${wikiDocs.length}개</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            ${featured.map(doc => docCard(doc)).join("")}
+          </div>
+        </section>
+      `);
+    }
+
+    function countBy(field, value) {
+      return wikiDocs.filter(doc => Array.isArray(doc[field]) && doc[field].includes(value)).length;
+    }
+
+    function quickSearch(query) {
+      document.getElementById("search-input").value = query;
+      location.hash = `#/search/${encodeURIComponent(query)}`;
+    }
+
+    function renderSearch(query) {
+      const results = searchDocs(query);
+      rerenderWithTransition(`
+        <section class="mb-6">
+          <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
+          <h2 class="text-3xl font-black text-slate-950 mb-2">"${escapeHtml(query)}" 검색 결과</h2>
+          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 주제태그, 키워드, 별칭에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
+        </section>
+        ${results.length ? `
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <section class="lg:col-span-8 space-y-4">
+              ${results.map(result => docCard(result.doc, result)).join("")}
+            </section>
+            <aside class="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-5 h-fit">
+              <h3 class="font-black text-slate-950 mb-3">검색에 반영된 항목</h3>
+              <div class="space-y-3 text-sm text-slate-600">
+                <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
+                <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 확인 포인트에서 얼마나 자주 나오는지 봅니다.</p>
+                <p><strong class="text-slate-900">카테고리 검색:</strong> 교과목, 주제태그, 키워드, 별칭에 포함되는지 봅니다.</p>
+              </div>
+            </aside>
+          </div>
+        ` : renderNoResults(query)}
+      `);
+    }
+
+    function renderNoResults(query) {
+      return `
+        <section class="bg-white border border-slate-200 rounded-xl p-8">
+          <h3 class="text-xl font-black text-slate-950 mb-3">아직 맞는 문서가 없습니다.</h3>
+          <p class="text-slate-600 mb-5">다른 쉬운 말, 띄어쓰기 없는 말, 교과목 이름으로 다시 찾아보세요.</p>
+          <div class="flex flex-wrap gap-2">
+            ${WIKI_CONFIG.popularQueries.slice(0, 8).map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 px-3 py-2 text-sm font-extrabold">${query}</button>`).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderFiltered(kind, value) {
+      const field = kind === "subject" ? "subjects" : "topicTags";
+      const title = kind === "subject" ? `${value} 문서` : `${value} 주제 문서`;
+      const docs = wikiDocs.filter(doc => Array.isArray(doc[field]) && doc[field].includes(value));
+      rerenderWithTransition(`
+        <section class="mb-6">
+          <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
+          <h2 class="text-3xl font-black text-slate-950 mb-2">${escapeHtml(title)}</h2>
+          <p class="text-slate-600 font-medium">문서는 여러 교과목과 주제태그에 동시에 속할 수 있습니다.</p>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          ${docs.map(doc => docCard(doc)).join("")}
+        </section>
+      `);
+    }
+
+    function renderDoc(id) {
+      const doc = wikiDocs.find(item => item.id === id);
+      if (!doc) {
+        rerenderWithTransition(`
+          <section class="bg-white border border-slate-200 rounded-xl p-8">
+            <h2 class="text-2xl font-black mb-3">문서를 찾을 수 없습니다.</h2>
+            <a href="#/" class="text-teal-700 font-extrabold">위키 홈으로 돌아가기</a>
+          </section>
+        `);
+        return;
+      }
+
+      const relatedDocs = (doc.related || []).map(relatedId => wikiDocs.find(item => item.id === relatedId)).filter(Boolean);
+      rerenderWithTransition(`
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <article class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
+            <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-6"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
+            <header class="border-b border-slate-200 pb-6 mb-7">
+              <div class="flex flex-wrap gap-1.5 mb-4">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
+              <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
+              <p class="text-lg text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
+              <p class="text-sm text-slate-400 font-bold mt-4">추천 학년: ${escapeHtml(doc.gradeBand || "초등학생")}</p>
+            </header>
+
+            <section class="wiki-body">
+              ${(doc.sections || []).map(section => `
+                <section class="mb-8">
+                  <h3 class="text-2xl font-black text-slate-950 mb-3">${escapeHtml(section.heading)}</h3>
+                  ${(section.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+                </section>
+              `).join("")}
+            </section>
+
+            ${(doc.checkpoints || []).length ? `
+              <section class="bg-teal-50 border border-teal-100 rounded-xl p-5 mt-8">
+                <h3 class="text-lg font-black text-teal-900 mb-3">확인 포인트</h3>
+                <ul class="space-y-2 text-slate-700 font-medium">
+                  ${doc.checkpoints.map(point => `<li class="flex gap-2"><i class="fa-solid fa-check text-teal-700 mt-1"></i><span>${escapeHtml(point)}</span></li>`).join("")}
+                </ul>
+              </section>
+            ` : ""}
+          </article>
+
+          <aside class="lg:col-span-4 space-y-5">
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="font-black text-slate-950 mb-3">문서 분류</h3>
+              <div class="mb-4">
+                <p class="text-xs font-black text-slate-400 mb-2">교과목</p>
+                <div class="flex flex-wrap gap-1.5">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
+              </div>
+              <div>
+                <p class="text-xs font-black text-slate-400 mb-2">주제태그</p>
+                <div class="flex flex-wrap gap-1.5">${badgeList(doc.topicTags, "bg-amber-50 border-amber-100 text-amber-800")}</div>
+              </div>
+            </section>
+
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="font-black text-slate-950 mb-3">검색에 쓰이는 말</h3>
+              <p class="text-xs font-black text-slate-400 mb-2">별칭</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">${badgeList(doc.aliases, "bg-slate-50 border-slate-200 text-slate-700")}</div>
+              <p class="text-xs font-black text-slate-400 mb-2">키워드</p>
+              <div class="flex flex-wrap gap-1.5">${badgeList(doc.keywords, "bg-slate-50 border-slate-200 text-slate-700")}</div>
+            </section>
+
+            ${relatedDocs.length ? `
+              <section class="bg-white border border-slate-200 rounded-xl p-5">
+                <h3 class="font-black text-slate-950 mb-3">관련 문서</h3>
+                <ul class="space-y-2">
+                  ${relatedDocs.map(item => `<li><a href="#/doc/${item.id}" class="font-bold text-teal-700 hover:text-teal-900">${escapeHtml(item.title)}</a></li>`).join("")}
+                </ul>
+              </section>
+            ` : ""}
+
+            ${(doc.sources || []).length ? `
+              <section class="bg-white border border-slate-200 rounded-xl p-5">
+                <h3 class="font-black text-slate-950 mb-3">확인할 출처</h3>
+                <ul class="space-y-2 text-sm text-slate-600">
+                  ${doc.sources.map(source => `<li>${escapeHtml(source)}</li>`).join("")}
+                </ul>
+              </section>
+            ` : ""}
+          </aside>
+        </div>
+      `);
+    }
+
+    init();
+  </script>
+</body>
+</html>
