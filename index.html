@@ -613,6 +613,14 @@
       return `section-${index + 1}`;
     }
 
+    function scrollToDocSection(targetId) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    }
+
     function renderInfobox(doc) {
       const rows = [
         ["표제어", doc.title],
@@ -646,11 +654,11 @@
           <ol class="space-y-1 text-sm font-bold text-slate-700">
             ${(doc.sections || []).map((section, index) => `
               <li>
-                <a href="#${sectionId(index)}" class="hover:text-teal-700">${index + 1}. ${escapeHtml(section.heading)}</a>
+                <button type="button" onclick="scrollToDocSection('${sectionId(index)}')" class="text-left hover:text-teal-700">${index + 1}. ${escapeHtml(section.heading)}</button>
               </li>
             `).join("")}
-            ${(doc.checkpoints || []).length ? `<li><a href="#checkpoints" class="hover:text-teal-700">${(doc.sections || []).length + 1}. 확인 포인트</a></li>` : ""}
-            <li><a href="#sources" class="hover:text-teal-700">${(doc.sections || []).length + ((doc.checkpoints || []).length ? 2 : 1)}. 출처와 관련 문서</a></li>
+            ${(doc.checkpoints || []).length ? `<li><button type="button" onclick="scrollToDocSection('checkpoints')" class="text-left hover:text-teal-700">${(doc.sections || []).length + 1}. 확인 포인트</button></li>` : ""}
+            <li><button type="button" onclick="scrollToDocSection('sources')" class="text-left hover:text-teal-700">${(doc.sections || []).length + ((doc.checkpoints || []).length ? 2 : 1)}. 출처와 관련 문서</button></li>
           </ol>
         </nav>
       `;
