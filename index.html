@@ -626,7 +626,6 @@
         ["표제어", doc.title],
         ["문서 종류", doc.documentKind || "개념 문서"],
         ["한 줄 뜻", doc.definition || doc.summary],
-        ["추천 학년", doc.gradeBand || "초등학생"],
         ["관련 교과", (doc.subjects || []).join(", ")],
         ["주제 태그", (doc.topicTags || []).join(", ")],
         ["다른 이름", (doc.aliases || []).join(", ")],
@@ -727,7 +726,7 @@
               </div>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
               <p class="text-lg text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
-              <p class="text-sm text-slate-400 font-bold mt-4">추천 학년: ${escapeHtml(doc.gradeBand || "초등학생")} · 최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
+              <p class="text-sm text-slate-400 font-bold mt-4">최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
             </header>
 
             ${renderToc(doc)}
