@@ -63,11 +63,37 @@
       line-height: 1.9;
     }
 
+    .wiki-body section {
+      scroll-margin-top: 140px;
+    }
+
+    .wiki-body h3 {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.6rem;
+    }
+
     .wiki-body mark {
       background: #fef3c7;
       color: #78350f;
       padding: 0 0.15rem;
       border-radius: 0.2rem;
+    }
+
+    .wiki-table th {
+      width: 34%;
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 900;
+      text-align: left;
+    }
+
+    .wiki-table th,
+    .wiki-table td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.75rem;
+      vertical-align: top;
+      font-size: 0.9rem;
+      line-height: 1.55;
     }
   </style>
 </head>
@@ -118,11 +144,12 @@
 
   <script>
     const NEWS_URL = "https://luckybridge.github.io/truepinkys-news/";
-    const WIKI_CONFIG = {
+    const DEFAULT_WIKI_CONFIG = {
       subjects: ["국어", "수학", "사회", "과학", "도덕", "실과", "체육", "음악", "미술", "영어"],
       topicTags: ["학교생활", "친구관계", "디지털", "안전", "건강", "환경", "돈과 경제", "역사", "진로", "뉴스와 미디어", "동물과 식물", "우주와 날씨", "통계", "정보읽기", "생활", "문화", "창작", "음식", "몸"],
       popularQueries: ["AI", "가짜뉴스", "개인정보", "학교폭력", "미세먼지", "그래프", "저작권", "스마트폰 중독", "키 크는 법", "용돈"]
     };
+    let wikiConfig = DEFAULT_WIKI_CONFIG;
 
     const SEARCH_FIELDS = [
       { id: "title", label: "제목", weight: 5.0, group: "title" },
@@ -140,8 +167,12 @@
     async function init() {
       try {
         const cacheKey = Date.now();
-        const res = await fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" });
-        wikiDocs = await res.json();
+        const [taxonomyRes, docsRes] = await Promise.all([
+          fetch(`./data/taxonomy.json?v=${cacheKey}`, { cache: "no-store" }),
+          fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" })
+        ]);
+        wikiConfig = await taxonomyRes.json();
+        wikiDocs = await docsRes.json();
         window.addEventListener("hashchange", renderRoute);
         document.getElementById("search-form").addEventListener("submit", handleSearchSubmit);
         renderRoute();
@@ -321,7 +352,10 @@
         <a href="#/doc/${doc.id}" class="block bg-white border border-slate-200 rounded-lg p-5 hover:border-teal-500 hover:shadow-md transition">
           <div class="flex flex-col gap-3">
             <div>
-              <div class="flex flex-wrap gap-1.5 mb-2">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
+              <div class="flex flex-wrap gap-1.5 mb-2">
+                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-extrabold text-slate-600">${escapeHtml(doc.documentKind || "개념 문서")}</span>
+                ${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}
+              </div>
               <h3 class="text-xl font-black text-slate-950 leading-snug">${escapeHtml(doc.title)}</h3>
             </div>
             <p class="text-[15px] text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
@@ -351,7 +385,7 @@
             <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">궁금한 단어를 검색하고, 교과목과 주제태그로 다시 찾아보세요.</h2>
             <p class="text-[16px] text-slate-600 leading-relaxed mb-6">트루핑키스 위키는 제목, 본문, 교과목, 주제태그, 키워드, 별칭을 함께 살펴 검색 결과를 정렬합니다. 정확히 포함되는 정도와 자주 언급된 정도를 같이 반영합니다.</p>
             <div class="flex flex-wrap gap-2">
-              ${WIKI_CONFIG.popularQueries.map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 hover:text-teal-800 px-3 py-2 text-sm font-extrabold transition">${query}</button>`).join("")}
+              ${wikiConfig.popularQueries.map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 hover:text-teal-800 px-3 py-2 text-sm font-extrabold transition">${query}</button>`).join("")}
             </div>
           </div>
           <aside class="lg:col-span-4 bg-slate-950 text-white rounded-xl p-6">
@@ -369,13 +403,13 @@
           <div class="bg-white border border-slate-200 rounded-xl p-6">
             <h2 class="text-xl font-black text-slate-950 mb-4">교과목으로 찾기</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              ${WIKI_CONFIG.subjects.map(subject => `<a href="#/subject/${subject}" class="rounded-lg border border-slate-200 px-3 py-3 font-extrabold text-sm hover:border-teal-500 hover:bg-teal-50 transition">${subject}<span class="block text-xs text-slate-400 mt-1">${countBy("subjects", subject)}개 문서</span></a>`).join("")}
+              ${wikiConfig.subjects.map(subject => `<a href="#/subject/${subject}" class="rounded-lg border border-slate-200 px-3 py-3 font-extrabold text-sm hover:border-teal-500 hover:bg-teal-50 transition">${subject}<span class="block text-xs text-slate-400 mt-1">${countBy("subjects", subject)}개 문서</span></a>`).join("")}
             </div>
           </div>
           <div class="bg-white border border-slate-200 rounded-xl p-6">
             <h2 class="text-xl font-black text-slate-950 mb-4">주제태그로 찾기</h2>
             <div class="flex flex-wrap gap-2">
-              ${WIKI_CONFIG.topicTags.filter(tag => countBy("topicTags", tag) > 0).map(tag => `<a href="#/tag/${tag}" class="rounded-full border border-amber-100 bg-amber-50 text-amber-900 px-3 py-2 text-sm font-extrabold hover:border-amber-400 transition">${tag} ${countBy("topicTags", tag)}</a>`).join("")}
+              ${wikiConfig.topicTags.filter(tag => countBy("topicTags", tag) > 0).map(tag => `<a href="#/tag/${tag}" class="rounded-full border border-amber-100 bg-amber-50 text-amber-900 px-3 py-2 text-sm font-extrabold hover:border-amber-400 transition">${tag} ${countBy("topicTags", tag)}</a>`).join("")}
             </div>
           </div>
         </section>
@@ -433,7 +467,7 @@
           <h3 class="text-xl font-black text-slate-950 mb-3">아직 맞는 문서가 없습니다.</h3>
           <p class="text-slate-600 mb-5">다른 쉬운 말, 띄어쓰기 없는 말, 교과목 이름으로 다시 찾아보세요.</p>
           <div class="flex flex-wrap gap-2">
-            ${WIKI_CONFIG.popularQueries.slice(0, 8).map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 px-3 py-2 text-sm font-extrabold">${query}</button>`).join("")}
+            ${wikiConfig.popularQueries.slice(0, 8).map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 px-3 py-2 text-sm font-extrabold">${query}</button>`).join("")}
           </div>
         </section>
       `;
@@ -455,6 +489,53 @@
       `);
     }
 
+    function sectionId(index) {
+      return `section-${index + 1}`;
+    }
+
+    function renderInfobox(doc) {
+      const rows = [
+        ["표제어", doc.title],
+        ["문서 종류", doc.documentKind || "개념 문서"],
+        ["한 줄 뜻", doc.definition || doc.summary],
+        ["추천 학년", doc.gradeBand || "초등학생"],
+        ["관련 교과", (doc.subjects || []).join(", ")],
+        ["주제 태그", (doc.topicTags || []).join(", ")],
+        ["다른 이름", (doc.aliases || []).join(", ")],
+        ["검토일", doc.lastReviewed || "미정"]
+      ];
+
+      return `
+        <table class="wiki-table w-full border border-slate-200 rounded-lg overflow-hidden bg-white">
+          <tbody>
+            ${rows.map(([label, value]) => `
+              <tr>
+                <th>${escapeHtml(label)}</th>
+                <td>${escapeHtml(value)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function renderToc(doc) {
+      return `
+        <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 mb-8" aria-label="문서 목차">
+          <h3 class="text-sm font-black text-slate-900 mb-3">목차</h3>
+          <ol class="space-y-1 text-sm font-bold text-slate-700">
+            ${(doc.sections || []).map((section, index) => `
+              <li>
+                <a href="#${sectionId(index)}" class="hover:text-teal-700">${index + 1}. ${escapeHtml(section.heading)}</a>
+              </li>
+            `).join("")}
+            ${(doc.checkpoints || []).length ? `<li><a href="#checkpoints" class="hover:text-teal-700">${(doc.sections || []).length + 1}. 확인 포인트</a></li>` : ""}
+            <li><a href="#sources" class="hover:text-teal-700">${(doc.sections || []).length + ((doc.checkpoints || []).length ? 2 : 1)}. 출처와 관련 문서</a></li>
+          </ol>
+        </nav>
+      `;
+    }
+
     function renderDoc(id) {
       const doc = wikiDocs.find(item => item.id === id);
       if (!doc) {
@@ -473,42 +554,65 @@
           <article class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
             <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-6"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
             <header class="border-b border-slate-200 pb-6 mb-7">
-              <div class="flex flex-wrap gap-1.5 mb-4">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-black text-slate-700">${escapeHtml(doc.documentKind || "개념 문서")}</span>
+                ${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}
+              </div>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
               <p class="text-lg text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
-              <p class="text-sm text-slate-400 font-bold mt-4">추천 학년: ${escapeHtml(doc.gradeBand || "초등학생")}</p>
+              <p class="text-sm text-slate-400 font-bold mt-4">추천 학년: ${escapeHtml(doc.gradeBand || "초등학생")} · 최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
             </header>
 
+            ${renderToc(doc)}
+
             <section class="wiki-body">
-              ${(doc.sections || []).map(section => `
-                <section class="mb-8">
-                  <h3 class="text-2xl font-black text-slate-950 mb-3">${escapeHtml(section.heading)}</h3>
+              ${(doc.sections || []).map((section, index) => `
+                <section class="mb-8" id="${sectionId(index)}">
+                  <h3 class="text-2xl font-black text-slate-950 mb-3">${index + 1}. ${escapeHtml(section.heading)}</h3>
                   ${(section.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
                 </section>
               `).join("")}
             </section>
 
             ${(doc.checkpoints || []).length ? `
-              <section class="bg-teal-50 border border-teal-100 rounded-xl p-5 mt-8">
-                <h3 class="text-lg font-black text-teal-900 mb-3">확인 포인트</h3>
+              <section class="bg-teal-50 border border-teal-100 rounded-xl p-5 mt-8" id="checkpoints">
+                <h3 class="text-lg font-black text-teal-900 mb-3">${(doc.sections || []).length + 1}. 확인 포인트</h3>
                 <ul class="space-y-2 text-slate-700 font-medium">
                   ${doc.checkpoints.map(point => `<li class="flex gap-2"><i class="fa-solid fa-check text-teal-700 mt-1"></i><span>${escapeHtml(point)}</span></li>`).join("")}
                 </ul>
               </section>
             ` : ""}
+
+            <section class="mt-8 border-t border-slate-200 pt-5">
+              <h3 class="text-lg font-black text-slate-950 mb-3">분류</h3>
+              <p class="text-sm text-slate-600 font-bold leading-relaxed">
+                ${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">분류:${escapeHtml(subject)}</a>`).join(" · ")}
+                ${(doc.topicTags || []).length ? " · " : ""}
+                ${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">태그:${escapeHtml(tag)}</a>`).join(" · ")}
+              </p>
+            </section>
+
+            <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
+              <h3 class="text-lg font-black text-slate-950 mb-3">출처와 관련 문서</h3>
+              ${(doc.sources || []).length ? `
+                <p class="text-sm font-black text-slate-500 mb-2">확인할 출처</p>
+                <ul class="list-disc pl-5 space-y-1 text-sm text-slate-600 mb-4">
+                  ${doc.sources.map(source => `<li>${escapeHtml(source)}</li>`).join("")}
+                </ul>
+              ` : ""}
+              ${relatedDocs.length ? `
+                <p class="text-sm font-black text-slate-500 mb-2">관련 문서</p>
+                <div class="flex flex-wrap gap-2">
+                  ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-bold text-teal-700 hover:text-teal-900">${escapeHtml(item.title)}</a>`).join("")}
+                </div>
+              ` : ""}
+            </section>
           </article>
 
           <aside class="lg:col-span-4 space-y-5">
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">문서 분류</h3>
-              <div class="mb-4">
-                <p class="text-xs font-black text-slate-400 mb-2">교과목</p>
-                <div class="flex flex-wrap gap-1.5">${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}</div>
-              </div>
-              <div>
-                <p class="text-xs font-black text-slate-400 mb-2">주제태그</p>
-                <div class="flex flex-wrap gap-1.5">${badgeList(doc.topicTags, "bg-amber-50 border-amber-100 text-amber-800")}</div>
-              </div>
+              <h3 class="font-black text-slate-950 mb-3">정보상자</h3>
+              ${renderInfobox(doc)}
             </section>
 
             <section class="bg-white border border-slate-200 rounded-xl p-5">
