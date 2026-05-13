@@ -159,7 +159,8 @@
       { id: "keywords", label: "키워드", weight: 2.7, group: "category" },
       { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
       { id: "sections", label: "본문", weight: 1.4, group: "content" },
-      { id: "checkpoints", label: "확인 포인트", weight: 1.5, group: "content" }
+      { id: "checkpoints", label: "확인 포인트", weight: 1.5, group: "content" },
+      { id: "searchContexts", label: "찾는 상황", weight: 1.8, group: "context" }
     ];
 
     let wikiDocs = [];
@@ -279,14 +280,23 @@
 
       const total = fieldScores.reduce((sum, item) => sum + item.score, 0);
       const frequencyTotal = fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
-      return { doc, total, fieldScores, grouped, frequencyTotal };
+      const exactText = [
+        doc.title,
+        ...(doc.aliases || []),
+        doc.summary,
+        ...(doc.keywords || []),
+        ...(doc.subjects || []),
+        ...(doc.topicTags || [])
+      ].join(" ");
+      const exactMatchBoost = normalize(query) && normalize(exactText).includes(normalize(query)) ? 10000 : 0;
+      return { doc, total, fieldScores, grouped, frequencyTotal, exactMatchBoost };
     }
 
     function searchDocs(query) {
       return wikiDocs
         .map(doc => scoreDocument(doc, query))
         .filter(result => result.total > 0)
-        .sort((a, b) => b.total - a.total || b.frequencyTotal - a.frequencyTotal || a.doc.title.localeCompare(b.doc.title, "ko"));
+        .sort((a, b) => b.exactMatchBoost - a.exactMatchBoost || b.total - a.total || b.frequencyTotal - a.frequencyTotal || a.doc.title.localeCompare(b.doc.title, "ko"));
     }
 
     function escapeHtml(value) {
@@ -348,6 +358,7 @@
 
     function docCard(doc, result = null) {
       const matchLabels = result ? summarizeMatches(result) : [];
+      const contextLabels = result ? matchedContexts(result) : [];
       return `
         <a href="#/doc/${doc.id}" class="block bg-white border border-slate-200 rounded-lg p-5 hover:border-teal-500 hover:shadow-md transition">
           <div class="flex flex-col gap-3">
@@ -360,6 +371,11 @@
             </div>
             <p class="text-[15px] text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
             <div class="flex flex-wrap gap-1.5">${badgeList(doc.topicTags, "bg-amber-50 border-amber-100 text-amber-800")}</div>
+            ${contextLabels.length ? `
+              <div class="rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-600 font-bold">
+                이런 상황에서 많이 찾아요: ${contextLabels.map(escapeHtml).join(" · ")}
+              </div>
+            ` : ""}
             ${matchLabels.length ? `<div class="pt-2 border-t border-slate-100 text-xs text-slate-500 font-bold">${matchLabels.join(" · ")}</div>` : ""}
           </div>
         </a>
@@ -371,9 +387,20 @@
       if (result.grouped.title) labels.push(`제목 정확도 ${Math.round(result.grouped.title)}`);
       if (result.grouped.category) labels.push(`분류/키워드 ${Math.round(result.grouped.category)}`);
       if (result.grouped.content) labels.push(`내용 ${Math.round(result.grouped.content)}`);
+      if (result.grouped.context) labels.push("검색 맥락 일치");
       const frequent = result.fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
       if (frequent > 0) labels.push(`언급 ${frequent}회`);
       return labels;
+    }
+
+    function matchedContexts(result) {
+      const query = document.getElementById("search-input").value || "";
+      const tokens = tokenize(query);
+      const normalizedQuery = normalize(query);
+      return (result.doc.searchContexts || []).filter(context => {
+        const normalizedContext = normalize(context);
+        return normalizedContext.includes(normalizedQuery) || tokens.some(token => normalizedContext.includes(token));
+      }).slice(0, 2);
     }
 
     function renderEntryIndex(docs = wikiDocs) {
@@ -545,6 +572,8 @@
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 확인 포인트에서 얼마나 자주 나오는지 봅니다.</p>
                 <p><strong class="text-slate-900">카테고리 검색:</strong> 교과목, 주제태그, 키워드, 별칭에 포함되는지 봅니다.</p>
+                <p><strong class="text-slate-900">맥락 검색:</strong> 학생이 어떤 상황에서 찾는 말인지 함께 봅니다.</p>
+                <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">정확히 검색어가 포함된 결과를 먼저 보여주고, 그다음 맥락이 가까운 결과를 정렬합니다.</p>
               </div>
             </aside>
           </div>
