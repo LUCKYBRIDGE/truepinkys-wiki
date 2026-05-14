@@ -76,6 +76,15 @@ const weakStructurePhrases = [
   "이 지식은 관찰, 비교, 실험, 모형 같은 과학 탐구 방법과 연결해서 이해할 수 있습니다.",
   "이 지식은 생활비, 가격, 돈의 흐름처럼 실제 생활과 연결해서 보면 이해하기 쉽습니다."
 ];
+const weakQuizExplanationPhrases = [
+  "너무 단순합니다",
+  "관련된 설명처럼 보이지만",
+  "한 가지 예나 느낌만으로",
+  "본문에서는",
+  "라고 설명하므로",
+  "이 지식은 알고 끝나는",
+  "교과서 속 낱말"
+];
 
 if (Array.isArray(docs)) {
   for (const doc of docs) {
@@ -89,6 +98,13 @@ function addError(docId, message) {
 
 function hasText(value) {
   return typeof value === "string" && value.trim().length > 0;
+}
+
+function hasFinalConsonant(text) {
+  const chars = [...String(text).trim()].filter(ch => /[가-힣]/.test(ch));
+  if (!chars.length) return false;
+  const code = chars[chars.length - 1].charCodeAt(0) - 0xac00;
+  return code >= 0 && code <= 11171 && code % 28 !== 0;
 }
 
 function validateArrayOfText(doc, field, minLength = 1) {
@@ -106,6 +122,7 @@ function validateQuiz(doc) {
     addError(doc.id || "(missing id)", "quiz must contain at least 1 question");
     return;
   }
+  const correctChoices = [];
   doc.quiz.forEach((item, index) => {
     if (!item || typeof item !== "object" || Array.isArray(item)) {
       addError(doc.id, `quiz[${index}] must be an object`);
@@ -136,8 +153,24 @@ function validateQuiz(doc) {
     }
     if (!Number.isInteger(item.answerIndex) || item.answerIndex < 0 || item.answerIndex > 3) {
       addError(doc.id, `quiz[${index}].answerIndex must be an integer from 0 to 3`);
+    } else if (Array.isArray(item.choices) && hasText(item.choices[item.answerIndex])) {
+      const correctChoice = item.choices[item.answerIndex].trim();
+      if (correctChoices.includes(correctChoice)) {
+        addError(doc.id, `quiz[${index}] repeats a previous correct answer`);
+      }
+      correctChoices.push(correctChoice);
     }
-    if (!hasText(item.explanation)) addError(doc.id, `quiz[${index}].explanation must be non-empty text`);
+    if (!hasText(item.explanation)) {
+      addError(doc.id, `quiz[${index}].explanation must be non-empty text`);
+    } else if (weakQuizExplanationPhrases.some(phrase => item.explanation.includes(phrase))) {
+      addError(doc.id, `quiz[${index}].explanation uses a generic explanation phrase`);
+    }
+    if (hasText(item.question)) {
+      const wrongParticle = hasFinalConsonant(doc.title) ? "를" : "을";
+      if (item.question.includes(`'${doc.title}'${wrongParticle}`)) {
+        addError(doc.id, `quiz[${index}].question uses an incorrect object particle after the title`);
+      }
+    }
   });
 }
 
