@@ -138,7 +138,7 @@
   <footer class="border-t border-slate-200 bg-white mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 초등학생 정보 탐색 연습을 위한 교육용 위키입니다.</p>
-      <p>문서는 교과목, 주제태그, 키워드/별칭을 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
+      <p>문서는 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
     </div>
   </footer>
 
@@ -153,10 +153,10 @@
 
     const SEARCH_FIELDS = [
       { id: "title", label: "제목", weight: 5.0, group: "title" },
-      { id: "aliases", label: "별칭", weight: 4.0, group: "category" },
+      { id: "aliases", label: "검색용 보조어", weight: 4.0, group: "searchMeta" },
       { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
       { id: "topicTags", label: "주제태그", weight: 3.1, group: "category" },
-      { id: "keywords", label: "키워드", weight: 2.7, group: "category" },
+      { id: "keywords", label: "검색용 보조어", weight: 2.7, group: "searchMeta" },
       { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
       { id: "sections", label: "본문", weight: 1.4, group: "content" },
       { id: "checkpoints", label: "확인 포인트", weight: 1.5, group: "content" },
@@ -282,11 +282,11 @@
       const frequencyTotal = fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
       const exactText = [
         doc.title,
-        ...(doc.aliases || []),
         doc.summary,
-        ...(doc.keywords || []),
         ...(doc.subjects || []),
-        ...(doc.topicTags || [])
+        ...(doc.topicTags || []),
+        ...(doc.aliases || []),
+        ...(doc.keywords || [])
       ].join(" ");
       const exactMatchBoost = normalize(query) && normalize(exactText).includes(normalize(query)) ? 10000 : 0;
       return { doc, total, fieldScores, grouped, frequencyTotal, exactMatchBoost };
@@ -385,7 +385,7 @@
     function summarizeMatches(result) {
       const labels = [];
       if (result.grouped.title) labels.push(`제목 정확도 ${Math.round(result.grouped.title)}`);
-      if (result.grouped.category) labels.push(`분류/키워드 ${Math.round(result.grouped.category)}`);
+      if (result.grouped.category || result.grouped.searchMeta) labels.push(`분류 ${Math.round((result.grouped.category || 0) + (result.grouped.searchMeta || 0))}`);
       if (result.grouped.content) labels.push(`내용 ${Math.round(result.grouped.content)}`);
       if (result.grouped.context) labels.push("검색 맥락 일치");
       const frequent = result.fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
@@ -451,7 +451,7 @@
             <div>
               <p class="text-sm font-black text-teal-700 mb-3">초등학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
-              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">문서는 개요, 어린이 설명, 예시로 보기, 헷갈리기 쉬운 점, 확인 포인트, 함께 보면 좋은 지식, 확인한 자료 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그, 키워드와 별칭을 함께 봅니다.</p>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">문서는 개요, 어린이 설명, 예시로 보기, 헷갈리기 쉬운 점, 확인 포인트, 함께 보면 좋은 지식, 확인한 자료 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 봅니다.</p>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
               <div class="border border-slate-200 rounded-lg px-3 py-3">
@@ -559,7 +559,7 @@
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">"${escapeHtml(query)}" 검색 결과</h2>
-          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 주제태그, 키워드, 별칭에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
+          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 주제태그와 검색용 보조어에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
         </section>
         ${results.length ? `
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -571,7 +571,8 @@
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 확인 포인트에서 얼마나 자주 나오는지 봅니다.</p>
-                <p><strong class="text-slate-900">카테고리 검색:</strong> 교과목, 주제태그, 키워드, 별칭에 포함되는지 봅니다.</p>
+                <p><strong class="text-slate-900">분류 검색:</strong> 교과목과 주제태그에 포함되는지 봅니다.</p>
+                <p><strong class="text-slate-900">보조어 검색:</strong> 비슷한 표현, 줄임말, 자주 함께 찾는 말을 내부적으로 함께 봅니다.</p>
                 <p><strong class="text-slate-900">맥락 검색:</strong> 학생이 어떤 상황에서 찾는 말인지 함께 봅니다.</p>
                 <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">정확히 검색어가 포함된 결과를 먼저 보여주고, 그다음 맥락이 가까운 결과를 정렬합니다.</p>
               </div>
@@ -628,7 +629,6 @@
         ["한 줄 뜻", doc.definition || doc.summary],
         ["관련 교과", (doc.subjects || []).join(", ")],
         ["주제 태그", (doc.topicTags || []).join(", ")],
-        ["다른 이름", (doc.aliases || []).join(", ")],
         ["검토일", doc.lastReviewed || "미정"]
       ];
 
@@ -781,14 +781,6 @@
             <section class="bg-white border border-slate-200 rounded-xl p-5">
               <h3 class="font-black text-slate-950 mb-3">정보상자</h3>
               ${renderInfobox(doc)}
-            </section>
-
-            <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">검색에 쓰이는 말</h3>
-              <p class="text-xs font-black text-slate-400 mb-2">별칭</p>
-              <div class="flex flex-wrap gap-1.5 mb-4">${badgeList(doc.aliases, "bg-slate-50 border-slate-200 text-slate-700")}</div>
-              <p class="text-xs font-black text-slate-400 mb-2">키워드</p>
-              <div class="flex flex-wrap gap-1.5">${badgeList(doc.keywords, "bg-slate-50 border-slate-200 text-slate-700")}</div>
             </section>
 
             ${relatedDocs.length ? `
