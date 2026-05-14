@@ -64,6 +64,16 @@ const weakStructureHeadings = new Set([
   "생각 넓히기",
   "다음 질문",
   "관찰할 수 있는 장면",
+  "오해하기 쉬운 부분",
+  "뉴스에서 볼 때",
+  "생활 속 연결",
+  "왜 중요할까?",
+  "관찰할 때 보기",
+  "사회와 역사에서 보이는 장면",
+  "나에게 생길 수 있는 일",
+  "학교에서의 행동",
+  "체험학습에서 볼 것",
+  "관람할 때",
   "자연과 생활에서 보이는 모습",
   "가격과 선택에서 보이는 모습",
   "학교와 생활에서 만나는 상황",
@@ -123,6 +133,11 @@ function validateQuiz(doc) {
     return;
   }
   const correctChoices = [];
+  const bodyCorpus = [
+    doc.summary,
+    doc.definition,
+    ...(doc.chapters || []).flatMap(chapter => (chapter.sections || []).flatMap(section => section.body || []))
+  ].filter(hasText).join("\n");
   doc.quiz.forEach((item, index) => {
     if (!item || typeof item !== "object" || Array.isArray(item)) {
       addError(doc.id, `quiz[${index}] must be an object`);
@@ -157,6 +172,9 @@ function validateQuiz(doc) {
       const correctChoice = item.choices[item.answerIndex].trim();
       if (correctChoices.includes(correctChoice)) {
         addError(doc.id, `quiz[${index}] repeats a previous correct answer`);
+      }
+      if (!bodyCorpus.includes(correctChoice)) {
+        addError(doc.id, `quiz[${index}] correct answer must be present in the knowledge body or definition`);
       }
       correctChoices.push(correctChoice);
     }
