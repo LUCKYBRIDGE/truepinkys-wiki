@@ -21,7 +21,7 @@
 - `aliases`: 검색어의 다른 표현, 쉬운 말, 오타 대응용 표현입니다.
 - `keywords`: 검색 보조 단어입니다.
 - `chapters`: 본문 내용입니다. 큰 단원과 작은 단원으로 나누어 지식의 흐름을 보여 줍니다.
-- `quiz`: 지식을 읽은 뒤 확인할 짧은 질문입니다.
+- `quiz`: 지식을 읽은 뒤 풀어볼 수 있는 객관식 퀴즈입니다. 각 문제는 `question`, `choices`, `answerIndex`, `explanation`을 가집니다.
 - `sources`: 학생이 확인할 수 있는 공공기관·교육 자료 출처입니다. 문자열이 아니라 `publisher`, `title`, `url`, `usedFor`, `license`, `checkedAt`을 가진 객체로 작성합니다.
 
 나중에 데이터베이스나 로그인 시스템을 붙일 수 있도록, 현재는 JSON 데이터와 화면 로직을 분리해 둡니다.

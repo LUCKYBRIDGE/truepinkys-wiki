@@ -22,6 +22,8 @@ Every new knowledge entry in `data/documents.json` must include:
 - `chapters`, with large learning units and nested sections
 - `quiz`, `related`, `sources`, `copyrightNote`
 
+`quiz` must contain multiple-choice questions with `question`, four `choices`, `answerIndex`, and `explanation`.
+
 Every source must be an object with:
 
 - `publisher`, `title`, `url`, `usedFor`, `license`, `checkedAt`

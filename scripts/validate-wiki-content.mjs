@@ -63,6 +63,31 @@ function validateArrayOfText(doc, field, minLength = 1) {
   });
 }
 
+function validateQuiz(doc) {
+  if (!Array.isArray(doc.quiz) || doc.quiz.length < 1) {
+    addError(doc.id || "(missing id)", "quiz must contain at least 1 question");
+    return;
+  }
+  doc.quiz.forEach((item, index) => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      addError(doc.id, `quiz[${index}] must be an object`);
+      return;
+    }
+    if (!hasText(item.question)) addError(doc.id, `quiz[${index}].question must be non-empty text`);
+    if (!Array.isArray(item.choices) || item.choices.length !== 4) {
+      addError(doc.id, `quiz[${index}].choices must contain exactly 4 choices`);
+    } else {
+      item.choices.forEach((choice, choiceIndex) => {
+        if (!hasText(choice)) addError(doc.id, `quiz[${index}].choices[${choiceIndex}] must be non-empty text`);
+      });
+    }
+    if (!Number.isInteger(item.answerIndex) || item.answerIndex < 0 || item.answerIndex > 3) {
+      addError(doc.id, `quiz[${index}].answerIndex must be an integer from 0 to 3`);
+    }
+    if (!hasText(item.explanation)) addError(doc.id, `quiz[${index}].explanation must be non-empty text`);
+  });
+}
+
 if (!Array.isArray(docs)) {
   errors.push("data/documents.json must contain a top-level array");
 } else {
@@ -98,7 +123,7 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "aliases");
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
-    validateArrayOfText(doc, "quiz");
+    validateQuiz(doc);
 
     for (const subject of doc.subjects || []) {
       if (!taxonomySubjects.has(subject)) addError(docId, `unknown subject "${subject}"`);
