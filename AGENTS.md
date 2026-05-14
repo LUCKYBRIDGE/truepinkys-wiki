@@ -6,6 +6,7 @@ This repository is a static Korean student wiki. Follow these rules when changin
 
 - Read `docs/wiki-content-guidelines.md` before editing `data/documents.json`.
 - Use official, public, or clearly reusable sources first.
+- Use only sources whose reuse, citation, or student-facing rewrite conditions are clear enough for new content.
 - Do not copy source paragraphs, images, tables, charts, worksheets, or diagrams into the wiki.
 - Do not use NamuWiki, blogs, community posts, or unsourced summaries as source material for new knowledge.
 - If a source's reuse or citation conditions are unclear, do not use it for new content.
@@ -38,4 +39,3 @@ Also run:
 jq empty data/documents.json data/taxonomy.json
 git diff --check
 ```
-
