@@ -44,6 +44,21 @@ const allowedDocumentKinds = new Set(taxonomy.documentKinds || []);
 const taxonomySubjects = new Set(taxonomy.subjects || []);
 const taxonomyTags = new Set(taxonomy.topicTags || []);
 const ids = new Set();
+const definitionOwners = new Map();
+const blockedQuizChoiceTexts = new Set([
+  "출처를 확인하지 않아도 항상 맞는 정보라는 뜻입니다.",
+  "한 가지 예만 알면 전체를 모두 설명할 수 있다는 뜻입니다.",
+  "생활과 연결되지 않고 시험에서만 쓰이는 말입니다.",
+  "정확한 기준이나 기간을 볼 필요가 없다는 뜻입니다.",
+  "무조건 좋거나 나쁘다고 바로 판단하면 된다는 뜻입니다.",
+  "개인의 느낌만으로 사실을 정하면 된다는 뜻입니다."
+]);
+
+if (Array.isArray(docs)) {
+  for (const doc of docs) {
+    if (hasText(doc.definition)) definitionOwners.set(doc.definition.trim(), doc.id);
+  }
+}
 
 function addError(docId, message) {
   errors.push(`${docId}: ${message}`);
@@ -77,8 +92,23 @@ function validateQuiz(doc) {
     if (!Array.isArray(item.choices) || item.choices.length !== 4) {
       addError(doc.id, `quiz[${index}].choices must contain exactly 4 choices`);
     } else {
+      const choiceSet = new Set();
       item.choices.forEach((choice, choiceIndex) => {
         if (!hasText(choice)) addError(doc.id, `quiz[${index}].choices[${choiceIndex}] must be non-empty text`);
+        if (hasText(choice)) {
+          const normalizedChoice = choice.trim();
+          if (choiceSet.has(normalizedChoice)) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] duplicates another choice`);
+          }
+          choiceSet.add(normalizedChoice);
+          if (blockedQuizChoiceTexts.has(normalizedChoice)) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a generic filler distractor`);
+          }
+          const definitionOwner = definitionOwners.get(normalizedChoice);
+          if (definitionOwner && definitionOwner !== doc.id) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] copies another knowledge definition (${definitionOwner})`);
+          }
+        }
       });
     }
     if (!Number.isInteger(item.answerIndex) || item.answerIndex < 0 || item.answerIndex > 3) {
