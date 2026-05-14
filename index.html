@@ -677,21 +677,15 @@
       const linkedLabel = source.url
         ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer" class="font-bold text-teal-700 hover:text-teal-900">${escapeHtml(label)}</a>`
         : `<span class="font-bold text-slate-700">${escapeHtml(label)}</span>`;
-      const usedFor = source.usedFor ? `출처로 쓴 내용: ${source.usedFor}` : "";
-      const meta = [
-        usedFor,
+      const details = [
+        source.usedFor ? `이 자료에서 확인한 점: ${source.usedFor}` : "",
         source.license ? `이용 메모: ${source.license}` : "",
         source.checkedAt ? `확인일: ${source.checkedAt}` : ""
-      ].filter(Boolean).join(" · ");
+      ].filter(Boolean);
       return `
         ${linkedLabel}
-        ${meta ? `<p class="mt-1 text-xs text-slate-500 leading-relaxed">${escapeHtml(meta)}</p>` : ""}
+        ${details.length ? `<div class="mt-1 space-y-0.5 text-xs text-slate-500 leading-relaxed">${details.map(item => `<p>${escapeHtml(item)}</p>`).join("")}</div>` : ""}
       `;
-    }
-
-    function sourceUsedForText(source) {
-      if (typeof source === "string") return source;
-      return source.usedFor || source.title || sourceLabel(source);
     }
 
     function renderAiDisclosure() {
@@ -789,16 +783,9 @@
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
               <h3 class="text-lg font-black text-slate-950 mb-3">확인한 자료</h3>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">본문은 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 아래에 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
-              ${(doc.sources || []).length ? `
-                <p class="text-sm font-black text-slate-500 mb-2">출처로 확인한 내용</p>
-                <ul class="list-disc pl-5 space-y-1 text-sm text-slate-600 mb-4">
-                  ${doc.sources.map(source => `<li>${escapeHtml(sourceUsedForText(source))}</li>`).join("")}
-                </ul>
-              ` : ""}
               ${doc.copyrightNote ? `<p class="text-sm text-slate-600 leading-relaxed mb-4">${escapeHtml(doc.copyrightNote)}</p>` : ""}
               ${(doc.sources || []).length ? `
-                <p class="text-sm font-black text-slate-500 mb-2">자료 목록</p>
-                <ul class="list-disc pl-5 space-y-1 text-sm text-slate-600 mb-4">
+                <ul class="list-disc pl-5 space-y-3 text-sm text-slate-600 mb-4">
                   ${doc.sources.map(source => `<li>${renderSource(source)}</li>`).join("")}
                 </ul>
               ` : ""}
