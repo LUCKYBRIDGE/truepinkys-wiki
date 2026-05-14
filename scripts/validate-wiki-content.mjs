@@ -45,6 +45,8 @@ const taxonomySubjects = new Set(taxonomy.subjects || []);
 const taxonomyTags = new Set(taxonomy.topicTags || []);
 const ids = new Set();
 const definitionOwners = new Map();
+const schoolContextAllowedDocIds = new Set(["school-violence", "school-meal"]);
+const forcedSchoolContextPattern = /학교|학급|교실|등교|운동장|숙제|반 번호|선생님/;
 const blockedQuizChoiceTexts = new Set([
   "출처를 확인하지 않아도 항상 맞는 정보라는 뜻입니다.",
   "한 가지 예만 알면 전체를 모두 설명할 수 있다는 뜻입니다.",
@@ -53,6 +55,16 @@ const blockedQuizChoiceTexts = new Set([
   "무조건 좋거나 나쁘다고 바로 판단하면 된다는 뜻입니다.",
   "개인의 느낌만으로 사실을 정하면 된다는 뜻입니다."
 ]);
+const weakQuizChoicePhrases = [
+  "화면에 많이 보이는 정보를 모두 사실로 인정",
+  "확인 과정 없이 결과만 믿어도",
+  "만든 목적이나 사용 조건을 살피지 않아도",
+  "몸 상태나 안전 안내를 확인하지 않아도",
+  "위험 신호가 보여도 평소처럼",
+  "공식 안내와 도움 받을 곳을 확인하지 않아도",
+  "상황에 따라 달라지는 기준이 없다는 뜻",
+  "사람마다 상황이 달라도 같은 방법만 쓰면"
+];
 const weakStructureHeadings = new Set([
   "쉽게 풀어보기",
   "생활 속 예시",
@@ -117,6 +129,20 @@ function hasFinalConsonant(text) {
   return code >= 0 && code <= 11171 && code % 28 !== 0;
 }
 
+function shouldUseTopicParticle(title) {
+  if (/(^|\s)AI$/.test(title) || title.includes("AI(")) return "는";
+  return hasFinalConsonant(title) ? "은" : "는";
+}
+
+function validateNoForcedSchoolContext(doc, label, values) {
+  if (schoolContextAllowedDocIds.has(doc.id)) return;
+  for (const value of values) {
+    if (hasText(value) && forcedSchoolContextPattern.test(value)) {
+      addError(doc.id, `${label} uses school context in a non-school knowledge: ${value}`);
+    }
+  }
+}
+
 function validateArrayOfText(doc, field, minLength = 1) {
   if (!Array.isArray(doc[field]) || doc[field].length < minLength) {
     addError(doc.id || "(missing id)", `${field} must be an array with at least ${minLength} item(s)`);
@@ -158,6 +184,17 @@ function validateQuiz(doc) {
           choiceSet.add(normalizedChoice);
           if (blockedQuizChoiceTexts.has(normalizedChoice)) {
             addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a generic filler distractor`);
+          }
+          if (
+            weakQuizChoicePhrases.some(phrase => normalizedChoice.includes(phrase)) &&
+            choiceIndex === item.answerIndex
+          ) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a generic weak correct answer`);
+          }
+          const topicParticle = shouldUseTopicParticle(doc.title);
+          const wrongTopicParticle = topicParticle === "은" ? "는" : "은";
+          if (normalizedChoice.includes(`${doc.title}${wrongTopicParticle}`)) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses an incorrect topic particle after the title`);
           }
           const definitionOwner = definitionOwners.get(normalizedChoice);
           if (definitionOwner && definitionOwner !== doc.id) {
@@ -228,6 +265,12 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
     validateQuiz(doc);
+    validateNoForcedSchoolContext(doc, "summary", [doc.summary]);
+    validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
+    validateNoForcedSchoolContext(doc, "topicTags", doc.topicTags || []);
+    validateNoForcedSchoolContext(doc, "aliases", doc.aliases || []);
+    validateNoForcedSchoolContext(doc, "keywords", doc.keywords || []);
+    validateNoForcedSchoolContext(doc, "searchContexts", doc.searchContexts || []);
     const paragraphTotal = (doc.chapters || [])
       .flatMap(chapter => chapter.sections || [])
       .flatMap(section => section.body || [])
@@ -249,6 +292,7 @@ if (!Array.isArray(docs)) {
         if (hasText(chapter.title) && weakStructureHeadings.has(chapter.title.trim())) {
           addError(docId, `chapters[${chapterIndex}].title is too generic: ${chapter.title}`);
         }
+        validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].title`, [chapter.title]);
         if (!Array.isArray(chapter.sections) || chapter.sections.length === 0) {
           addError(docId, `chapters[${chapterIndex}].sections must contain at least 1 section`);
         } else {
@@ -257,6 +301,7 @@ if (!Array.isArray(docs)) {
             if (hasText(section.heading) && weakStructureHeadings.has(section.heading.trim())) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading is too generic: ${section.heading}`);
             }
+            validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].heading`, [section.heading]);
             if (!Array.isArray(section.body) || section.body.length === 0) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
             } else {
@@ -268,6 +313,7 @@ if (!Array.isArray(docs)) {
                 if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {
                   addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] uses a generic structure filler phrase`);
                 }
+                validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}]`, [paragraph]);
               });
             }
           });
