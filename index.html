@@ -139,7 +139,7 @@
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 초등학생 정보 탐색 연습을 위한 교육용 위키입니다.</p>
       <p>문서는 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
-      <p class="mt-3">본 사이트의 지식 문서는 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
+      <p class="mt-3">본 사이트의 지식 문서는 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하고, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
     </div>
   </footer>
 
@@ -532,7 +532,7 @@
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
               <h2 class="text-xl font-black text-slate-950 mb-1">트루핑키스 위키 문서 원칙</h2>
-              <p class="text-sm text-slate-600 font-medium">AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시합니다. 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
+              <p class="text-sm text-slate-600 font-medium">AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시합니다. 출처 자료는 사실 확인용으로 참고하고, 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-black text-slate-600">
               <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">쉬운 설명</span>
@@ -693,7 +693,7 @@
         <section class="rounded-xl border border-teal-100 bg-teal-50 p-5 mb-6">
           <h3 class="text-base font-black text-teal-950 mb-2">작성 방식 안내</h3>
           <p class="text-sm text-teal-950 leading-relaxed">본 사이트의 지식 문서는 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
-          <p class="mt-2 text-xs font-bold text-teal-800">원문 문단, 이미지, 표, 그래프를 그대로 복제하지 않고 새 문장으로 작성합니다. 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
+          <p class="mt-2 text-xs font-bold text-teal-800">출처 자료는 사실 확인용으로 참고하고, 원문 문단, 이미지, 표, 그래프를 그대로 복제하지 않고 새 문장으로 작성합니다. 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
         </section>
       `;
     }
@@ -782,7 +782,7 @@
 
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
               <h3 class="text-lg font-black text-slate-950 mb-3">확인한 자료</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">본문은 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 아래에 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">본문은 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 아래에 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하며, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
               ${doc.copyrightNote ? `<p class="text-sm text-slate-600 leading-relaxed mb-4">${escapeHtml(doc.copyrightNote)}</p>` : ""}
               ${(doc.sources || []).length ? `
                 <ul class="list-disc pl-5 space-y-3 text-sm text-slate-600 mb-4">

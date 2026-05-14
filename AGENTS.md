@@ -1,0 +1,41 @@
+# Truepinkys Wiki Agent Rules
+
+This repository is a static Korean student wiki. Follow these rules when changing wiki content.
+
+## Required Before Adding Knowledge
+
+- Read `docs/wiki-content-guidelines.md` before editing `data/documents.json`.
+- Use official, public, or clearly reusable sources first.
+- Do not copy source paragraphs, images, tables, charts, worksheets, or diagrams into the wiki.
+- Do not use NamuWiki, blogs, community posts, or unsourced summaries as source material for new knowledge.
+- If a source's reuse or citation conditions are unclear, do not use it for new content.
+- Historical people, events, and debates may be added only when they are broadly verified and written neutrally.
+
+## Required Fields
+
+Every new document in `data/documents.json` must include:
+
+- `id`, `title`, `summary`, `definition`, `documentKind`, `lastReviewed`
+- `subjects`, `topicTags`, `aliases`, `keywords`, `searchContexts`
+- `sections`, with `개요` as the first section
+- `checkpoints`, `related`, `sources`, `copyrightNote`
+
+Every source must be an object with:
+
+- `publisher`, `title`, `url`, `usedFor`, `license`, `checkedAt`
+
+## Validation
+
+Run this before committing wiki content changes:
+
+```bash
+node scripts/validate-wiki-content.mjs
+```
+
+Also run:
+
+```bash
+jq empty data/documents.json data/taxonomy.json
+git diff --check
+```
+
