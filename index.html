@@ -138,8 +138,8 @@
   <footer class="border-t border-slate-200 bg-white mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 초등학생 정보 탐색 연습을 위한 교육용 위키입니다.</p>
-      <p>문서는 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
-      <p class="mt-3">본 사이트의 지식 문서는 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하고, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
+      <p>지식은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
+      <p class="mt-3">본 사이트의 지식은 AI의 도움을 받아 작성될 수 있으며, 참고한 공식자료나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하고, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
     </div>
   </footer>
 
@@ -181,7 +181,7 @@
       } catch (error) {
         document.getElementById("app").innerHTML = `
           <section class="bg-red-50 border border-red-200 rounded-xl p-6">
-            <h2 class="text-xl font-black text-red-800 mb-2">문서를 불러오지 못했습니다.</h2>
+            <h2 class="text-xl font-black text-red-800 mb-2">지식을 불러오지 못했습니다.</h2>
             <p class="text-red-700">로컬 서버 또는 GitHub Pages 배포 상태를 확인해주세요.</p>
           </section>
         `;
@@ -365,7 +365,7 @@
           <div class="flex flex-col gap-3">
             <div>
               <div class="flex flex-wrap gap-1.5 mb-2">
-                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-extrabold text-slate-600">${escapeHtml(doc.documentKind || "개념 문서")}</span>
+                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-extrabold text-slate-600">${escapeHtml(doc.documentKind || "개념 지식")}</span>
                 ${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}
               </div>
               <h3 class="text-xl font-black text-slate-950 leading-snug">${escapeHtml(doc.title)}</h3>
@@ -414,7 +414,7 @@
               <strong class="block text-[15px] text-slate-950">${escapeHtml(doc.title)}</strong>
               <span class="block text-xs text-slate-500 mt-0.5">${escapeHtml(doc.definition || doc.summary)}</span>
             </span>
-            <span class="text-[11px] text-slate-400 font-black whitespace-nowrap">${escapeHtml(doc.documentKind || "문서")}</span>
+            <span class="text-[11px] text-slate-400 font-black whitespace-nowrap">${escapeHtml(doc.documentKind || "지식")}</span>
           </a>
         `).join("");
     }
@@ -437,7 +437,7 @@
               <strong class="text-[15px] text-slate-950">${escapeHtml(subject)}</strong>
               <span class="text-xs font-black text-slate-400">${docs.length}</span>
             </span>
-            <span class="block text-xs text-slate-500 mt-1 line-clamp-1">${docs.slice(0, 3).map(doc => doc.title).join(", ") || "문서 준비 중"}</span>
+            <span class="block text-xs text-slate-500 mt-1 line-clamp-1">${docs.slice(0, 3).map(doc => doc.title).join(", ") || "지식 준비 중"}</span>
           </a>
         `;
       }).join("");
@@ -452,12 +452,12 @@
             <div>
               <p class="text-sm font-black text-teal-700 mb-3">초등학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
-              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">문서는 개요, 어린이 설명, 예시로 보기, 헷갈리기 쉬운 점, 확인 포인트, 함께 보면 좋은 지식, 확인한 자료 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 봅니다.</p>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 개요, 어린이 설명, 예시로 보기, 헷갈리기 쉬운 점, 확인 포인트, 함께 보면 좋은 지식, 확인한 자료 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 봅니다.</p>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
               <div class="border border-slate-200 rounded-lg px-3 py-3">
                 <strong class="block text-2xl text-slate-950">${wikiDocs.length}</strong>
-                <span class="text-xs font-black text-slate-500">문서</span>
+                <span class="text-xs font-black text-slate-500">지식</span>
               </div>
               <div class="border border-slate-200 rounded-lg px-3 py-3">
                 <strong class="block text-2xl text-slate-950">${wikiConfig.subjects.length}</strong>
@@ -494,11 +494,11 @@
               <p class="text-xs font-black text-teal-200 mb-2">오늘의 지식</p>
               <h3 class="text-2xl font-black mb-3">${escapeHtml(todayDoc.title)}</h3>
               <p class="text-sm text-slate-300 leading-relaxed mb-4">${escapeHtml(todayDoc.summary)}</p>
-              <a href="#/doc/${todayDoc.id}" class="inline-flex items-center gap-2 text-sm font-black text-white hover:text-teal-200">문서 읽기 <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#/doc/${todayDoc.id}" class="inline-flex items-center gap-2 text-sm font-black text-white hover:text-teal-200">지식 읽기 <i class="fa-solid fa-arrow-right"></i></a>
             </section>
 
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="text-lg font-black text-slate-950 mb-3">최근 검토 문서</h3>
+              <h3 class="text-lg font-black text-slate-950 mb-3">최근 검토한 지식</h3>
               <ul>${renderCompactDocList(recentDocs)}</ul>
             </section>
           </aside>
@@ -518,7 +518,7 @@
               ${wikiConfig.topicTags.filter(tag => countBy("topicTags", tag) > 0).map(tag => `<a href="#/tag/${tag}" class="rounded-full border border-amber-100 bg-amber-50 text-amber-900 px-3 py-2 text-sm font-extrabold hover:border-amber-400 transition">${tag} ${countBy("topicTags", tag)}</a>`).join("")}
             </div>
             <div class="border-t border-slate-200 pt-4">
-              <h3 class="text-sm font-black text-slate-900 mb-2">문서 읽는 순서</h3>
+              <h3 class="text-sm font-black text-slate-900 mb-2">지식 읽는 순서</h3>
               <ol class="space-y-2 text-sm text-slate-600 font-medium">
                 <li>1. 표제어와 한 줄 뜻을 먼저 확인합니다.</li>
                 <li>2. 목차에서 필요한 문단을 고릅니다.</li>
@@ -531,8 +531,8 @@
         <section class="mt-6 bg-white border border-slate-200 rounded-xl p-6">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
-              <h2 class="text-xl font-black text-slate-950 mb-1">트루핑키스 위키 문서 원칙</h2>
-              <p class="text-sm text-slate-600 font-medium">AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시합니다. 출처 자료는 사실 확인용으로 참고하고, 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
+              <h2 class="text-xl font-black text-slate-950 mb-1">트루핑키스 위키 지식 원칙</h2>
+              <p class="text-sm text-slate-600 font-medium">AI의 도움을 받아 작성될 수 있으며, 참고한 공식자료나 웹 자료가 있을 경우 출처를 확실히 표시합니다. 출처 자료는 사실 확인용으로 참고하고, 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-black text-slate-600">
               <span class="rounded-lg bg-slate-50 border border-slate-200 px-3 py-2 text-center">쉬운 설명</span>
@@ -569,7 +569,7 @@
               ${results.map(result => docCard(result.doc, result)).join("")}
             </section>
             <aside class="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-5 h-fit">
-              <h3 class="font-black text-slate-950 mb-3">검색에 반영된 항목</h3>
+              <h3 class="font-black text-slate-950 mb-3">검색에 반영된 내용</h3>
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 확인 포인트에서 얼마나 자주 나오는지 봅니다.</p>
@@ -587,7 +587,7 @@
     function renderNoResults(query) {
       return `
         <section class="bg-white border border-slate-200 rounded-xl p-8">
-          <h3 class="text-xl font-black text-slate-950 mb-3">아직 맞는 문서가 없습니다.</h3>
+          <h3 class="text-xl font-black text-slate-950 mb-3">아직 맞는 지식이 없습니다.</h3>
           <p class="text-slate-600 mb-5">다른 쉬운 말, 띄어쓰기 없는 말, 교과목 이름으로 다시 찾아보세요.</p>
           <div class="flex flex-wrap gap-2">
             ${wikiConfig.popularQueries.slice(0, 8).map(query => `<button onclick="quickSearch('${query}')" class="rounded-full bg-slate-100 hover:bg-teal-50 px-3 py-2 text-sm font-extrabold">${query}</button>`).join("")}
@@ -598,13 +598,13 @@
 
     function renderFiltered(kind, value) {
       const field = kind === "subject" ? "subjects" : "topicTags";
-      const title = kind === "subject" ? `${value} 문서` : `${value} 주제 문서`;
+      const title = kind === "subject" ? `${value} 지식` : `${value} 주제 지식`;
       const docs = wikiDocs.filter(doc => Array.isArray(doc[field]) && doc[field].includes(value));
       rerenderWithTransition(`
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">${escapeHtml(title)}</h2>
-          <p class="text-slate-600 font-medium">문서는 여러 교과목과 주제태그에 동시에 속할 수 있습니다.</p>
+          <p class="text-slate-600 font-medium">지식은 여러 교과목과 주제태그에 동시에 속할 수 있습니다.</p>
         </section>
         <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           ${docs.map(doc => docCard(doc)).join("")}
@@ -627,7 +627,7 @@
     function renderInfobox(doc) {
       const rows = [
         ["표제어", doc.title],
-        ["문서 종류", doc.documentKind || "개념 문서"],
+        ["지식 종류", doc.documentKind || "개념 지식"],
         ["한 줄 뜻", doc.definition || doc.summary],
         ["관련 교과", (doc.subjects || []).join(", ")],
         ["주제 태그", (doc.topicTags || []).join(", ")],
@@ -650,7 +650,7 @@
 
     function renderToc(doc) {
       return `
-        <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 mb-8" aria-label="문서 목차">
+        <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 mb-8" aria-label="지식 목차">
           <h3 class="text-sm font-black text-slate-900 mb-3">목차</h3>
           <ol class="space-y-1 text-sm font-bold text-slate-700">
             ${(doc.sections || []).map((section, index) => `
@@ -692,7 +692,7 @@
       return `
         <section class="rounded-xl border border-teal-100 bg-teal-50 p-5 mb-6">
           <h3 class="text-base font-black text-teal-950 mb-2">작성 방식 안내</h3>
-          <p class="text-sm text-teal-950 leading-relaxed">본 사이트의 지식 문서는 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
+          <p class="text-sm text-teal-950 leading-relaxed">본 사이트의 지식은 AI의 도움을 받아 작성될 수 있으며, 참고한 공식자료나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
           <p class="mt-2 text-xs font-bold text-teal-800">출처 자료는 사실 확인용으로 참고하고, 원문 문단, 이미지, 표, 그래프를 그대로 복제하지 않고 새 문장으로 작성합니다. 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
         </section>
       `;
@@ -720,7 +720,7 @@
       if (!doc) {
         rerenderWithTransition(`
           <section class="bg-white border border-slate-200 rounded-xl p-8">
-            <h2 class="text-2xl font-black mb-3">문서를 찾을 수 없습니다.</h2>
+            <h2 class="text-2xl font-black mb-3">지식을 찾을 수 없습니다.</h2>
             <a href="#/" class="text-teal-700 font-extrabold">위키 홈으로 돌아가기</a>
           </section>
         `);
@@ -734,7 +734,7 @@
             <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-6"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
             <header class="border-b border-slate-200 pb-6 mb-7">
               <div class="flex flex-wrap gap-1.5 mb-4">
-                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-black text-slate-700">${escapeHtml(doc.documentKind || "개념 문서")}</span>
+                <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-black text-slate-700">${escapeHtml(doc.documentKind || "개념 지식")}</span>
                 ${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}
               </div>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
@@ -782,7 +782,7 @@
 
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
               <h3 class="text-lg font-black text-slate-950 mb-3">확인한 자료</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">본문은 AI의 도움을 받아 작성될 수 있으며, 참고한 문서나 웹 자료가 있을 경우 아래에 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하며, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">본문은 AI의 도움을 받아 작성될 수 있으며, 참고한 공식자료나 웹 자료가 있을 경우 아래에 출처를 확실히 표시하는 것을 원칙으로 합니다. 출처 자료는 사실 확인용으로 참고하며, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
               ${doc.copyrightNote ? `<p class="text-sm text-slate-600 leading-relaxed mb-4">${escapeHtml(doc.copyrightNote)}</p>` : ""}
               ${(doc.sources || []).length ? `
                 <ul class="list-disc pl-5 space-y-3 text-sm text-slate-600 mb-4">

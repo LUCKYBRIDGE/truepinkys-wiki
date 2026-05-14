@@ -5,6 +5,7 @@ This repository is a static Korean student wiki. Follow these rules when changin
 ## Required Before Adding Knowledge
 
 - Read `docs/wiki-content-guidelines.md` before editing `data/documents.json`.
+- Follow the terminology map in `docs/wiki-content-guidelines.md`: user-facing entries are `지식`, sources are `자료`, and internal code/file names may keep `document`.
 - Use official, public, or clearly reusable sources first.
 - Use only sources whose reuse, citation, or student-facing rewrite conditions are clear enough for new content.
 - Do not copy source paragraphs, images, tables, charts, worksheets, or diagrams into the wiki.
@@ -14,7 +15,7 @@ This repository is a static Korean student wiki. Follow these rules when changin
 
 ## Required Fields
 
-Every new document in `data/documents.json` must include:
+Every new knowledge entry in `data/documents.json` must include:
 
 - `id`, `title`, `summary`, `definition`, `documentKind`, `lastReviewed`
 - `subjects`, `topicTags`, `aliases`, `keywords`, `searchContexts`

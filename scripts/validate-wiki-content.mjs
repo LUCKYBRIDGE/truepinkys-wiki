@@ -39,6 +39,7 @@ const blockedSourceHosts = [
   "facebook.com",
   "theqoo.net"
 ];
+const allowedDocumentKinds = new Set(taxonomy.documentKinds || []);
 
 const taxonomySubjects = new Set(taxonomy.subjects || []);
 const taxonomyTags = new Set(taxonomy.topicTags || []);
@@ -81,6 +82,15 @@ if (!Array.isArray(docs)) {
     ["title", "summary", "definition", "documentKind", "lastReviewed", "copyrightNote"].forEach(field => {
       if (!hasText(doc[field])) addError(docId, `${field} must be non-empty text`);
     });
+    if (hasText(doc.documentKind)) {
+      if (doc.documentKind.includes("문서")) addError(docId, "documentKind must use 지식, not 문서");
+      if (allowedDocumentKinds.size && !allowedDocumentKinds.has(doc.documentKind)) {
+        addError(docId, `documentKind "${doc.documentKind}" is not listed in taxonomy.documentKinds`);
+      }
+    }
+    if (doc.infobox && Object.prototype.hasOwnProperty.call(doc.infobox, "문서 종류")) {
+      addError(docId, "infobox must use 지식 종류, not 문서 종류");
+    }
 
     validateArrayOfText(doc, "subjects");
     validateArrayOfText(doc, "topicTags");
@@ -146,6 +156,9 @@ if (!Array.isArray(docs)) {
     if (hasText(doc.copyrightNote) && !/(원문|문단).*(복제하지 않았|복제 없음)/.test(doc.copyrightNote)) {
       addError(docId, "copyrightNote must state that source text/assets were not copied");
     }
+    if (hasText(doc.copyrightNote) && doc.copyrightNote.startsWith("이 문서는")) {
+      addError(docId, "copyrightNote must use 이 지식은");
+    }
   }
 
   for (const doc of docs) {
@@ -161,5 +174,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`Wiki content validation passed: ${docs.length} documents checked.`);
-
+console.log(`Wiki content validation passed: ${docs.length} knowledge entries checked.`);
