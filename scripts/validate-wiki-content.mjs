@@ -177,6 +177,11 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
     validateQuiz(doc);
+    const paragraphTotal = (doc.chapters || [])
+      .flatMap(chapter => chapter.sections || [])
+      .flatMap(section => section.body || [])
+      .filter(hasText).length;
+    if (paragraphTotal < 10) addError(docId, "knowledge body must contain at least 10 body paragraphs");
 
     for (const subject of doc.subjects || []) {
       if (!taxonomySubjects.has(subject)) addError(docId, `unknown subject "${subject}"`);
@@ -204,6 +209,9 @@ if (!Array.isArray(docs)) {
             if (!Array.isArray(section.body) || section.body.length === 0) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
             } else {
+              if (section.body.length < 2) {
+                addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain at least 2 paragraphs`);
+              }
               section.body.forEach((paragraph, paragraphIndex) => {
                 if (!hasText(paragraph)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] must be non-empty`);
                 if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {
