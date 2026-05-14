@@ -53,6 +53,23 @@ const blockedQuizChoiceTexts = new Set([
   "무조건 좋거나 나쁘다고 바로 판단하면 된다는 뜻입니다.",
   "개인의 느낌만으로 사실을 정하면 된다는 뜻입니다."
 ]);
+const weakStructureHeadings = new Set([
+  "쉽게 풀어보기",
+  "생활 속 예시",
+  "더 깊게 생각하기",
+  "탐구와 연결하기",
+  "경제 뉴스와 연결하기",
+  "생활 안전과 연결하기",
+  "환경과 생활 속에서 보기",
+  "생각 넓히기"
+]);
+const weakStructurePhrases = [
+  "이 지식은 교과서 속 낱말로만 보지 말고",
+  "처음에는 쉬운 뜻을 확인하고",
+  "이 지식은 알고 끝나는 지식이 아니라 실제 상황에서 안전하게 행동하는 데 연결됩니다.",
+  "이 지식은 관찰, 비교, 실험, 모형 같은 과학 탐구 방법과 연결해서 이해할 수 있습니다.",
+  "이 지식은 생활비, 가격, 돈의 흐름처럼 실제 생활과 연결해서 보면 이해하기 쉽습니다."
+];
 
 if (Array.isArray(docs)) {
   for (const doc of docs) {
@@ -167,16 +184,25 @@ if (!Array.isArray(docs)) {
     } else {
       doc.chapters.forEach((chapter, chapterIndex) => {
         if (!hasText(chapter.title)) addError(docId, `chapters[${chapterIndex}].title must be non-empty`);
+        if (hasText(chapter.title) && weakStructureHeadings.has(chapter.title.trim())) {
+          addError(docId, `chapters[${chapterIndex}].title is too generic: ${chapter.title}`);
+        }
         if (!Array.isArray(chapter.sections) || chapter.sections.length === 0) {
           addError(docId, `chapters[${chapterIndex}].sections must contain at least 1 section`);
         } else {
           chapter.sections.forEach((section, sectionIndex) => {
             if (!hasText(section.heading)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must be non-empty`);
+            if (hasText(section.heading) && weakStructureHeadings.has(section.heading.trim())) {
+              addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading is too generic: ${section.heading}`);
+            }
             if (!Array.isArray(section.body) || section.body.length === 0) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
             } else {
               section.body.forEach((paragraph, paragraphIndex) => {
                 if (!hasText(paragraph)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] must be non-empty`);
+                if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {
+                  addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] uses a generic structure filler phrase`);
+                }
               });
             }
           });
