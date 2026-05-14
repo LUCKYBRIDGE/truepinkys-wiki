@@ -159,8 +159,8 @@
       { id: "topicTags", label: "주제태그", weight: 3.1, group: "category" },
       { id: "keywords", label: "검색용 보조어", weight: 2.7, group: "searchMeta" },
       { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
-      { id: "sections", label: "본문", weight: 1.4, group: "content" },
-      { id: "checkpoints", label: "확인 포인트", weight: 1.5, group: "content" },
+      { id: "chapters", label: "본문", weight: 1.4, group: "content" },
+      { id: "quiz", label: "퀴즈", weight: 1.5, group: "content" },
       { id: "searchContexts", label: "찾는 상황", weight: 1.8, group: "context" }
     ];
 
@@ -209,8 +209,11 @@
     }
 
     function fieldText(doc, fieldId) {
-      if (fieldId === "sections") {
-        return (doc.sections || []).map(section => [section.heading, ...(section.body || [])].join(" ")).join(" ");
+      if (fieldId === "chapters") {
+        return (doc.chapters || []).map(chapter => [
+          chapter.title,
+          ...(chapter.sections || []).map(section => [section.heading, ...(section.body || [])].join(" "))
+        ].join(" ")).join(" ");
       }
       const value = doc[fieldId];
       return Array.isArray(value) ? value.join(" ") : String(value || "");
@@ -452,7 +455,7 @@
             <div>
               <p class="text-sm font-black text-teal-700 mb-3">초등학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
-              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 개요, 어린이 설명, 예시로 보기, 헷갈리기 쉬운 점, 확인 포인트, 함께 보면 좋은 지식, 확인한 자료 순서로 정리됩니다. 검색은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 봅니다.</p>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 큰 단원과 작은 단원으로 나누어 읽을 수 있습니다. 검색은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 봅니다.</p>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
               <div class="border border-slate-200 rounded-lg px-3 py-3">
@@ -521,8 +524,8 @@
               <h3 class="text-sm font-black text-slate-900 mb-2">지식 읽는 순서</h3>
               <ol class="space-y-2 text-sm text-slate-600 font-medium">
                 <li>1. 표제어와 한 줄 뜻을 먼저 확인합니다.</li>
-                <li>2. 목차에서 필요한 문단을 고릅니다.</li>
-                <li>3. 함께 보면 좋은 지식과 확인한 자료를 함께 봅니다.</li>
+                <li>2. 목차에서 필요한 단원을 고릅니다.</li>
+                <li>3. 퀴즈로 이해한 내용을 확인합니다.</li>
               </ol>
             </div>
           </section>
@@ -612,10 +615,6 @@
       `);
     }
 
-    function sectionId(index) {
-      return `section-${index + 1}`;
-    }
-
     function scrollToDocSection(targetId) {
       const target = document.getElementById(targetId);
       if (!target) return;
@@ -624,46 +623,53 @@
       target.focus({ preventScroll: true });
     }
 
-    function renderInfobox(doc) {
-      const rows = [
-        ["표제어", doc.title],
-        ["지식 종류", doc.documentKind || "개념 지식"],
-        ["한 줄 뜻", doc.definition || doc.summary],
-        ["관련 교과", (doc.subjects || []).join(", ")],
-        ["주제 태그", (doc.topicTags || []).join(", ")],
-        ["검토일", doc.lastReviewed || "미정"]
-      ];
+    function chapterId(index) {
+      return `chapter-${index + 1}`;
+    }
 
-      return `
-        <table class="wiki-table w-full border border-slate-200 rounded-lg overflow-hidden bg-white">
-          <tbody>
-            ${rows.map(([label, value]) => `
-              <tr>
-                <th>${escapeHtml(label)}</th>
-                <td>${escapeHtml(value)}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-      `;
+    function subsectionId(chapterIndex, sectionIndex) {
+      return `chapter-${chapterIndex + 1}-section-${sectionIndex + 1}`;
     }
 
     function renderToc(doc) {
+      const chapters = doc.chapters || [];
       return `
         <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 mb-8" aria-label="지식 목차">
           <h3 class="text-sm font-black text-slate-900 mb-3">목차</h3>
-          <ol class="space-y-1 text-sm font-bold text-slate-700">
-            ${(doc.sections || []).map((section, index) => `
+          <ol class="space-y-3 text-sm font-bold text-slate-800">
+            ${chapters.map((chapter, chapterIndex) => `
               <li>
-                <button type="button" onclick="scrollToDocSection('${sectionId(index)}')" class="text-left hover:text-teal-700">${index + 1}. ${escapeHtml(section.heading)}</button>
+                <button type="button" onclick="scrollToDocSection('${chapterId(chapterIndex)}')" class="text-left hover:text-teal-700">${chapterIndex + 1}. ${escapeHtml(chapter.title)}</button>
+                ${(chapter.sections || []).length ? `
+                  <ol class="mt-1 ml-4 space-y-1 text-slate-600 font-semibold">
+                    ${chapter.sections.map((section, sectionIndex) => `
+                      <li><button type="button" onclick="scrollToDocSection('${subsectionId(chapterIndex, sectionIndex)}')" class="text-left hover:text-teal-700">${sectionIndex + 1}) ${escapeHtml(section.heading)}</button></li>
+                    `).join("")}
+                  </ol>
+                ` : ""}
               </li>
             `).join("")}
-            ${(doc.checkpoints || []).length ? `<li><button type="button" onclick="scrollToDocSection('checkpoints')" class="text-left hover:text-teal-700">${(doc.sections || []).length + 1}. 확인 포인트</button></li>` : ""}
-            ${(doc.related || []).length ? `<li><button type="button" onclick="scrollToDocSection('related-links')" class="text-left hover:text-teal-700">${(doc.sections || []).length + ((doc.checkpoints || []).length ? 2 : 1)}. 함께 보면 좋은 지식</button></li>` : ""}
-            <li><button type="button" onclick="scrollToDocSection('sources')" class="text-left hover:text-teal-700">${(doc.sections || []).length + ((doc.checkpoints || []).length ? 1 : 0) + ((doc.related || []).length ? 1 : 0) + 1}. 확인한 자료</button></li>
+            ${(doc.quiz || []).length ? `<li><button type="button" onclick="scrollToDocSection('quiz')" class="text-left hover:text-teal-700">퀴즈</button></li>` : ""}
           </ol>
         </nav>
       `;
+    }
+
+    function renderChapters(doc) {
+      const chapters = doc.chapters || [];
+      return chapters.map((chapter, chapterIndex) => `
+        <section class="mb-10" id="${chapterId(chapterIndex)}">
+          <h3 class="text-2xl font-black text-slate-950 mb-4">${chapterIndex + 1}. ${escapeHtml(chapter.title)}</h3>
+          <div class="space-y-6">
+            ${(chapter.sections || []).map((section, sectionIndex) => `
+              <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24">
+                <h4 class="text-xl font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
+                ${(section.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+              </section>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
     }
 
     function sourceLabel(source) {
@@ -685,33 +691,6 @@
       return `
         ${linkedLabel}
         ${details.length ? `<div class="mt-1 space-y-0.5 text-xs text-slate-500 leading-relaxed">${details.map(item => `<p>${escapeHtml(item)}</p>`).join("")}</div>` : ""}
-      `;
-    }
-
-    function renderAiDisclosure() {
-      return `
-        <section class="rounded-xl border border-teal-100 bg-teal-50 p-5 mb-6">
-          <h3 class="text-base font-black text-teal-950 mb-2">작성 방식 안내</h3>
-          <p class="text-sm text-teal-950 leading-relaxed">본 사이트의 지식은 AI의 도움을 받아 작성될 수 있으며, 참고한 공식자료나 웹 자료가 있을 경우 출처를 확실히 표시하는 것을 원칙으로 합니다.</p>
-          <p class="mt-2 text-xs font-bold text-teal-800">출처 자료는 사실 확인용으로 참고하고, 원문 문단, 이미지, 표, 그래프를 그대로 복제하지 않고 새 문장으로 작성합니다. 역사·인물·사건 내용은 검증 가능한 중립 사실 중심으로 다룹니다.</p>
-        </section>
-      `;
-    }
-
-    function renderRelatedBlock(relatedDocs) {
-      if (!relatedDocs.length) return "";
-      return `
-        <section class="border-y border-slate-200 py-5 mb-8" id="related-links">
-          <h3 class="text-lg font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
-          <div class="grid gap-3 sm:grid-cols-2">
-            ${relatedDocs.map(item => `
-              <a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-white px-4 py-3 hover:border-teal-300 hover:bg-teal-50 transition">
-                <strong class="block text-teal-800">${escapeHtml(item.title)}</strong>
-                <span class="mt-1 block text-sm text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span>
-              </a>
-            `).join("")}
-          </div>
-        </section>
       `;
     }
 
@@ -744,40 +723,26 @@
 
             ${renderToc(doc)}
 
-            ${renderAiDisclosure()}
-
-            ${renderRelatedBlock(relatedDocs)}
-
             <section class="wiki-body">
-              ${(doc.sections || []).map((section, index) => `
-                <section class="mb-8" id="${sectionId(index)}">
-                  <h3 class="text-2xl font-black text-slate-950 mb-3">${index + 1}. ${escapeHtml(section.heading)}</h3>
-                  ${(section.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-                </section>
-              `).join("")}
+              ${renderChapters(doc)}
             </section>
 
-            ${(doc.checkpoints || []).length ? `
-              <section class="bg-teal-50 border border-teal-100 rounded-xl p-5 mt-8" id="checkpoints">
-                <h3 class="text-lg font-black text-teal-900 mb-3">${(doc.sections || []).length + 1}. 확인 포인트</h3>
-                <ul class="space-y-2 text-slate-700 font-medium">
-                  ${doc.checkpoints.map(point => `<li class="flex gap-2"><i class="fa-solid fa-check text-teal-700 mt-1"></i><span>${escapeHtml(point)}</span></li>`).join("")}
-                </ul>
+            ${(doc.quiz || []).length ? `
+              <section class="bg-teal-50 border border-teal-100 rounded-xl p-5 mt-8" id="quiz">
+                <h3 class="text-lg font-black text-teal-900 mb-3">퀴즈</h3>
+                <ol class="space-y-2 text-slate-700 font-medium list-decimal pl-5">
+                  ${doc.quiz.map(point => `<li>${escapeHtml(point)}</li>`).join("")}
+                </ol>
               </section>
             ` : ""}
 
             <section class="mt-8 border-t border-slate-200 pt-5">
-              <h3 class="text-lg font-black text-slate-950 mb-3">분류</h3>
-              <div class="space-y-2 text-sm sm:text-base font-bold leading-relaxed">
-                <p>
-                  <span class="text-slate-500 mr-2">관련 교과:</span>
-                  ${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join(", ")}
-                </p>
-                <p>
-                  <span class="text-slate-500 mr-2">태그:</span>
-                  ${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join(" ")}
-                </p>
-              </div>
+              <h3 class="text-lg font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
+              ${relatedDocs.length ? `
+                <div class="grid gap-3 sm:grid-cols-2">
+                  ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-white px-4 py-3 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-1 block text-sm text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
+                </div>
+              ` : `<p class="text-sm text-slate-500 font-medium">아직 연결된 지식이 없습니다.</p>`}
             </section>
 
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
@@ -794,27 +759,13 @@
 
           <aside class="lg:col-span-4 space-y-5">
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">정보상자</h3>
-              ${renderInfobox(doc)}
+              <h3 class="font-black text-slate-950 mb-3">지식 안내</h3>
+              <p class="text-sm text-slate-600 leading-relaxed">AI의 도움을 받아 작성될 수 있으며, 확인한 자료를 바탕으로 학생용 새 문장으로 정리했습니다.</p>
+              <div class="mt-4 space-y-2 text-sm font-bold leading-relaxed">
+                <p><span class="text-slate-500 mr-2">관련 교과:</span>${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join(", ")}</p>
+                <p><span class="text-slate-500 mr-2">태그:</span>${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join(" ")}</p>
+              </div>
             </section>
-
-            ${relatedDocs.length ? `
-              <section class="bg-white border border-slate-200 rounded-xl p-5">
-                <h3 class="font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
-                <ul class="space-y-2">
-                  ${relatedDocs.map(item => `<li><a href="#/doc/${item.id}" class="font-bold text-teal-700 hover:text-teal-900">${escapeHtml(item.title)}</a></li>`).join("")}
-                </ul>
-              </section>
-            ` : ""}
-
-            ${(doc.sources || []).length ? `
-              <section class="bg-white border border-slate-200 rounded-xl p-5">
-                <h3 class="font-black text-slate-950 mb-3">확인한 자료</h3>
-                <ul class="space-y-2 text-sm text-slate-600">
-                  ${doc.sources.map(source => `<li>${renderSource(source)}</li>`).join("")}
-                </ul>
-              </section>
-            ` : ""}
           </aside>
         </div>
       `);

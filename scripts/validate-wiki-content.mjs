@@ -20,8 +20,8 @@ const requiredDocFields = [
   "aliases",
   "keywords",
   "searchContexts",
-  "sections",
-  "checkpoints",
+  "chapters",
+  "quiz",
   "related",
   "sources",
   "copyrightNote"
@@ -88,16 +88,17 @@ if (!Array.isArray(docs)) {
         addError(docId, `documentKind "${doc.documentKind}" is not listed in taxonomy.documentKinds`);
       }
     }
-    if (doc.infobox && Object.prototype.hasOwnProperty.call(doc.infobox, "문서 종류")) {
-      addError(docId, "infobox must use 지식 종류, not 문서 종류");
-    }
+    if ("infobox" in doc) addError(docId, "infobox must not be used");
+    if ("sections" in doc) addError(docId, "top-level sections must not be used; use chapters");
+    if ("checkpoints" in doc) addError(docId, "checkpoints must not be used; use quiz");
+    if ("quickQuiz" in doc) addError(docId, "quickQuiz must not be used; use quiz");
 
     validateArrayOfText(doc, "subjects");
     validateArrayOfText(doc, "topicTags");
     validateArrayOfText(doc, "aliases");
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
-    validateArrayOfText(doc, "checkpoints");
+    validateArrayOfText(doc, "quiz");
 
     for (const subject of doc.subjects || []) {
       if (!taxonomySubjects.has(subject)) addError(docId, `unknown subject "${subject}"`);
@@ -106,17 +107,23 @@ if (!Array.isArray(docs)) {
       if (!taxonomyTags.has(tag)) addError(docId, `unknown topic tag "${tag}"`);
     }
 
-    if (!Array.isArray(doc.sections) || doc.sections.length < 3) {
-      addError(docId, "sections must contain at least 3 sections");
+    if (!Array.isArray(doc.chapters) || doc.chapters.length < 1) {
+      addError(docId, "chapters must contain at least 1 chapter");
     } else {
-      if (doc.sections[0]?.heading !== "개요") addError(docId, "first section heading must be 개요");
-      doc.sections.forEach((section, sectionIndex) => {
-        if (!hasText(section.heading)) addError(docId, `sections[${sectionIndex}].heading must be non-empty`);
-        if (!Array.isArray(section.body) || section.body.length === 0) {
-          addError(docId, `sections[${sectionIndex}].body must contain text`);
+      doc.chapters.forEach((chapter, chapterIndex) => {
+        if (!hasText(chapter.title)) addError(docId, `chapters[${chapterIndex}].title must be non-empty`);
+        if (!Array.isArray(chapter.sections) || chapter.sections.length === 0) {
+          addError(docId, `chapters[${chapterIndex}].sections must contain at least 1 section`);
         } else {
-          section.body.forEach((paragraph, paragraphIndex) => {
-            if (!hasText(paragraph)) addError(docId, `sections[${sectionIndex}].body[${paragraphIndex}] must be non-empty`);
+          chapter.sections.forEach((section, sectionIndex) => {
+            if (!hasText(section.heading)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must be non-empty`);
+            if (!Array.isArray(section.body) || section.body.length === 0) {
+              addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
+            } else {
+              section.body.forEach((paragraph, paragraphIndex) => {
+                if (!hasText(paragraph)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] must be non-empty`);
+              });
+            }
           });
         }
       });

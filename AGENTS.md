@@ -19,8 +19,8 @@ Every new knowledge entry in `data/documents.json` must include:
 
 - `id`, `title`, `summary`, `definition`, `documentKind`, `lastReviewed`
 - `subjects`, `topicTags`, `aliases`, `keywords`, `searchContexts`
-- `sections`, with `개요` as the first section
-- `checkpoints`, `related`, `sources`, `copyrightNote`
+- `chapters`, with large learning units and nested sections
+- `quiz`, `related`, `sources`, `copyrightNote`
 
 Every source must be an object with:
 
