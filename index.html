@@ -99,7 +99,7 @@
 </head>
 <body>
   <div class="bg-slate-950 text-white">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
       <div class="flex items-center gap-3">
         <a href="https://luckybridge.github.io/truepinkys-news/" class="service-tab rounded-full px-4 py-2 text-sm font-extrabold hover:bg-white hover:text-slate-900 transition">
           트루핑키스 뉴스
@@ -113,7 +113,7 @@
   </div>
 
   <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 py-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-5 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
       <a href="#/" class="flex items-center gap-3">
         <div class="w-11 h-11 rounded-lg bg-teal-700 text-white flex items-center justify-center font-black text-lg">TP</div>
         <div>
@@ -124,7 +124,7 @@
       <form id="search-form" class="w-full lg:max-w-xl">
         <label for="search-input" class="sr-only">위키 검색</label>
         <div class="flex h-12 rounded-xl border-2 border-slate-900 bg-white overflow-hidden shadow-sm">
-          <input id="search-input" type="search" class="flex-1 min-w-0 px-4 text-[16px] outline-none" placeholder="궁금한 단어, 문장, 교과목을 검색하세요">
+          <input id="search-input" type="search" class="flex-1 min-w-0 px-4 text-[16px] outline-none" placeholder="궁금한 단어·문장 검색">
           <button class="w-14 bg-slate-900 text-white hover:bg-teal-800 transition" type="submit" aria-label="검색">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -133,10 +133,10 @@
     </div>
   </header>
 
-  <main id="app" class="max-w-6xl mx-auto px-4 py-8 page-enter"></main>
+  <main id="app" class="max-w-[1400px] mx-auto px-4 sm:px-6 py-6 sm:py-8 page-enter"></main>
 
   <footer class="border-t border-slate-200 bg-white mt-12">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-500 leading-relaxed">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 학생의 정보 탐색 연습을 위한 교육용 위키입니다.</p>
       <p>지식은 제목, 본문, 교과목, 주제태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
       <p class="mt-3">본 사이트의 많은 지식 본문과 퀴즈는 AI의 도움을 받아 초안을 작성하고 정리한 뒤 게시합니다. AI 자체를 출처로 쓰지는 않으며, 실제로 사실 확인에 참고한 공식 자료나 웹 자료가 있을 경우 아래에 표시하는 것을 원칙으로 합니다.</p>
@@ -640,10 +640,10 @@
       return `chapter-${chapterIndex + 1}-section-${sectionIndex + 1}`;
     }
 
-    function renderToc(doc) {
+    function renderToc(doc, extraClass = "") {
       const chapters = doc.chapters || [];
       return `
-        <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 mb-8" aria-label="지식 목차">
+        <nav class="border border-slate-200 bg-slate-50 rounded-lg p-4 ${extraClass}" aria-label="지식 목차">
           <h3 class="text-sm font-black text-slate-900 mb-3">목차</h3>
           <ol class="space-y-3 text-sm font-bold text-slate-800">
             ${chapters.map((chapter, chapterIndex) => `
@@ -662,6 +662,10 @@
           </ol>
         </nav>
       `;
+    }
+
+    function renderSideToc(doc) {
+      return renderToc(doc, "");
     }
 
     function renderChapters(doc) {
@@ -769,20 +773,26 @@
 
       const relatedDocs = (doc.related || []).map(relatedId => wikiDocs.find(item => item.id === relatedId)).filter(Boolean);
       rerenderWithTransition(`
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <article class="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
-            <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-6"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
-            <header class="border-b border-slate-200 pb-6 mb-7">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 xl:gap-6 items-start">
+          <article class="lg:col-span-8 xl:col-span-9 bg-white border border-slate-200 rounded-xl p-5 sm:p-7 xl:p-9">
+            <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-5"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
+            <header class="border-b border-slate-200 pb-6 mb-6">
               <div class="flex flex-wrap gap-1.5 mb-4">
                 <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-black text-slate-700">${escapeHtml(doc.documentKind || "개념 지식")}</span>
                 ${badgeList(doc.subjects, "bg-teal-50 border-teal-100 text-teal-800")}
               </div>
-              <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
-              <p class="text-lg text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
-              <p class="text-sm text-slate-400 font-bold mt-4">최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
+              <div class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
+                <div>
+                  <h2 class="text-3xl sm:text-4xl xl:text-5xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
+                  <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-4xl">${escapeHtml(doc.summary)}</p>
+                </div>
+                <p class="text-sm text-slate-400 font-bold whitespace-nowrap">최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
+              </div>
             </header>
 
-            ${renderToc(doc)}
+            <div class="lg:hidden mb-7">
+              ${renderToc(doc)}
+            </div>
 
             <section class="wiki-body">
               ${renderChapters(doc)}
@@ -790,7 +800,7 @@
 
             ${renderQuiz(doc)}
 
-            <section class="mt-8 border-t border-slate-200 pt-5">
+            <section class="mt-8 border-t border-slate-200 pt-5 lg:hidden">
               <h3 class="text-lg font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
               ${relatedDocs.length ? `
                 <div class="grid gap-3 sm:grid-cols-2">
@@ -813,14 +823,41 @@
             </section>
           </article>
 
-          <aside class="lg:col-span-4 space-y-5">
+          <aside class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-4">
             <section class="bg-white border border-slate-200 rounded-xl p-5">
               <h3 class="font-black text-slate-950 mb-3">지식 안내</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">이 지식은 AI의 도움을 받아 초안을 작성하고 정리한 내용이 포함될 수 있습니다. 실제로 확인한 자료가 있는 경우 이를 바탕으로 학생용 새 문장으로 정리했습니다.</p>
+              <p class="text-sm text-slate-600 leading-relaxed">AI의 도움을 받아 초안을 작성하고 정리한 내용이 포함될 수 있습니다. 확인한 자료가 있는 경우 학생용 새 문장으로 다시 정리했습니다.</p>
               <p class="mt-3 text-xs font-bold text-slate-500 leading-relaxed">교육용 서비스이며, 저작권자의 삭제 요청이 있을 경우 관련 게시물이 삭제될 수 있습니다.</p>
-              <div class="mt-4 space-y-2 text-sm font-bold leading-relaxed">
-                <p><span class="text-slate-500 mr-2">관련 교과:</span>${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join(", ")}</p>
-                <p><span class="text-slate-500 mr-2">태그:</span>${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join(" ")}</p>
+              <div class="mt-4 space-y-3 text-sm font-bold leading-relaxed">
+                <div>
+                  <p class="text-xs font-black text-slate-400 mb-1">관련 교과</p>
+                  <div class="flex flex-wrap gap-1.5">${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="rounded-full bg-teal-50 border border-teal-100 px-2.5 py-1 text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join("")}</div>
+                </div>
+                <div>
+                  <p class="text-xs font-black text-slate-400 mb-1">태그</p>
+                  <div class="flex flex-wrap gap-1.5">${(doc.topicTags || []).map(tag => `<a href="#/tag/${tag}" class="rounded-full bg-amber-50 border border-amber-100 px-2.5 py-1 text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join("")}</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="hidden lg:block">
+              ${renderSideToc(doc)}
+            </section>
+
+            ${relatedDocs.length ? `
+              <section class="bg-white border border-slate-200 rounded-xl p-5">
+                <h3 class="font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
+                <div class="space-y-2">
+                  ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-sm text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-0.5 block text-xs text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
+                </div>
+              </section>
+            ` : ""}
+
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="font-black text-slate-950 mb-3">읽기 도구</h3>
+              <div class="grid grid-cols-2 gap-2 text-xs font-black">
+                <button type="button" onclick="scrollToDocSection('quiz')" class="rounded-lg border border-teal-100 bg-teal-50 px-3 py-2 text-teal-800 hover:border-teal-300">퀴즈로 이동</button>
+                <button type="button" onclick="scrollToDocSection('sources')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">자료 보기</button>
               </div>
             </section>
           </aside>
