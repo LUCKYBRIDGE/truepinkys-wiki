@@ -105,7 +105,13 @@ const weakQuizExplanationPhrases = [
   "본문에서는",
   "라고 설명하므로",
   "이 지식은 알고 끝나는",
-  "교과서 속 낱말"
+  "교과서 속 낱말",
+  "이 문장은 이 지식을 실제 상황과 연결해 이해하게 해 줍니다"
+];
+const awkwardKoreanPhrases = [
+  "AI(인공지능)을",
+  "생성형 AI을",
+  "제도와 규칙은 사람들의 생활과 연결되지 않는다는 설명입니다"
 ];
 
 if (Array.isArray(docs)) {
@@ -185,6 +191,9 @@ function validateQuiz(doc) {
           if (blockedQuizChoiceTexts.has(normalizedChoice)) {
             addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a generic filler distractor`);
           }
+          if (awkwardKoreanPhrases.some(phrase => normalizedChoice.includes(phrase))) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses an awkward Korean phrase`);
+          }
           if (
             weakQuizChoicePhrases.some(phrase => normalizedChoice.includes(phrase)) &&
             choiceIndex === item.answerIndex
@@ -219,6 +228,8 @@ function validateQuiz(doc) {
       addError(doc.id, `quiz[${index}].explanation must be non-empty text`);
     } else if (weakQuizExplanationPhrases.some(phrase => item.explanation.includes(phrase))) {
       addError(doc.id, `quiz[${index}].explanation uses a generic explanation phrase`);
+    } else if (awkwardKoreanPhrases.some(phrase => item.explanation.includes(phrase))) {
+      addError(doc.id, `quiz[${index}].explanation uses an awkward Korean phrase`);
     }
     if (hasText(item.question)) {
       const wrongParticle = hasFinalConsonant(doc.title) ? "를" : "을";
@@ -313,6 +324,9 @@ if (!Array.isArray(docs)) {
                 if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {
                   addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] uses a generic structure filler phrase`);
                 }
+                if (hasText(paragraph) && awkwardKoreanPhrases.some(phrase => paragraph.includes(phrase))) {
+                  addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] uses an awkward Korean phrase`);
+                }
                 validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}]`, [paragraph]);
               });
             }
@@ -335,6 +349,12 @@ if (!Array.isArray(docs)) {
         }
         for (const field of sourceObjectFields) {
           if (!hasText(source[field])) addError(docId, `sources[${sourceIndex}].${field} must be non-empty text`);
+        }
+        if (hasText(source.usedFor) && hasText(source.title) && source.usedFor.trim() === source.title.trim()) {
+          addError(docId, `sources[${sourceIndex}].usedFor must explain what was verified, not repeat the title`);
+        }
+        if (hasText(source.usedFor) && /^(자료|교육 자료|포털|날씨 Q&A|.*이란)$/.test(source.usedFor.trim())) {
+          addError(docId, `sources[${sourceIndex}].usedFor is too vague`);
         }
         if (hasText(source.url)) {
           try {
