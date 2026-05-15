@@ -65,6 +65,17 @@ const weakQuizChoicePhrases = [
   "상황에 따라 달라지는 기준이 없다는 뜻",
   "사람마다 상황이 달라도 같은 방법만 쓰면"
 ];
+const weakQuizDistractorPhrases = [
+  "라는 설명입니다",
+  "확인하지 않아도",
+  "살피지 않아도",
+  "보지 않아도",
+  "상황이 달라도",
+  "한 가지 방법만",
+  "무조건",
+  "언제나",
+  "항상"
+];
 const weakStructureHeadings = new Set([
   "쉽게 풀어보기",
   "생활 속 예시",
@@ -203,6 +214,12 @@ function validateQuiz(doc) {
           choiceSet.add(normalizedChoice);
           if (blockedQuizChoiceTexts.has(normalizedChoice)) {
             addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a generic filler distractor`);
+          }
+          if (
+            choiceIndex !== item.answerIndex &&
+            weakQuizDistractorPhrases.some(phrase => normalizedChoice.includes(phrase))
+          ) {
+            addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses a too-obvious generic distractor`);
           }
           if (awkwardKoreanPhrases.some(phrase => normalizedChoice.includes(phrase))) {
             addError(doc.id, `quiz[${index}].choices[${choiceIndex}] uses an awkward Korean phrase`);
