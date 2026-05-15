@@ -55,6 +55,7 @@ const blockedQuizChoiceTexts = new Set([
   "무조건 좋거나 나쁘다고 바로 판단하면 된다는 뜻입니다.",
   "개인의 느낌만으로 사실을 정하면 된다는 뜻입니다."
 ]);
+const awkwardExplanationEnding = "설명" + "입니다";
 const weakQuizChoicePhrases = [
   "화면에 많이 보이는 정보를 모두 사실로 인정",
   "확인 과정 없이 결과만 믿어도",
@@ -66,7 +67,7 @@ const weakQuizChoicePhrases = [
   "사람마다 상황이 달라도 같은 방법만 쓰면"
 ];
 const weakQuizDistractorPhrases = [
-  "라는 설명입니다",
+  awkwardExplanationEnding,
   "확인하지 않아도",
   "살피지 않아도",
   "보지 않아도",
@@ -126,8 +127,7 @@ const weakQuizQuestionPhrases = [
 ];
 const awkwardKoreanPhrases = [
   "AI(인공지능)을",
-  "생성형 AI을",
-  "제도와 규칙은 사람들의 생활과 연결되지 않는다는 설명입니다"
+  "생성형 AI을"
 ];
 
 if (Array.isArray(docs)) {
