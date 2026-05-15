@@ -108,6 +108,11 @@ const weakQuizExplanationPhrases = [
   "교과서 속 낱말",
   "이 문장은 이 지식을 실제 상황과 연결해 이해하게 해 줍니다"
 ];
+const weakQuizQuestionPhrases = [
+  "의 뜻을 가장 바르게 설명한 것은",
+  "의 설명으로 맞는 것은",
+  "에 대해 조심해야 할 점은"
+];
 const awkwardKoreanPhrases = [
   "AI(인공지능)을",
   "생성형 AI을",
@@ -138,6 +143,11 @@ function hasFinalConsonant(text) {
 function shouldUseTopicParticle(title) {
   if (/(^|\s)AI$/.test(title) || title.includes("AI(")) return "는";
   return hasFinalConsonant(title) ? "은" : "는";
+}
+
+function shouldUseObjectParticle(title) {
+  if (/(^|\s)AI$/.test(title) || title.includes("AI(")) return "를";
+  return hasFinalConsonant(title) ? "을" : "를";
 }
 
 function validateNoForcedSchoolContext(doc, label, values) {
@@ -176,6 +186,9 @@ function validateQuiz(doc) {
       return;
     }
     if (!hasText(item.question)) addError(doc.id, `quiz[${index}].question must be non-empty text`);
+    if (hasText(item.question) && weakQuizQuestionPhrases.some(phrase => item.question.includes(phrase))) {
+      addError(doc.id, `quiz[${index}].question is too vague`);
+    }
     if (!Array.isArray(item.choices) || item.choices.length !== 4) {
       addError(doc.id, `quiz[${index}].choices must contain exactly 4 choices`);
     } else {
@@ -232,7 +245,8 @@ function validateQuiz(doc) {
       addError(doc.id, `quiz[${index}].explanation uses an awkward Korean phrase`);
     }
     if (hasText(item.question)) {
-      const wrongParticle = hasFinalConsonant(doc.title) ? "를" : "을";
+      const rightParticle = shouldUseObjectParticle(doc.title);
+      const wrongParticle = rightParticle === "을" ? "를" : "을";
       if (item.question.includes(`'${doc.title}'${wrongParticle}`)) {
         addError(doc.id, `quiz[${index}].question uses an incorrect object particle after the title`);
       }
