@@ -397,7 +397,7 @@ if (!Array.isArray(docs)) {
             addError(docId, `sources[${sourceIndex}].url must be a valid URL`);
           }
         }
-        if (hasText(source.license) && !/(원문|직접).*(복제 없음|새로 작성|직접 복제 없음)/.test(source.license)) {
+        if (hasText(source.license) && !/(사실 확인용|공공누리|Open Government Licence|공개자료).*(원문|직접).*(복제 없음|새로 작성|직접 복제 없음)/.test(source.license)) {
           addError(docId, `sources[${sourceIndex}].license must state no source copying`);
         }
       });
