@@ -13,7 +13,6 @@ const requiredDocFields = [
   "title",
   "summary",
   "definition",
-  "documentKind",
   "lastReviewed",
   "subjects",
   "topicTags",
@@ -39,8 +38,6 @@ const blockedSourceHosts = [
   "facebook.com",
   "theqoo.net"
 ];
-const allowedDocumentKinds = new Set(taxonomy.documentKinds || []);
-
 const taxonomySubjects = new Set(taxonomy.subjects || []);
 const taxonomyTags = new Set(taxonomy.topicTags || []);
 const ids = new Set();
@@ -287,15 +284,10 @@ if (!Array.isArray(docs)) {
     if (ids.has(docId)) addError(docId, "duplicate id");
     ids.add(docId);
 
-    ["title", "summary", "definition", "documentKind", "lastReviewed", "copyrightNote"].forEach(field => {
+    ["title", "summary", "definition", "lastReviewed", "copyrightNote"].forEach(field => {
       if (!hasText(doc[field])) addError(docId, `${field} must be non-empty text`);
     });
-    if (hasText(doc.documentKind)) {
-      if (doc.documentKind.includes("문서")) addError(docId, "documentKind must use 지식, not 문서");
-      if (allowedDocumentKinds.size && !allowedDocumentKinds.has(doc.documentKind)) {
-        addError(docId, `documentKind "${doc.documentKind}" is not listed in taxonomy.documentKinds`);
-      }
-    }
+    if ("documentKind" in doc) addError(docId, "documentKind must not be used; use subjects and topicTags instead");
     if ("infobox" in doc) addError(docId, "infobox must not be used");
     if ("sections" in doc) addError(docId, "top-level sections must not be used; use chapters");
     if ("checkpoints" in doc) addError(docId, "checkpoints must not be used; use quiz");
