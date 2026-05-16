@@ -438,9 +438,10 @@
       if (!raw) return { kind: "all", value: "" };
       const parts = raw.split("/");
       if (parts.length >= 2 && parts[0] === "multi") {
+        const multiKinds = new Set(["main", "small", "path", "subject", "tag"]);
         const scopes = parts.slice(1).join("/").split("|")
           .map(parseQuizScopeKey)
-          .filter(scope => ["main", "small"].includes(scope.kind) && scope.value);
+          .filter(scope => multiKinds.has(scope.kind) && scope.value);
         return scopes.length ? { kind: "multi", scopes } : { kind: "all", value: "" };
       }
       if (parts.length >= 2 && ["main", "small", "path", "subject", "tag"].includes(parts[0])) {
@@ -581,18 +582,19 @@
       renderQuizCorner(quizScopeFromHash(decodeURIComponent(location.hash || "#/quiz")));
     }
 
-    function selectedQuizTopicScopes(scope) {
+    function selectedQuizFilterScopes(scope) {
       if (!scope) return [];
-      if (scope.kind === "multi") return (scope.scopes || []).filter(item => ["main", "small"].includes(item.kind) && item.value);
-      if (["main", "small"].includes(scope.kind) && scope.value) return [scope];
+      const multiKinds = new Set(["main", "small", "path", "subject", "tag"]);
+      if (scope.kind === "multi") return (scope.scopes || []).filter(item => multiKinds.has(item.kind) && item.value);
+      if (multiKinds.has(scope.kind) && scope.value) return [scope];
       return [];
     }
 
-    function toggleQuizTopicScope(key) {
+    function toggleQuizFilterScope(key) {
       const clicked = parseQuizScopeKey(key);
-      if (!["main", "small"].includes(clicked.kind) || !clicked.value) return;
+      if (!["main", "small", "path", "subject", "tag"].includes(clicked.kind) || !clicked.value) return;
       const currentScope = quizScopeFromHash(decodeURIComponent(location.hash || "#/quiz"));
-      const selected = selectedQuizTopicScopes(currentScope);
+      const selected = selectedQuizFilterScopes(currentScope);
       const selectedMap = new Map(selected.map(item => [quizScopeKey(item.kind, item.value), item]));
       const clickedKey = quizScopeKey(clicked.kind, clicked.value);
       if (selectedMap.has(clickedKey)) {
@@ -601,6 +603,20 @@
         selectedMap.set(clickedKey, clicked);
       }
       const nextScopes = Array.from(selectedMap.values());
+      if (!nextScopes.length) {
+        location.hash = "#/quiz";
+      } else if (nextScopes.length === 1) {
+        location.hash = quizScopeHash(nextScopes[0]);
+      } else {
+        location.hash = quizScopeHash({ kind: "multi", scopes: nextScopes });
+      }
+    }
+
+    function removeQuizFilterScope(key) {
+      const target = parseQuizScopeKey(key);
+      if (!target.value) return;
+      const currentScope = quizScopeFromHash(decodeURIComponent(location.hash || "#/quiz"));
+      const nextScopes = selectedQuizFilterScopes(currentScope).filter(item => quizScopeKey(item.kind, item.value) !== quizScopeKey(target.kind, target.value));
       if (!nextScopes.length) {
         location.hash = "#/quiz";
       } else if (nextScopes.length === 1) {
@@ -966,64 +982,66 @@
       `).join("");
     }
 
-    function renderQuizScopeSelectOptions(options, selectedKey, isMultiSelected = false) {
-      const allOption = options.find(item => item.kind === "all");
-      const groups = ["큰 주제", "작은 주제", "전체 분류", "관련 교과", "태그"];
-      return `
-        ${isMultiSelected ? `<option value="" selected disabled>여러 범위 직접 선택 중</option>` : ""}
-        ${allOption ? `<option value="${escapeHtml(allOption.key)}" ${allOption.key === selectedKey ? "selected" : ""}>${escapeHtml(allOption.label)} (${allOption.quizCount}문제)</option>` : ""}
-        ${groups.map(group => {
-          const items = options.filter(item => item.group === group);
-          if (!items.length) return "";
-          return `
-            <optgroup label="${escapeHtml(group)}">
-              ${items.map(item => `<option value="${escapeHtml(item.key)}" ${item.key === selectedKey ? "selected" : ""}>${escapeHtml(item.label)} (${item.quizCount}문제)</option>`).join("")}
-            </optgroup>
-          `;
-        }).join("")}
-      `;
+    function renderSelectedQuizChips(selectedScopes) {
+      if (!selectedScopes.length) {
+        return `<span class="inline-flex rounded-full border border-teal-100 bg-teal-50 px-3 py-1.5 text-sm font-black text-teal-800">전체 범위</span>`;
+      }
+      return selectedScopes.map(scope => `
+        <button type="button" onclick="removeQuizFilterScope('${escapeHtml(quizScopeKey(scope.kind, scope.value))}')" class="inline-flex items-center gap-1.5 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-sm font-black text-teal-900 hover:border-teal-400 hover:bg-teal-100">
+          ${escapeHtml(quizScopeLabel(scope))}
+          <i class="fa-solid fa-xmark text-xs text-teal-600"></i>
+        </button>
+      `).join("");
     }
 
-    function renderQuizTopicMultiSelector(options, selectedKeys) {
-      const renderTopicItems = (kind, title, helpText, maxHeightClass) => {
+    function renderQuizFilterPanels(options, selectedKeys) {
+      const panelGroups = [
+        { kind: "main", title: "큰 주제", helpText: "넓은 분야를 여러 개 묶어서 연습합니다.", open: true, maxHeightClass: "max-h-[220px]" },
+        { kind: "small", title: "작은 주제", helpText: "구체적인 주제를 필요한 만큼 골라 연습합니다.", open: true, maxHeightClass: "max-h-[320px]" },
+        { kind: "subject", title: "관련 교과", helpText: "교과 기준으로 문제 범위를 고릅니다.", open: false, maxHeightClass: "max-h-[220px]" },
+        { kind: "tag", title: "태그", helpText: "비슷한 성격의 지식을 태그로 묶어 풉니다.", open: false, maxHeightClass: "max-h-[260px]" },
+        { kind: "path", title: "전체 분류", helpText: "정확한 분류 경로 하나 이상을 직접 고릅니다.", open: false, maxHeightClass: "max-h-[320px]" }
+      ];
+      const renderPanel = ({ kind, title, helpText, open, maxHeightClass }) => {
         const items = options.filter(item => item.kind === kind);
         if (!items.length) return "";
         return `
-          <section>
-            <div class="mb-2">
-              <h4 class="text-sm font-black text-slate-900">${escapeHtml(title)}</h4>
-              <p class="mt-1 text-xs font-bold text-slate-500 leading-relaxed">${escapeHtml(helpText)}</p>
-            </div>
-            <div class="grid gap-2 ${maxHeightClass} overflow-auto pr-1">
+          <details class="rounded-xl border border-slate-200 bg-white p-4" ${open ? "open" : ""}>
+            <summary class="cursor-pointer list-none">
+              <div class="flex items-center justify-between gap-3">
+                <div>
+                  <h4 class="text-sm font-black text-slate-950">${escapeHtml(title)}</h4>
+                  <p class="mt-1 text-xs font-bold text-slate-500 leading-relaxed">${escapeHtml(helpText)}</p>
+                </div>
+                <span class="rounded-full bg-slate-100 px-2 py-1 text-[11px] font-black text-slate-500">${items.length}</span>
+              </div>
+            </summary>
+            <div class="mt-3 grid gap-2 ${maxHeightClass} overflow-auto pr-1">
               ${items.map(item => {
                 const checked = selectedKeys.has(item.key);
                 const label = item.label.replace(`${item.group}: `, "");
                 return `
-                  <label class="flex cursor-pointer items-start gap-2 rounded-lg border ${checked ? "border-teal-300 bg-teal-50 text-teal-900" : "border-slate-200 bg-slate-50 text-slate-700"} px-3 py-2 hover:border-teal-300 hover:bg-teal-50">
-                    <input type="checkbox" class="mt-1 h-4 w-4 accent-teal-700" onchange="toggleQuizTopicScope('${escapeHtml(item.key)}')" ${checked ? "checked" : ""}>
-                    <span class="min-w-0">
-                      <span class="block text-xs font-black leading-snug">${escapeHtml(label)}</span>
-                      <span class="block text-[11px] font-bold text-slate-400">${item.docCount}개 지식 · ${item.quizCount}문제</span>
-                    </span>
-                  </label>
+                  <button type="button" onclick="toggleQuizFilterScope('${escapeHtml(item.key)}')" class="rounded-full border ${checked ? "border-teal-400 bg-teal-700 text-white" : "border-slate-200 bg-slate-50 text-slate-700"} px-3 py-2 text-left text-xs font-black hover:border-teal-400 hover:bg-teal-50 hover:text-teal-900">
+                    <span class="block leading-snug">${escapeHtml(label)}</span>
+                    <span class="block text-[11px] ${checked ? "text-teal-50" : "text-slate-400"}">${item.docCount}개 지식 · ${item.quizCount}문제</span>
+                  </button>
                 `;
               }).join("")}
             </div>
-          </section>
+          </details>
         `;
       };
       return `
         <section class="bg-white border border-slate-200 rounded-xl p-5">
           <div class="mb-4 flex items-start justify-between gap-3">
             <div>
-              <h3 class="font-black text-slate-950">여러 범위 선택</h3>
-              <p class="mt-1 text-xs font-bold text-slate-500 leading-relaxed">큰 주제와 작은 주제는 여러 개를 함께 골라 퀴즈를 풀 수 있습니다.</p>
+              <h3 class="font-black text-slate-950">범위 고르기</h3>
+              <p class="mt-1 text-xs font-bold text-slate-500 leading-relaxed">칩을 누르면 선택되고, 다시 누르면 해제됩니다.</p>
             </div>
-            ${selectedKeys.size ? `<button type="button" onclick="changeQuizScope('all::')" class="shrink-0 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-black text-slate-600 hover:border-teal-300 hover:text-teal-700">선택 해제</button>` : ""}
+            ${selectedKeys.size ? `<button type="button" onclick="changeQuizScope('all::')" class="shrink-0 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-[11px] font-black text-slate-600 hover:border-teal-300 hover:text-teal-700">전체로</button>` : ""}
           </div>
-          <div class="space-y-5">
-            ${renderTopicItems("main", "큰 주제", "넓은 분야를 여러 개 묶어서 연습합니다.", "max-h-[260px]")}
-            ${renderTopicItems("small", "작은 주제", "구체적인 주제를 필요한 만큼 골라 연습합니다.", "max-h-[360px]")}
+          <div class="space-y-3">
+            ${panelGroups.map(renderPanel).join("")}
           </div>
         </section>
       `;
@@ -1043,7 +1061,6 @@
       };
       let selectedOption = fallbackOption;
       let safeScope = { kind: selectedOption.kind, value: selectedOption.value };
-      let selectedKey = selectedOption.key;
       if (requestedScope.kind === "multi") {
         const seen = new Set();
         const validScopes = (requestedScope.scopes || []).filter(scope => {
@@ -1064,43 +1081,43 @@
             docCount: selectedDocsForMulti.length,
             quizCount: quizCountForMulti
           };
-          selectedKey = selectedOption.key;
         } else if (validScopes.length === 1) {
           const singleKey = quizScopeKey(validScopes[0].kind, validScopes[0].value);
           selectedOption = optionMap.get(singleKey) || fallbackOption;
           safeScope = { kind: selectedOption.kind, value: selectedOption.value };
-          selectedKey = selectedOption.key;
         }
       } else {
         const requestedKey = quizScopeKey(requestedScope.kind || "all", requestedScope.value || "");
         selectedOption = optionMap.get(requestedKey) || fallbackOption;
         safeScope = { kind: selectedOption.kind, value: selectedOption.value };
-        selectedKey = selectedOption.key;
       }
       const pool = quizItemsForScope(safeScope);
       const picked = shuffledItems(pool).slice(0, 8);
       const selectedDocs = docsForQuizScope(safeScope);
-      const selectedTopicKeys = new Set(selectedQuizTopicScopes(safeScope).map(scope => quizScopeKey(scope.kind, scope.value)));
-      const isMultiSelected = safeScope.kind === "multi";
+      const selectedScopes = selectedQuizFilterScopes(safeScope);
+      const selectedKeys = new Set(selectedScopes.map(scope => quizScopeKey(scope.kind, scope.value)));
       rerenderWithTransition(`
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
-            <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+            <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
               <div>
                 <p class="text-sm font-black text-teal-700 mb-3">퀴즈 코너</p>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">분류를 고르고 퀴즈 풀기</h2>
-                <p class="text-slate-600 font-medium leading-relaxed">큰 주제와 작은 주제는 여러 개를 함께 고를 수 있습니다. 빠른 선택으로 한 범위만 고르거나, 체크박스로 여러 범위를 묶어 퀴즈를 풀어 보세요.</p>
+                <p class="text-slate-600 font-medium leading-relaxed">큰 주제, 작은 주제, 관련 교과, 태그를 칩으로 골라 원하는 범위의 퀴즈를 풀 수 있습니다. 여러 범위를 함께 고르면 문제 풀이 범위가 합쳐집니다.</p>
               </div>
-              <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <label for="quiz-scope-select" class="block text-xs font-black text-slate-500 mb-2">빠른 범위 선택</label>
-                <select id="quiz-scope-select" onchange="changeQuizScope(this.value)" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm font-bold text-slate-800 outline-none focus:border-teal-600">
-                  ${renderQuizScopeSelectOptions(options, selectedKey, isMultiSelected)}
-                </select>
-                <button type="button" onclick="rerollCurrentQuizScope()" class="mt-3 w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
-                  <i class="fa-solid fa-shuffle mr-1"></i>
-                  문제 다시 섞기
-                </button>
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-4 space-y-4">
+                <div>
+                  <p class="text-xs font-black text-slate-500 mb-2">선택한 범위</p>
+                  <div class="flex flex-wrap gap-2">${renderSelectedQuizChips(selectedScopes)}</div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button type="button" onclick="changeQuizScope('all::')" class="rounded-lg border border-slate-200 bg-white px-3 py-3 text-sm font-black text-slate-700 hover:border-teal-300 hover:text-teal-700">전체 범위</button>
+                  <button type="button" onclick="rerollCurrentQuizScope()" class="rounded-lg bg-slate-900 px-3 py-3 text-sm font-black text-white hover:bg-teal-800">
+                    <i class="fa-solid fa-shuffle mr-1"></i>
+                    다시 섞기
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1124,7 +1141,7 @@
               <p class="mt-4 text-xs font-bold text-slate-500 leading-relaxed">아래에는 최대 8문제를 무작위로 보여줍니다. 정답 확인 뒤 해설을 읽고, 필요하면 지식으로 이동해 다시 확인하세요.</p>
             </section>
 
-            ${renderQuizTopicMultiSelector(options, selectedTopicKeys)}
+            ${renderQuizFilterPanels(options, selectedKeys)}
           </aside>
 
           <section class="lg:col-span-8 xl:col-span-9 space-y-4">
