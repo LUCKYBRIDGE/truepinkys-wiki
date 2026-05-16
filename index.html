@@ -368,8 +368,7 @@
         return;
       }
       if (hash === "#/quiz" || hash.startsWith("#/quiz/")) {
-        const selectedPath = hash.startsWith("#/quiz/") ? hash.replace("#/quiz/", "") : "";
-        renderQuizCorner(selectedPath);
+        renderQuizCorner(quizScopeFromHash(hash));
         return;
       }
       if (hash.startsWith("#/search/")) {
@@ -387,11 +386,15 @@
       `).join("");
     }
 
-    function categoryPathTexts(doc) {
+    function categoryPathArrays(doc) {
       const paths = Array.isArray(doc.categoryPaths) && doc.categoryPaths.length
         ? doc.categoryPaths
         : [[doc.mainTopic, ...(doc.subTopicPath || [])].filter(Boolean)];
-      return paths.map(path => (path || []).filter(Boolean).join(" > ")).filter(Boolean);
+      return paths.map(path => (path || []).filter(Boolean)).filter(path => path.length);
+    }
+
+    function categoryPathTexts(doc) {
+      return categoryPathArrays(doc).map(path => path.join(" > ")).filter(Boolean);
     }
 
     function renderCategoryPaths(doc, itemClass = "font-black text-slate-800") {
@@ -417,34 +420,127 @@
       return wikiConfig.topicTags.filter(tag => tagCount(tag) > 0);
     }
 
-    function categoryPathOptions() {
-      const map = new Map();
-      for (const doc of wikiDocs) {
-        for (const path of doc.categoryPaths || []) {
-          const text = (path || []).filter(Boolean).join(" > ");
-          if (!text) continue;
-          const current = map.get(text) || { path: text, docCount: 0, quizCount: 0 };
-          current.docCount += 1;
-          current.quizCount += (doc.quiz || []).length;
-          map.set(text, current);
-        }
+    function quizScopeKey(kind, value = "") {
+      return `${kind}::${encodeURIComponent(value || "")}`;
+    }
+
+    function parseQuizScopeKey(key) {
+      const [kind = "all", encodedValue = ""] = String(key || "all::").split("::");
+      const allowedKinds = new Set(["all", "main", "small", "path", "subject", "tag"]);
+      return {
+        kind: allowedKinds.has(kind) ? kind : "all",
+        value: encodedValue ? decodeURIComponent(encodedValue) : ""
+      };
+    }
+
+    function quizScopeFromHash(hash) {
+      const raw = String(hash || "#/quiz").replace("#/quiz", "").replace(/^\//, "");
+      if (!raw) return { kind: "all", value: "" };
+      const parts = raw.split("/");
+      if (parts.length >= 2 && ["main", "small", "path", "subject", "tag"].includes(parts[0])) {
+        return { kind: parts[0], value: parts.slice(1).join("/") };
       }
-      return Array.from(map.values())
-        .filter(item => item.quizCount > 0)
-        .sort((a, b) => a.path.localeCompare(b.path, "ko"));
+      return { kind: "path", value: raw };
     }
 
-    function docsForQuizPath(pathText) {
-      if (!pathText) return wikiDocs.filter(doc => (doc.quiz || []).length);
-      return wikiDocs.filter(doc => categoryPathTexts(doc).includes(pathText) && (doc.quiz || []).length);
+    function quizScopeHash(scope) {
+      if (!scope || scope.kind === "all" || !scope.value) return "#/quiz";
+      return `#/quiz/${encodeURIComponent(scope.kind)}/${encodeURIComponent(scope.value)}`;
     }
 
-    function quizItemsForPath(pathText) {
-      return docsForQuizPath(pathText).flatMap(doc => (doc.quiz || []).map((quiz, quizIndex) => ({
+    function quizScopeLabel(scope) {
+      if (!scope || scope.kind === "all") return "전체 범위";
+      if (scope.kind === "main") return `큰 주제: ${scope.value}`;
+      if (scope.kind === "small") return `작은 주제: ${scope.value}`;
+      if (scope.kind === "path") return `전체 분류: ${scope.value}`;
+      if (scope.kind === "subject") return `관련 교과: ${scope.value}`;
+      if (scope.kind === "tag") return `태그: #${scope.value}`;
+      return "전체 범위";
+    }
+
+    function docsForQuizScope(scope) {
+      const safeScope = scope || { kind: "all", value: "" };
+      return wikiDocs.filter(doc => {
+        if (!(doc.quiz || []).length) return false;
+        if (safeScope.kind === "all" || !safeScope.value) return true;
+        if (safeScope.kind === "main") {
+          return categoryPathArrays(doc).some(path => path[0] === safeScope.value);
+        }
+        if (safeScope.kind === "small") {
+          return categoryPathArrays(doc).some(path => path.slice(1).join(" > ") === safeScope.value);
+        }
+        if (safeScope.kind === "path") {
+          return categoryPathTexts(doc).includes(safeScope.value);
+        }
+        if (safeScope.kind === "subject") {
+          return (doc.subjects || []).includes(safeScope.value);
+        }
+        if (safeScope.kind === "tag") {
+          return displayTopicTags(doc).includes(safeScope.value);
+        }
+        return false;
+      });
+    }
+
+    function quizItemsForScope(scope) {
+      return docsForQuizScope(scope).flatMap(doc => (doc.quiz || []).map((quiz, quizIndex) => ({
         doc,
         quiz,
         quizIndex
       })));
+    }
+
+    function quizScopeOptions() {
+      const valueSets = {
+        main: new Set(),
+        small: new Set(),
+        path: new Set(),
+        subject: new Set(),
+        tag: new Set()
+      };
+      for (const doc of wikiDocs) {
+        if (!(doc.quiz || []).length) continue;
+        for (const path of categoryPathArrays(doc)) {
+          if (path[0]) valueSets.main.add(path[0]);
+          if (path.length > 1) valueSets.small.add(path.slice(1).join(" > "));
+          valueSets.path.add(path.join(" > "));
+        }
+        for (const subject of doc.subjects || []) valueSets.subject.add(subject);
+        for (const tag of displayTopicTags(doc)) valueSets.tag.add(tag);
+      }
+      const groupLabels = {
+        main: "큰 주제",
+        small: "작은 주제",
+        path: "전체 분류",
+        subject: "관련 교과",
+        tag: "태그"
+      };
+      const options = [{
+        kind: "all",
+        value: "",
+        key: quizScopeKey("all"),
+        group: "전체",
+        label: "전체 범위",
+        docCount: docsForQuizScope({ kind: "all", value: "" }).length,
+        quizCount: quizItemsForScope({ kind: "all", value: "" }).length
+      }];
+      for (const kind of ["main", "small", "path", "subject", "tag"]) {
+        for (const value of Array.from(valueSets[kind]).sort((a, b) => a.localeCompare(b, "ko"))) {
+          const scope = { kind, value };
+          const docs = docsForQuizScope(scope);
+          const quizCount = docs.reduce((sum, doc) => sum + (doc.quiz || []).length, 0);
+          if (!quizCount) continue;
+          options.push({
+            ...scope,
+            key: quizScopeKey(kind, value),
+            group: groupLabels[kind],
+            label: quizScopeLabel(scope),
+            docCount: docs.length,
+            quizCount
+          });
+        }
+      }
+      return options;
     }
 
     function shuffledItems(items) {
@@ -454,8 +550,12 @@
         .map(entry => entry.item);
     }
 
-    function changeQuizCategory(value) {
-      location.hash = value ? `#/quiz/${encodeURIComponent(value)}` : "#/quiz";
+    function changeQuizScope(key) {
+      location.hash = quizScopeHash(parseQuizScopeKey(key));
+    }
+
+    function rerollQuizScope(key) {
+      renderQuizCorner(parseQuizScopeKey(key));
     }
 
     function docCard(doc, result = null) {
@@ -814,12 +914,41 @@
       `).join("");
     }
 
-    function renderQuizCorner(selectedPath = "") {
-      const options = categoryPathOptions();
-      const safeSelectedPath = options.some(item => item.path === selectedPath) ? selectedPath : "";
-      const pool = quizItemsForPath(safeSelectedPath);
+    function renderQuizScopeSelectOptions(options, selectedKey) {
+      const allOption = options.find(item => item.kind === "all");
+      const groups = ["큰 주제", "작은 주제", "전체 분류", "관련 교과", "태그"];
+      return `
+        ${allOption ? `<option value="${escapeHtml(allOption.key)}" ${allOption.key === selectedKey ? "selected" : ""}>${escapeHtml(allOption.label)} (${allOption.quizCount}문제)</option>` : ""}
+        ${groups.map(group => {
+          const items = options.filter(item => item.group === group);
+          if (!items.length) return "";
+          return `
+            <optgroup label="${escapeHtml(group)}">
+              ${items.map(item => `<option value="${escapeHtml(item.key)}" ${item.key === selectedKey ? "selected" : ""}>${escapeHtml(item.label)} (${item.quizCount}문제)</option>`).join("")}
+            </optgroup>
+          `;
+        }).join("")}
+      `;
+    }
+
+    function renderQuizCorner(selectedScope = { kind: "all", value: "" }) {
+      const requestedScope = typeof selectedScope === "string" ? { kind: "path", value: selectedScope } : selectedScope;
+      const options = quizScopeOptions();
+      const requestedKey = quizScopeKey(requestedScope.kind || "all", requestedScope.value || "");
+      const selectedOption = options.find(item => item.key === requestedKey) || options[0] || {
+        kind: "all",
+        value: "",
+        key: quizScopeKey("all"),
+        label: "전체 범위",
+        docCount: 0,
+        quizCount: 0
+      };
+      const safeScope = { kind: selectedOption.kind, value: selectedOption.value };
+      const pool = quizItemsForScope(safeScope);
       const picked = shuffledItems(pool).slice(0, 8);
-      const selectedDocs = docsForQuizPath(safeSelectedPath);
+      const selectedDocs = docsForQuizScope(safeScope);
+      const selectedKey = selectedOption.key;
+      const quickOptions = options.filter(item => item.kind !== "all").slice(0, 60);
       rerenderWithTransition(`
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
@@ -828,15 +957,14 @@
               <div>
                 <p class="text-sm font-black text-teal-700 mb-3">퀴즈 코너</p>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">분류를 고르고 퀴즈 풀기</h2>
-                <p class="text-slate-600 font-medium leading-relaxed">선택한 분류에 속한 지식들의 퀴즈를 무작위로 섞어 보여줍니다. 같은 지식이 여러 분류에 속하면 각 분류에서 모두 연습할 수 있습니다.</p>
+                <p class="text-slate-600 font-medium leading-relaxed">큰 주제, 작은 주제, 관련 교과, 태그처럼 원하는 기준으로 퀴즈 범위를 고를 수 있습니다. 정확한 분류 하나만 고르지 않아도 비슷한 지식들을 묶어 연습할 수 있습니다.</p>
               </div>
               <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <label for="quiz-category-select" class="block text-xs font-black text-slate-500 mb-2">퀴즈 분류 선택</label>
-                <select id="quiz-category-select" onchange="changeQuizCategory(this.value)" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm font-bold text-slate-800 outline-none focus:border-teal-600">
-                  <option value="" ${safeSelectedPath ? "" : "selected"}>전체 분류</option>
-                  ${options.map(item => `<option value="${escapeHtml(item.path)}" ${item.path === safeSelectedPath ? "selected" : ""}>${escapeHtml(item.path)} (${item.quizCount}문제)</option>`).join("")}
+                <label for="quiz-scope-select" class="block text-xs font-black text-slate-500 mb-2">퀴즈 범위 선택</label>
+                <select id="quiz-scope-select" onchange="changeQuizScope(this.value)" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm font-bold text-slate-800 outline-none focus:border-teal-600">
+                  ${renderQuizScopeSelectOptions(options, selectedKey)}
                 </select>
-                <button type="button" onclick="renderQuizCorner('${escapeHtml(safeSelectedPath)}')" class="mt-3 w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
+                <button type="button" onclick="rerollQuizScope('${escapeHtml(selectedKey)}')" class="mt-3 w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
                   <i class="fa-solid fa-shuffle mr-1"></i>
                   문제 다시 섞기
                 </button>
@@ -849,7 +977,7 @@
           <aside class="lg:col-span-4 xl:col-span-3 space-y-4">
             <section class="bg-white border border-slate-200 rounded-xl p-5">
               <h3 class="font-black text-slate-950 mb-3">선택한 범위</h3>
-              <p class="text-sm font-black text-teal-800">${escapeHtml(safeSelectedPath || "전체 분류")}</p>
+              <p class="text-sm font-black text-teal-800">${escapeHtml(selectedOption.label)}</p>
               <div class="mt-4 grid grid-cols-2 gap-2 text-center">
                 <div class="rounded-lg border border-slate-200 px-3 py-3">
                   <strong class="block text-xl text-slate-950">${selectedDocs.length}</strong>
@@ -864,9 +992,9 @@
             </section>
 
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">분류 바로가기</h3>
+              <h3 class="font-black text-slate-950 mb-3">범위 바로가기</h3>
               <div class="space-y-2 max-h-[420px] overflow-auto pr-1">
-                ${options.slice(0, 40).map(item => `<button type="button" onclick="changeQuizCategory('${escapeHtml(item.path)}')" class="block w-full rounded-lg border ${item.path === safeSelectedPath ? "border-teal-300 bg-teal-50 text-teal-900" : "border-slate-200 bg-slate-50 text-slate-700"} px-3 py-2 text-left text-xs font-black hover:border-teal-300 hover:bg-teal-50">${escapeHtml(item.path)} <span class="text-slate-400">${item.quizCount}</span></button>`).join("")}
+                ${quickOptions.map(item => `<button type="button" onclick="changeQuizScope('${escapeHtml(item.key)}')" class="block w-full rounded-lg border ${item.key === selectedKey ? "border-teal-300 bg-teal-50 text-teal-900" : "border-slate-200 bg-slate-50 text-slate-700"} px-3 py-2 text-left text-xs font-black hover:border-teal-300 hover:bg-teal-50"><span class="block text-[11px] text-slate-400">${escapeHtml(item.group)}</span>${escapeHtml(item.label.replace(`${item.group}: `, ""))} <span class="text-slate-400">${item.quizCount}</span></button>`).join("")}
               </div>
             </section>
           </aside>
