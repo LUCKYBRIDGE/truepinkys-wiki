@@ -346,11 +346,18 @@
 
     function rerenderWithTransition(html) {
       const app = document.getElementById("app");
+      const shouldPreserveScroll = Boolean(window.__preserveQuizScroll);
+      const previousScrollY = window.scrollY;
+      window.__preserveQuizScroll = false;
       app.classList.remove("page-enter");
       void app.offsetWidth;
       app.innerHTML = html;
       app.classList.add("page-enter");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (shouldPreserveScroll) {
+        requestAnimationFrame(() => window.scrollTo({ top: previousScrollY, behavior: "auto" }));
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
 
     function renderRoute() {
@@ -594,8 +601,13 @@
         .map(entry => entry.item);
     }
 
+    function setQuizHash(hash, preserveScroll = true) {
+      if (preserveScroll) window.__preserveQuizScroll = true;
+      location.hash = hash;
+    }
+
     function changeQuizScope(key) {
-      location.hash = quizScopeHash(parseQuizScopeKey(key));
+      setQuizHash(quizScopeHash(parseQuizScopeKey(key)));
     }
 
     function rerollCurrentQuizScope() {
@@ -605,7 +617,7 @@
     function startQuizWithCurrentScope() {
       const scope = quizRouteFromHash(decodeURIComponent(location.hash || "#/quiz")).scope;
       if (!selectedQuizFilterScopes(scope).length) return;
-      location.hash = quizPlayHash(scope);
+      setQuizHash(quizPlayHash(scope), false);
     }
 
     function selectedQuizFilterScopes(scope) {
@@ -630,11 +642,11 @@
       }
       const nextScopes = Array.from(selectedMap.values());
       if (!nextScopes.length) {
-        location.hash = "#/quiz";
+        setQuizHash("#/quiz");
       } else if (nextScopes.length === 1) {
-        location.hash = quizScopeHash(nextScopes[0]);
+        setQuizHash(quizScopeHash(nextScopes[0]));
       } else {
-        location.hash = quizScopeHash({ kind: "multi", scopes: nextScopes });
+        setQuizHash(quizScopeHash({ kind: "multi", scopes: nextScopes }));
       }
     }
 
@@ -644,11 +656,11 @@
       const currentScope = quizRouteFromHash(decodeURIComponent(location.hash || "#/quiz")).scope;
       const nextScopes = selectedQuizFilterScopes(currentScope).filter(item => quizScopeKey(item.kind, item.value) !== quizScopeKey(target.kind, target.value));
       if (!nextScopes.length) {
-        location.hash = "#/quiz";
+        setQuizHash("#/quiz");
       } else if (nextScopes.length === 1) {
-        location.hash = quizScopeHash(nextScopes[0]);
+        setQuizHash(quizScopeHash(nextScopes[0]));
       } else {
-        location.hash = quizScopeHash({ kind: "multi", scopes: nextScopes });
+        setQuizHash(quizScopeHash({ kind: "multi", scopes: nextScopes }));
       }
     }
 
@@ -1020,6 +1032,31 @@
       `).join("");
     }
 
+    function renderQuizStickyActionBar(selectedScopes) {
+      if (!selectedScopes.length) return "";
+      const summary = selectedScopes.length === 1
+        ? quizScopeLabel(selectedScopes[0])
+        : `${selectedScopes.length}개 범위 선택`;
+      return `
+        <div class="h-28 lg:h-24"></div>
+        <div class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-5xl rounded-2xl border border-teal-200 bg-white/95 p-3 shadow-2xl backdrop-blur">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="min-w-0">
+              <p class="text-[11px] font-black text-slate-400">선택한 범위</p>
+              <p class="truncate text-sm font-black text-teal-900">${escapeHtml(summary)}</p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 sm:flex sm:shrink-0">
+              <button type="button" onclick="changeQuizScope('all::')" class="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-black text-slate-700 hover:border-teal-300 hover:text-teal-700">범위 해제</button>
+              <button type="button" onclick="startQuizWithCurrentScope()" class="rounded-lg bg-teal-700 px-5 py-3 text-sm font-black text-white hover:bg-teal-800">
+                <i class="fa-solid fa-play mr-1"></i>
+                문제 풀기
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     function renderQuizStartPrompt(options, selectedKeys, selectedScopes) {
       const hasSelectedScope = selectedScopes.length > 0;
       return `
@@ -1044,6 +1081,7 @@
               ${renderQuizFilterPanels(options, selectedKeys, true)}
             </div>
           </div>
+          ${renderQuizStickyActionBar(selectedScopes)}
         </section>
       `;
     }
