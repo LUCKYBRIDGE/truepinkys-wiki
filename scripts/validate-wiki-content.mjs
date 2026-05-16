@@ -15,6 +15,8 @@ const requiredDocFields = [
   "definition",
   "lastReviewed",
   "subjects",
+  "mainTopic",
+  "subTopicPath",
   "topicTags",
   "aliases",
   "keywords",
@@ -294,6 +296,8 @@ if (!Array.isArray(docs)) {
     if ("quickQuiz" in doc) addError(docId, "quickQuiz must not be used; use quiz");
 
     validateArrayOfText(doc, "subjects");
+    if (!hasText(doc.mainTopic)) addError(docId, "mainTopic must be non-empty text");
+    validateArrayOfText(doc, "subTopicPath");
     validateArrayOfText(doc, "topicTags");
     validateArrayOfText(doc, "aliases");
     validateArrayOfText(doc, "keywords");
@@ -301,6 +305,8 @@ if (!Array.isArray(docs)) {
     validateQuiz(doc);
     validateNoForcedSchoolContext(doc, "summary", [doc.summary]);
     validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
+    validateNoForcedSchoolContext(doc, "mainTopic", [doc.mainTopic]);
+    validateNoForcedSchoolContext(doc, "subTopicPath", doc.subTopicPath || []);
     validateNoForcedSchoolContext(doc, "topicTags", doc.topicTags || []);
     validateNoForcedSchoolContext(doc, "aliases", doc.aliases || []);
     validateNoForcedSchoolContext(doc, "keywords", doc.keywords || []);
