@@ -121,6 +121,9 @@ const weakQuizExplanationPhrases = [
   "이 문장은 이 지식을 실제 상황과 연결해 이해하게 해 줍니다"
 ];
 const weakQuizQuestionPhrases = [
+  "다음 보기 중",
+  "본문 내용과 맞는 문장",
+  "특징이나 예시",
   "의 뜻을 가장 바르게 설명한 것은",
   "의 설명으로 맞는 것은",
   "에 대해 조심해야 할 점은"
