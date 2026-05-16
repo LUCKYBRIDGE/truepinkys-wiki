@@ -121,6 +121,10 @@
           <h1 class="text-2xl sm:text-[30px] font-black tracking-tight text-slate-950 leading-tight">트루핑키스 위키</h1>
         </div>
       </a>
+      <a href="#/quiz" class="inline-flex items-center justify-center gap-2 rounded-lg border border-teal-100 bg-teal-50 px-4 py-3 text-sm font-black text-teal-800 hover:border-teal-300 hover:bg-teal-100 transition">
+        <i class="fa-solid fa-circle-question"></i>
+        퀴즈 코너
+      </a>
       <form id="search-form" class="w-full lg:max-w-xl">
         <label for="search-input" class="sr-only">위키 검색</label>
         <div class="flex h-12 rounded-xl border-2 border-slate-900 bg-white overflow-hidden shadow-sm">
@@ -363,6 +367,11 @@
         renderFiltered("tag", hash.replace("#/tag/", ""));
         return;
       }
+      if (hash === "#/quiz" || hash.startsWith("#/quiz/")) {
+        const selectedPath = hash.startsWith("#/quiz/") ? hash.replace("#/quiz/", "") : "";
+        renderQuizCorner(selectedPath);
+        return;
+      }
       if (hash.startsWith("#/search/")) {
         const query = hash.replace("#/search/", "");
         document.getElementById("search-input").value = query;
@@ -406,6 +415,47 @@
 
     function activeTopicTags() {
       return wikiConfig.topicTags.filter(tag => tagCount(tag) > 0);
+    }
+
+    function categoryPathOptions() {
+      const map = new Map();
+      for (const doc of wikiDocs) {
+        for (const path of doc.categoryPaths || []) {
+          const text = (path || []).filter(Boolean).join(" > ");
+          if (!text) continue;
+          const current = map.get(text) || { path: text, docCount: 0, quizCount: 0 };
+          current.docCount += 1;
+          current.quizCount += (doc.quiz || []).length;
+          map.set(text, current);
+        }
+      }
+      return Array.from(map.values())
+        .filter(item => item.quizCount > 0)
+        .sort((a, b) => a.path.localeCompare(b.path, "ko"));
+    }
+
+    function docsForQuizPath(pathText) {
+      if (!pathText) return wikiDocs.filter(doc => (doc.quiz || []).length);
+      return wikiDocs.filter(doc => categoryPathTexts(doc).includes(pathText) && (doc.quiz || []).length);
+    }
+
+    function quizItemsForPath(pathText) {
+      return docsForQuizPath(pathText).flatMap(doc => (doc.quiz || []).map((quiz, quizIndex) => ({
+        doc,
+        quiz,
+        quizIndex
+      })));
+    }
+
+    function shuffledItems(items) {
+      return items
+        .map(item => ({ item, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(entry => entry.item);
+    }
+
+    function changeQuizCategory(value) {
+      location.hash = value ? `#/quiz/${encodeURIComponent(value)}` : "#/quiz";
     }
 
     function docCard(doc, result = null) {
@@ -528,6 +578,12 @@
               <p class="text-sm font-black text-teal-700 mb-3">학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
               <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 큰 단원과 작은 단원으로 나누어 읽을 수 있습니다. 검색은 제목, 본문, 교과목, 여러 분류, 태그와 검색용 보조어를 함께 봅니다.</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                <a href="#/quiz" class="inline-flex items-center gap-2 rounded-lg bg-teal-700 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
+                  <i class="fa-solid fa-circle-question"></i>
+                  퀴즈 코너 가기
+                </a>
+              </div>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
               <div class="border border-slate-200 rounded-lg px-3 py-3">
@@ -756,6 +812,98 @@
           </div>
         </section>
       `).join("");
+    }
+
+    function renderQuizCorner(selectedPath = "") {
+      const options = categoryPathOptions();
+      const safeSelectedPath = options.some(item => item.path === selectedPath) ? selectedPath : "";
+      const pool = quizItemsForPath(safeSelectedPath);
+      const picked = shuffledItems(pool).slice(0, 8);
+      const selectedDocs = docsForQuizPath(safeSelectedPath);
+      rerenderWithTransition(`
+        <section class="mb-6">
+          <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
+          <div class="bg-white border border-slate-200 rounded-xl p-6 sm:p-8">
+            <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+              <div>
+                <p class="text-sm font-black text-teal-700 mb-3">퀴즈 코너</p>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">분류를 고르고 퀴즈 풀기</h2>
+                <p class="text-slate-600 font-medium leading-relaxed">선택한 분류에 속한 지식들의 퀴즈를 무작위로 섞어 보여줍니다. 같은 지식이 여러 분류에 속하면 각 분류에서 모두 연습할 수 있습니다.</p>
+              </div>
+              <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <label for="quiz-category-select" class="block text-xs font-black text-slate-500 mb-2">퀴즈 분류 선택</label>
+                <select id="quiz-category-select" onchange="changeQuizCategory(this.value)" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm font-bold text-slate-800 outline-none focus:border-teal-600">
+                  <option value="" ${safeSelectedPath ? "" : "selected"}>전체 분류</option>
+                  ${options.map(item => `<option value="${escapeHtml(item.path)}" ${item.path === safeSelectedPath ? "selected" : ""}>${escapeHtml(item.path)} (${item.quizCount}문제)</option>`).join("")}
+                </select>
+                <button type="button" onclick="renderQuizCorner('${escapeHtml(safeSelectedPath)}')" class="mt-3 w-full rounded-lg bg-slate-900 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
+                  <i class="fa-solid fa-shuffle mr-1"></i>
+                  문제 다시 섞기
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <aside class="lg:col-span-4 xl:col-span-3 space-y-4">
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="font-black text-slate-950 mb-3">선택한 범위</h3>
+              <p class="text-sm font-black text-teal-800">${escapeHtml(safeSelectedPath || "전체 분류")}</p>
+              <div class="mt-4 grid grid-cols-2 gap-2 text-center">
+                <div class="rounded-lg border border-slate-200 px-3 py-3">
+                  <strong class="block text-xl text-slate-950">${selectedDocs.length}</strong>
+                  <span class="text-xs font-black text-slate-500">지식</span>
+                </div>
+                <div class="rounded-lg border border-slate-200 px-3 py-3">
+                  <strong class="block text-xl text-slate-950">${pool.length}</strong>
+                  <span class="text-xs font-black text-slate-500">문제</span>
+                </div>
+              </div>
+              <p class="mt-4 text-xs font-bold text-slate-500 leading-relaxed">아래에는 최대 8문제를 무작위로 보여줍니다. 정답 확인 뒤 해설을 읽고, 필요하면 지식으로 이동해 다시 확인하세요.</p>
+            </section>
+
+            <section class="bg-white border border-slate-200 rounded-xl p-5">
+              <h3 class="font-black text-slate-950 mb-3">분류 바로가기</h3>
+              <div class="space-y-2 max-h-[420px] overflow-auto pr-1">
+                ${options.slice(0, 40).map(item => `<button type="button" onclick="changeQuizCategory('${escapeHtml(item.path)}')" class="block w-full rounded-lg border ${item.path === safeSelectedPath ? "border-teal-300 bg-teal-50 text-teal-900" : "border-slate-200 bg-slate-50 text-slate-700"} px-3 py-2 text-left text-xs font-black hover:border-teal-300 hover:bg-teal-50">${escapeHtml(item.path)} <span class="text-slate-400">${item.quizCount}</span></button>`).join("")}
+              </div>
+            </section>
+          </aside>
+
+          <section class="lg:col-span-8 xl:col-span-9 space-y-4">
+            ${picked.length ? picked.map((item, index) => {
+              const questionId = `practice-${item.doc.id}-${item.quizIndex}-${index}`;
+              return `
+                <section class="rounded-xl border border-teal-100 bg-white p-5" id="${questionId}" data-explanation="${escapeHtml(item.quiz.explanation || "")}">
+                  <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p class="text-xs font-black text-teal-700 mb-1">${escapeHtml(item.doc.title)}</p>
+                      <h3 class="text-lg font-black text-slate-950 leading-snug">${index + 1}. ${escapeHtml(item.quiz.question)}</h3>
+                    </div>
+                    <a href="#/doc/${item.doc.id}" class="text-xs font-black text-slate-500 hover:text-teal-700 whitespace-nowrap">지식 보기</a>
+                  </div>
+                  <div class="space-y-2">
+                    ${(item.quiz.choices || []).map((choice, choiceIndex) => `
+                      <label class="flex gap-2 rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:border-teal-300 hover:bg-teal-50 cursor-pointer">
+                        <input type="radio" name="${questionId}" value="${choiceIndex}" class="mt-1">
+                        <span>${escapeHtml(choice)}</span>
+                      </label>
+                    `).join("")}
+                  </div>
+                  <button type="button" onclick="checkQuiz('${questionId}', ${Number(item.quiz.answerIndex || 0)})" class="mt-3 inline-flex items-center rounded-lg bg-teal-700 px-3 py-2 text-sm font-black text-white hover:bg-teal-800">정답 확인</button>
+                  <p data-quiz-result class="mt-3 text-sm font-bold text-slate-500"></p>
+                </section>
+              `;
+            }).join("") : `
+              <section class="bg-white border border-slate-200 rounded-xl p-8">
+                <h3 class="text-xl font-black text-slate-950 mb-3">이 분류에는 아직 퀴즈가 없습니다.</h3>
+                <p class="text-slate-600 font-medium">다른 분류를 선택해 보세요.</p>
+              </section>
+            `}
+          </section>
+        </section>
+      `);
     }
 
     function checkQuiz(questionId, answerIndex) {
