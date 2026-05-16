@@ -138,7 +138,7 @@
   <footer class="border-t border-slate-200 bg-white mt-12">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 학생의 정보 탐색 연습을 위한 교육용 위키입니다.</p>
-      <p>지식은 제목, 본문, 교과목, 큰 주제, 작은 주제, 태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
+      <p>지식은 제목, 본문, 교과목, 분류, 태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
       <p class="mt-3">본 사이트의 많은 지식 본문과 퀴즈는 AI의 도움을 받아 초안을 작성하고 정리한 뒤 게시합니다. AI 자체를 출처로 쓰지는 않으며, 실제로 사실 확인에 참고한 공식 자료나 웹 자료가 있을 경우 아래에 표시하는 것을 원칙으로 합니다.</p>
       <p class="mt-3">출처 자료는 사실 확인용으로 참고하고, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
       <p class="mt-3">본 사이트는 교육용 서비스이며, 저작권자의 삭제 요청이 있을 경우 관련 게시물이 삭제될 수 있습니다.</p>
@@ -158,8 +158,9 @@
       { id: "title", label: "제목", weight: 5.0, group: "title" },
       { id: "aliases", label: "검색용 보조어", weight: 4.0, group: "searchMeta" },
       { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
-      { id: "mainTopic", label: "큰 주제", weight: 3.3, group: "category" },
-      { id: "subTopicPath", label: "작은 주제", weight: 3.2, group: "category" },
+      { id: "categoryPaths", label: "분류", weight: 3.5, group: "category" },
+      { id: "mainTopic", label: "대표 큰 주제", weight: 3.1, group: "category" },
+      { id: "subTopicPath", label: "대표 작은 주제", weight: 3.0, group: "category" },
       { id: "topicTags", label: "주제태그", weight: 3.1, group: "category" },
       { id: "keywords", label: "검색용 보조어", weight: 2.7, group: "searchMeta" },
       { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
@@ -225,6 +226,9 @@
           ...(item.choices || []),
           item.explanation
         ].join(" ")).join(" ");
+      }
+      if (fieldId === "categoryPaths") {
+        return (doc.categoryPaths || []).map(path => (path || []).join(" ")).join(" ");
       }
       const value = doc[fieldId];
       return Array.isArray(value) ? value.join(" ") : String(value || "");
@@ -299,6 +303,7 @@
         doc.title,
         doc.summary,
         ...(doc.subjects || []),
+        ...(doc.categoryPaths || []).flat(),
         doc.mainTopic,
         ...(doc.subTopicPath || []),
         ...(doc.topicTags || []),
@@ -373,12 +378,25 @@
       `).join("");
     }
 
-    function subTopicText(doc) {
-      return (doc.subTopicPath || []).join(" > ");
+    function categoryPathTexts(doc) {
+      const paths = Array.isArray(doc.categoryPaths) && doc.categoryPaths.length
+        ? doc.categoryPaths
+        : [[doc.mainTopic, ...(doc.subTopicPath || [])].filter(Boolean)];
+      return paths.map(path => (path || []).filter(Boolean).join(" > ")).filter(Boolean);
+    }
+
+    function renderCategoryPaths(doc, itemClass = "font-black text-slate-800") {
+      const paths = categoryPathTexts(doc);
+      if (!paths.length) return `<span class="${itemClass}">미정</span>`;
+      return paths.map(path => `<div class="${itemClass}">${escapeHtml(path)}</div>`).join("");
     }
 
     function displayTopicTags(doc) {
-      const categoryWords = new Set([doc.mainTopic, ...(doc.subTopicPath || [])].filter(Boolean));
+      const categoryWords = new Set([
+        ...(doc.categoryPaths || []).flat(),
+        doc.mainTopic,
+        ...(doc.subTopicPath || [])
+      ].filter(Boolean));
       return (doc.topicTags || []).filter(tag => !categoryWords.has(tag));
     }
 
@@ -404,8 +422,7 @@
             </div>
             <p class="text-[15px] text-slate-600 leading-relaxed">${escapeHtml(doc.summary)}</p>
             <div class="rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-600 font-bold">
-              <span class="text-slate-900">큰 주제:</span> ${escapeHtml(doc.mainTopic || "미정")}
-              ${subTopicText(doc) ? `<span class="mx-1 text-slate-300">·</span><span class="text-slate-900">작은 주제:</span> ${escapeHtml(subTopicText(doc))}` : ""}
+              <span class="text-slate-900">분류:</span> ${categoryPathTexts(doc).map(escapeHtml).join(" · ") || "미정"}
             </div>
             <div class="flex flex-wrap gap-1.5">${badgeList(displayTopicTags(doc), "bg-amber-50 border-amber-100 text-amber-800")}</div>
             ${contextLabels.length ? `
@@ -510,7 +527,7 @@
             <div>
               <p class="text-sm font-black text-teal-700 mb-3">학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
-              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 큰 단원과 작은 단원으로 나누어 읽을 수 있습니다. 검색은 제목, 본문, 교과목, 큰 주제, 작은 주제, 태그와 검색용 보조어를 함께 봅니다.</p>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 큰 단원과 작은 단원으로 나누어 읽을 수 있습니다. 검색은 제목, 본문, 교과목, 여러 분류, 태그와 검색용 보조어를 함께 봅니다.</p>
             </div>
             <div class="grid grid-cols-3 gap-2 text-center min-w-[260px]">
               <div class="border border-slate-200 rounded-lg px-3 py-3">
@@ -627,7 +644,7 @@
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">"${escapeHtml(query)}" 검색 결과</h2>
-          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 큰 주제, 작은 주제, 태그와 검색용 보조어에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
+          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 분류, 태그와 검색용 보조어에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
         </section>
         ${results.length ? `
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -639,7 +656,7 @@
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 퀴즈에서 얼마나 자주 나오는지 봅니다.</p>
-                <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 큰 주제, 작은 주제, 태그에 포함되는지 봅니다.</p>
+                <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 여러 분류 경로, 태그에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">보조어 검색:</strong> 비슷한 표현, 줄임말, 자주 함께 찾는 말을 내부적으로 함께 봅니다.</p>
                 <p><strong class="text-slate-900">맥락 검색:</strong> 학생이 어떤 상황에서 찾는 말인지 함께 봅니다.</p>
                 <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">정확히 검색어가 포함된 결과를 먼저 보여주고, 그다음 맥락이 가까운 결과를 정렬합니다.</p>
@@ -672,7 +689,7 @@
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">${escapeHtml(title)}</h2>
-          <p class="text-slate-600 font-medium">지식은 여러 교과목, 큰 주제, 작은 주제, 태그에 동시에 속할 수 있습니다.</p>
+          <p class="text-slate-600 font-medium">지식은 여러 교과목, 분류, 태그에 동시에 속할 수 있습니다.</p>
         </section>
         <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           ${docs.map(doc => docCard(doc)).join("")}
@@ -889,12 +906,8 @@
                   <div class="flex flex-wrap gap-1.5">${(doc.subjects || []).map(subject => `<a href="#/subject/${subject}" class="rounded-full bg-teal-50 border border-teal-100 px-2.5 py-1 text-teal-700 hover:text-teal-900">${escapeHtml(subject)}</a>`).join("")}</div>
                 </div>
                 <div>
-                  <p class="text-xs font-black text-slate-400 mb-1">큰 주제</p>
-                  <div class="font-black text-slate-800">${escapeHtml(doc.mainTopic || "미정")}</div>
-                </div>
-                <div>
-                  <p class="text-xs font-black text-slate-400 mb-1">작은 주제</p>
-                  <div class="font-black text-slate-800">${escapeHtml(subTopicText(doc) || "미정")}</div>
+                  <p class="text-xs font-black text-slate-400 mb-1">분류</p>
+                  <div class="space-y-1">${renderCategoryPaths(doc)}</div>
                 </div>
                 <div>
                   <p class="text-xs font-black text-slate-400 mb-1">태그</p>

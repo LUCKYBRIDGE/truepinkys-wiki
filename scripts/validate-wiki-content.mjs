@@ -17,6 +17,7 @@ const requiredDocFields = [
   "subjects",
   "mainTopic",
   "subTopicPath",
+  "categoryPaths",
   "topicTags",
   "aliases",
   "keywords",
@@ -179,6 +180,22 @@ function validateArrayOfText(doc, field, minLength = 1) {
   });
 }
 
+function validateCategoryPaths(doc) {
+  if (!Array.isArray(doc.categoryPaths) || doc.categoryPaths.length < 1) {
+    addError(doc.id || "(missing id)", "categoryPaths must contain at least 1 path");
+    return;
+  }
+  doc.categoryPaths.forEach((path, pathIndex) => {
+    if (!Array.isArray(path) || path.length < 2) {
+      addError(doc.id, `categoryPaths[${pathIndex}] must contain at least a big topic and small topic`);
+      return;
+    }
+    path.forEach((item, itemIndex) => {
+      if (!hasText(item)) addError(doc.id, `categoryPaths[${pathIndex}][${itemIndex}] must be non-empty text`);
+    });
+  });
+}
+
 function validateQuiz(doc) {
   if (!Array.isArray(doc.quiz) || doc.quiz.length < 1) {
     addError(doc.id || "(missing id)", "quiz must contain at least 1 question");
@@ -298,6 +315,7 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "subjects");
     if (!hasText(doc.mainTopic)) addError(docId, "mainTopic must be non-empty text");
     validateArrayOfText(doc, "subTopicPath");
+    validateCategoryPaths(doc);
     validateArrayOfText(doc, "topicTags");
     validateArrayOfText(doc, "aliases");
     validateArrayOfText(doc, "keywords");
@@ -307,6 +325,7 @@ if (!Array.isArray(docs)) {
     validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
     validateNoForcedSchoolContext(doc, "mainTopic", [doc.mainTopic]);
     validateNoForcedSchoolContext(doc, "subTopicPath", doc.subTopicPath || []);
+    validateNoForcedSchoolContext(doc, "categoryPaths", (doc.categoryPaths || []).flat());
     validateNoForcedSchoolContext(doc, "topicTags", doc.topicTags || []);
     validateNoForcedSchoolContext(doc, "aliases", doc.aliases || []);
     validateNoForcedSchoolContext(doc, "keywords", doc.keywords || []);
