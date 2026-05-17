@@ -162,6 +162,7 @@
       { id: "title", label: "제목", weight: 5.0, group: "title" },
       { id: "aliases", label: "검색용 보조어", weight: 4.0, group: "searchMeta" },
       { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
+      { id: "curriculum", label: "교육과정 연결", weight: 3.2, group: "category" },
       { id: "categoryPaths", label: "분류", weight: 3.5, group: "category" },
       { id: "mainTopic", label: "대표 큰 주제", weight: 3.1, group: "category" },
       { id: "subTopicPath", label: "대표 작은 주제", weight: 3.0, group: "category" },
@@ -174,16 +175,19 @@
     ];
 
     let wikiDocs = [];
+    let curriculumMap = { sources: [], docLinks: {} };
 
     async function init() {
       try {
         const cacheKey = Date.now();
-        const [taxonomyRes, docsRes] = await Promise.all([
+        const [taxonomyRes, docsRes, curriculumRes] = await Promise.all([
           fetch(`./data/taxonomy.json?v=${cacheKey}`, { cache: "no-store" }),
-          fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" })
+          fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" }),
+          fetch(`./data/curriculum-map.json?v=${cacheKey}`, { cache: "no-store" }).catch(() => null)
         ]);
         wikiConfig = await taxonomyRes.json();
         wikiDocs = await docsRes.json();
+        curriculumMap = curriculumRes && curriculumRes.ok ? await curriculumRes.json() : { sources: [], docLinks: {} };
         window.addEventListener("hashchange", renderRoute);
         document.getElementById("search-form").addEventListener("submit", handleSearchSubmit);
         renderRoute();
@@ -233,6 +237,13 @@
       }
       if (fieldId === "categoryPaths") {
         return (doc.categoryPaths || []).map(path => (path || []).join(" ")).join(" ");
+      }
+      if (fieldId === "curriculum") {
+        return curriculumLinks(doc).map(item => [
+          item.subject,
+          item.area,
+          item.achievementSupport
+        ].join(" ")).join(" ");
       }
       const value = doc[fieldId];
       return Array.isArray(value) ? value.join(" ") : String(value || "");
@@ -308,6 +319,7 @@
         doc.summary,
         ...(doc.subjects || []),
         ...(doc.categoryPaths || []).flat(),
+        ...curriculumLinks(doc).flatMap(item => [item.subject, item.area, item.achievementSupport]),
         doc.mainTopic,
         ...(doc.subTopicPath || []),
         ...(doc.topicTags || []),
@@ -409,6 +421,29 @@
       const paths = categoryPathTexts(doc);
       if (!paths.length) return `<span class="${itemClass}">미정</span>`;
       return paths.map(path => `<div class="${itemClass}">${escapeHtml(path)}</div>`).join("");
+    }
+
+    function curriculumLinks(doc) {
+      return (curriculumMap.docLinks && curriculumMap.docLinks[doc.id]) || [];
+    }
+
+    function renderCurriculumLinks(doc) {
+      const links = curriculumLinks(doc);
+      if (!links.length) return "";
+      return `
+        <div>
+          <p class="text-xs font-black text-slate-400 mb-1">교육과정 연결</p>
+          <div class="space-y-2">
+            ${links.map(item => `
+              <div class="rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
+                <p class="text-sm font-black text-emerald-900">${escapeHtml(item.subject)} · ${escapeHtml(item.area)}</p>
+                <p class="mt-1 text-xs font-bold text-slate-600 leading-relaxed">${escapeHtml(item.achievementSupport)}</p>
+              </div>
+            `).join("")}
+          </div>
+          <p class="mt-2 text-[11px] font-bold text-slate-500 leading-relaxed">성취기준 원문이 아니라, 2022 개정 교육과정 흐름을 참고해 학생용으로 정리한 연결입니다.</p>
+        </div>
+      `;
     }
 
     function displayTopicTags(doc) {
@@ -1358,6 +1393,19 @@
       `;
     }
 
+    function renderCurriculumSourceBlock(doc) {
+      if (!curriculumLinks(doc).length || !(curriculumMap.sources || []).length) return "";
+      return `
+        <div class="mt-4 rounded-lg border border-emerald-100 bg-emerald-50/70 p-4">
+          <h4 class="font-black text-emerald-900 mb-2">교육과정 연결 기준 자료</h4>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed mb-3">${escapeHtml(curriculumMap.sourcePolicy || "교육과정 자료를 참고해 학생용 연결 문장으로 새로 정리했습니다.")}</p>
+          <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
+            ${(curriculumMap.sources || []).map(source => `<li>${renderSource(source)}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    }
+
     function renderDoc(id) {
       const doc = wikiDocs.find(item => item.id === id);
       if (!doc) {
@@ -1418,6 +1466,7 @@
                   ${doc.sources.map(source => `<li>${renderSource(source)}</li>`).join("")}
                 </ul>
               ` : ""}
+              ${renderCurriculumSourceBlock(doc)}
             </section>
           </article>
 
@@ -1439,6 +1488,7 @@
                   <p class="text-xs font-black text-slate-400 mb-1">태그</p>
                   <div class="flex flex-wrap gap-1.5">${displayTopicTags(doc).map(tag => `<a href="#/tag/${tag}" class="rounded-full bg-amber-50 border border-amber-100 px-2.5 py-1 text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join("")}</div>
                 </div>
+                ${renderCurriculumLinks(doc)}
               </div>
             </section>
 

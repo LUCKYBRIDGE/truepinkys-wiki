@@ -34,11 +34,12 @@ Run this before committing wiki content changes:
 
 ```bash
 node scripts/validate-wiki-content.mjs
+node scripts/validate-curriculum-map.mjs
 ```
 
 Also run:
 
 ```bash
-jq empty data/documents.json data/taxonomy.json
+jq empty data/documents.json data/taxonomy.json data/curriculum-map.json
 git diff --check
 ```
