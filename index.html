@@ -142,7 +142,7 @@
   <footer class="border-t border-slate-200 bg-white mt-12">
     <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 text-sm text-slate-500 leading-relaxed">
       <p class="font-bold text-slate-700 mb-2">트루핑키스 위키는 학생의 정보 탐색 연습을 위한 교육용 위키입니다.</p>
-      <p>지식은 제목, 본문, 교과목, 분류, 태그와 검색용 보조어를 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
+      <p>지식은 제목, 본문, 교과목, 분류, 태그와 비슷한 말을 함께 사용해 찾을 수 있습니다. 건강·법률·안전처럼 중요한 내용은 보호자, 선생님, 공공기관 자료와 함께 확인하세요.</p>
       <p class="mt-3">본 사이트의 많은 지식 본문과 퀴즈는 AI의 도움을 받아 초안을 작성하고 정리한 뒤 게시합니다. AI 자체를 출처로 쓰지는 않으며, 실제로 사실 확인에 참고한 공식 자료나 웹 자료가 있을 경우 아래에 표시하는 것을 원칙으로 합니다.</p>
       <p class="mt-3">출처 자료는 사실 확인용으로 참고하고, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
       <p class="mt-3">본 사이트는 교육용 서비스이며, 저작권자의 삭제 요청이 있을 경우 관련 게시물이 삭제될 수 있습니다.</p>
@@ -160,15 +160,15 @@
 
     const SEARCH_FIELDS = [
       { id: "title", label: "제목", weight: 5.0, group: "title" },
-      { id: "aliases", label: "검색용 보조어", weight: 4.0, group: "searchMeta" },
+      { id: "aliases", label: "비슷한 말", weight: 4.0, group: "searchMeta" },
       { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
-      { id: "curriculum", label: "교육과정 연결", weight: 3.2, group: "category" },
+      { id: "curriculum", label: "학교 공부 연결", weight: 3.2, group: "category" },
       { id: "categoryPaths", label: "분류", weight: 3.5, group: "category" },
-      { id: "mainTopic", label: "대표 큰 주제", weight: 3.1, group: "category" },
-      { id: "subTopicPath", label: "대표 작은 주제", weight: 3.0, group: "category" },
-      { id: "topicTags", label: "주제태그", weight: 3.1, group: "category" },
-      { id: "keywords", label: "검색용 보조어", weight: 2.7, group: "searchMeta" },
-      { id: "summary", label: "한 줄 설명", weight: 2.2, group: "content" },
+      { id: "mainTopic", label: "큰 주제", weight: 3.1, group: "category" },
+      { id: "subTopicPath", label: "작은 주제", weight: 3.0, group: "category" },
+      { id: "topicTags", label: "태그", weight: 3.1, group: "category" },
+      { id: "keywords", label: "함께 찾는 말", weight: 2.7, group: "searchMeta" },
+      { id: "summary", label: "짧은 설명", weight: 2.2, group: "content" },
       { id: "chapters", label: "본문", weight: 1.4, group: "content" },
       { id: "quiz", label: "퀴즈", weight: 1.5, group: "content" },
       { id: "searchContexts", label: "찾는 상황", weight: 1.8, group: "context" }
@@ -432,18 +432,24 @@
       if (!links.length) return "";
       return `
         <div>
-          <p class="text-xs font-black text-slate-400 mb-1">교육과정 연결</p>
+          <p class="text-xs font-black text-slate-400 mb-1">학교 공부와 연결</p>
           <div class="space-y-2">
             ${links.map(item => `
               <div class="rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
                 <p class="text-sm font-black text-emerald-900">${escapeHtml(item.subject)} · ${escapeHtml(item.area)}</p>
-                <p class="mt-1 text-xs font-bold text-slate-600 leading-relaxed">${escapeHtml(item.achievementSupport)}</p>
+                <p class="mt-1 text-xs font-bold text-slate-600 leading-relaxed">${escapeHtml(studentCurriculumText(item.achievementSupport))}</p>
               </div>
             `).join("")}
           </div>
-          <p class="mt-2 text-[11px] font-bold text-slate-500 leading-relaxed">성취기준 원문이 아니라, 2022 개정 교육과정 흐름을 참고해 학생용으로 정리한 연결입니다.</p>
+          <p class="mt-2 text-[11px] font-bold text-slate-500 leading-relaxed">이 지식이 학교 공부의 어떤 부분과 이어지는지 간단히 보여줍니다.</p>
         </div>
       `;
+    }
+
+    function studentCurriculumText(value) {
+      return String(value || "")
+        .replace(/성취기준 학습에 도움/g, "공부에 도움이 됩니다")
+        .replace(/성취기준/g, "학교 공부");
     }
 
     function displayTopicTags(doc) {
@@ -818,7 +824,7 @@
             <div>
               <p class="text-sm font-black text-teal-700 mb-3">학생용 온라인 백과</p>
               <h2 class="text-3xl sm:text-4xl font-black text-slate-950 leading-tight mb-3">학생을 위한 지식 백과, 트루핑키스 위키</h2>
-              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">지식은 큰 단원과 작은 단원으로 나누어 읽을 수 있습니다. 검색은 제목, 본문, 교과목, 여러 분류, 태그와 검색용 보조어를 함께 봅니다.</p>
+              <p class="text-[16px] text-slate-600 leading-relaxed max-w-3xl">궁금한 말을 검색하고, 설명을 읽은 뒤 퀴즈로 내가 이해했는지 확인할 수 있습니다. 제목, 본문, 교과목, 분류, 태그와 비슷한 말을 함께 찾아줍니다.</p>
               <div class="mt-5 flex flex-wrap gap-2">
                 <a href="#/quiz" class="inline-flex items-center gap-2 rounded-lg bg-teal-700 px-4 py-3 text-sm font-black text-white hover:bg-teal-800 transition">
                   <i class="fa-solid fa-circle-question"></i>
@@ -900,9 +906,9 @@
             <div class="border-t border-slate-200 pt-4">
               <h3 class="text-sm font-black text-slate-900 mb-2">지식 읽는 순서</h3>
               <ol class="space-y-2 text-sm text-slate-600 font-medium">
-                <li>1. 표제어와 한 줄 뜻을 먼저 확인합니다.</li>
-                <li>2. 목차에서 필요한 단원을 고릅니다.</li>
-                <li>3. 퀴즈로 이해한 내용을 확인합니다.</li>
+                <li>1. 제목과 짧은 설명을 먼저 확인합니다.</li>
+                <li>2. 목차에서 궁금한 부분을 골라 읽습니다.</li>
+                <li>3. 퀴즈를 풀며 이해한 내용을 확인합니다.</li>
               </ol>
             </div>
           </section>
@@ -941,7 +947,7 @@
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">"${escapeHtml(query)}" 검색 결과</h2>
-          <p class="text-slate-600 font-medium">제목, 내용, 교과목, 분류, 태그와 검색용 보조어에서 포함 정확도와 언급 빈도를 함께 계산했습니다.</p>
+          <p class="text-slate-600 font-medium">검색한 말이 제목과 내용에 직접 들어 있는 지식을 먼저 보여주고, 비슷한 말과 관련 주제도 함께 살펴봅니다.</p>
         </section>
         ${results.length ? `
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -954,8 +960,8 @@
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 퀴즈에서 얼마나 자주 나오는지 봅니다.</p>
                 <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 여러 분류 경로, 태그에 포함되는지 봅니다.</p>
-                <p><strong class="text-slate-900">보조어 검색:</strong> 비슷한 표현, 줄임말, 자주 함께 찾는 말을 내부적으로 함께 봅니다.</p>
-                <p><strong class="text-slate-900">맥락 검색:</strong> 학생이 어떤 상황에서 찾는 말인지 함께 봅니다.</p>
+                <p><strong class="text-slate-900">비슷한 말 검색:</strong> 줄임말이나 함께 자주 쓰는 말도 함께 봅니다.</p>
+                <p><strong class="text-slate-900">상황 검색:</strong> 왜 이 말을 찾는지와 가까운 지식도 함께 봅니다.</p>
                 <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">정확히 검색어가 포함된 결과를 먼저 보여주고, 그다음 맥락이 가까운 결과를 정렬합니다.</p>
               </div>
             </aside>
@@ -1397,8 +1403,8 @@
       if (!curriculumLinks(doc).length || !(curriculumMap.sources || []).length) return "";
       return `
         <div class="mt-4 rounded-lg border border-emerald-100 bg-emerald-50/70 p-4">
-          <h4 class="font-black text-emerald-900 mb-2">교육과정 연결 기준 자료</h4>
-          <p class="text-xs font-bold text-slate-600 leading-relaxed mb-3">${escapeHtml(curriculumMap.sourcePolicy || "교육과정 자료를 참고해 학생용 연결 문장으로 새로 정리했습니다.")}</p>
+          <h4 class="font-black text-emerald-900 mb-2">학교 공부 연결에 참고한 자료</h4>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed mb-3">${escapeHtml(curriculumMap.sourcePolicy || "학교에서 배우는 내용과 이어지는 부분을 확인하고, 학생이 읽기 쉬운 문장으로 새로 정리했습니다.")}</p>
           <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
             ${(curriculumMap.sources || []).map(source => `<li>${renderSource(source)}</li>`).join("")}
           </ul>
