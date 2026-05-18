@@ -459,25 +459,11 @@
       return curriculumGrades(doc).flatMap(gradeAliases).join(" ");
     }
 
-    function renderCurriculumGrades(doc) {
-      const grades = curriculumGrades(doc);
-      if (!grades.length) return "";
-      return `
-        <div class="mb-3">
-          <p class="text-xs font-black text-slate-400 mb-1">학교에서 만나는 학년</p>
-          <div class="flex flex-wrap gap-1.5">
-            ${grades.map(grade => `<span class="rounded-full bg-slate-50 border border-slate-200 px-2.5 py-1 text-xs font-black text-slate-700">${escapeHtml(grade)}</span>`).join("")}
-          </div>
-        </div>
-      `;
-    }
-
     function renderCurriculumLinks(doc) {
       const links = curriculumLinks(doc);
       if (!links.length) return "";
       return `
         <div>
-          ${renderCurriculumGrades(doc)}
           <p class="text-xs font-black text-slate-400 mb-1">학교 공부와 연결</p>
           <div class="space-y-2">
             ${links.map(item => `
@@ -769,11 +755,6 @@
             <div class="rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-600 font-bold">
               <span class="text-slate-900">분류:</span> ${categoryPathTexts(doc).map(escapeHtml).join(" · ") || "미정"}
             </div>
-            ${curriculumGrades(doc).length ? `
-              <div class="rounded-lg bg-emerald-50 border border-emerald-100 px-3 py-2 text-xs text-emerald-900 font-bold">
-                학교에서 만나는 학년: ${curriculumGrades(doc).map(escapeHtml).join(" · ")}
-              </div>
-            ` : ""}
             <div class="flex flex-wrap gap-1.5">${badgeList(displayTopicTags(doc), "bg-amber-50 border-amber-100 text-amber-800")}</div>
             ${contextLabels.length ? `
               <div class="rounded-lg bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-600 font-bold">
@@ -789,7 +770,6 @@
     function summarizeMatches(result) {
       const labels = [];
       if (result.grouped.title) labels.push(`제목 정확도 ${Math.round(result.grouped.title)}`);
-      if (result.grouped.grade) labels.push("학년 연결");
       if (result.grouped.category || result.grouped.searchMeta) labels.push(`분류 ${Math.round((result.grouped.category || 0) + (result.grouped.searchMeta || 0))}`);
       if (result.grouped.content) labels.push(`내용 ${Math.round(result.grouped.content)}`);
       if (result.grouped.context) labels.push("검색 맥락 일치");
@@ -1069,7 +1049,7 @@
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 퀴즈에서 얼마나 자주 나오는지 봅니다.</p>
-                <p><strong class="text-slate-900">학년 검색:</strong> 3학년, 초5, 중학교처럼 검색하면 학교에서 만나는 학년과 이어진 지식을 함께 봅니다.</p>
+                <p><strong class="text-slate-900">학년 검색:</strong> 3학년, 초5, 중학교처럼 검색해도 학교 공부와 이어진 지식을 함께 봅니다.</p>
                 <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 여러 분류 경로, 태그에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">비슷한 말 검색:</strong> 줄임말이나 함께 자주 쓰는 말도 함께 봅니다.</p>
                 <p><strong class="text-slate-900">상황 검색:</strong> 왜 이 말을 찾는지와 가까운 지식도 함께 봅니다.</p>
