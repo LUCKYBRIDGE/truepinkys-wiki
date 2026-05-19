@@ -1123,6 +1123,11 @@
       return /비교|차이|구분|같은 점|다른 점/.test(text);
     }
 
+    function isConnectionSection(chapter, section) {
+      const text = `${chapter.title || ""} ${section.heading || ""}`;
+      return /함께 볼 사람|함께 볼 사건|함께 볼 단체|연결되는 사람|인물과|사람과 시대|사람과 국가|사람과 단체|사람과 지식|사람과 교류|사람과 회원국|사람과 기술|사람과 시민/.test(text);
+    }
+
     function renderToc(doc, extraClass = "") {
       const chapters = doc.chapters || [];
       return `
@@ -1164,11 +1169,13 @@
           <div class="space-y-6">
             ${(chapter.sections || []).map((section, sectionIndex) => {
               const comparison = isComparisonSection(chapter, section);
+              const connection = !comparison && isConnectionSection(chapter, section);
               return `
-                <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""}">
+                <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""} ${connection ? "rounded-xl border border-sky-200 bg-sky-50/70 p-4 sm:p-5" : ""}">
                   ${comparison ? `<p class="mb-2 text-xs font-black text-amber-700">비교해서 이해하기</p>` : ""}
-                  <h4 class="${comparison ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
-                  ${(section.body || []).map(paragraph => `<p class="${comparison ? "text-slate-700" : ""}">${escapeHtml(paragraph)}</p>`).join("")}
+                  ${connection ? `<p class="mb-2 text-xs font-black text-sky-700">사람과 흐름 함께 보기</p>` : ""}
+                  <h4 class="${comparison || connection ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
+                  ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${escapeHtml(paragraph)}</p>`).join("")}
                 </section>
               `;
             }).join("")}
