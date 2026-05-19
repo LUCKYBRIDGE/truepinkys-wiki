@@ -1107,6 +1107,22 @@
       return `chapter-${chapterIndex + 1}-section-${sectionIndex + 1}`;
     }
 
+    function toggleTocChapter(event) {
+      event.preventDefault();
+      const details = event.currentTarget.closest("details");
+      if (!details) return;
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+      details.open = !details.open;
+      window.scrollTo(scrollX, scrollY);
+      setTimeout(() => window.scrollTo(scrollX, scrollY), 0);
+    }
+
+    function isComparisonSection(chapter, section) {
+      const text = `${chapter.title || ""} ${section.heading || ""}`;
+      return /비교|차이|구분|같은 점|다른 점/.test(text);
+    }
+
     function renderToc(doc, extraClass = "") {
       const chapters = doc.chapters || [];
       return `
@@ -1115,7 +1131,11 @@
           <ol class="space-y-3 text-sm font-bold text-slate-800">
             ${chapters.map((chapter, chapterIndex) => `
               <li>
-                <button type="button" onclick="scrollToDocSection('${chapterId(chapterIndex)}')" class="text-left hover:text-teal-700">${chapterIndex + 1}. ${escapeHtml(chapter.title)}</button>
+                <details class="group" ${chapterIndex === 0 ? "open" : ""}>
+                  <summary onclick="toggleTocChapter(event)" class="flex cursor-pointer list-none items-start justify-between gap-3 rounded-md px-2 py-1.5 hover:bg-white hover:text-teal-700 [&::-webkit-details-marker]:hidden">
+                    <span>${chapterIndex + 1}. ${escapeHtml(chapter.title)}</span>
+                    <i class="fa-solid fa-chevron-down mt-1 text-[10px] text-slate-400 transition group-open:rotate-180"></i>
+                  </summary>
                 ${(chapter.sections || []).length ? `
                   <ol class="mt-1 ml-4 space-y-1 text-slate-600 font-semibold">
                     ${chapter.sections.map((section, sectionIndex) => `
@@ -1123,6 +1143,7 @@
                     `).join("")}
                   </ol>
                 ` : ""}
+                </details>
               </li>
             `).join("")}
             ${(doc.quiz || []).length ? `<li><button type="button" onclick="scrollToDocSection('quiz')" class="text-left hover:text-teal-700">퀴즈</button></li>` : ""}
@@ -1141,12 +1162,16 @@
         <section class="mb-10" id="${chapterId(chapterIndex)}">
           <h3 class="text-2xl font-black text-slate-950 mb-4">${chapterIndex + 1}. ${escapeHtml(chapter.title)}</h3>
           <div class="space-y-6">
-            ${(chapter.sections || []).map((section, sectionIndex) => `
-              <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24">
-                <h4 class="text-xl font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
-                ${(section.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-              </section>
-            `).join("")}
+            ${(chapter.sections || []).map((section, sectionIndex) => {
+              const comparison = isComparisonSection(chapter, section);
+              return `
+                <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""}">
+                  ${comparison ? `<p class="mb-2 text-xs font-black text-amber-700">비교해서 이해하기</p>` : ""}
+                  <h4 class="${comparison ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
+                  ${(section.body || []).map(paragraph => `<p class="${comparison ? "text-slate-700" : ""}">${escapeHtml(paragraph)}</p>`).join("")}
+                </section>
+              `;
+            }).join("")}
           </div>
         </section>
       `).join("");
