@@ -113,6 +113,7 @@ const weakQuizExplanationPhrases = [
   "너무 단순합니다",
   "관련된 설명처럼 보이지만",
   "한 가지 예나 느낌만으로",
+  "본문은",
   "본문에서는",
   "라고 설명하므로",
   "이 지식은 알고 끝나는",
@@ -130,6 +131,15 @@ const weakQuizQuestionPhrases = [
 const awkwardKoreanPhrases = [
   "AI(인공지능)을",
   "생성형 AI을"
+];
+const subjectiveEvaluationPhrases = [
+  "훌륭",
+  "위대",
+  "영웅",
+  "자랑스",
+  "최고",
+  "최악",
+  "대단한"
 ];
 
 if (Array.isArray(docs)) {
@@ -168,6 +178,14 @@ function validateNoForcedSchoolContext(doc, label, values) {
   for (const value of values) {
     if (hasText(value) && forcedSchoolContextPattern.test(value)) {
       addError(doc.id, `${label} uses school context in a non-school knowledge: ${value}`);
+    }
+  }
+}
+
+function validateNoSubjectiveEvaluation(doc, label, values) {
+  for (const value of values) {
+    if (hasText(value) && subjectiveEvaluationPhrases.some(phrase => value.includes(phrase))) {
+      addError(doc.id, `${label} uses a subjective evaluation phrase: ${value}`);
     }
   }
 }
@@ -279,6 +297,9 @@ function validateQuiz(doc) {
     } else if (awkwardKoreanPhrases.some(phrase => item.explanation.includes(phrase))) {
       addError(doc.id, `quiz[${index}].explanation uses an awkward Korean phrase`);
     }
+    validateNoSubjectiveEvaluation(doc, `quiz[${index}].question`, [item.question]);
+    validateNoSubjectiveEvaluation(doc, `quiz[${index}].choices`, item.choices || []);
+    validateNoSubjectiveEvaluation(doc, `quiz[${index}].explanation`, [item.explanation]);
     if (hasText(item.question)) {
       const rightParticle = shouldUseObjectParticle(doc.title);
       const wrongParticle = rightParticle === "을" ? "를" : "을";
@@ -339,6 +360,15 @@ if (!Array.isArray(docs)) {
     validateNoForcedSchoolContext(doc, "aliases", doc.aliases || []);
     validateNoForcedSchoolContext(doc, "keywords", doc.keywords || []);
     validateNoForcedSchoolContext(doc, "searchContexts", doc.searchContexts || []);
+    validateNoSubjectiveEvaluation(doc, "summary", [doc.summary]);
+    validateNoSubjectiveEvaluation(doc, "definition", [doc.definition]);
+    validateNoSubjectiveEvaluation(doc, "mainTopic", [doc.mainTopic]);
+    validateNoSubjectiveEvaluation(doc, "subTopicPath", doc.subTopicPath || []);
+    validateNoSubjectiveEvaluation(doc, "categoryPaths", (doc.categoryPaths || []).flat());
+    validateNoSubjectiveEvaluation(doc, "topicTags", doc.topicTags || []);
+    validateNoSubjectiveEvaluation(doc, "aliases", doc.aliases || []);
+    validateNoSubjectiveEvaluation(doc, "keywords", doc.keywords || []);
+    validateNoSubjectiveEvaluation(doc, "searchContexts", doc.searchContexts || []);
     const paragraphTotal = (doc.chapters || [])
       .flatMap(chapter => chapter.sections || [])
       .flatMap(section => section.body || [])
@@ -361,6 +391,7 @@ if (!Array.isArray(docs)) {
           addError(docId, `chapters[${chapterIndex}].title is too generic: ${chapter.title}`);
         }
         validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].title`, [chapter.title]);
+        validateNoSubjectiveEvaluation(doc, `chapters[${chapterIndex}].title`, [chapter.title]);
         if (!Array.isArray(chapter.sections) || chapter.sections.length === 0) {
           addError(docId, `chapters[${chapterIndex}].sections must contain at least 1 section`);
         } else {
@@ -370,6 +401,7 @@ if (!Array.isArray(docs)) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading is too generic: ${section.heading}`);
             }
             validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].heading`, [section.heading]);
+            validateNoSubjectiveEvaluation(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].heading`, [section.heading]);
             if (!Array.isArray(section.body) || section.body.length === 0) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
             } else {
@@ -385,6 +417,7 @@ if (!Array.isArray(docs)) {
                   addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] uses an awkward Korean phrase`);
                 }
                 validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}]`, [paragraph]);
+                validateNoSubjectiveEvaluation(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}]`, [paragraph]);
               });
             }
           });
