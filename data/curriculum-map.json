@@ -1153,6 +1153,62 @@
         "area": "역사",
         "achievementSupport": "삼국 시대와 함께 가야의 연맹, 철 문화, 신라 병합 흐름을 이해하는 데 도움이 됩니다"
       }
+    ],
+    "gwanggaeto-the-great": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "삼국 시대 고구려의 성장과 주변 나라와의 관계를 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "kim-yu-sin": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "삼국 통일 과정에서 신라, 가야, 백제, 당의 관계를 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "dae-joyeong": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "고구려 멸망 뒤 발해 성립과 남북국 시대의 흐름을 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "wang-geon": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "후삼국 시대에서 고려 건국과 후삼국 통일로 이어지는 흐름을 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "jeong-yak-yong": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "조선 후기 실학과 사회 개혁의 생각을 인물과 저술을 통해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "jeon-bong-jun": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "조선 말 농민들의 개혁 요구와 동학 농민 운동을 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "an-jung-geun": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "대한제국의 위기와 일제 침략에 맞선 독립운동, 평화 사상을 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "kim-gu": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "대한민국 임시정부와 광복 전후 독립운동의 흐름을 인물 중심으로 이해하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -1621,6 +1677,38 @@
       "초6"
     ],
     "gaya": [
+      "초5",
+      "초6"
+    ],
+    "gwanggaeto-the-great": [
+      "초5",
+      "초6"
+    ],
+    "kim-yu-sin": [
+      "초5",
+      "초6"
+    ],
+    "dae-joyeong": [
+      "초5",
+      "초6"
+    ],
+    "wang-geon": [
+      "초5",
+      "초6"
+    ],
+    "jeong-yak-yong": [
+      "초5",
+      "초6"
+    ],
+    "jeon-bong-jun": [
+      "초5",
+      "초6"
+    ],
+    "an-jung-geun": [
+      "초5",
+      "초6"
+    ],
+    "kim-gu": [
       "초5",
       "초6"
     ]
