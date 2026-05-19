@@ -868,18 +868,18 @@
         "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
       }
     ],
-    "goryeo-founding": [
+    "goryeo": [
       {
         "subject": "사회",
         "area": "역사",
-        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+        "achievementSupport": "고려의 성립, 후삼국 통일, 문화와 대외 관계를 시간 흐름 속에서 이해하는 데 도움이 됩니다"
       }
     ],
-    "joseon-founding": [
+    "joseon": [
       {
         "subject": "사회",
         "area": "역사",
-        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+        "achievementSupport": "조선의 성립과 유교 중심의 나라 운영, 제도와 문화 변화를 이해하는 데 도움이 됩니다"
       }
     ],
     "imjin-war": [
@@ -931,25 +931,25 @@
         "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
       }
     ],
-    "gojoseon-founding": [
+    "gojoseon": [
       {
         "subject": "사회",
         "area": "역사",
-        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+        "achievementSupport": "고조선과 청동기 문화를 통해 우리 역사에서 첫 국가가 나타난 흐름을 이해하는 데 도움이 됩니다"
       }
     ],
-    "balhae-founding": [
+    "balhae": [
       {
         "subject": "사회",
         "area": "역사",
-        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+        "achievementSupport": "발해를 통일 신라와 함께 보며 남북국 시대와 고구려 계승의 흐름을 이해하는 데 도움이 됩니다"
       }
     ],
-    "hunminjeongeum-creation": [
+    "hunminjeongeum": [
       {
         "subject": "사회",
         "area": "역사",
-        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+        "achievementSupport": "훈민정음의 창제 배경과 문자 생활의 변화를 역사 흐름 속에서 이해하는 데 도움이 됩니다"
       },
       {
         "subject": "국어",
@@ -1032,11 +1032,11 @@
         "achievementSupport": "세계사의 주요 사건을 원인·전개·결과로 정리하고 다른 지역과의 연결을 파악하는 데 도움이 됩니다"
       }
     ],
-    "united-nations-founding": [
+    "united-nations": [
       {
         "subject": "사회",
         "area": "역사와 세계 시민",
-        "achievementSupport": "세계사의 주요 사건을 원인·전개·결과로 정리하고 다른 지역과의 연결을 파악하는 데 도움이 됩니다"
+        "achievementSupport": "국제연합의 목적과 역할을 통해 세계 평화, 인권, 국제 협력의 의미를 이해하는 데 도움이 됩니다"
       }
     ],
     "roman-empire": [
@@ -1110,6 +1110,48 @@
         "subject": "사회",
         "area": "역사와 세계 시민",
         "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "three-kingdoms": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "고구려·백제·신라를 중심으로 삼국 시대를 이해하고, 가야를 같은 고대 흐름 속에서 함께 살피는 데 도움이 됩니다"
+      }
+    ],
+    "unified-silla": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "삼국 통일 뒤 통일신라의 제도 정비와 문화 발달, 발해와 함께 보는 남북국 시대를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "later-three-kingdoms": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "후고구려·후백제·신라의 대립과 고려의 후삼국 통일을 시간 흐름 속에서 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "korean-empire": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "조선 말 대한제국의 성립과 광무개혁, 국권 침탈로 이어지는 근대사의 흐름을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "buyeo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "고조선 이후 부여 같은 초기 국가의 성장을 삼국 시대로 이어지는 흐름 속에서 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "gaya": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "삼국 시대와 함께 가야의 연맹, 철 문화, 신라 병합 흐름을 이해하는 데 도움이 됩니다"
       }
     ]
   },
@@ -1439,11 +1481,11 @@
       "초5",
       "초6"
     ],
-    "goryeo-founding": [
+    "goryeo": [
       "초5",
       "초6"
     ],
-    "joseon-founding": [
+    "joseon": [
       "초5",
       "초6"
     ],
@@ -1475,15 +1517,15 @@
       "초5",
       "초6"
     ],
-    "gojoseon-founding": [
+    "gojoseon": [
       "초5",
       "초6"
     ],
-    "balhae-founding": [
+    "balhae": [
       "초5",
       "초6"
     ],
-    "hunminjeongeum-creation": [
+    "hunminjeongeum": [
       "초5",
       "초6"
     ],
@@ -1524,7 +1566,7 @@
     "industrial-revolution": [
       "중학교"
     ],
-    "united-nations-founding": [
+    "united-nations": [
       "중학교"
     ],
     "roman-empire": [
@@ -1557,6 +1599,30 @@
     ],
     "nelson-mandela": [
       "중학교"
+    ],
+    "three-kingdoms": [
+      "초5",
+      "초6"
+    ],
+    "unified-silla": [
+      "초5",
+      "초6"
+    ],
+    "later-three-kingdoms": [
+      "초5",
+      "초6"
+    ],
+    "korean-empire": [
+      "초5",
+      "초6"
+    ],
+    "buyeo": [
+      "초5",
+      "초6"
+    ],
+    "gaya": [
+      "초5",
+      "초6"
     ]
   }
 }
