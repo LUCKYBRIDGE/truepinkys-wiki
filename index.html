@@ -43,6 +43,10 @@
       border-color: #ffffff;
     }
 
+    body.home-route #search-form {
+      display: none;
+    }
+
     .page-enter {
       animation: pageEnter 180ms ease-out;
     }
@@ -379,6 +383,7 @@
 
     function renderRoute() {
       const hash = decodeURIComponent(location.hash || "#/");
+      document.body.classList.toggle("home-route", hash === "#/" || hash === "");
       if (hash.startsWith("#/doc/")) {
         renderDoc(hash.replace("#/doc/", ""));
         return;
@@ -897,28 +902,30 @@
     }
 
     const TODAY_TOPIC_GROUPS = [
-      { label: "역사", topic: "역사", icon: "fa-landmark" },
-      { label: "과학", topic: "과학", icon: "fa-flask" },
-      { label: "경제", topic: "돈과 경제", icon: "fa-coins" },
-      { label: "사회", topic: "사회와 생활", icon: "fa-people-group" }
+      { label: "역사", topic: "역사", icon: "fa-landmark", preferredIds: ["three-kingdoms", "goryeo", "joseon", "march-first-movement", "liberation-korea", "korean-war"] },
+      { label: "과학", topic: "과학", icon: "fa-flask", preferredIds: ["electric-circuit", "climate-change", "solar-system", "state-change", "ecosystem", "weather-forecast"] },
+      { label: "경제", topic: "돈과 경제", icon: "fa-coins", preferredIds: ["interest-rate", "inflation", "saving-investing", "bond", "market-price", "money"] },
+      { label: "사회", topic: "사회와 생활", icon: "fa-people-group", preferredIds: ["democracy-election", "election", "law-rules", "public-institution", "our-land", "map"] }
     ];
 
     function stableTopicNumber(topic) {
       return [...String(topic || "")].reduce((sum, char) => sum + char.charCodeAt(0), 0);
     }
 
-    function pickTodayDoc(topic) {
-      const docs = wikiDocs
-        .filter(doc => doc.mainTopic === topic && (doc.quiz || []).length)
+    function pickTodayDoc(group) {
+      const preferredDocs = (group.preferredIds || [])
+        .map(id => wikiDocs.find(doc => doc.id === id && (doc.quiz || []).length))
+        .filter(Boolean);
+      const docs = (preferredDocs.length ? preferredDocs : wikiDocs.filter(doc => doc.mainTopic === group.topic && (doc.quiz || []).length))
         .sort((a, b) => a.title.localeCompare(b.title, "ko"));
       if (!docs.length) return wikiDocs.find(doc => (doc.quiz || []).length) || wikiDocs[0];
       const day = Math.floor(Date.now() / 86400000);
-      return docs[(day + stableTopicNumber(topic)) % docs.length];
+      return docs[(day + stableTopicNumber(group.topic)) % docs.length];
     }
 
     function renderTodayKnowledgeCards() {
       return TODAY_TOPIC_GROUPS.map(group => {
-        const doc = pickTodayDoc(group.topic);
+        const doc = pickTodayDoc(group);
         if (!doc) return "";
         return `
           <article class="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -933,7 +940,7 @@
             <p class="mt-2 min-h-[2.75rem] text-sm font-medium leading-relaxed text-slate-600 line-clamp-2">${escapeHtml(doc.summary)}</p>
             <div class="mt-4 grid grid-cols-2 gap-2 text-sm font-black">
               <a href="#/doc/${doc.id}" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-center text-slate-700 hover:border-teal-300 hover:bg-teal-50 hover:text-teal-800">지식 읽기</a>
-              <button type="button" onclick="openTodayQuiz('${doc.id}')" class="rounded-lg bg-teal-700 px-3 py-2.5 text-white hover:bg-teal-800">오늘 퀴즈</button>
+              <button type="button" onclick="openTodayQuiz('${doc.id}', '${group.label}')" class="rounded-lg bg-teal-700 px-3 py-2.5 text-white hover:bg-teal-800">오늘 퀴즈</button>
             </div>
           </article>
         `;
@@ -968,7 +975,7 @@
       document.body.classList.remove("overflow-hidden");
     }
 
-    function openTodayQuiz(docId) {
+    function openTodayQuiz(docId, topicLabel = "") {
       const doc = wikiDocs.find(item => item.id === docId);
       const quiz = doc && (doc.quiz || [])[0];
       if (!doc || !quiz) return;
@@ -981,7 +988,7 @@
         <section class="w-full max-w-2xl rounded-2xl bg-white p-5 shadow-2xl sm:p-6" id="${questionId}" data-explanation="${escapeHtml(quiz.explanation || "")}">
           <div class="mb-4 flex items-start justify-between gap-4">
             <div>
-              <p class="text-xs font-black text-teal-700">오늘의 ${escapeHtml(doc.mainTopic || "지식")} 퀴즈</p>
+              <p class="text-xs font-black text-teal-700">오늘의 ${escapeHtml(topicLabel || doc.mainTopic || "지식")} 퀴즈</p>
               <h2 class="mt-1 text-2xl font-black leading-tight text-slate-950">${escapeHtml(doc.title)}</h2>
             </div>
             <button type="button" onclick="closeTodayQuiz()" class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-slate-200 text-slate-500 hover:border-slate-400 hover:text-slate-900" aria-label="닫기">
@@ -1065,7 +1072,7 @@
           <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p class="text-xs font-black text-teal-700">오늘의 주제별 지식</p>
-              <h2 class="text-2xl font-black text-slate-950">큰 주제별로 하나씩 보기</h2>
+              <h2 class="text-2xl font-black text-slate-950">주제별로 하나씩 골라 보기</h2>
             </div>
             <a href="#/quiz" class="text-sm font-black text-teal-700 hover:text-teal-900">전체 퀴즈 코너 <i class="fa-solid fa-arrow-right"></i></a>
           </div>
