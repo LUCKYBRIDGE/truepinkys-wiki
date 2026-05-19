@@ -1503,6 +1503,17 @@
       `;
     }
 
+    function renderLeadDefinition(doc) {
+      const lead = doc.definition || doc.summary;
+      if (!lead) return "";
+      return `
+        <section class="mb-7 rounded-xl border border-teal-100 bg-teal-50/70 p-4 sm:p-5">
+          <p class="text-xs font-black text-teal-700 mb-2">먼저 알아두기</p>
+          <p class="text-lg font-black text-slate-900 leading-relaxed">${escapeHtml(lead)}</p>
+        </section>
+      `;
+    }
+
     function renderDoc(id) {
       const doc = wikiDocs.find(item => item.id === id);
       if (!doc) {
@@ -1532,6 +1543,8 @@
                 <p class="text-sm text-slate-400 font-bold whitespace-nowrap">최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
               </div>
             </header>
+
+            ${renderLeadDefinition(doc)}
 
             <div class="lg:hidden mb-7">
               ${renderToc(doc)}

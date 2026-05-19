@@ -309,6 +309,9 @@ if (!Array.isArray(docs)) {
     ["title", "summary", "definition", "lastReviewed", "copyrightNote"].forEach(field => {
       if (!hasText(doc[field])) addError(docId, `${field} must be non-empty text`);
     });
+    if (hasText(doc.definition) && [...doc.definition.trim()].length > 90) {
+      addError(docId, "definition must stay brief enough to serve as the lead explanation");
+    }
     if ("documentKind" in doc) addError(docId, "documentKind must not be used; use subjects and topicTags instead");
     if ("infobox" in doc) addError(docId, "infobox must not be used");
     if ("sections" in doc) addError(docId, "top-level sections must not be used; use chapters");
