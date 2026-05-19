@@ -1,7 +1,7 @@
-import fs from "node:fs";
+import { loadCurriculumMap, loadSourceDocs } from "./wiki-source.mjs";
 
-const docs = JSON.parse(fs.readFileSync("data/documents.json", "utf8"));
-const curriculumMap = JSON.parse(fs.readFileSync("data/curriculum-map.json", "utf8"));
+const docs = await loadSourceDocs();
+const curriculumMap = await loadCurriculumMap();
 
 const docIds = new Set(docs.map(doc => doc.id));
 const linkEntries = Object.entries(curriculumMap.docLinks || {});

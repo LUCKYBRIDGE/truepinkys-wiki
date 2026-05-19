@@ -195,8 +195,8 @@
     async function init() {
       try {
         const [taxonomyData, indexData] = await Promise.all([
-          fetchJson("./data/taxonomy.json"),
-          fetchJson("./data/knowledge-index.json")
+          fetchJson("./data/generated/taxonomy.json"),
+          fetchJson("./data/generated/knowledge-index.json")
         ]);
         wikiConfig = taxonomyData;
         wikiDocs = indexData;
@@ -225,13 +225,13 @@
     async function loadDoc(id) {
       const cached = docCache.get(id);
       if (cached && Array.isArray(cached.chapters)) return cached;
-      const fullDoc = await fetchJson(`./data/docs/${encodeURIComponent(id)}.json`);
+      const fullDoc = await fetchJson(`./data/generated/docs/${encodeURIComponent(id)}.json`);
       return updateIndexedDoc(fullDoc);
     }
 
     async function loadSearchIndex() {
       if (!searchIndexPromise) {
-        searchIndexPromise = fetchJson("./data/search-index.json").then(entries => {
+        searchIndexPromise = fetchJson("./data/generated/search-index.json").then(entries => {
           const byId = new Map(entries.map(entry => [entry.id, entry.searchFields || {}]));
           wikiDocs = wikiDocs.map(doc => ({ ...doc, searchFields: byId.get(doc.id) || doc.searchFields || {} }));
           wikiDocs.forEach(doc => {
@@ -246,7 +246,7 @@
 
     async function loadQuizIndex() {
       if (!quizIndexPromise) {
-        quizIndexPromise = fetchJson("./data/quiz-index.json").then(entries => {
+        quizIndexPromise = fetchJson("./data/generated/quiz-index.json").then(entries => {
           const byId = new Map(entries.map(entry => [entry.id, entry]));
           wikiDocs = wikiDocs.map(doc => ({ ...doc, ...(byId.get(doc.id) || {}) }));
           wikiDocs.forEach(doc => {
@@ -261,7 +261,7 @@
 
     async function loadCurriculumMap() {
       if (!curriculumMapPromise) {
-        curriculumMapPromise = fetchJson("./data/curriculum-map.json")
+        curriculumMapPromise = fetchJson("./data/generated/curriculum-map.json")
           .catch(() => ({ sources: [], docLinks: {} }))
           .then(data => {
             curriculumMap = data;

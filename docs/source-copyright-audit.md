@@ -4,7 +4,7 @@
 
 ## 점검 범위
 
-- `data/documents.json`의 지식 69개
+- `data/source/knowledge`의 지식 121개
 - 출처 항목 146개
 - 출처 도메인 52개
 

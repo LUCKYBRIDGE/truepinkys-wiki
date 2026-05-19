@@ -1,10 +1,8 @@
-import fs from "node:fs";
+import { loadKnowledgeOrder, loadSourceDocs, loadTaxonomy } from "./wiki-source.mjs";
 
-const documentsPath = "data/documents.json";
-const taxonomyPath = "data/taxonomy.json";
-
-const docs = JSON.parse(fs.readFileSync(documentsPath, "utf8"));
-const taxonomy = JSON.parse(fs.readFileSync(taxonomyPath, "utf8"));
+const docs = await loadSourceDocs();
+const taxonomy = await loadTaxonomy();
+const knowledgeOrder = await loadKnowledgeOrder();
 const errors = [];
 
 const sourceObjectFields = ["publisher", "title", "url", "usedFor", "license", "checkedAt"];
@@ -44,6 +42,7 @@ const blockedSourceHosts = [
 const taxonomySubjects = new Set(taxonomy.subjects || []);
 const taxonomyTags = new Set(taxonomy.topicTags || []);
 const ids = new Set();
+const orderedIds = new Set(knowledgeOrder);
 const definitionOwners = new Map();
 const schoolContextAllowedDocIds = new Set(["school-violence", "school-meal"]);
 const forcedSchoolContextPattern = /학교|학급|교실|등교|운동장|숙제|반 번호|선생님/;
@@ -291,8 +290,11 @@ function validateQuiz(doc) {
 }
 
 if (!Array.isArray(docs)) {
-  errors.push("data/documents.json must contain a top-level array");
+  errors.push("data/source/knowledge must contain JSON knowledge files");
 } else {
+  if (!Array.isArray(knowledgeOrder) || knowledgeOrder.length !== docs.length) {
+    errors.push("data/source/knowledge-order.json must list every knowledge id exactly once");
+  }
   for (const doc of docs) {
     const docId = doc.id || "(missing id)";
 
@@ -305,6 +307,7 @@ if (!Array.isArray(docs)) {
     }
     if (ids.has(docId)) addError(docId, "duplicate id");
     ids.add(docId);
+    if (!orderedIds.has(docId)) addError(docId, "missing from data/source/knowledge-order.json");
 
     ["title", "summary", "definition", "lastReviewed", "copyrightNote"].forEach(field => {
       if (!hasText(doc[field])) addError(docId, `${field} must be non-empty text`);
@@ -439,6 +442,10 @@ if (!Array.isArray(docs)) {
       if (!ids.has(relatedId)) addError(doc.id, `related id "${relatedId}" does not exist`);
     }
   }
+}
+
+for (const orderedId of knowledgeOrder) {
+  if (!ids.has(orderedId)) addError(orderedId, "knowledge-order.json references a missing knowledge file");
 }
 
 if (errors.length) {

@@ -4,7 +4,7 @@ This repository is a static Korean student wiki. Follow these rules when changin
 
 ## Required Before Adding Knowledge
 
-- Read `docs/wiki-content-guidelines.md` before editing `data/documents.json`.
+- Read `docs/wiki-content-guidelines.md` before editing files under `data/source/knowledge`.
 - Follow the terminology map in `docs/wiki-content-guidelines.md`: user-facing entries are `지식`, sources are `자료`, and internal code/file names may keep `document`.
 - Use official, public, or clearly reusable sources first.
 - Use only sources whose reuse, citation, or student-facing rewrite conditions are clear enough for new content.
@@ -15,10 +15,10 @@ This repository is a static Korean student wiki. Follow these rules when changin
 
 ## Required Fields
 
-Every new knowledge entry in `data/documents.json` must include:
+Every new knowledge entry in `data/source/knowledge/**/*.json` must include:
 
-- `id`, `title`, `summary`, `definition`, `documentKind`, `lastReviewed`
-- `subjects`, `topicTags`, `aliases`, `keywords`, `searchContexts`
+- `id`, `title`, `summary`, `definition`, `lastReviewed`
+- `subjects`, `mainTopic`, `subTopicPath`, `categoryPaths`, `topicTags`, `aliases`, `keywords`, `searchContexts`
 - `chapters`, with large learning units and nested sections
 - `quiz`, `related`, `sources`, `copyrightNote`
 
@@ -40,6 +40,6 @@ node scripts/validate-curriculum-map.mjs
 Also run:
 
 ```bash
-jq empty data/documents.json data/taxonomy.json data/curriculum-map.json
+jq empty data/source/taxonomy.json data/source/curriculum-map.json data/source/knowledge/digital/ai.json data/generated/knowledge-index.json data/generated/search-index.json data/generated/quiz-index.json
 git diff --check
 ```

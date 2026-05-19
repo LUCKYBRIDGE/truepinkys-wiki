@@ -1,16 +1,19 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import {
+  generatedDir,
+  generatedDocsDir,
+  loadCurriculumMap,
+  loadSourceDocs,
+  loadTaxonomy
+} from "./wiki-source.mjs";
 
-const rootDir = process.cwd();
-const dataDir = path.join(rootDir, "data");
-const docsDir = path.join(dataDir, "docs");
-const sourcePath = path.join(dataDir, "documents.json");
-const curriculumPath = path.join(dataDir, "curriculum-map.json");
+const docs = await loadSourceDocs();
+const taxonomy = await loadTaxonomy();
+const curriculumMap = await loadCurriculumMap();
 
-const docs = JSON.parse(await readFile(sourcePath, "utf8"));
-const curriculumMap = JSON.parse(await readFile(curriculumPath, "utf8"));
-
-await mkdir(docsDir, { recursive: true });
+await rm(generatedDir, { recursive: true, force: true });
+await mkdir(generatedDocsDir, { recursive: true });
 
 function textFromChapters(doc) {
   return (doc.chapters || []).map(chapter => [
@@ -112,12 +115,14 @@ const searchIndex = docs.map(doc => {
   };
 });
 
-await writeFile(path.join(dataDir, "knowledge-index.json"), JSON.stringify(knowledgeIndex, null, 2) + "\n");
-await writeFile(path.join(dataDir, "quiz-index.json"), JSON.stringify(quizIndex, null, 2) + "\n");
-await writeFile(path.join(dataDir, "search-index.json"), JSON.stringify(searchIndex, null, 2) + "\n");
+await writeFile(path.join(generatedDir, "taxonomy.json"), JSON.stringify(taxonomy, null, 2) + "\n");
+await writeFile(path.join(generatedDir, "curriculum-map.json"), JSON.stringify(curriculumMap, null, 2) + "\n");
+await writeFile(path.join(generatedDir, "knowledge-index.json"), JSON.stringify(knowledgeIndex, null, 2) + "\n");
+await writeFile(path.join(generatedDir, "quiz-index.json"), JSON.stringify(quizIndex, null, 2) + "\n");
+await writeFile(path.join(generatedDir, "search-index.json"), JSON.stringify(searchIndex, null, 2) + "\n");
 
 for (const doc of docs) {
-  await writeFile(path.join(docsDir, `${doc.id}.json`), JSON.stringify(doc, null, 2) + "\n");
+  await writeFile(path.join(generatedDocsDir, `${doc.id}.json`), JSON.stringify(doc, null, 2) + "\n");
 }
 
 console.log(`Built ${docs.length} split wiki data files.`);
