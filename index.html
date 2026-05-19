@@ -180,19 +180,27 @@
     ];
 
     let wikiDocs = [];
+    const docCache = new Map();
+    let searchIndexPromise = null;
+    let quizIndexPromise = null;
+    let curriculumMapPromise = null;
     let curriculumMap = { sources: [], docLinks: {} };
+
+    async function fetchJson(url) {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load ${url}`);
+      return response.json();
+    }
 
     async function init() {
       try {
-        const cacheKey = Date.now();
-        const [taxonomyRes, docsRes, curriculumRes] = await Promise.all([
-          fetch(`./data/taxonomy.json?v=${cacheKey}`, { cache: "no-store" }),
-          fetch(`./data/documents.json?v=${cacheKey}`, { cache: "no-store" }),
-          fetch(`./data/curriculum-map.json?v=${cacheKey}`, { cache: "no-store" }).catch(() => null)
+        const [taxonomyData, indexData] = await Promise.all([
+          fetchJson("./data/taxonomy.json"),
+          fetchJson("./data/knowledge-index.json")
         ]);
-        wikiConfig = await taxonomyRes.json();
-        wikiDocs = await docsRes.json();
-        curriculumMap = curriculumRes && curriculumRes.ok ? await curriculumRes.json() : { sources: [], docLinks: {} };
+        wikiConfig = taxonomyData;
+        wikiDocs = indexData;
+        wikiDocs.forEach(doc => docCache.set(doc.id, doc));
         window.addEventListener("hashchange", renderRoute);
         document.getElementById("search-form").addEventListener("submit", handleSearchSubmit);
         renderRoute();
@@ -204,6 +212,63 @@
           </section>
         `;
       }
+    }
+
+    function updateIndexedDoc(fullDoc) {
+      const index = wikiDocs.findIndex(doc => doc.id === fullDoc.id);
+      const merged = index >= 0 ? { ...wikiDocs[index], ...fullDoc } : fullDoc;
+      if (index >= 0) wikiDocs[index] = merged;
+      docCache.set(fullDoc.id, merged);
+      return docCache.get(fullDoc.id);
+    }
+
+    async function loadDoc(id) {
+      const cached = docCache.get(id);
+      if (cached && Array.isArray(cached.chapters)) return cached;
+      const fullDoc = await fetchJson(`./data/docs/${encodeURIComponent(id)}.json`);
+      return updateIndexedDoc(fullDoc);
+    }
+
+    async function loadSearchIndex() {
+      if (!searchIndexPromise) {
+        searchIndexPromise = fetchJson("./data/search-index.json").then(entries => {
+          const byId = new Map(entries.map(entry => [entry.id, entry.searchFields || {}]));
+          wikiDocs = wikiDocs.map(doc => ({ ...doc, searchFields: byId.get(doc.id) || doc.searchFields || {} }));
+          wikiDocs.forEach(doc => {
+            const cached = docCache.get(doc.id);
+            docCache.set(doc.id, cached ? { ...cached, searchFields: doc.searchFields } : doc);
+          });
+          return entries;
+        });
+      }
+      return searchIndexPromise;
+    }
+
+    async function loadQuizIndex() {
+      if (!quizIndexPromise) {
+        quizIndexPromise = fetchJson("./data/quiz-index.json").then(entries => {
+          const byId = new Map(entries.map(entry => [entry.id, entry]));
+          wikiDocs = wikiDocs.map(doc => ({ ...doc, ...(byId.get(doc.id) || {}) }));
+          wikiDocs.forEach(doc => {
+            const cached = docCache.get(doc.id);
+            docCache.set(doc.id, cached ? { ...cached, ...doc } : doc);
+          });
+          return entries;
+        });
+      }
+      return quizIndexPromise;
+    }
+
+    async function loadCurriculumMap() {
+      if (!curriculumMapPromise) {
+        curriculumMapPromise = fetchJson("./data/curriculum-map.json")
+          .catch(() => ({ sources: [], docLinks: {} }))
+          .then(data => {
+            curriculumMap = data;
+            return data;
+          });
+      }
+      return curriculumMapPromise;
     }
 
     function normalize(value) {
@@ -228,12 +293,14 @@
 
     function fieldText(doc, fieldId) {
       if (fieldId === "chapters") {
+        if (doc.searchFields && doc.searchFields.chapters) return doc.searchFields.chapters;
         return (doc.chapters || []).map(chapter => [
           chapter.title,
           ...(chapter.sections || []).map(section => [section.heading, ...(section.body || [])].join(" "))
         ].join(" ")).join(" ");
       }
       if (fieldId === "quiz") {
+        if (doc.searchFields && doc.searchFields.quiz) return doc.searchFields.quiz;
         return (doc.quiz || []).map(item => [
           item.question,
           ...(item.choices || []),
@@ -244,6 +311,7 @@
         return (doc.categoryPaths || []).map(path => (path || []).join(" ")).join(" ");
       }
       if (fieldId === "curriculum") {
+        if (doc.searchFields && doc.searchFields.curriculum) return doc.searchFields.curriculum;
         return curriculumLinks(doc).map(item => [
           item.subject,
           item.area,
@@ -251,6 +319,7 @@
         ].join(" ")).join(" ");
       }
       if (fieldId === "grades") {
+        if (doc.searchFields && doc.searchFields.grades) return doc.searchFields.grades;
         return curriculumGradeSearchText(doc);
       }
       const value = doc[fieldId];
@@ -326,9 +395,9 @@
         doc.title,
         doc.summary,
         ...(doc.subjects || []),
-        ...curriculumGrades(doc).flatMap(gradeAliases),
+        fieldText(doc, "grades"),
         ...(doc.categoryPaths || []).flat(),
-        ...curriculumLinks(doc).flatMap(item => [item.subject, item.area, item.achievementSupport]),
+        fieldText(doc, "curriculum"),
         doc.mainTopic,
         ...(doc.subTopicPath || []),
         ...(doc.topicTags || []),
@@ -381,11 +450,11 @@
       }
     }
 
-    function renderRoute() {
+    async function renderRoute() {
       const hash = decodeURIComponent(location.hash || "#/");
       document.body.classList.toggle("home-route", hash === "#/" || hash === "");
       if (hash.startsWith("#/doc/")) {
-        renderDoc(hash.replace("#/doc/", ""));
+        await renderDoc(hash.replace("#/doc/", ""));
         return;
       }
       if (hash.startsWith("#/subject/")) {
@@ -398,13 +467,13 @@
       }
       if (hash === "#/quiz" || hash.startsWith("#/quiz/")) {
         const quizRoute = quizRouteFromHash(hash);
-        renderQuizCorner(quizRoute.scope, quizRoute.isStarted);
+        await renderQuizCorner(quizRoute.scope, quizRoute.isStarted);
         return;
       }
       if (hash.startsWith("#/search/")) {
         const query = hash.replace("#/search/", "");
         document.getElementById("search-input").value = query;
-        renderSearch(query);
+        await renderSearch(query);
         return;
       }
       renderHome();
@@ -498,6 +567,14 @@
         ...(doc.subTopicPath || [])
       ].filter(Boolean));
       return (doc.topicTags || []).filter(tag => !categoryWords.has(tag));
+    }
+
+    function quizCount(doc) {
+      return Number.isFinite(doc.quizCount) ? doc.quizCount : (doc.quiz || []).length;
+    }
+
+    function totalQuizCount() {
+      return wikiDocs.reduce((sum, doc) => sum + quizCount(doc), 0);
     }
 
     function tagCount(tag) {
@@ -605,7 +682,7 @@
     function docsForQuizScope(scope) {
       const safeScope = scope || { kind: "all", value: "" };
       return wikiDocs.filter(doc => {
-        if (!(doc.quiz || []).length) return false;
+        if (!quizCount(doc)) return false;
         if (safeScope.kind === "multi") {
           return (safeScope.scopes || []).some(item => docMatchesQuizScope(doc, item));
         }
@@ -630,7 +707,7 @@
         tag: new Set()
       };
       for (const doc of wikiDocs) {
-        if (!(doc.quiz || []).length) continue;
+        if (!quizCount(doc)) continue;
         for (const path of categoryPathArrays(doc)) {
           if (path[0]) valueSets.main.add(path[0]);
           if (path.length > 1) valueSets.small.add(path.slice(1).join(" > "));
@@ -653,21 +730,21 @@
         group: "전체",
         label: "전체 범위",
         docCount: docsForQuizScope({ kind: "all", value: "" }).length,
-        quizCount: quizItemsForScope({ kind: "all", value: "" }).length
+        quizCount: totalQuizCount()
       }];
       for (const kind of ["main", "small", "path", "subject", "tag"]) {
         for (const value of Array.from(valueSets[kind]).sort((a, b) => a.localeCompare(b, "ko"))) {
           const scope = { kind, value };
           const docs = docsForQuizScope(scope);
-          const quizCount = docs.reduce((sum, doc) => sum + (doc.quiz || []).length, 0);
-          if (!quizCount) continue;
+          const scopedQuizCount = docs.reduce((sum, doc) => sum + quizCount(doc), 0);
+          if (!scopedQuizCount) continue;
           options.push({
             ...scope,
             key: quizScopeKey(kind, value),
             group: groupLabels[kind],
             label: quizScopeLabel(scope),
             docCount: docs.length,
-            quizCount
+            quizCount: scopedQuizCount
           });
         }
       }
@@ -799,8 +876,8 @@
         doc.summary,
         doc.definition,
         ...(doc.subjects || []),
-        ...curriculumGrades(doc).flatMap(gradeAliases),
-        ...curriculumLinks(doc).flatMap(item => [item.subject, item.area, item.achievementSupport]),
+        fieldText(doc, "grades"),
+        fieldText(doc, "curriculum"),
         ...(doc.categoryPaths || []).flat(),
         doc.mainTopic,
         ...(doc.subTopicPath || []),
@@ -981,11 +1058,11 @@
 
     function pickTodayDoc(group) {
       const preferredDocs = (group.preferredIds || [])
-        .map(id => wikiDocs.find(doc => doc.id === id && (doc.quiz || []).length))
+        .map(id => wikiDocs.find(doc => doc.id === id && quizCount(doc)))
         .filter(Boolean);
-      const docs = (preferredDocs.length ? preferredDocs : wikiDocs.filter(doc => doc.mainTopic === group.topic && (doc.quiz || []).length))
+      const docs = (preferredDocs.length ? preferredDocs : wikiDocs.filter(doc => doc.mainTopic === group.topic && quizCount(doc)))
         .sort((a, b) => a.title.localeCompare(b.title, "ko"));
-      if (!docs.length) return wikiDocs.find(doc => (doc.quiz || []).length) || wikiDocs[0];
+      if (!docs.length) return wikiDocs.find(doc => quizCount(doc)) || wikiDocs[0];
       const day = Math.floor(Date.now() / 86400000);
       return docs[(day + stableTopicNumber(group.topic)) % docs.length];
     }
@@ -1001,7 +1078,7 @@
                 <i class="fa-solid ${group.icon}"></i>
                 오늘의 ${group.label} 지식
               </span>
-              <span class="text-xs font-black text-slate-400">${(doc.quiz || []).length}문제</span>
+              <span class="text-xs font-black text-slate-400">${quizCount(doc)}문제</span>
             </div>
             <h3 class="text-lg font-black leading-snug text-slate-950">${escapeHtml(doc.title)}</h3>
             <p class="mt-2 min-h-[2.75rem] text-sm font-medium leading-relaxed text-slate-600 line-clamp-2">${escapeHtml(doc.summary)}</p>
@@ -1039,7 +1116,7 @@
 
     function dailyDiscoveryDocs(limit = 2) {
       const docs = wikiDocs
-        .filter(doc => (doc.quiz || []).length)
+        .filter(doc => quizCount(doc))
         .sort((a, b) => a.id.localeCompare(b.id));
       if (!docs.length) return [];
       const day = Math.floor(startOfToday().getTime() / 86400000);
@@ -1119,8 +1196,8 @@
       document.body.classList.remove("overflow-hidden");
     }
 
-    function openTodayQuiz(docId, topicLabel = "") {
-      const doc = wikiDocs.find(item => item.id === docId);
+    async function openTodayQuiz(docId, topicLabel = "") {
+      const doc = await loadDoc(docId);
       const quiz = doc && (doc.quiz || [])[0];
       if (!doc || !quiz) return;
       closeTodayQuiz();
@@ -1301,7 +1378,8 @@
       location.hash = `#/search/${encodeURIComponent(query)}`;
     }
 
-    function renderSearch(query) {
+    async function renderSearch(query) {
+      await loadSearchIndex();
       const results = searchDocs(query);
       rerenderWithTransition(`
         <section class="mb-6">
@@ -1430,7 +1508,7 @@
                 </details>
               </li>
             `).join("")}
-            ${(doc.quiz || []).length ? `<li><button type="button" onclick="scrollToDocSection('quiz')" class="text-left hover:text-teal-700">퀴즈</button></li>` : ""}
+            ${quizCount(doc) ? `<li><button type="button" onclick="scrollToDocSection('quiz')" class="text-left hover:text-teal-700">퀴즈</button></li>` : ""}
           </ol>
         </nav>
       `;
@@ -1582,7 +1660,8 @@
       `;
     }
 
-    function renderQuizCorner(selectedScope = { kind: "all", value: "" }, isStarted = false) {
+    async function renderQuizCorner(selectedScope = { kind: "all", value: "" }, isStarted = false) {
+      await loadQuizIndex();
       const requestedScope = typeof selectedScope === "string" ? { kind: "path", value: selectedScope } : selectedScope;
       const options = quizScopeOptions();
       const optionMap = new Map(options.map(item => [item.key, item]));
@@ -1607,7 +1686,7 @@
         if (validScopes.length > 1) {
           safeScope = { kind: "multi", scopes: validScopes };
           const selectedDocsForMulti = docsForQuizScope(safeScope);
-          const quizCountForMulti = selectedDocsForMulti.reduce((sum, doc) => sum + (doc.quiz || []).length, 0);
+          const quizCountForMulti = selectedDocsForMulti.reduce((sum, doc) => sum + quizCount(doc), 0);
           selectedOption = {
             kind: "multi",
             value: "",
@@ -1825,8 +1904,8 @@
       `;
     }
 
-    function renderDoc(id) {
-      const doc = wikiDocs.find(item => item.id === id);
+    async function renderDoc(id) {
+      let doc = wikiDocs.find(item => item.id === id);
       if (!doc) {
         rerenderWithTransition(`
           <section class="bg-white border border-slate-200 rounded-xl p-8">
@@ -1836,6 +1915,16 @@
         `);
         return;
       }
+      if (!Array.isArray(doc.chapters)) {
+        rerenderWithTransition(`
+          <section class="bg-white border border-slate-200 rounded-xl p-8">
+            <p class="text-sm font-black text-teal-700 mb-2">지식 불러오는 중</p>
+            <h2 class="text-2xl font-black text-slate-950">${escapeHtml(doc.title)}</h2>
+            <p class="mt-3 text-slate-600 font-medium">본문과 출처를 준비하고 있습니다.</p>
+          </section>
+        `);
+      }
+      [doc] = await Promise.all([loadDoc(id), loadCurriculumMap()]);
 
       const relatedDocs = (doc.related || []).map(relatedId => wikiDocs.find(item => item.id === relatedId)).filter(Boolean);
       rerenderWithTransition(`

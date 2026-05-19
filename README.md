@@ -5,10 +5,17 @@
 ## 구조
 
 - `index.html`: 단일 페이지 앱, 검색, 필터, 지식 보기
-- `data/documents.json`: 위키 지식 데이터
+- `data/documents.json`: 위키 지식 원본 데이터
 - `data/taxonomy.json`: 교과목, 주제태그, 인기 검색어
+- `data/curriculum-map.json`: 교육과정 참고 분류 데이터
+- `data/knowledge-index.json`: 첫 화면과 목록에 쓰는 가벼운 지식 색인
+- `data/search-index.json`: 검색 화면에서만 불러오는 검색용 색인
+- `data/quiz-index.json`: 퀴즈 코너에서만 불러오는 퀴즈용 색인
+- `data/docs/*.json`: 지식 상세 화면에서 하나씩 불러오는 개별 지식 파일
 - `docs/wiki-content-guidelines.md`: 새 지식 추가 지침
+- `scripts/build-wiki-data.mjs`: 원본 지식 데이터에서 화면용 분할 데이터를 생성하는 스크립트
 - `scripts/validate-wiki-content.mjs`: 지식 데이터 검증 스크립트
+- `scripts/validate-curriculum-map.mjs`: 교육과정 분류 데이터 검증 스크립트
 
 ## 지식 데이터 원칙
 
@@ -29,11 +36,23 @@
 
 새 지식 추가 전에는 `docs/wiki-content-guidelines.md`를 확인하고, 원문 문장·이미지·표·그래프를 복제하지 않은 학생용 새 문장으로 작성합니다.
 
+## 데이터 생성
+
+지식 내용은 `data/documents.json`을 원본으로 수정합니다. 원본을 수정한 뒤에는 아래 명령으로 첫 화면용 색인, 검색 색인, 퀴즈 색인, 개별 지식 파일을 다시 생성합니다.
+
+```bash
+node scripts/build-wiki-data.mjs
+```
+
+첫 화면은 `data/knowledge-index.json`만 먼저 읽고, 지식 상세·검색·퀴즈 화면에 들어갈 때 필요한 데이터만 추가로 불러옵니다. 그래서 원본 지식이 늘어나도 첫 접속에서 `data/documents.json` 전체를 한 번에 읽지 않습니다.
+
 ## 검증
 
 ```bash
+node scripts/build-wiki-data.mjs
 node scripts/validate-wiki-content.mjs
-jq empty data/documents.json data/taxonomy.json
+node scripts/validate-curriculum-map.mjs
+jq empty data/documents.json data/taxonomy.json data/curriculum-map.json data/knowledge-index.json data/search-index.json data/quiz-index.json data/docs/ai.json data/docs/petrodollar.json
 git diff --check
 ```
 
