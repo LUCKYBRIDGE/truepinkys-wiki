@@ -887,6 +887,16 @@
         "subject": "사회",
         "area": "역사",
         "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
       }
     ],
     "manchu-war": [
@@ -894,6 +904,16 @@
         "subject": "사회",
         "area": "역사",
         "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
       }
     ],
     "donghak-peasant-movement": [
@@ -1365,6 +1385,261 @@
         "area": "공동체와 책임",
         "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
       }
+    ],
+    "jeongmyo-horan": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "japanese-colonial-period": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "independence-movement": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "hansan-island-battle": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "jinju-fortress-battle": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "namhansanseong-defense": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "korean-liberation-army": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "hanein-aegukdan": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "bongodong-battle": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "cheongsanri-battle": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "uiyeoldan": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "yun-bong-gil": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "lee-bong-chang": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "an-chang-ho": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "shin-chaeho": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "역사 자료와 설명 글을 읽고 핵심 내용을 근거 있게 정리하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -1703,11 +1978,13 @@
     ],
     "imjin-war": [
       "초5",
-      "초6"
+      "초6",
+      "중학교"
     ],
     "manchu-war": [
       "초5",
-      "초6"
+      "초6",
+      "중학교"
     ],
     "donghak-peasant-movement": [
       "초5",
@@ -1929,6 +2206,81 @@
       "중학교"
     ],
     "gwangju-student-independence-movement": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "jeongmyo-horan": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "japanese-colonial-period": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "independence-movement": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "hansan-island-battle": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "jinju-fortress-battle": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "namhansanseong-defense": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "korean-liberation-army": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "hanein-aegukdan": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "bongodong-battle": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "cheongsanri-battle": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "uiyeoldan": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "yun-bong-gil": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "lee-bong-chang": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "an-chang-ho": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "shin-chaeho": [
       "초5",
       "초6",
       "중학교"

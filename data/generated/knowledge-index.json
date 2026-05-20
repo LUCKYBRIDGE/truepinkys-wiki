@@ -6177,7 +6177,7 @@
     "id": "imjin-war",
     "title": "임진왜란",
     "summary": "임진왜란은 1592년 일본군이 조선을 침략하면서 시작되어 7년 동안 이어진 동아시아의 큰 전쟁입니다.",
-    "definition": "1592년부터 1598년까지 조선, 일본, 명이 한반도에서 맞부딪친 대규모 전쟁입니다.",
+    "definition": "1592년부터 1598년까지 조선, 일본, 명이 한반도에서 맞부딪친 전쟁입니다.",
     "subjects": [
       "사회",
       "국어",
@@ -6185,8 +6185,7 @@
     ],
     "topicTags": [
       "역사",
-      "문화",
-      "안전"
+      "전쟁과 평화"
     ],
     "aliases": [
       "임진 전쟁",
@@ -6201,6 +6200,7 @@
       "도요토미 히데요시",
       "조선 수군",
       "한산도 대첩",
+      "진주대첩",
       "의병",
       "명나라",
       "이순신",
@@ -6213,12 +6213,13 @@
     ],
     "related": [
       "joseon",
-      "palace",
-      "national-heritage",
+      "hansan-island-battle",
+      "jinju-fortress-battle",
+      "yi-sun-sin",
       "manchu-war",
-      "yi-sun-sin"
+      "national-heritage"
     ],
-    "lastReviewed": "2026-05-19",
+    "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
     "subTopicPath": [
       "한국사",
@@ -6236,7 +6237,127 @@
       ]
     ],
     "quizCount": 3,
-    "timelineCount": 4
+    "timelineCount": 5
+  },
+  {
+    "id": "hansan-island-battle",
+    "title": "한산도 대첩",
+    "summary": "한산도 대첩은 1592년 이순신이 이끄는 조선 수군이 한산도 앞바다에서 일본 수군을 크게 물리친 전투입니다.",
+    "definition": "1592년 조선 수군이 한산도 앞바다에서 일본 수군을 물리친 전투입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "한산대첩",
+      "한산도 해전",
+      "학익진",
+      "이순신 해전"
+    ],
+    "keywords": [
+      "1592년",
+      "이순신",
+      "조선 수군",
+      "한산도",
+      "학익진",
+      "임진왜란",
+      "제해권"
+    ],
+    "searchContexts": [
+      "임진왜란 해전의 흐름을 알고 싶을 때",
+      "이순신과 조선 수군의 역할을 볼 때",
+      "한산도 대첩이 왜 전쟁 흐름에 영향을 주었는지 궁금할 때"
+    ],
+    "related": [
+      "imjin-war",
+      "yi-sun-sin",
+      "jinju-fortress-battle",
+      "joseon"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "조선"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "조선"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "jinju-fortress-battle",
+    "title": "진주대첩",
+    "summary": "진주대첩은 임진왜란 때 조선군과 백성이 진주성에서 일본군의 공격을 막아 낸 전투입니다.",
+    "definition": "임진왜란 때 조선군과 백성이 진주성에서 일본군을 막아 낸 전투입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "진주성 전투",
+      "제1차 진주성 전투",
+      "김시민",
+      "진주성"
+    ],
+    "keywords": [
+      "임진왜란",
+      "1592년",
+      "진주성",
+      "김시민",
+      "의병",
+      "백성",
+      "경상우도"
+    ],
+    "searchContexts": [
+      "임진왜란 육지 전투를 알고 싶을 때",
+      "진주성이 왜 중요한지 궁금할 때",
+      "관군과 백성이 함께 싸운 사례를 볼 때"
+    ],
+    "related": [
+      "imjin-war",
+      "hansan-island-battle",
+      "yi-sun-sin",
+      "joseon"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "조선"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "조선"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 3
   },
   {
     "id": "yi-sun-sin",
@@ -6305,10 +6426,10 @@
     "timelineCount": 4
   },
   {
-    "id": "manchu-war",
-    "title": "병자호란",
-    "summary": "병자호란은 1636년에 청이 조선을 침략해 조선이 큰 피해를 입고 동아시아 질서가 바뀌었음을 보여 준 사건입니다.",
-    "definition": "1636년부터 1637년까지 청이 조선을 침략해 인조가 남한산성에서 항전한 뒤 항복한 전쟁입니다.",
+    "id": "jeongmyo-horan",
+    "title": "정묘호란",
+    "summary": "정묘호란은 1627년 후금이 조선을 침략해 조선과 후금이 화약을 맺고 끝난 전쟁입니다.",
+    "definition": "1627년 후금이 조선을 침략해 일어난 전쟁입니다.",
     "subjects": [
       "사회",
       "국어",
@@ -6316,37 +6437,162 @@
     ],
     "topicTags": [
       "역사",
-      "문화",
-      "뉴스와 미디어"
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "정묘년 호란",
+      "후금의 침입",
+      "정묘화약",
+      "호란"
+    ],
+    "keywords": [
+      "1627년",
+      "후금",
+      "인조",
+      "강화도",
+      "정묘화약",
+      "병자호란",
+      "명"
+    ],
+    "searchContexts": [
+      "정묘호란과 병자호란의 차이를 알고 싶을 때",
+      "후금이 왜 조선을 침략했는지 궁금할 때",
+      "조선 후기 국제 관계 변화를 볼 때"
+    ],
+    "related": [
+      "manchu-war",
+      "joseon",
+      "imjin-war",
+      "namhansanseong-defense"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "조선"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "조선"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "manchu-war",
+    "title": "병자호란",
+    "summary": "병자호란은 1636년 청이 조선을 침략해 인조가 남한산성에서 항전한 뒤 항복한 전쟁입니다.",
+    "definition": "1636년부터 1637년까지 청이 조선을 침략한 전쟁입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "전쟁과 평화"
     ],
     "aliases": [
       "호란",
-      "정묘호란과 병자호란",
+      "병자년 호란",
       "남한산성",
       "인조",
-      "청나라"
+      "청나라",
+      "삼전도"
     ],
     "keywords": [
       "1636년",
       "1637년",
-      "후금",
       "청",
       "명",
       "인조",
-      "삼전도"
+      "남한산성",
+      "삼전도",
+      "정묘호란",
+      "군신 관계"
     ],
     "searchContexts": [
       "남한산성과 병자호란의 관계가 궁금할 때",
       "조선과 청의 관계가 어떻게 달라졌는지 알고 싶을 때",
-      "임진왜란 뒤 조선이 또 겪은 전쟁을 볼 때"
+      "정묘호란 뒤 병자호란이 왜 일어났는지 볼 때"
     ],
     "related": [
+      "jeongmyo-horan",
+      "namhansanseong-defense",
       "imjin-war",
       "joseon",
-      "national-heritage",
-      "cold-war"
+      "national-heritage"
     ],
-    "lastReviewed": "2026-05-19",
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "조선"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "조선"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "namhansanseong-defense",
+    "title": "남한산성 항전",
+    "summary": "남한산성 항전은 병자호란 때 인조와 조선 조정이 남한산성에 들어가 청군에 맞서 버틴 일입니다.",
+    "definition": "병자호란 때 조선 조정이 남한산성에서 청군에 맞서 버틴 일입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "전쟁과 평화",
+      "문화"
+    ],
+    "aliases": [
+      "남한산성",
+      "병자호란 남한산성",
+      "산성 항전",
+      "삼전도"
+    ],
+    "keywords": [
+      "1636년",
+      "1637년",
+      "병자호란",
+      "인조",
+      "남한산성",
+      "청",
+      "삼전도",
+      "강화도"
+    ],
+    "searchContexts": [
+      "병자호란 때 남한산성이 왜 나오는지 궁금할 때",
+      "인조가 남한산성에 들어간 이유를 알고 싶을 때",
+      "전쟁과 문화유산을 함께 볼 때"
+    ],
+    "related": [
+      "manchu-war",
+      "jeongmyo-horan",
+      "joseon",
+      "national-heritage"
+    ],
+    "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
     "subTopicPath": [
       "한국사",
@@ -6809,6 +7055,140 @@
     "timelineCount": 3
   },
   {
+    "id": "an-chang-ho",
+    "title": "안창호",
+    "summary": "안창호는 교육과 계몽, 국외 독립운동, 대한민국 임시정부 활동에 참여한 독립운동가입니다.",
+    "definition": "교육과 계몽, 국외 독립운동에 힘쓴 독립운동가입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "역사 인물",
+      "독립운동"
+    ],
+    "aliases": [
+      "도산 안창호",
+      "대성 교육 활동",
+      "흥사단",
+      "신민회 안창호"
+    ],
+    "keywords": [
+      "1878년",
+      "1938년",
+      "도산",
+      "대성 교육 활동",
+      "신민회",
+      "흥사단",
+      "대한인국민회",
+      "대한민국 임시정부"
+    ],
+    "searchContexts": [
+      "안창호가 어떤 독립운동을 했는지 알고 싶을 때",
+      "교육 운동과 독립운동의 관계를 볼 때",
+      "신민회와 흥사단을 연결해 볼 때"
+    ],
+    "related": [
+      "sinminhoe",
+      "independence-movement",
+      "provisional-government",
+      "shin-chaeho",
+      "japanese-colonial-period"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "역사 인물"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 5
+  },
+  {
+    "id": "shin-chaeho",
+    "title": "신채호",
+    "summary": "신채호는 역사 연구와 글쓰기로 민족의식을 일깨우고 독립운동에 참여한 역사학자이자 독립운동가입니다.",
+    "definition": "역사 연구와 글쓰기로 독립운동에 참여한 역사학자입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "역사 인물",
+      "독립운동"
+    ],
+    "aliases": [
+      "단재 신채호",
+      "조선혁명선언",
+      "독사신론",
+      "민족주의 사학"
+    ],
+    "keywords": [
+      "1880년",
+      "1936년",
+      "단재",
+      "대한매일신보",
+      "독사신론",
+      "조선상고사",
+      "조선혁명선언",
+      "의열단"
+    ],
+    "searchContexts": [
+      "신채호가 역사 연구로 독립운동을 한 까닭을 알고 싶을 때",
+      "조선혁명선언과 의열단의 관계를 볼 때",
+      "민족주의 역사학을 쉽게 이해하고 싶을 때"
+    ],
+    "related": [
+      "uiyeoldan",
+      "independence-movement",
+      "an-chang-ho",
+      "sinminhoe",
+      "japanese-colonial-period"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "역사 인물"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 5
+  },
+  {
     "id": "donghak-peasant-movement",
     "title": "동학 농민 운동",
     "summary": "동학 농민 운동은 1894년 농민들이 부패한 정치와 외세의 간섭에 맞서 개혁을 요구하며 일어난 운동입니다.",
@@ -7072,6 +7452,70 @@
     "timelineCount": 4
   },
   {
+    "id": "japanese-colonial-period",
+    "title": "일제강점기",
+    "summary": "일제강점기는 1910년부터 1945년까지 일본이 한국의 주권을 빼앗고 식민 통치를 한 시기입니다.",
+    "definition": "1910년부터 1945년까지 일본이 한국을 식민지로 지배한 시기입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "일제 강점기",
+      "식민지 시기",
+      "식민 통치",
+      "1910년부터 1945년"
+    ],
+    "keywords": [
+      "1910년",
+      "1945년",
+      "한일 병합",
+      "조선총독부",
+      "무단 통치",
+      "문화 통치",
+      "민족 말살",
+      "독립운동",
+      "광복"
+    ],
+    "searchContexts": [
+      "일제강점기가 어떤 시기인지 알고 싶을 때",
+      "식민 통치와 독립운동의 관계를 볼 때",
+      "1910년부터 1945년까지의 한국사를 정리할 때"
+    ],
+    "related": [
+      "eulsa-treaty",
+      "march-first-movement",
+      "independence-movement",
+      "provisional-government",
+      "liberation-korea"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
     "id": "righteous-army",
     "title": "의병 운동",
     "summary": "의병 운동은 외세의 침략과 국권 침탈에 맞서 사람들이 스스로 무장을 하고 나라를 지키려 한 항일 운동입니다.",
@@ -7138,6 +7582,70 @@
     ],
     "quizCount": 3,
     "timelineCount": 4
+  },
+  {
+    "id": "independence-movement",
+    "title": "독립운동",
+    "summary": "독립운동은 나라의 주권을 되찾기 위해 국내외에서 펼쳐진 여러 활동과 투쟁을 말합니다.",
+    "definition": "빼앗긴 나라의 주권을 되찾기 위해 펼친 활동과 투쟁입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동"
+    ],
+    "aliases": [
+      "항일 독립운동",
+      "국권 회복 운동",
+      "독립 투쟁",
+      "민족 운동"
+    ],
+    "keywords": [
+      "의병",
+      "애국 계몽",
+      "3·1 운동",
+      "대한민국 임시정부",
+      "독립군",
+      "의열단",
+      "한인애국단",
+      "한국광복군",
+      "광복"
+    ],
+    "searchContexts": [
+      "독립운동의 종류를 한눈에 정리하고 싶을 때",
+      "독립운동 사건과 인물을 연결해서 볼 때",
+      "일제강점기 한국사를 큰 흐름으로 볼 때"
+    ],
+    "related": [
+      "japanese-colonial-period",
+      "righteous-army",
+      "march-first-movement",
+      "provisional-government",
+      "korean-liberation-army",
+      "uiyeoldan"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 5
   },
   {
     "id": "an-jung-geun",
@@ -7449,6 +7957,454 @@
       "an-jung-geun"
     ],
     "lastReviewed": "2026-05-19",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "uiyeoldan",
+    "title": "의열단",
+    "summary": "의열단은 1919년 김원봉 등이 만든 독립운동 단체로, 일제의 식민 통치 기관을 겨냥한 의열 투쟁을 벌였습니다.",
+    "definition": "1919년 김원봉 등이 만든 의열 투쟁 중심의 독립운동 단체입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동"
+    ],
+    "aliases": [
+      "조선의열단",
+      "김원봉",
+      "의열 투쟁",
+      "조선혁명선언"
+    ],
+    "keywords": [
+      "1919년",
+      "김원봉",
+      "만주",
+      "의열 투쟁",
+      "조선총독부",
+      "경찰서",
+      "신채호",
+      "조선혁명선언"
+    ],
+    "searchContexts": [
+      "의열단이 어떤 단체인지 알고 싶을 때",
+      "김원봉과 신채호가 독립운동에서 어떻게 연결되는지 볼 때",
+      "독립운동의 여러 방식을 비교할 때"
+    ],
+    "related": [
+      "independence-movement",
+      "shin-chaeho",
+      "hanein-aegukdan",
+      "japanese-colonial-period"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "hanein-aegukdan",
+    "title": "한인애국단",
+    "summary": "한인애국단은 대한민국 임시정부와 김구가 중심이 되어 1930년대 의거 활동을 추진한 독립운동 단체입니다.",
+    "definition": "1930년대 대한민국 임시정부 계열의 의거 활동 단체입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동"
+    ],
+    "aliases": [
+      "한인 애국단",
+      "김구 한인애국단",
+      "이봉창 의거",
+      "윤봉길 의거"
+    ],
+    "keywords": [
+      "1931년",
+      "김구",
+      "대한민국 임시정부",
+      "이봉창",
+      "윤봉길",
+      "도쿄 의거",
+      "훙커우 공원 의거"
+    ],
+    "searchContexts": [
+      "윤봉길과 이봉창의 의거가 어떤 단체와 연결되는지 궁금할 때",
+      "임시정부의 1930년대 활동을 알고 싶을 때",
+      "의거 활동과 독립운동을 구분해 볼 때"
+    ],
+    "related": [
+      "provisional-government",
+      "kim-gu",
+      "lee-bong-chang",
+      "yun-bong-gil",
+      "independence-movement"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "lee-bong-chang",
+    "title": "이봉창",
+    "summary": "이봉창은 한인애국단 단원으로 1932년 도쿄에서 일본 왕을 향해 의거를 시도한 독립운동가입니다.",
+    "definition": "1932년 도쿄 의거를 시도한 한인애국단의 독립운동가입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "역사 인물",
+      "독립운동"
+    ],
+    "aliases": [
+      "이봉창 의사",
+      "도쿄 의거",
+      "동경 의거",
+      "한인애국단 이봉창"
+    ],
+    "keywords": [
+      "1901년",
+      "1932년",
+      "도쿄",
+      "일왕",
+      "김구",
+      "한인애국단",
+      "대한민국 임시정부"
+    ],
+    "searchContexts": [
+      "이봉창 의거가 무엇인지 알고 싶을 때",
+      "한인애국단의 첫 의거를 볼 때",
+      "김구와 이봉창의 관계를 정리할 때"
+    ],
+    "related": [
+      "hanein-aegukdan",
+      "kim-gu",
+      "yun-bong-gil",
+      "provisional-government",
+      "independence-movement"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "역사 인물"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "yun-bong-gil",
+    "title": "윤봉길",
+    "summary": "윤봉길은 한인애국단 단원으로 1932년 상하이 훙커우 공원 의거를 실행한 독립운동가입니다.",
+    "definition": "1932년 상하이 훙커우 공원 의거를 실행한 독립운동가입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "역사 인물",
+      "독립운동"
+    ],
+    "aliases": [
+      "매헌 윤봉길",
+      "윤봉길 의사",
+      "훙커우 공원 의거",
+      "홍커우 의거"
+    ],
+    "keywords": [
+      "1908년",
+      "1932년",
+      "예산",
+      "농촌 계몽",
+      "김구",
+      "한인애국단",
+      "상하이",
+      "훙커우 공원"
+    ],
+    "searchContexts": [
+      "윤봉길이 어떤 독립운동을 했는지 알고 싶을 때",
+      "한인애국단과 윤봉길의 관계를 볼 때",
+      "상하이 훙커우 공원 의거를 정리할 때"
+    ],
+    "related": [
+      "hanein-aegukdan",
+      "kim-gu",
+      "provisional-government",
+      "lee-bong-chang",
+      "independence-movement"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "역사 인물"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "bongodong-battle",
+    "title": "봉오동 전투",
+    "summary": "봉오동 전투는 1920년 홍범도 등이 이끈 독립군이 봉오동 일대에서 일본군을 물리친 전투입니다.",
+    "definition": "1920년 독립군이 봉오동 일대에서 일본군과 싸워 승리한 전투입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "봉오동전투",
+      "홍범도",
+      "대한독립군",
+      "독립군 전투"
+    ],
+    "keywords": [
+      "1920년",
+      "봉오동",
+      "홍범도",
+      "대한독립군",
+      "만주",
+      "독립군",
+      "청산리 대첩"
+    ],
+    "searchContexts": [
+      "1920년대 독립군 전투를 알고 싶을 때",
+      "홍범도와 봉오동 전투의 관계가 궁금할 때",
+      "봉오동 전투와 청산리 대첩을 비교할 때"
+    ],
+    "related": [
+      "independence-movement",
+      "cheongsanri-battle",
+      "japanese-colonial-period",
+      "righteous-army"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "cheongsanri-battle",
+    "title": "청산리 대첩",
+    "summary": "청산리 대첩은 1920년 김좌진 등이 이끈 독립군이 청산리 일대에서 일본군과 싸운 전투입니다.",
+    "definition": "1920년 독립군이 청산리 일대에서 일본군과 싸운 전투입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "청산리 전투",
+      "김좌진",
+      "북로군정서",
+      "독립군 전투"
+    ],
+    "keywords": [
+      "1920년",
+      "청산리",
+      "김좌진",
+      "북로군정서",
+      "독립군",
+      "만주",
+      "봉오동 전투"
+    ],
+    "searchContexts": [
+      "청산리 대첩의 전개를 알고 싶을 때",
+      "김좌진과 북로군정서를 연결해 볼 때",
+      "1920년대 무장 독립운동을 정리할 때"
+    ],
+    "related": [
+      "bongodong-battle",
+      "independence-movement",
+      "japanese-colonial-period",
+      "korean-liberation-army"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ],
+      [
+        "역사",
+        "전쟁과 평화"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "korean-liberation-army",
+    "title": "한국광복군",
+    "summary": "한국광복군은 1940년 대한민국 임시정부가 중국 충칭에서 세운 독립군 부대입니다.",
+    "definition": "1940년 대한민국 임시정부가 세운 독립군 부대입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "광복군",
+      "대한민국 임시정부 광복군",
+      "한국광복군 창설",
+      "충칭 광복군"
+    ],
+    "keywords": [
+      "1940년",
+      "대한민국 임시정부",
+      "충칭",
+      "김구",
+      "지청천",
+      "무장 독립운동",
+      "태평양 전쟁",
+      "광복"
+    ],
+    "searchContexts": [
+      "임시정부의 군사 활동을 알고 싶을 때",
+      "광복군이 왜 만들어졌는지 궁금할 때",
+      "독립운동과 제2차 세계 대전을 연결해 볼 때"
+    ],
+    "related": [
+      "provisional-government",
+      "kim-gu",
+      "independence-movement",
+      "liberation-korea",
+      "world-war-two"
+    ],
+    "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
     "subTopicPath": [
       "한국사",
