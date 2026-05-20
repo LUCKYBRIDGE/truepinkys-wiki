@@ -1640,6 +1640,101 @@
         "area": "타인과 공동체",
         "achievementSupport": "공동체의 문제와 책임 있는 선택을 역사 사례와 연결해 생각하는 데 도움이 됩니다"
       }
+    ],
+    "earth-rotation-revolution": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "지구와 천체의 운동을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "seasons": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "계절 변화와 태양의 위치, 낮의 길이 변화를 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "계절과 자연환경이 생활 모습에 주는 영향을 살펴보는 데 도움이 됩니다"
+      }
+    ],
+    "fossil": [
+      {
+        "subject": "과학",
+        "area": "지구와 생명",
+        "achievementSupport": "지층과 화석 자료를 바탕으로 과거 생물과 환경을 추리하는 데 도움이 됩니다"
+      }
+    ],
+    "rocks-minerals": [
+      {
+        "subject": "과학",
+        "area": "지구와 물질",
+        "achievementSupport": "암석과 광물을 관찰 기준에 따라 비교하고 분류하는 데 도움이 됩니다"
+      }
+    ],
+    "sound": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "소리가 진동으로 만들어지고 여러 물질을 통해 전달되는 현상을 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "음악",
+        "area": "소리와 표현",
+        "achievementSupport": "소리의 높낮이와 세기를 표현 활동과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "digestion": [
+      {
+        "subject": "과학",
+        "area": "생명과 몸",
+        "achievementSupport": "우리 몸의 기관이 영양소를 소화하고 흡수하는 과정을 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "식생활",
+        "achievementSupport": "균형 잡힌 식생활과 몸의 건강을 연결해 생각하는 데 도움이 됩니다"
+      }
+    ],
+    "respiration": [
+      {
+        "subject": "과학",
+        "area": "생명과 몸",
+        "achievementSupport": "호흡 기관과 산소, 이산화탄소의 이동을 몸의 활동과 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강",
+        "achievementSupport": "운동과 호흡, 건강한 생활 습관의 관계를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "river": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "하천 지형과 물 이용, 지역 생활의 관계를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "환경과 생태",
+        "achievementSupport": "물환경과 생태계, 오염 관리의 관계를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "fraction": [
+      {
+        "subject": "수학",
+        "area": "수와 연산",
+        "achievementSupport": "전체와 부분의 관계를 분수로 나타내고 크기를 비교하는 데 도움이 됩니다"
+      }
+    ],
+    "ratio": [
+      {
+        "subject": "수학",
+        "area": "수와 연산",
+        "achievementSupport": "두 양의 관계를 비와 비율, 백분율로 나타내고 자료를 해석하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -2284,6 +2379,48 @@
       "초5",
       "초6",
       "중학교"
+    ],
+    "earth-rotation-revolution": [
+      "초5",
+      "초6"
+    ],
+    "seasons": [
+      "초5",
+      "초6"
+    ],
+    "fossil": [
+      "초3",
+      "초4"
+    ],
+    "rocks-minerals": [
+      "초3",
+      "초4"
+    ],
+    "sound": [
+      "초3",
+      "초4"
+    ],
+    "digestion": [
+      "초5",
+      "초6"
+    ],
+    "respiration": [
+      "초5",
+      "초6"
+    ],
+    "river": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "fraction": [
+      "초3",
+      "초4"
+    ],
+    "ratio": [
+      "초5",
+      "초6"
     ]
   }
 }
