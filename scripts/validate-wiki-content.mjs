@@ -141,6 +141,7 @@ const subjectiveEvaluationPhrases = [
   "최악",
   "대단한"
 ];
+const weakHistoryHeadingPattern = /함께 볼|보지 않기|주의할 점|넓게 이해|깊게 보기|외우지 않기/;
 
 if (Array.isArray(docs)) {
   for (const doc of docs) {
@@ -417,6 +418,9 @@ if (!Array.isArray(docs)) {
         if (hasText(chapter.title) && weakStructureHeadings.has(chapter.title.trim())) {
           addError(docId, `chapters[${chapterIndex}].title is too generic: ${chapter.title}`);
         }
+        if (isHistoryDoc(doc) && hasText(chapter.title) && weakHistoryHeadingPattern.test(chapter.title)) {
+          addError(docId, `chapters[${chapterIndex}].title must use encyclopedia-style history wording: ${chapter.title}`);
+        }
         validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].title`, [chapter.title]);
         validateNoSubjectiveEvaluation(doc, `chapters[${chapterIndex}].title`, [chapter.title]);
         if (!Array.isArray(chapter.sections) || chapter.sections.length === 0) {
@@ -426,6 +430,9 @@ if (!Array.isArray(docs)) {
             if (!hasText(section.heading)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must be non-empty`);
             if (hasText(section.heading) && weakStructureHeadings.has(section.heading.trim())) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading is too generic: ${section.heading}`);
+            }
+            if (isHistoryDoc(doc) && hasText(section.heading) && weakHistoryHeadingPattern.test(section.heading)) {
+              addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must use encyclopedia-style history wording: ${section.heading}`);
             }
             validateNoForcedSchoolContext(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].heading`, [section.heading]);
             validateNoSubjectiveEvaluation(doc, `chapters[${chapterIndex}].sections[${sectionIndex}].heading`, [section.heading]);
