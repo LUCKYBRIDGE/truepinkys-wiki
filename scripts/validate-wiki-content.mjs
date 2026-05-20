@@ -141,7 +141,8 @@ const subjectiveEvaluationPhrases = [
   "최악",
   "대단한"
 ];
-const weakHistoryHeadingPattern = /함께 볼|보지 않기|주의할 점|넓게 이해|깊게 보기|외우지 않기/;
+const weakHistoryHeadingPattern = /함께 볼|보지 않기|주의할 점|넓게 이해|깊게 보기|외우지 않기|헷갈리기|확인할 점/;
+const weakEncyclopediaHeadingPattern = /읽는 방법|읽는 기준|정보 읽기|살펴보기$|나누어 보기$|먼저 보기$|맞춰 보기$|넓게 보기$|생각하기$/;
 
 if (Array.isArray(docs)) {
   for (const doc of docs) {
@@ -418,6 +419,9 @@ if (!Array.isArray(docs)) {
         if (hasText(chapter.title) && weakStructureHeadings.has(chapter.title.trim())) {
           addError(docId, `chapters[${chapterIndex}].title is too generic: ${chapter.title}`);
         }
+        if (hasText(chapter.title) && weakEncyclopediaHeadingPattern.test(chapter.title)) {
+          addError(docId, `chapters[${chapterIndex}].title must use encyclopedia-style wording: ${chapter.title}`);
+        }
         if (isHistoryDoc(doc) && hasText(chapter.title) && weakHistoryHeadingPattern.test(chapter.title)) {
           addError(docId, `chapters[${chapterIndex}].title must use encyclopedia-style history wording: ${chapter.title}`);
         }
@@ -430,6 +434,9 @@ if (!Array.isArray(docs)) {
             if (!hasText(section.heading)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must be non-empty`);
             if (hasText(section.heading) && weakStructureHeadings.has(section.heading.trim())) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading is too generic: ${section.heading}`);
+            }
+            if (hasText(section.heading) && weakEncyclopediaHeadingPattern.test(section.heading)) {
+              addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must use encyclopedia-style wording: ${section.heading}`);
             }
             if (isHistoryDoc(doc) && hasText(section.heading) && weakHistoryHeadingPattern.test(section.heading)) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must use encyclopedia-style history wording: ${section.heading}`);

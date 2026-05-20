@@ -167,7 +167,7 @@
       { id: "aliases", label: "비슷한 말", weight: 4.0, group: "searchMeta" },
       { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
       { id: "grades", label: "학년", weight: 3.8, group: "grade" },
-      { id: "curriculum", label: "학교 공부 연결", weight: 3.2, group: "category" },
+      { id: "curriculum", label: "교과 연결", weight: 3.2, group: "category" },
       { id: "categoryPaths", label: "분류", weight: 3.5, group: "category" },
       { id: "mainTopic", label: "큰 주제", weight: 3.1, group: "category" },
       { id: "subTopicPath", label: "작은 주제", weight: 3.0, group: "category" },
@@ -547,7 +547,7 @@
       if (!links.length) return "";
       return `
         <div>
-          <p class="text-xs font-black text-slate-400 mb-1">학교 공부와 연결</p>
+          <p class="text-xs font-black text-slate-400 mb-1">교과 연결</p>
           <div class="space-y-2">
             ${links.map(item => `
               <div class="rounded-lg border border-emerald-100 bg-emerald-50/70 px-3 py-2">
@@ -556,7 +556,7 @@
               </div>
             `).join("")}
           </div>
-          <p class="mt-2 text-[11px] font-bold text-slate-500 leading-relaxed">이 지식이 학교 공부의 어떤 부분과 이어지는지 간단히 보여줍니다.</p>
+          <p class="mt-2 text-[11px] font-bold text-slate-500 leading-relaxed">이 지식이 어떤 교과 내용과 이어지는지 보여줍니다.</p>
         </div>
       `;
     }
@@ -566,7 +566,7 @@
         .replace(/성취기준 학습에 도움/g, "공부에 도움이 됩니다")
         .replace(/하는 공부에 도움이 됩니다/g, "하는 데 도움이 됩니다")
         .replace(/기르는 공부에 도움이 됩니다/g, "기르는 데 도움이 됩니다")
-        .replace(/성취기준/g, "학교 공부");
+        .replace(/성취기준/g, "교과 내용");
     }
 
     function displayTopicTags(doc) {
@@ -1355,8 +1355,8 @@
               </button>
             ` : ""}
             <div class="mt-4 rounded-xl border border-teal-100 bg-teal-50/70 p-4">
-              <p class="text-sm font-black text-teal-900">읽는 순서</p>
-              <p class="mt-1 text-sm font-medium leading-relaxed text-slate-600">핵심 뜻을 확인하고, 목차에서 필요한 부분을 읽은 뒤 퀴즈로 점검합니다.</p>
+              <p class="text-sm font-black text-teal-900">문서 구성</p>
+              <p class="mt-1 text-sm font-medium leading-relaxed text-slate-600">간단한 뜻, 목차, 본문, 퀴즈와 출처를 한 문서 안에서 확인합니다.</p>
             </div>
           </section>
         </section>
@@ -1879,8 +1879,8 @@
         ? `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer" class="font-bold text-teal-700 hover:text-teal-900">${escapeHtml(label)}</a>`
         : `<span class="font-bold text-slate-700">${escapeHtml(label)}</span>`;
       const details = [
-        source.usedFor ? `이 자료로 확인한 내용: ${source.usedFor}` : "",
-        source.license ? `이용 메모: ${source.license}` : "",
+        source.usedFor ? `확인한 내용: ${source.usedFor}` : "",
+        source.license ? `이용 조건: ${source.license}` : "",
         source.checkedAt ? `확인일: ${source.checkedAt}` : ""
       ].filter(Boolean);
       return `
@@ -1893,8 +1893,8 @@
       if (!curriculumLinks(doc).length || !(curriculumMap.sources || []).length) return "";
       return `
         <div class="mt-4 rounded-lg border border-emerald-100 bg-emerald-50/70 p-4">
-          <h4 class="font-black text-emerald-900 mb-2">학교 공부 연결에 참고한 자료</h4>
-          <p class="text-xs font-bold text-slate-600 leading-relaxed mb-3">${escapeHtml(curriculumMap.sourcePolicy || "학교에서 배우는 내용과 이어지는 부분을 확인하고, 학생이 읽기 쉬운 문장으로 새로 정리했습니다.")}</p>
+          <h4 class="font-black text-emerald-900 mb-2">교과 연결 자료</h4>
+          <p class="text-xs font-bold text-slate-600 leading-relaxed mb-3">${escapeHtml(curriculumMap.sourcePolicy || "교과 내용과 연결되는 부분을 확인하고, 학생이 읽기 쉬운 문장으로 새로 정리했습니다.")}</p>
           <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600">
             ${(curriculumMap.sources || []).map(source => `<li>${renderSource(source)}</li>`).join("")}
           </ul>
@@ -1907,7 +1907,7 @@
       if (!lead) return "";
       return `
         <section class="mb-7 rounded-xl border border-teal-100 bg-teal-50/70 p-4 sm:p-5">
-          <p class="text-xs font-black text-teal-700 mb-2">핵심 뜻</p>
+          <p class="text-xs font-black text-teal-700 mb-2">간단한 뜻</p>
           <p class="text-lg font-black text-slate-900 leading-relaxed">${escapeHtml(lead)}</p>
         </section>
       `;
@@ -1920,8 +1920,8 @@
         <section class="mb-7 rounded-xl border border-slate-200 bg-white p-4 sm:p-5" id="timeline">
           <div class="mb-4 flex items-center justify-between gap-3">
             <div>
-              <p class="text-xs font-black text-teal-700 mb-1">시간 흐름</p>
-              <h3 class="text-lg font-black text-slate-950">연표</h3>
+              <p class="text-xs font-black text-teal-700 mb-1">연표</p>
+              <h3 class="text-lg font-black text-slate-950">주요 사건</h3>
             </div>
             <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-500">${timeline.length}개</span>
           </div>
@@ -1977,7 +1977,7 @@
                   <h2 class="text-3xl sm:text-4xl xl:text-5xl font-black text-slate-950 leading-tight mb-4">${escapeHtml(doc.title)}</h2>
                   <p class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-4xl">${escapeHtml(doc.summary)}</p>
                 </div>
-                <p class="text-sm text-slate-400 font-bold whitespace-nowrap">최근 검토: ${escapeHtml(doc.lastReviewed || "미정")}</p>
+                <p class="text-sm text-slate-400 font-bold whitespace-nowrap">확인한 날: ${escapeHtml(doc.lastReviewed || "미정")}</p>
               </div>
             </header>
 
@@ -1995,7 +1995,7 @@
             ${renderQuiz(doc)}
 
             <section class="mt-8 border-t border-slate-200 pt-5 lg:hidden">
-              <h3 class="text-lg font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
+              <h3 class="text-lg font-black text-slate-950 mb-3">관련 지식</h3>
               ${relatedDocs.length ? `
                 <div class="grid gap-3 sm:grid-cols-2">
                   ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-white px-4 py-3 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-1 block text-sm text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
@@ -2004,7 +2004,7 @@
             </section>
 
             <section class="mt-8 border-t border-slate-200 pt-5" id="sources">
-              <h3 class="text-lg font-black text-slate-950 mb-3">확인한 자료</h3>
+              <h3 class="text-lg font-black text-slate-950 mb-3">출처와 참고 자료</h3>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">이 지식의 설명과 퀴즈는 AI의 도움을 받아 초안을 작성하고 정리한 내용이 포함될 수 있습니다. AI 자체를 출처로 쓰지는 않으며, 실제로 사실 확인에 참고한 공식 자료나 웹 자료가 있을 경우 아래에 표시합니다.</p>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">출처 자료는 사실 확인용으로 참고하며, 원문 문장·이미지·표·그래프를 그대로 가져오지 않습니다.</p>
               <p class="text-sm text-slate-600 leading-relaxed mb-4">본 사이트는 교육용 서비스이며, 저작권자의 삭제 요청이 있을 경우 관련 게시물이 삭제될 수 있습니다.</p>
@@ -2020,7 +2020,7 @@
 
           <aside class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-28 space-y-4">
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">지식 안내</h3>
+              <h3 class="font-black text-slate-950 mb-3">지식 정보</h3>
               <p class="text-sm text-slate-600 leading-relaxed">AI의 도움을 받아 초안을 작성하고 정리한 내용이 포함될 수 있습니다. 확인한 자료가 있는 경우 학생용 새 문장으로 다시 정리했습니다.</p>
               <p class="mt-3 text-xs font-bold text-slate-500 leading-relaxed">교육용 서비스이며, 저작권자의 삭제 요청이 있을 경우 관련 게시물이 삭제될 수 있습니다.</p>
               <div class="mt-4 space-y-3 text-sm font-bold leading-relaxed">
@@ -2046,7 +2046,7 @@
 
             ${relatedDocs.length ? `
               <section class="bg-white border border-slate-200 rounded-xl p-5">
-                <h3 class="font-black text-slate-950 mb-3">함께 보면 좋은 지식</h3>
+                <h3 class="font-black text-slate-950 mb-3">관련 지식</h3>
                 <div class="space-y-2">
                   ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-sm text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-0.5 block text-xs text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
                 </div>
@@ -2054,11 +2054,11 @@
             ` : ""}
 
             <section class="bg-white border border-slate-200 rounded-xl p-5">
-              <h3 class="font-black text-slate-950 mb-3">읽기 도구</h3>
+              <h3 class="font-black text-slate-950 mb-3">바로 가기</h3>
               <div class="grid grid-cols-2 gap-2 text-xs font-black">
-                ${(doc.timeline || []).length ? `<button type="button" onclick="scrollToDocSection('timeline')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">연표 보기</button>` : ""}
-                <button type="button" onclick="scrollToDocSection('quiz')" class="rounded-lg border border-teal-100 bg-teal-50 px-3 py-2 text-teal-800 hover:border-teal-300">퀴즈로 이동</button>
-                <button type="button" onclick="scrollToDocSection('sources')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">자료 보기</button>
+                ${(doc.timeline || []).length ? `<button type="button" onclick="scrollToDocSection('timeline')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">연표</button>` : ""}
+                <button type="button" onclick="scrollToDocSection('quiz')" class="rounded-lg border border-teal-100 bg-teal-50 px-3 py-2 text-teal-800 hover:border-teal-300">퀴즈</button>
+                <button type="button" onclick="scrollToDocSection('sources')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">출처</button>
               </div>
             </section>
           </aside>
