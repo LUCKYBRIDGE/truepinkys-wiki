@@ -183,6 +183,7 @@ function shouldUseObjectParticle(title) {
 function validateNoForcedSchoolContext(doc, label, values) {
   if (schoolContextAllowedDocIds.has(doc.id)) return;
   for (const value of values) {
+    if (isHistoryDoc(doc) && hasText(value) && /학교|서숙|교육 기관/.test(value)) continue;
     if (hasText(value) && forcedSchoolContextPattern.test(value)) {
       addError(doc.id, `${label} uses school context in a non-school knowledge: ${value}`);
     }

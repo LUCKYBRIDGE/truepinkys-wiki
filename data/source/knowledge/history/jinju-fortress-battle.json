@@ -59,17 +59,17 @@
   "sources": [
     {
       "publisher": "국사편찬위원회 우리역사넷",
-      "title": "임진왜란",
-      "url": "https://contents.history.go.kr/mobile/kc/view.do?levelId=kc_i305500",
-      "usedFor": "임진왜란의 전개와 지역 전투의 배경 확인",
+      "title": "김시민",
+      "url": "https://contents.history.go.kr/mobile/kc/view.do?code=kc_age_30&levelId=kc_n301900",
+      "usedFor": "김시민과 제1차 진주성 전투, 진주대첩의 전개와 의미 확인",
       "license": "국사편찬위원회 공식 자료를 사실 확인용으로 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 직접 복제 없음",
       "checkedAt": "2026-05-20"
     },
     {
       "publisher": "국사편찬위원회 우리역사넷",
-      "title": "임진왜란, 동아시아 국제전쟁",
-      "url": "https://contents.history.go.kr/mobile/eh/view.do?levelId=eh_r0294_0010",
-      "usedFor": "학생용 임진왜란 설명과 조선의 대응 흐름 확인",
+      "title": "진주성 전투",
+      "url": "https://contents.history.go.kr/mobile/mid/hm_079_0050?tabId=r",
+      "usedFor": "제1차·제2차 진주성 전투 구분, 김시민과 전투 참가자 확인",
       "license": "국사편찬위원회 공식 자료를 사실 확인용으로 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 직접 복제 없음",
       "checkedAt": "2026-05-20"
     }
