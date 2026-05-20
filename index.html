@@ -563,7 +563,7 @@
 
     function studentCurriculumText(value) {
       return String(value || "")
-        .replace(/성취기준 학습에 도움/g, "공부에 도움이 됩니다")
+        .replace(/성취기준 학습에 도움/g, "교과 내용과 이어집니다")
         .replace(/하는 공부에 도움이 됩니다/g, "하는 데 도움이 됩니다")
         .replace(/기르는 공부에 도움이 됩니다/g, "기르는 데 도움이 됩니다")
         .replace(/성취기준/g, "교과 내용");
@@ -1355,8 +1355,8 @@
               </button>
             ` : ""}
             <div class="mt-4 rounded-xl border border-teal-100 bg-teal-50/70 p-4">
-              <p class="text-sm font-black text-teal-900">문서 구성</p>
-              <p class="mt-1 text-sm font-medium leading-relaxed text-slate-600">간단한 뜻, 목차, 본문, 퀴즈와 출처를 한 문서 안에서 확인합니다.</p>
+              <p class="text-sm font-black text-teal-900">지식 구성</p>
+              <p class="mt-1 text-sm font-medium leading-relaxed text-slate-600">간단한 뜻, 목차, 본문, 퀴즈와 출처를 한 화면에서 확인합니다.</p>
             </div>
           </section>
         </section>
@@ -1415,7 +1415,7 @@
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 퀴즈에서 얼마나 자주 나오는지 봅니다.</p>
-                <p><strong class="text-slate-900">학년 검색:</strong> 3학년, 초5, 중학교처럼 검색해도 학교 공부와 이어진 지식을 함께 봅니다.</p>
+                <p><strong class="text-slate-900">학년 검색:</strong> 3학년, 초5, 중학교처럼 검색해도 교과 내용과 이어진 지식을 함께 봅니다.</p>
                 <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 여러 분류 경로, 태그에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">비슷한 말 검색:</strong> 줄임말이나 함께 자주 쓰는 말도 함께 봅니다.</p>
                 <p><strong class="text-slate-900">상황 검색:</strong> 왜 이 말을 찾는지와 가까운 지식도 함께 봅니다.</p>
@@ -1621,7 +1621,7 @@
         { kind: "main", title: "큰 주제", helpText: "넓은 분야를 여러 개 묶어서 연습합니다.", open: true, maxHeightClass: compact ? "max-h-[260px]" : "max-h-[220px]" },
         { kind: "small", title: "작은 주제", helpText: "구체적인 주제를 필요한 만큼 골라 연습합니다.", open: true, maxHeightClass: compact ? "max-h-[360px]" : "max-h-[320px]" },
         { kind: "subject", title: "관련 교과", helpText: "교과 기준으로 문제 범위를 고릅니다.", open: false, maxHeightClass: "max-h-[220px]" },
-        { kind: "tag", title: "태그", helpText: "비슷한 성격의 지식을 태그로 묶어 풉니다.", open: false, maxHeightClass: "max-h-[260px]" },
+        { kind: "tag", title: "태그", helpText: "비슷한 지식을 태그로 묶어 풉니다.", open: false, maxHeightClass: "max-h-[260px]" },
         { kind: "path", title: "전체 분류", helpText: "정확한 분류 경로 하나 이상을 직접 고릅니다.", open: false, maxHeightClass: "max-h-[320px]" }
       ];
       const renderPanel = ({ kind, title, helpText, open, maxHeightClass }) => {

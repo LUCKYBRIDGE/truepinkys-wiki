@@ -130,7 +130,11 @@ const weakQuizQuestionPhrases = [
 ];
 const awkwardKoreanPhrases = [
   "AI(인공지능)을",
-  "생성형 AI을"
+  "생성형 AI을",
+  "살펴볼 수 있 ",
+  "학교 공부",
+  "학습 맥락",
+  "중립적 표현"
 ];
 const subjectiveEvaluationPhrases = [
   "훌륭",
@@ -142,7 +146,8 @@ const subjectiveEvaluationPhrases = [
   "대단한"
 ];
 const weakHistoryHeadingPattern = /함께 볼|보지 않기|주의할 점|넓게 이해|깊게 보기|외우지 않기|헷갈리기|확인할 점/;
-const weakEncyclopediaHeadingPattern = /읽는 방법|읽는 기준|정보 읽기|살펴보기$|나누어 보기$|먼저 보기$|맞춰 보기$|넓게 보기$|생각하기$/;
+const weakEncyclopediaHeadingPattern = /읽는 방법|읽는 기준|정보 읽기|살펴보기$|나누어 보기$|먼저 보기$|맞춰 보기$|넓게 보기$|생각하기$|해석|고지|연계/;
+const adultHeadingWords = ["성격", "구조"];
 
 if (Array.isArray(docs)) {
   for (const doc of docs) {
@@ -422,6 +427,9 @@ if (!Array.isArray(docs)) {
         if (hasText(chapter.title) && weakEncyclopediaHeadingPattern.test(chapter.title)) {
           addError(docId, `chapters[${chapterIndex}].title must use encyclopedia-style wording: ${chapter.title}`);
         }
+        if (hasText(chapter.title) && adultHeadingWords.some(word => chapter.title.includes(word)) && !chapter.title.includes(doc.title)) {
+          addError(docId, `chapters[${chapterIndex}].title should use child-friendly wording: ${chapter.title}`);
+        }
         if (isHistoryDoc(doc) && hasText(chapter.title) && weakHistoryHeadingPattern.test(chapter.title)) {
           addError(docId, `chapters[${chapterIndex}].title must use encyclopedia-style history wording: ${chapter.title}`);
         }
@@ -437,6 +445,9 @@ if (!Array.isArray(docs)) {
             }
             if (hasText(section.heading) && weakEncyclopediaHeadingPattern.test(section.heading)) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must use encyclopedia-style wording: ${section.heading}`);
+            }
+            if (hasText(section.heading) && adultHeadingWords.some(word => section.heading.includes(word)) && !section.heading.includes(doc.title)) {
+              addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading should use child-friendly wording: ${section.heading}`);
             }
             if (isHistoryDoc(doc) && hasText(section.heading) && weakHistoryHeadingPattern.test(section.heading)) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].heading must use encyclopedia-style history wording: ${section.heading}`);
