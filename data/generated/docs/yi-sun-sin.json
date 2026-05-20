@@ -201,5 +201,20 @@
       "title": "노량 해전과 전사",
       "description": "전쟁의 마지막 시기 노량 해전에서 전사했습니다."
     }
+  ],
+  "figures": [
+    {
+      "kind": "map",
+      "title": "임진왜란 주요 전개 지도",
+      "asset": "assets/history-maps/imjin-war-routes.svg",
+      "alt": "임진왜란의 부산, 한양, 평양, 한산도, 진주 위치와 주요 진격 방향을 표시한 지도",
+      "caption": "임진왜란의 부산 상륙, 한양·평양 방면 진격, 한산도와 진주 위치를 표시한 지도입니다. 전투 전체의 정밀 전선도는 아닙니다.",
+      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "dataSource": {
+        "title": "Natural Earth Admin 0 Countries",
+        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "license": "Public Domain"
+      }
+    }
   ]
 }

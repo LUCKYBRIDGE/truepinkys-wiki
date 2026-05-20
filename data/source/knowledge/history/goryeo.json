@@ -215,5 +215,20 @@
       "title": "고려 멸망",
       "description": "이성계 세력이 조선을 세우면서 고려의 역사가 끝났습니다."
     }
+  ],
+  "figures": [
+    {
+      "kind": "map",
+      "title": "고려 주요 도시 지도",
+      "asset": "assets/history-maps/goryeo-core.svg",
+      "alt": "고려의 수도 개경과 서경, 남경을 표시한 한국사 지도",
+      "caption": "고려의 수도 개경과 주요 도시를 현대 지형 위에 표시한 지도입니다. 행정구역 경계가 아니라 위치 확인용 지도입니다.",
+      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "dataSource": {
+        "title": "Natural Earth Admin 0 Countries",
+        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "license": "Public Domain"
+      }
+    }
   ]
 }

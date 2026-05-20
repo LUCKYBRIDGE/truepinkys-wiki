@@ -1941,6 +1941,43 @@
       `;
     }
 
+    function renderFigures(doc) {
+      const figures = doc.figures || [];
+      if (!figures.length) return "";
+      return `
+        <section class="mb-7 rounded-xl border border-slate-200 bg-white p-4 sm:p-5" id="figures">
+          <div class="mb-4 flex items-center justify-between gap-3">
+            <div>
+              <p class="text-xs font-black text-teal-700 mb-1">지도와 자료</p>
+              <h3 class="text-lg font-black text-slate-950">이해를 돕는 학습 자료</h3>
+            </div>
+            <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-500">${figures.length}개</span>
+          </div>
+          <div class="grid gap-4 ${figures.length > 1 ? "xl:grid-cols-2" : ""}">
+            ${figures.map(figure => `
+              <figure class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+                <div class="bg-white p-3">
+                  <img src="${escapeHtml(figure.asset || "")}" alt="${escapeHtml(figure.alt || figure.title || "")}" loading="lazy" class="h-auto w-full rounded-lg border border-slate-100 bg-white">
+                </div>
+                <figcaption class="space-y-2 px-4 pb-4 pt-2">
+                  <p class="font-black text-slate-950">${escapeHtml(figure.title || "학습 자료")}</p>
+                  ${figure.caption ? `<p class="text-sm font-medium leading-relaxed text-slate-600">${escapeHtml(figure.caption)}</p>` : ""}
+                  ${figure.dataSource ? `
+                    <p class="text-xs font-bold leading-relaxed text-slate-500">
+                      지도 데이터 출처:
+                      <a href="${escapeHtml(figure.dataSource.url || "")}" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:text-teal-900">${escapeHtml(figure.dataSource.title || "지도 데이터")}</a>
+                      ${figure.dataSource.license ? `<span class="text-slate-400">· ${escapeHtml(figure.dataSource.license)}</span>` : ""}
+                    </p>
+                  ` : ""}
+                  ${figure.sourceNote ? `<p class="rounded-lg border border-amber-100 bg-amber-50 px-3 py-2 text-xs font-bold leading-relaxed text-amber-800">${escapeHtml(figure.sourceNote)}</p>` : ""}
+                </figcaption>
+              </figure>
+            `).join("")}
+          </div>
+        </section>
+      `;
+    }
+
     async function renderDoc(id) {
       let doc = wikiDocs.find(item => item.id === id);
       if (!doc) {
@@ -1983,6 +2020,7 @@
 
             ${renderLeadDefinition(doc)}
             ${renderTimeline(doc)}
+            ${renderFigures(doc)}
 
             <div class="lg:hidden mb-7">
               ${renderToc(doc)}
@@ -2057,6 +2095,7 @@
               <h3 class="font-black text-slate-950 mb-3">바로 가기</h3>
               <div class="grid grid-cols-2 gap-2 text-xs font-black">
                 ${(doc.timeline || []).length ? `<button type="button" onclick="scrollToDocSection('timeline')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">연표</button>` : ""}
+                ${(doc.figures || []).length ? `<button type="button" onclick="scrollToDocSection('figures')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">지도</button>` : ""}
                 <button type="button" onclick="scrollToDocSection('quiz')" class="rounded-lg border border-teal-100 bg-teal-50 px-3 py-2 text-teal-800 hover:border-teal-300">퀴즈</button>
                 <button type="button" onclick="scrollToDocSection('sources')" class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-slate-700 hover:border-slate-300">출처</button>
               </div>

@@ -187,5 +187,20 @@
       "title": "병자호란",
       "description": "청의 요구가 강해지며 병자호란이 일어났습니다."
     }
+  ],
+  "figures": [
+    {
+      "kind": "map",
+      "title": "정묘호란·병자호란 주요 위치 지도",
+      "asset": "assets/history-maps/qing-invasions-joseon.svg",
+      "alt": "정묘호란과 병자호란의 심양, 의주, 한양, 강화도, 남한산성 위치를 표시한 지도",
+      "caption": "정묘호란과 병자호란에서 북쪽 세력의 남하 방향, 강화도와 남한산성 위치를 표시한 지도입니다. 군사 이동 전체를 복원한 지도는 아닙니다.",
+      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "dataSource": {
+        "title": "Natural Earth Admin 0 Countries",
+        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
+        "license": "Public Domain"
+      }
+    }
   ]
 }

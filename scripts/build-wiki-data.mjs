@@ -38,6 +38,18 @@ function textFromTimeline(doc) {
   ].join(" ")).join(" ");
 }
 
+function textFromFigures(doc) {
+  return (doc.figures || []).map(item => [
+    item.kind,
+    item.title,
+    item.caption,
+    item.alt,
+    item.sourceNote,
+    item.dataSource?.title,
+    item.dataSource?.license
+  ].join(" ")).join(" ");
+}
+
 function gradeAliases(grade) {
   const value = String(grade || "");
   if (value.startsWith("초")) {
@@ -92,7 +104,8 @@ function indexDoc(doc) {
     categoryPaths,
     abstract,
     quizCount: (doc.quiz || []).length,
-    timelineCount: (doc.timeline || []).length
+    timelineCount: (doc.timeline || []).length,
+    figureCount: (doc.figures || []).length
   };
 }
 
@@ -119,6 +132,7 @@ const searchIndex = docs.map(doc => {
       chapters: textFromChapters(doc),
       quiz: textFromQuiz(doc),
       timeline: textFromTimeline(doc),
+      figures: textFromFigures(doc),
       curriculum: curriculumLinks.map(item => [item.subject, item.area, item.achievementSupport].join(" ")).join(" "),
       grades: grades.flatMap(gradeAliases).join(" ")
     }

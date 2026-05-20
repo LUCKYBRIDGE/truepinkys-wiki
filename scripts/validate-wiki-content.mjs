@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { loadKnowledgeOrder, loadSourceDocs, loadTaxonomy } from "./wiki-source.mjs";
 
 const docs = await loadSourceDocs();
@@ -6,6 +8,8 @@ const knowledgeOrder = await loadKnowledgeOrder();
 const errors = [];
 
 const sourceObjectFields = ["publisher", "title", "url", "usedFor", "license", "checkedAt"];
+const figureObjectFields = ["kind", "title", "asset", "alt", "caption", "sourceNote"];
+const validFigureKinds = new Set(["map", "chart", "diagram"]);
 const requiredDocFields = [
   "id",
   "title",
@@ -365,6 +369,56 @@ function validateTimeline(doc) {
   });
 }
 
+function validateFigures(doc) {
+  if (!("figures" in doc)) return;
+  if (!Array.isArray(doc.figures)) {
+    addError(doc.id || "(missing id)", "figures must be an array when present");
+    return;
+  }
+  doc.figures.forEach((figure, index) => {
+    if (!figure || typeof figure !== "object" || Array.isArray(figure)) {
+      addError(doc.id, `figures[${index}] must be a structured figure object`);
+      return;
+    }
+    for (const field of figureObjectFields) {
+      if (!hasText(figure[field])) addError(doc.id, `figures[${index}].${field} must be non-empty text`);
+    }
+    if (hasText(figure.kind) && !validFigureKinds.has(figure.kind)) {
+      addError(doc.id, `figures[${index}].kind must be one of ${[...validFigureKinds].join(", ")}`);
+    }
+    if (hasText(figure.asset)) {
+      if (!figure.asset.startsWith("assets/")) {
+        addError(doc.id, `figures[${index}].asset must use a local assets/ path`);
+      } else if (!existsSync(path.join(process.cwd(), figure.asset))) {
+        addError(doc.id, `figures[${index}].asset does not exist: ${figure.asset}`);
+      }
+    }
+    if (hasText(figure.sourceNote) && !/(직접 만든|직접 제작).*(복제하지 않았|복제 없음|복제한 것이 아닙니다)/.test(figure.sourceNote)) {
+      addError(doc.id, `figures[${index}].sourceNote must state direct creation and no source-map copying`);
+    }
+    if (hasText(figure.caption) && /(정확한 국경선|실제 국경선|실제 이동 경로를 정확히)/.test(figure.caption)) {
+      addError(doc.id, `figures[${index}].caption must not overstate map precision`);
+    }
+    if ("dataSource" in figure) {
+      if (!figure.dataSource || typeof figure.dataSource !== "object" || Array.isArray(figure.dataSource)) {
+        addError(doc.id, `figures[${index}].dataSource must be a structured object`);
+      } else {
+        ["title", "url", "license"].forEach(field => {
+          if (!hasText(figure.dataSource[field])) addError(doc.id, `figures[${index}].dataSource.${field} must be non-empty text`);
+        });
+        if (hasText(figure.dataSource.url)) {
+          try {
+            new URL(figure.dataSource.url);
+          } catch {
+            addError(doc.id, `figures[${index}].dataSource.url must be a valid URL`);
+          }
+        }
+      }
+    }
+    validateNoSubjectiveEvaluation(doc, `figures[${index}]`, [figure.title, figure.alt, figure.caption, figure.sourceNote]);
+  });
+}
+
 if (!Array.isArray(docs)) {
   errors.push("data/source/knowledge must contain JSON knowledge files");
 } else {
@@ -407,6 +461,7 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "searchContexts");
     validateQuiz(doc);
     validateTimeline(doc);
+    validateFigures(doc);
     validateNoForcedSchoolContext(doc, "summary", [doc.summary]);
     validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
     validateNoForcedSchoolContext(doc, "mainTopic", [doc.mainTopic]);
