@@ -310,6 +310,32 @@ function validateQuiz(doc) {
   });
 }
 
+function isHistoryDoc(doc) {
+  return doc.mainTopic === "역사" || (doc.categoryPaths || []).some(path => path.includes("역사"));
+}
+
+function validateTimeline(doc) {
+  if (!("timeline" in doc) && !isHistoryDoc(doc)) return;
+  if (!Array.isArray(doc.timeline)) {
+    addError(doc.id || "(missing id)", "timeline must be an array for history knowledge");
+    return;
+  }
+  if (isHistoryDoc(doc) && doc.timeline.length < 2) {
+    addError(doc.id, "history knowledge must contain at least 2 timeline items");
+  }
+  doc.timeline.forEach((item, index) => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      addError(doc.id, `timeline[${index}] must be an object`);
+      return;
+    }
+    ["date", "title", "description"].forEach(field => {
+      if (!hasText(item[field])) addError(doc.id, `timeline[${index}].${field} must be non-empty text`);
+    });
+    validateNoForcedSchoolContext(doc, `timeline[${index}]`, [item.date, item.title, item.description]);
+    validateNoSubjectiveEvaluation(doc, `timeline[${index}]`, [item.date, item.title, item.description]);
+  });
+}
+
 if (!Array.isArray(docs)) {
   errors.push("data/source/knowledge must contain JSON knowledge files");
 } else {
@@ -351,6 +377,7 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
     validateQuiz(doc);
+    validateTimeline(doc);
     validateNoForcedSchoolContext(doc, "summary", [doc.summary]);
     validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
     validateNoForcedSchoolContext(doc, "mainTopic", [doc.mainTopic]);

@@ -30,6 +30,14 @@ function textFromQuiz(doc) {
   ].join(" ")).join(" ");
 }
 
+function textFromTimeline(doc) {
+  return (doc.timeline || []).map(item => [
+    item.date,
+    item.title,
+    item.description
+  ].join(" ")).join(" ");
+}
+
 function gradeAliases(grade) {
   const value = String(grade || "");
   if (value.startsWith("초")) {
@@ -83,7 +91,8 @@ function indexDoc(doc) {
     subTopicPath,
     categoryPaths,
     abstract,
-    quizCount: (doc.quiz || []).length
+    quizCount: (doc.quiz || []).length,
+    timelineCount: (doc.timeline || []).length
   };
 }
 
@@ -109,6 +118,7 @@ const searchIndex = docs.map(doc => {
     searchFields: {
       chapters: textFromChapters(doc),
       quiz: textFromQuiz(doc),
+      timeline: textFromTimeline(doc),
       curriculum: curriculumLinks.map(item => [item.subject, item.area, item.achievementSupport].join(" ")).join(" "),
       grades: grades.flatMap(gradeAliases).join(" ")
     }
