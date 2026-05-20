@@ -4656,6 +4656,131 @@
     "timelineCount": 3
   },
   {
+    "id": "okjeo-dongye",
+    "title": "옥저와 동예",
+    "summary": "옥저와 동예는 고조선 이후 한반도 북동쪽 지역에서 성장한 고대 사회입니다.",
+    "definition": "고조선 이후 한반도 북동쪽 지역에서 성장한 초기 고대 사회입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "정보읽기"
+    ],
+    "aliases": [
+      "옥저",
+      "동예",
+      "고대 옥저",
+      "고대 동예",
+      "초기 국가"
+    ],
+    "keywords": [
+      "고조선 이후",
+      "함경도",
+      "강원도 북부",
+      "민며느리제",
+      "책화",
+      "무천",
+      "고구려",
+      "초기 고대 사회"
+    ],
+    "searchContexts": [
+      "고조선 다음 북쪽 지역의 고대 사회가 궁금할 때",
+      "옥저와 동예의 생활 모습을 비교하고 싶을 때",
+      "삼국 시대 이전 한국사 흐름을 정리할 때"
+    ],
+    "related": [
+      "gojoseon",
+      "buyeo",
+      "samhan",
+      "three-kingdoms",
+      "goguryeo"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고대"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고대"
+      ]
+    ],
+    "abstract": "옥저와 동예는 고조선 이후 여러 사회가 성장하던 모습을 보여 주는 고대사 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 2
+  },
+  {
+    "id": "samhan",
+    "title": "삼한",
+    "summary": "삼한은 한반도 남쪽에서 마한, 진한, 변한으로 나뉘어 성장한 고대 사회입니다.",
+    "definition": "한반도 남쪽에서 마한, 진한, 변한으로 나뉘어 성장한 고대 사회입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "정보읽기"
+    ],
+    "aliases": [
+      "마한",
+      "진한",
+      "변한",
+      "한반도 남부 고대 사회",
+      "초기 국가"
+    ],
+    "keywords": [
+      "마한",
+      "진한",
+      "변한",
+      "소국",
+      "제천 행사",
+      "철 생산",
+      "백제",
+      "신라",
+      "가야",
+      "고대 사회"
+    ],
+    "searchContexts": [
+      "삼국 시대 이전 남쪽 지역이 궁금할 때",
+      "마한 진한 변한의 차이를 알고 싶을 때",
+      "백제 신라 가야의 배경을 정리할 때"
+    ],
+    "related": [
+      "gojoseon",
+      "okjeo-dongye",
+      "gaya",
+      "baekje",
+      "silla",
+      "three-kingdoms"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고대"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고대"
+      ]
+    ],
+    "abstract": "삼한은 마한, 진한, 변한의 여러 소국을 통해 한반도 남쪽 고대 사회를 이해하는 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 2
+  },
+  {
     "id": "three-kingdoms",
     "title": "삼국 시대",
     "summary": "삼국 시대는 고구려, 백제, 신라가 각각 나라의 힘을 키우며 경쟁하고 교류한 고대사의 중요한 시기입니다.",
@@ -4727,6 +4852,195 @@
     "abstract": "삼국 시대는 고조선 이후 여러 나라의 성장 속에서 고구려, 백제, 신라가 강한 왕권과 제도를 갖춘 나라로 발전한 시기입니다.",
     "quizCount": 2,
     "timelineCount": 5
+  },
+  {
+    "id": "goguryeo",
+    "title": "고구려",
+    "summary": "고구려는 압록강 유역에서 성장해 북쪽과 남쪽으로 세력을 넓힌 삼국 시대의 나라입니다.",
+    "definition": "압록강 유역에서 성장해 넓은 영토와 강한 군사력을 바탕으로 발전한 삼국 시대의 나라입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "전쟁과 평화"
+    ],
+    "aliases": [
+      "고구려국",
+      "주몽",
+      "졸본",
+      "국내성",
+      "평양 천도"
+    ],
+    "keywords": [
+      "압록강",
+      "주몽",
+      "광개토대왕",
+      "장수왕",
+      "국내성",
+      "평양",
+      "벽화 고분",
+      "수·당 전쟁"
+    ],
+    "searchContexts": [
+      "고구려가 어디에서 시작되었는지 궁금할 때",
+      "광개토대왕과 장수왕 시기의 고구려를 알고 싶을 때",
+      "삼국 시대 북쪽 나라를 정리할 때"
+    ],
+    "related": [
+      "buyeo",
+      "three-kingdoms",
+      "gwanggaeto-the-great",
+      "baekje",
+      "silla",
+      "three-kingdoms-unification",
+      "balhae"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고대"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고대"
+      ]
+    ],
+    "abstract": "고구려는 삼국 시대 북쪽의 성장과 대외 관계, 벽화 고분 문화를 이해하는 고대사 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "baekje",
+    "title": "백제",
+    "summary": "백제는 한강 유역에서 성장해 서남부 지역으로 세력을 넓히고 뛰어난 문화를 발전시킨 삼국 시대의 나라입니다.",
+    "definition": "한강 유역에서 성장해 서남부 지역으로 세력을 넓힌 삼국 시대의 나라입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "체험학습"
+    ],
+    "aliases": [
+      "백제국",
+      "위례성",
+      "한성 백제",
+      "웅진 백제",
+      "사비 백제"
+    ],
+    "keywords": [
+      "한강 유역",
+      "위례성",
+      "웅진",
+      "사비",
+      "근초고왕",
+      "무령왕릉",
+      "백제 금동대향로",
+      "일본 교류"
+    ],
+    "searchContexts": [
+      "백제가 어디에서 시작되었는지 궁금할 때",
+      "백제 문화유산을 이해하고 싶을 때",
+      "삼국 시대 서남쪽 나라를 정리할 때"
+    ],
+    "related": [
+      "samhan",
+      "three-kingdoms",
+      "gaya",
+      "silla",
+      "goguryeo",
+      "three-kingdoms-unification",
+      "national-heritage"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고대"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고대"
+      ]
+    ],
+    "abstract": "백제는 삼국 시대 서남부의 성장, 대외 교류, 문화유산을 이해하는 고대사 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
+    "id": "silla",
+    "title": "신라",
+    "summary": "신라는 경주 지역에서 성장해 제도를 정비하고 삼국 통일의 중심이 된 삼국 시대의 나라입니다.",
+    "definition": "경주 지역에서 성장해 제도를 정비하고 삼국 통일의 중심이 된 나라입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "정보읽기"
+    ],
+    "aliases": [
+      "서라벌",
+      "경주 신라",
+      "신라국",
+      "화랑",
+      "진흥왕"
+    ],
+    "keywords": [
+      "경주",
+      "서라벌",
+      "법흥왕",
+      "진흥왕",
+      "화랑",
+      "불교 공인",
+      "골품제",
+      "삼국 통일"
+    ],
+    "searchContexts": [
+      "신라가 어디에서 시작되었는지 궁금할 때",
+      "화랑과 골품제가 무엇인지 알고 싶을 때",
+      "삼국 통일 이전 신라의 성장을 정리할 때"
+    ],
+    "related": [
+      "samhan",
+      "three-kingdoms",
+      "kim-yu-sin",
+      "three-kingdoms-unification",
+      "unified-silla",
+      "baekje",
+      "goguryeo"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고대"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고대"
+      ]
+    ],
+    "abstract": "신라는 삼국 시대 동남쪽에서 성장해 통일신라로 이어지는 흐름을 보여 주는 고대사 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 4
   },
   {
     "id": "gwanggaeto-the-great",
@@ -5392,6 +5706,66 @@
     "timelineCount": 4
   },
   {
+    "id": "yi-seong-gye",
+    "title": "이성계",
+    "summary": "이성계는 고려 말 무장으로 성장해 1392년 조선을 세운 인물입니다.",
+    "definition": "고려 말 무장으로 성장해 1392년 조선을 세운 인물입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "역사 인물",
+      "정치"
+    ],
+    "aliases": [
+      "태조 이성계",
+      "조선 태조",
+      "태조",
+      "위화도 회군"
+    ],
+    "keywords": [
+      "1335년",
+      "1392년",
+      "위화도 회군",
+      "조선 건국",
+      "신진 사대부",
+      "고려 말",
+      "한양",
+      "정도전"
+    ],
+    "searchContexts": [
+      "조선을 세운 사람이 누구인지 궁금할 때",
+      "위화도 회군과 조선 건국의 관계를 알고 싶을 때",
+      "고려 말 새 세력의 성장을 정리할 때"
+    ],
+    "related": [
+      "goryeo",
+      "joseon",
+      "wang-geon",
+      "palace",
+      "king-sejong"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "조선"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "조선"
+      ]
+    ],
+    "abstract": "이성계는 고려 말의 군사 세력, 신진 사대부, 조선 건국을 연결해 보는 역사 인물입니다.",
+    "quizCount": 3,
+    "timelineCount": 4
+  },
+  {
     "id": "mongol-invasions-goryeo",
     "title": "몽골의 고려 침입",
     "summary": "몽골의 고려 침입은 13세기에 몽골군이 여러 차례 고려를 공격하고 고려가 오랫동안 항쟁한 사건입니다.",
@@ -5455,6 +5829,63 @@
     "abstract": "몽골의 고려 침입은 1231년부터 이어진 몽골군의 침입, 강화도 천도, 고려의 항쟁, 팔만대장경, 원 간섭을 통해 고려 후기를 살피는 역사 지식입니다.",
     "quizCount": 3,
     "timelineCount": 4
+  },
+  {
+    "id": "palman-daejanggyeong",
+    "title": "팔만대장경",
+    "summary": "팔만대장경은 몽골 침입 시기 고려가 불교의 힘으로 나라를 지키려는 마음을 담아 새긴 대장경판입니다.",
+    "definition": "몽골 침입 시기 고려가 불교 경전을 목판에 새겨 만든 대장경판입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "문화",
+      "체험학습"
+    ],
+    "aliases": [
+      "팔만대장경판",
+      "고려대장경",
+      "해인사 대장경판",
+      "대장경"
+    ],
+    "keywords": [
+      "1236년",
+      "1251년",
+      "몽골 침입",
+      "해인사",
+      "목판 인쇄",
+      "불교 문화",
+      "국가유산"
+    ],
+    "searchContexts": [
+      "몽골 침입과 팔만대장경의 관계가 궁금할 때",
+      "고려의 인쇄 문화와 불교 문화를 알고 싶을 때",
+      "해인사 대장경판이 왜 중요한지 찾을 때"
+    ],
+    "related": [
+      "goryeo",
+      "mongol-invasions-goryeo",
+      "national-heritage"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "고려"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "고려"
+      ]
+    ],
+    "abstract": "팔만대장경은 고려의 불교 문화, 목판 인쇄 기술, 전쟁 속 문화 보존 노력을 보여 주는 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
   },
   {
     "id": "joseon",
@@ -6066,6 +6497,318 @@
     "timelineCount": 3
   },
   {
+    "id": "gapsin-coup",
+    "title": "갑신정변",
+    "summary": "갑신정변은 1884년 급진 개화파가 조선의 정치 제도를 빠르게 바꾸려다 실패한 사건입니다.",
+    "definition": "1884년 급진 개화파가 조선의 정치 개혁을 추진하려다 실패한 사건입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "정치",
+      "문화"
+    ],
+    "aliases": [
+      "갑신정변 1884",
+      "급진 개화파",
+      "김옥균의 정변",
+      "우정총국 사건"
+    ],
+    "keywords": [
+      "1884년",
+      "김옥균",
+      "박영효",
+      "홍영식",
+      "급진 개화파",
+      "우정총국",
+      "청",
+      "일본",
+      "개화 정책"
+    ],
+    "searchContexts": [
+      "갑신정변이 왜 일어났는지 궁금할 때",
+      "개화파의 생각과 한계를 알고 싶을 때",
+      "개항 뒤 조선의 정치 변화를 정리할 때"
+    ],
+    "related": [
+      "ganghwa-treaty",
+      "donghak-peasant-movement",
+      "gabo-reform",
+      "korean-empire",
+      "eulsa-treaty"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ]
+    ],
+    "abstract": "갑신정변은 개항 뒤 조선에서 근대 개혁을 둘러싼 갈등과 국제 정세를 보여 주는 사건입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "gabo-reform",
+    "title": "갑오개혁",
+    "summary": "갑오개혁은 1894년 조선 정부가 정치, 사회, 경제 제도를 근대적으로 고치려 한 개혁입니다.",
+    "definition": "1894년 조선 정부가 정치, 사회, 경제 제도를 근대적으로 고치려 한 개혁입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "정치",
+      "문화"
+    ],
+    "aliases": [
+      "갑오경장",
+      "1894년 개혁",
+      "근대 개혁",
+      "군국기무처"
+    ],
+    "keywords": [
+      "1894년",
+      "갑오개혁",
+      "군국기무처",
+      "신분제 폐지",
+      "과거제 폐지",
+      "개혁",
+      "동학 농민 운동",
+      "청일 전쟁"
+    ],
+    "searchContexts": [
+      "조선의 근대 개혁을 알고 싶을 때",
+      "신분제와 과거제가 어떻게 바뀌었는지 궁금할 때",
+      "동학 농민 운동 뒤의 변화를 정리할 때"
+    ],
+    "related": [
+      "ganghwa-treaty",
+      "donghak-peasant-movement",
+      "gapsin-coup",
+      "korean-empire",
+      "eulsa-treaty"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ]
+    ],
+    "abstract": "갑오개혁은 조선의 근대 제도 개혁과 외세 영향의 한계를 함께 이해하는 한국사 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "independence-club",
+    "title": "독립협회",
+    "summary": "독립협회는 1896년에 세워져 자주독립과 국민의 정치 참여를 주장한 단체입니다.",
+    "definition": "1896년에 세워져 자주독립과 국민의 정치 참여를 주장한 단체입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "정치",
+      "독립운동"
+    ],
+    "aliases": [
+      "독립 협회",
+      "서재필",
+      "독립신문",
+      "독립문",
+      "만민공동회"
+    ],
+    "keywords": [
+      "1896년",
+      "서재필",
+      "독립신문",
+      "독립문",
+      "만민공동회",
+      "자주독립",
+      "의회 설립 운동",
+      "대한제국"
+    ],
+    "searchContexts": [
+      "독립협회가 무엇을 주장했는지 궁금할 때",
+      "독립신문과 만민공동회를 알고 싶을 때",
+      "대한제국 시기 시민 참여 흐름을 정리할 때"
+    ],
+    "related": [
+      "korean-empire",
+      "gabo-reform",
+      "national-debt-repayment-movement",
+      "sinminhoe",
+      "democracy-election"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ]
+    ],
+    "abstract": "독립협회는 근대 한국에서 자주독립과 정치 참여 요구가 나타난 흐름을 보여 주는 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "national-debt-repayment-movement",
+    "title": "국채보상운동",
+    "summary": "국채보상운동은 1907년 대한제국의 나랏빚을 국민의 힘으로 갚자는 뜻에서 일어난 운동입니다.",
+    "definition": "1907년 대한제국의 나랏빚을 국민의 힘으로 갚자는 뜻에서 일어난 운동입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "돈과 경제"
+    ],
+    "aliases": [
+      "국채 보상 운동",
+      "국채보상",
+      "대구 국채보상운동",
+      "나랏빚 갚기 운동"
+    ],
+    "keywords": [
+      "1907년",
+      "대한제국",
+      "국채",
+      "대구",
+      "서상돈",
+      "김광제",
+      "모금",
+      "애국 계몽 운동",
+      "일제 경제 침탈"
+    ],
+    "searchContexts": [
+      "국채보상운동이 왜 일어났는지 궁금할 때",
+      "경제와 독립운동이 어떻게 연결되는지 알고 싶을 때",
+      "대한제국 말의 민간 운동을 정리할 때"
+    ],
+    "related": [
+      "korean-empire",
+      "eulsa-treaty",
+      "sinminhoe",
+      "independence-club",
+      "money"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "abstract": "국채보상운동은 대한제국 말 경제 문제와 독립운동이 연결되는 방식을 보여 주는 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
+    "id": "sinminhoe",
+    "title": "신민회",
+    "summary": "신민회는 1907년 무렵 조직되어 교육과 산업, 독립운동 기지 건설을 추진한 비밀 결사입니다.",
+    "definition": "1907년 무렵 조직되어 교육과 산업, 독립운동 기지 건설을 추진한 비밀 결사입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "문화"
+    ],
+    "aliases": [
+      "신민회 운동",
+      "비밀 결사 신민회",
+      "애국 계몽 운동",
+      "독립운동 단체"
+    ],
+    "keywords": [
+      "1907년",
+      "안창호",
+      "양기탁",
+      "비밀 결사",
+      "애국 계몽 운동",
+      "교육",
+      "산업",
+      "독립운동 기지",
+      "독립군 양성"
+    ],
+    "searchContexts": [
+      "신민회가 어떤 독립운동 단체였는지 궁금할 때",
+      "애국 계몽 운동과 독립운동 기지를 연결해 보고 싶을 때",
+      "일제강점기 전후 독립운동 흐름을 정리할 때"
+    ],
+    "related": [
+      "righteous-army",
+      "national-debt-repayment-movement",
+      "provisional-government",
+      "kim-gu",
+      "an-jung-geun"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "abstract": "신민회는 교육, 산업, 국외 독립운동 기지를 통해 독립운동 방법을 넓힌 단체입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
+  },
+  {
     "id": "donghak-peasant-movement",
     "title": "동학 농민 운동",
     "summary": "동학 농민 운동은 1894년 농민들이 부패한 정치와 외세의 간섭에 맞서 개혁을 요구하며 일어난 운동입니다.",
@@ -6528,6 +7271,70 @@
     ],
     "quizCount": 3,
     "timelineCount": 4
+  },
+  {
+    "id": "gwangju-student-independence-movement",
+    "title": "광주학생항일운동",
+    "summary": "광주학생항일운동은 1929년 광주에서 시작되어 전국으로 퍼진 학생 중심의 항일 운동입니다.",
+    "definition": "1929년 광주에서 시작되어 전국으로 퍼진 학생 중심의 항일 운동입니다.",
+    "subjects": [
+      "사회",
+      "국어",
+      "도덕"
+    ],
+    "topicTags": [
+      "역사",
+      "독립운동",
+      "민주주의"
+    ],
+    "aliases": [
+      "광주 학생 항일 운동",
+      "광주학생운동",
+      "학생 항일 운동",
+      "1929년 학생 운동"
+    ],
+    "keywords": [
+      "1929년",
+      "광주",
+      "학생",
+      "항일 운동",
+      "일제강점기",
+      "민족 차별",
+      "독립운동",
+      "전국 확산"
+    ],
+    "searchContexts": [
+      "광주학생항일운동이 왜 일어났는지 궁금할 때",
+      "일제강점기 학생들의 항일 운동을 알고 싶을 때",
+      "3·1 운동 이후 독립운동 흐름을 정리할 때"
+    ],
+    "related": [
+      "march-first-movement",
+      "yu-gwan-sun",
+      "provisional-government",
+      "sinminhoe",
+      "righteous-army"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "역사",
+    "subTopicPath": [
+      "한국사",
+      "근대와 독립운동"
+    ],
+    "categoryPaths": [
+      [
+        "역사",
+        "한국사",
+        "근대와 독립운동"
+      ],
+      [
+        "역사",
+        "독립운동"
+      ]
+    ],
+    "abstract": "광주학생항일운동은 3·1 운동 이후에도 학생들이 중심이 되어 항일 의지를 드러낸 사건입니다.",
+    "quizCount": 3,
+    "timelineCount": 3
   },
   {
     "id": "yu-gwan-sun",

@@ -1209,6 +1209,162 @@
         "area": "역사",
         "achievementSupport": "대한민국 임시정부와 광복 전후 독립운동의 흐름을 인물 중심으로 이해하는 데 도움이 됩니다"
       }
+    ],
+    "okjeo-dongye": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "samhan": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "goguryeo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "baekje": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "silla": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "palman-daejanggyeong": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "yi-seong-gye": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료를 비판적으로 읽고 근거를 확인하며 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "gapsin-coup": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "gabo-reform": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "independence-club": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "national-debt-repayment-movement": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "sinminhoe": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "gwangju-student-independence-movement": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "공동체와 책임",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -1711,6 +1867,71 @@
     "kim-gu": [
       "초5",
       "초6"
+    ],
+    "okjeo-dongye": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "samhan": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "goguryeo": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "baekje": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "silla": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "palman-daejanggyeong": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "yi-seong-gye": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "gapsin-coup": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "gabo-reform": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "independence-club": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "national-debt-repayment-movement": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "sinminhoe": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "gwangju-student-independence-movement": [
+      "초5",
+      "초6",
+      "중학교"
     ]
   }
 }
