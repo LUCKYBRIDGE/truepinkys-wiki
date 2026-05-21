@@ -61,7 +61,7 @@
       ]
     ],
     "abstract": "AI(인공지능)는 데이터와 알고리즘을 이용해 여러 일을 돕는 기술과 그 한계를 설명합니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -325,7 +325,7 @@
       ]
     ],
     "abstract": "가짜뉴스는 거짓 정보가 퍼지는 방식과 출처·근거 확인 방법을 설명합니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -1228,7 +1228,7 @@
       ]
     ],
     "abstract": "소화와 소화 기관은 음식을 씹고, 분해하고, 흡수하는 과정과 그 일을 맡는 입, 위, 소장, 대장의 역할을 함께 설명합니다.",
-    "quizCount": 2,
+    "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2039,7 +2039,7 @@
       ]
     ],
     "abstract": "생태계는 생물과 환경이 서로 영향을 주고받는 관계를 먹이 관계, 서식지, 환경 요소와 함께 이해하는 과학 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2227,7 +2227,7 @@
       ]
     ],
     "abstract": "지도 읽기는 위치, 방위, 범례, 축척을 이용해 공간 정보를 해석하는 방법입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2934,7 +2934,7 @@
       ]
     ],
     "abstract": "구름과 비가 생기는 과정은 수증기가 작은 물방울이나 얼음 알갱이로 변하고, 구름 속 알갱이가 커져 비나 눈으로 떨어지는 흐름을 설명합니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -3113,7 +3113,7 @@
       ]
     ],
     "abstract": "자석은 어떤 물질을 끌어당기고 다른 자석과 서로 밀거나 당기는 성질을 통해 힘을 관찰할 수 있는 과학 개념입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -3179,7 +3179,7 @@
       ]
     ],
     "abstract": "전기 회로는 전류가 흐르는 닫힌 길을 만들기 위해 전지, 전선, 전구, 스위치를 어떻게 연결해야 하는지 이해하는 과학 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -3364,7 +3364,7 @@
       ]
     ],
     "abstract": "소리는 물체의 떨림에서 만들어지고 주변 물질을 통해 퍼지는 현상입니다. 소리의 발생 원인, 전달 매질, 세기와 높낮이를 함께 살피면 여러 생활 현상을 설명할 수 있습니다.",
-    "quizCount": 2,
+    "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -5610,7 +5610,7 @@
       ]
     ],
     "abstract": "먹이 사슬은 생물이 먹고 먹히는 관계와 에너지 흐름을 설명합니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -6179,7 +6179,7 @@
       ]
     ],
     "abstract": "물의 순환은 물이 모습을 바꾸며 하늘, 땅, 강, 바다를 오가는 과정과 날씨·환경의 연결을 살피는 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -6435,7 +6435,7 @@
       ]
     ],
     "abstract": "인플레이션은 여러 물건과 서비스의 가격이 전반적으로 오르는 현상을 생활비, 돈의 가치, 경제 계획과 연결해 이해하는 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -6552,7 +6552,7 @@
       ]
     ],
     "abstract": "금리는 돈을 빌리거나 맡길 때 붙는 이자의 비율로, 저축·대출·물가·소비와 연결되는 경제 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -6859,7 +6859,7 @@
       ]
     ],
     "abstract": "페트로달러 체제는 1970년대 이후 국제 원유 거래에서 미국 달러가 가격 표시와 결제의 중심으로 쓰이고, 산유국의 달러 수입이 세계 금융시장으로 다시 흐른 국제경제 질서를 이해하는 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 0
   },
@@ -7651,7 +7651,7 @@
       ]
     ],
     "abstract": "중력은 질량을 가진 물체들이 서로 끌어당기는 힘으로, 떨어지는 현상과 행성의 움직임을 함께 설명하는 과학 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -7702,7 +7702,7 @@
         "생명과 생태"
       ]
     ],
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -8456,7 +8456,7 @@
       ]
     ],
     "abstract": "삼국 시대는 고조선 이후 여러 나라의 성장 속에서 고구려, 백제, 신라가 강한 왕권과 제도를 갖춘 나라로 발전한 시기입니다.",
-    "quizCount": 2,
+    "quizCount": 3,
     "timelineCount": 5,
     "figureCount": 1
   },
@@ -8520,7 +8520,7 @@
       ]
     ],
     "abstract": "고구려는 삼국 시대 북쪽의 성장과 대외 관계, 벽화 고분 문화를 이해하는 고대사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 3,
     "figureCount": 1
   },
@@ -8584,7 +8584,7 @@
       ]
     ],
     "abstract": "백제는 삼국 시대 서남부의 성장, 대외 교류, 문화유산을 이해하는 고대사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -8648,7 +8648,7 @@
       ]
     ],
     "abstract": "신라는 삼국 시대 동남쪽에서 성장해 통일신라로 이어지는 흐름을 보여 주는 고대사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -8718,7 +8718,7 @@
       ]
     ],
     "abstract": "광개토대왕은 재위 시기, 영락 연호, 백제와 후연을 상대로 한 전쟁, 신라 지원, 광개토대왕릉비를 통해 고구려의 전성기를 살피는 역사 인물입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -8920,7 +8920,7 @@
       ]
     ],
     "abstract": "삼국 통일은 신라와 당의 연합, 백제·고구려 멸망, 나당 전쟁, 통일 신라 성립으로 이어진 고대사의 전환점입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 0
   },
@@ -8986,7 +8986,7 @@
       ]
     ],
     "abstract": "통일신라는 삼국 통일 이후 신라가 넓어진 나라를 다스리기 위해 제도를 정비하고 문화를 발전시킨 시기입니다.",
-    "quizCount": 2,
+    "quizCount": 3,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -9053,7 +9053,7 @@
       ]
     ],
     "abstract": "발해는 건국 사건만이 아니라 고구려 계승, 말갈 세력과의 결합, 통일 신라와 함께 보는 남북국 시대를 이해하는 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -9321,7 +9321,7 @@
       ]
     ],
     "abstract": "고려는 건국 사건만이 아니라 후삼국 통일, 지방 세력 포용, 불교 문화와 국제 관계를 함께 살펴볼 수 있는 한국사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -9584,7 +9584,7 @@
       ]
     ],
     "abstract": "조선은 건국, 유교적 통치 질서, 전기 문화 발전, 전쟁 이후 변화, 개항과 대한제국으로 이어지는 흐름으로 살피는 한국사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 5,
     "figureCount": 1
   },
@@ -9727,7 +9727,7 @@
       ]
     ],
     "abstract": "세종대왕은 훈민정음 창제, 집현전, 과학기술, 조선 전기 제도 정비를 통해 조선 사회의 변화를 살피는 역사 인물입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -9863,7 +9863,7 @@
         "전쟁과 평화"
       ]
     ],
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 5,
     "figureCount": 1
   },
@@ -11428,7 +11428,7 @@
         "독립운동"
       ]
     ],
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 0
   },
@@ -12290,7 +12290,7 @@
       ]
     ],
     "abstract": "6·25전쟁은 1950년 북한의 남침, 유엔군과 중국군의 참전, 민간인 피해, 1953년 휴전협정을 통해 한반도 분단과 냉전을 살피는 현대사 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
   },
@@ -12752,7 +12752,7 @@
       ]
     ],
     "abstract": "국제연합은 창설 사건만이 아니라 국제기구의 목적, 주요 기관, 평화와 인권을 위한 역할과 한계를 함께 이해하는 세계 시민 지식입니다.",
-    "quizCount": 3,
+    "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 0
   },

@@ -10,6 +10,7 @@ const errors = [];
 const sourceObjectFields = ["publisher", "title", "url", "usedFor", "license", "checkedAt"];
 const figureObjectFields = ["kind", "title", "asset", "alt", "caption", "sourceNote"];
 const validFigureKinds = new Set(["map", "chart", "diagram"]);
+const validQuizTypes = new Set(["choice", "blank"]);
 const requiredDocFields = [
   "id",
   "title",
@@ -154,6 +155,7 @@ const weakStructurePhrases = [
   " 지식은"
 ];
 const weakQuizExplanationPhrases = [
+  "빈칸에는",
   "너무 단순합니다",
   "관련된 설명처럼 보이지만",
   "한 가지 예나 느낌만으로",
@@ -280,6 +282,10 @@ function validateQuiz(doc) {
     addError(doc.id || "(missing id)", "quiz must contain at least 1 question");
     return;
   }
+  const blankQuizCount = doc.quiz.filter(item => item && item.type === "blank").length;
+  if (blankQuizCount > 1) {
+    addError(doc.id, "quiz should contain at most 1 blank question");
+  }
   const correctChoices = [];
   const bodyCorpus = [
     doc.summary,
@@ -292,6 +298,12 @@ function validateQuiz(doc) {
       return;
     }
     if (!hasText(item.question)) addError(doc.id, `quiz[${index}].question must be non-empty text`);
+    if (item.type !== undefined && !validQuizTypes.has(item.type)) {
+      addError(doc.id, `quiz[${index}].type must be one of ${[...validQuizTypes].join(", ")}`);
+    }
+    if (item.type === "blank" && hasText(item.question) && !item.question.includes("____")) {
+      addError(doc.id, `quiz[${index}].question must include ____ for blank quizzes`);
+    }
     if (hasText(item.question) && weakQuizQuestionPhrases.some(phrase => item.question.includes(phrase))) {
       addError(doc.id, `quiz[${index}].question is too vague`);
     }

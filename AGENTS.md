@@ -24,6 +24,15 @@ Every new knowledge entry in `data/source/knowledge/**/*.json` must include:
 
 `quiz` must contain multiple-choice questions with `question`, four `choices`, `answerIndex`, and `explanation`.
 
+Quiz writing rules:
+
+- Write and revise quiz questions one knowledge entry at a time after reading that entry.
+- Do not bulk-generate quizzes by swapping only the title, answer word, or category.
+- A blank-fill multiple-choice question may use `type: "blank"` and must include `____` in the question.
+- Add at most one blank-fill question per knowledge entry, and only when the blank checks a meaningful core term, year, person, cause, result, or principle.
+- Do not force every knowledge entry into a fixed 3-question or 4-question count. Short entries may have fewer questions if more would be artificial.
+- Avoid generic explanations such as “빈칸에는 ...이 들어갑니다.” Explain why the answer matters in that knowledge context.
+
 Every source must be an object with:
 
 - `publisher`, `title`, `url`, `usedFor`, `license`, `checkedAt`

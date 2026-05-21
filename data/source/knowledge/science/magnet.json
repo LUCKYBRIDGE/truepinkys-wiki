@@ -157,6 +157,18 @@
       ],
       "answerIndex": 0,
       "explanation": "자석의 극은 단순히 두 끝을 따로 떼어 내는 방식으로 분리되지 않습니다."
+    },
+    {
+      "type": "blank",
+      "question": "자석에는 보통 ____과 S극이 있습니다.",
+      "choices": [
+        "N극",
+        "양극",
+        "음극",
+        "북반구"
+      ],
+      "answerIndex": 0,
+      "explanation": "자석에는 보통 N극과 S극이 있으며, 극에 따라 밀거나 끌어당기는 현상이 나타납니다."
     }
   ],
   "mainTopic": "과학",
