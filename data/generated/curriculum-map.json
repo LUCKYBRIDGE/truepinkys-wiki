@@ -789,12 +789,7 @@
       {
         "subject": "과학",
         "area": "운동과 에너지",
-        "achievementSupport": "힘, 운동, 빛, 전기, 에너지 현상을 관찰하고 규칙을 설명하는 데 도움이 됩니다"
-      },
-      {
-        "subject": "체육",
-        "area": "도전과 움직임",
-        "achievementSupport": "몸과 건강을 이해하고 안전한 생활 습관을 실천하는 데 도움이 됩니다"
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
       }
     ],
     "gravity": [
@@ -1735,6 +1730,366 @@
         "area": "수와 연산",
         "achievementSupport": "두 양의 관계를 비와 비율, 백분율로 나타내고 자료를 해석하는 데 도움이 됩니다"
       }
+    ],
+    "temperature-heat": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "온도 측정과 열의 이동을 운동과 에너지 영역으로 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "heat-transfer": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "열의 이동 방식을 관찰과 생활 사례로 설명하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "thermal-expansion-contraction": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "온도 변화와 물질의 성질 변화를 생활 사례와 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "material-properties-use": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질의 성질을 관찰하고 쓰임과 연결하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "dissolving-solution": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질이 물에 녹는 현상과 용액의 성질을 탐구하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "mixtures-compounds": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질의 성질과 구성을 비교해 설명하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "acid-base": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질의 성질, 변화, 용액과 반응을 관찰하고 비교하는 데 도움이 됩니다"
+      }
+    ],
+    "combustion-fire-extinguishing": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질의 성질, 변화, 용액과 반응을 관찰하고 비교하는 데 도움이 됩니다"
+      }
+    ],
+    "oxygen-carbon-dioxide": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "기체의 성질과 생명 활동, 연소를 연결하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "electric-current-switch": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "electromagnet": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "light-reflection": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "빛의 진행과 반사를 관찰하고 설명하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "light-refraction-lens": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "빛이 물질을 지날 때 방향이 달라지는 현상을 관찰하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "simple-machines": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘과 운동을 생활 도구의 원리와 연결하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "plant-parts-function": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "식물의 각 기관을 관찰하고 기능을 설명하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "flower-fruit-seed": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "식물의 번식과 한살이를 기관 변화와 연결하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "photosynthesis-respiration": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "식물의 양분 만들기와 생물의 호흡을 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "animal-life-cycle": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "동물의 한살이를 관찰하고 생명 과정으로 설명하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "animal-classification": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "동물을 관찰해 공통점과 차이점을 기준으로 분류하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "habitat-adaptation": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "생물과 환경의 관계, 생태계 구성 요소를 설명하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "microorganism-life": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "작은 생물을 관찰하고 생활 속 역할을 설명하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "soil-composition": [
+      {
+        "subject": "과학",
+        "area": "지구와 물질",
+        "achievementSupport": "흙과 암석, 식물 생장 환경을 관찰하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "strata-fossil-formation": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "erosion-deposition": [
+      {
+        "subject": "과학",
+        "area": "지구와 물질",
+        "achievementSupport": "흐르는 물과 지표 변화, 지층 형성과 연결되는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "earthquake-volcano-activity": [
+      {
+        "subject": "과학",
+        "area": "지구와 물질",
+        "achievementSupport": "지구 내부 활동과 지표 변화, 재난 안전을 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "ocean-tides": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "달과 지구의 관계, 바다 환경과 생활을 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "weather-observation": [
+      {
+        "subject": "과학",
+        "area": "지구와 날씨",
+        "achievementSupport": "날씨 요소를 관찰하고 자료로 해석하는 교과 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "air-pressure-weather": [
+      {
+        "subject": "과학",
+        "area": "지구와 날씨",
+        "achievementSupport": "공기의 움직임과 날씨 변화를 기압과 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "natural-disasters-preparedness": [
+      {
+        "subject": "과학",
+        "area": "지구와 날씨",
+        "achievementSupport": "날씨와 지구 환경 현상을 생활 안전과 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "resource-recycling": [
+      {
+        "subject": "과학",
+        "area": "환경과 생태",
+        "achievementSupport": "자원 이용과 환경 보전, 생활 속 실천을 연결하는 범위하는 데 도움이 됩니다"
+      }
+    ],
+    "light-properties": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "body-structure-function": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "우리 몸, 생물의 생활, 생태계의 관계를 관찰 자료와 개념으로 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강",
+        "achievementSupport": "몸의 기능과 건강한 생활 습관을 연결해 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "ecosystem-balance": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "생물과 환경의 상호작용을 먹이 관계와 서식지 변화로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "weather-climate": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "climate-zones": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "humidity": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "dew-fog-cloud": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "seasonal-weather": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "speed-velocity": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "potential-kinetic-energy": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "thermal-energy": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "friction": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "static-kinetic-friction": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "specific-heat": [
+      {
+        "subject": "과학",
+        "area": "운동과 에너지",
+        "achievementSupport": "힘, 운동, 전기, 빛, 열의 현상을 관찰하고 원리로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "neutralization-reaction": [
+      {
+        "subject": "과학",
+        "area": "물질",
+        "achievementSupport": "물질의 성질, 변화, 용액과 반응을 관찰하고 비교하는 데 도움이 됩니다"
+      }
+    ],
+    "solar-altitude-noon": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "day-night-length": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "cause-of-seasons": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "northern-southern-hemisphere": [
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "excretion-elimination": [
+      {
+        "subject": "과학",
+        "area": "생명",
+        "achievementSupport": "우리 몸, 생물의 생활, 생태계의 관계를 관찰 자료와 개념으로 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강",
+        "achievementSupport": "몸의 기능과 건강한 생활 습관을 연결해 설명하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -1887,8 +2242,9 @@
       "초4"
     ],
     "wind": [
-      "초3",
-      "초4"
+      "초5",
+      "초6",
+      "중학교"
     ],
     "typhoon": [
       "초3",
@@ -2027,7 +2383,8 @@
     ],
     "force-motion": [
       "초5",
-      "초6"
+      "초6",
+      "중학교"
     ],
     "gravity": [
       "초5",
@@ -2421,6 +2778,240 @@
     "ratio": [
       "초5",
       "초6"
+    ],
+    "temperature-heat": [
+      "초5",
+      "초6"
+    ],
+    "heat-transfer": [
+      "초5",
+      "초6"
+    ],
+    "thermal-expansion-contraction": [
+      "초5",
+      "초6"
+    ],
+    "material-properties-use": [
+      "초3",
+      "초4"
+    ],
+    "dissolving-solution": [
+      "초5",
+      "초6"
+    ],
+    "mixtures-compounds": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "acid-base": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "combustion-fire-extinguishing": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "oxygen-carbon-dioxide": [
+      "초5",
+      "초6"
+    ],
+    "electric-current-switch": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "electromagnet": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "light-reflection": [
+      "초3",
+      "초4"
+    ],
+    "light-refraction-lens": [
+      "초5",
+      "초6"
+    ],
+    "simple-machines": [
+      "초5",
+      "초6"
+    ],
+    "plant-parts-function": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "flower-fruit-seed": [
+      "초3",
+      "초4"
+    ],
+    "photosynthesis-respiration": [
+      "초5",
+      "초6"
+    ],
+    "animal-life-cycle": [
+      "초3",
+      "초4"
+    ],
+    "animal-classification": [
+      "초3",
+      "초4"
+    ],
+    "habitat-adaptation": [
+      "초5",
+      "초6"
+    ],
+    "microorganism-life": [
+      "초5",
+      "초6"
+    ],
+    "soil-composition": [
+      "초3",
+      "초4"
+    ],
+    "strata-fossil-formation": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "erosion-deposition": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "earthquake-volcano-activity": [
+      "초5",
+      "초6"
+    ],
+    "ocean-tides": [
+      "초5",
+      "초6"
+    ],
+    "weather-observation": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "air-pressure-weather": [
+      "초5",
+      "초6"
+    ],
+    "natural-disasters-preparedness": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "resource-recycling": [
+      "초5",
+      "초6"
+    ],
+    "light-properties": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "body-structure-function": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "ecosystem-balance": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "weather-climate": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "climate-zones": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "humidity": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "dew-fog-cloud": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "seasonal-weather": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "speed-velocity": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "potential-kinetic-energy": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "thermal-energy": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "friction": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "static-kinetic-friction": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "specific-heat": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "neutralization-reaction": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "solar-altitude-noon": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "day-night-length": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "cause-of-seasons": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "northern-southern-hemisphere": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "excretion-elimination": [
+      "초5",
+      "초6",
+      "중학교"
     ]
   }
 }

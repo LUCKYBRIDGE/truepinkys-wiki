@@ -1166,9 +1166,9 @@
   },
   {
     "id": "digestion",
-    "title": "소화",
-    "summary": "소화는 음식물이 몸에서 쓰일 수 있도록 잘게 나뉘고 영양소가 흡수되는 과정입니다.",
-    "definition": "소화는 음식물이 몸에 흡수될 수 있는 작은 물질로 바뀌는 과정입니다.",
+    "title": "소화와 소화 기관",
+    "summary": "소화와 소화 기관은 음식물이 몸에서 쓰일 수 있도록 잘게 나뉘고 영양소가 흡수되는 과정을 설명합니다.",
+    "definition": "소화는 음식물이 몸에 흡수될 수 있는 작은 물질로 바뀌는 과정이고, 소화 기관은 그 일을 맡는 몸속 기관입니다.",
     "subjects": [
       "과학",
       "체육",
@@ -1180,6 +1180,7 @@
       "음식"
     ],
     "aliases": [
+      "소화",
       "소화기관",
       "음식물 소화",
       "위와 장",
@@ -1211,28 +1212,31 @@
     "lastReviewed": "2026-05-20",
     "mainTopic": "건강",
     "subTopicPath": [
-      "몸과 영양"
+      "몸과 영양",
+      "소화 기관"
     ],
     "categoryPaths": [
       [
         "건강",
-        "몸과 영양"
+        "몸과 영양",
+        "소화와 소화 기관"
       ],
       [
         "과학",
-        "생명과 몸"
+        "생명과 몸",
+        "소화 기관"
       ]
     ],
-    "abstract": "소화는 음식을 씹고, 분해하고, 흡수하는 과정입니다. 소화 기관의 역할을 알면 영양과 건강을 함께 이해할 수 있습니다.",
+    "abstract": "소화와 소화 기관은 음식을 씹고, 분해하고, 흡수하는 과정과 그 일을 맡는 입, 위, 소장, 대장의 역할을 함께 설명합니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
   {
     "id": "respiration",
-    "title": "호흡",
-    "summary": "호흡은 몸이 산소를 받아들이고 이산화탄소를 내보내며 생명 활동에 필요한 에너지를 얻는 과정입니다.",
-    "definition": "호흡은 산소를 받아들이고 이산화탄소를 내보내는 몸의 과정입니다.",
+    "title": "호흡과 호흡 기관",
+    "summary": "호흡과 호흡 기관은 몸이 산소를 받아들이고 이산화탄소를 내보내며 생명 활동에 필요한 에너지를 얻는 과정을 설명합니다.",
+    "definition": "호흡은 산소를 받아들이고 이산화탄소를 내보내는 몸의 과정이고, 호흡 기관은 그 공기 이동과 기체 교환을 맡는 기관입니다.",
     "subjects": [
       "과학",
       "체육"
@@ -1243,6 +1247,7 @@
       "생활"
     ],
     "aliases": [
+      "호흡",
       "숨쉬기",
       "호흡기관",
       "폐",
@@ -1274,19 +1279,154 @@
     "lastReviewed": "2026-05-20",
     "mainTopic": "건강",
     "subTopicPath": [
-      "몸과 생명 활동"
+      "몸과 생명 활동",
+      "호흡 기관"
     ],
     "categoryPaths": [
       [
         "건강",
-        "몸과 생명 활동"
+        "몸과 생명 활동",
+        "호흡과 호흡 기관"
       ],
       [
         "과학",
-        "생명과 몸"
+        "생명과 몸",
+        "호흡 기관"
       ]
     ],
-    "abstract": "호흡은 숨을 쉬는 행동뿐 아니라 몸이 산소를 이용해 에너지를 얻고 이산화탄소를 내보내는 과정과 연결됩니다.",
+    "abstract": "호흡과 호흡 기관은 숨을 쉬는 행동뿐 아니라 코, 기관, 기관지, 폐를 거쳐 산소와 이산화탄소가 이동하는 과정을 함께 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "body-structure-function",
+    "title": "우리 몸의 구조와 기능",
+    "summary": "우리 몸의 구조와 기능은 여러 기관계가 소화, 호흡, 순환, 배설, 감각, 운동을 나누어 맡고 함께 작동하는 원리입니다.",
+    "definition": "우리 몸의 구조와 기능은 몸을 이루는 기관들이 맡은 일을 하며 생명을 유지하는 원리입니다.",
+    "subjects": [
+      "과학",
+      "체육"
+    ],
+    "topicTags": [
+      "몸",
+      "건강",
+      "생활"
+    ],
+    "aliases": [
+      "몸의 기관",
+      "기관계",
+      "소화 기관",
+      "호흡 기관",
+      "순환 기관",
+      "배설 기관"
+    ],
+    "keywords": [
+      "기관",
+      "기관계",
+      "소화",
+      "호흡",
+      "순환",
+      "배설",
+      "감각",
+      "운동"
+    ],
+    "searchContexts": [
+      "우리 몸의 기관이 하는 일을 찾을 때",
+      "소화와 호흡이 몸에서 어떻게 연결되는지 궁금할 때",
+      "몸의 여러 기관계를 한눈에 정리할 때"
+    ],
+    "related": [
+      "digestion",
+      "respiration",
+      "excretion-elimination",
+      "growth",
+      "nutrition"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "우리 몸"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "우리 몸"
+      ],
+      [
+        "체육",
+        "건강",
+        "몸"
+      ]
+    ],
+    "abstract": "우리 몸은 한 기관만으로 움직이지 않습니다. 여러 기관계가 영양분과 산소를 얻고, 노폐물을 내보내고, 움직임과 감각을 조절합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "excretion-elimination",
+    "title": "배설과 배출",
+    "summary": "배설과 배출은 몸에서 필요하지 않은 물질을 밖으로 내보내는 과정이지만, 배설은 대사 과정에서 생긴 노폐물을 내보내는 일을 중심으로 합니다.",
+    "definition": "배설은 몸속 세포 활동 뒤 생긴 노폐물을 내보내는 일이고, 배출은 필요 없는 물질을 밖으로 내보내는 넓은 말입니다.",
+    "subjects": [
+      "과학",
+      "체육"
+    ],
+    "topicTags": [
+      "몸",
+      "건강",
+      "생활"
+    ],
+    "aliases": [
+      "배설",
+      "배출",
+      "노폐물",
+      "오줌",
+      "땀",
+      "콩팥"
+    ],
+    "keywords": [
+      "노폐물",
+      "콩팥",
+      "오줌",
+      "땀",
+      "이산화탄소",
+      "대변",
+      "물질대사"
+    ],
+    "searchContexts": [
+      "배설과 배출의 차이를 찾을 때",
+      "몸에서 노폐물이 나가는 과정을 알고 싶을 때",
+      "콩팥과 땀의 역할이 궁금할 때"
+    ],
+    "related": [
+      "body-structure-function",
+      "respiration",
+      "digestion",
+      "nutrition"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "우리 몸"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "우리 몸"
+      ],
+      [
+        "체육",
+        "건강",
+        "몸"
+      ]
+    ],
+    "abstract": "몸은 필요한 물질을 이용한 뒤 남은 물질을 내보내야 합니다. 배설과 배출을 구분하면 오줌, 땀, 이산화탄소, 대변이 몸에서 어떤 의미를 가지는지 더 분명하게 볼 수 있습니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -1421,9 +1561,235 @@
     "figureCount": 0
   },
   {
+    "id": "solar-altitude-noon",
+    "title": "태양의 남중 고도",
+    "summary": "태양의 남중 고도는 태양이 하루 중 남쪽 하늘에서 가장 높이 떠 있을 때의 고도이며 계절 변화와 관련됩니다.",
+    "definition": "태양의 남중 고도는 태양이 정남쪽 하늘에 왔을 때 지평선과 이루는 각도입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "과학기술"
+    ],
+    "aliases": [
+      "남중 고도",
+      "태양 고도",
+      "정오 태양",
+      "그림자 길이"
+    ],
+    "keywords": [
+      "태양",
+      "남중",
+      "고도",
+      "그림자",
+      "계절",
+      "낮의 길이",
+      "지평선"
+    ],
+    "searchContexts": [
+      "태양의 남중 고도가 무엇인지 찾을 때",
+      "그림자 길이가 계절마다 다른 까닭이 궁금할 때",
+      "계절 변화 원리를 배우기 전에 확인할 때"
+    ],
+    "related": [
+      "cause-of-seasons",
+      "day-night-length",
+      "seasons",
+      "earth-rotation-revolution"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "태양과 계절"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "태양과 계절"
+      ]
+    ],
+    "abstract": "태양의 남중 고도는 태양 빛이 땅에 비치는 각도를 알려 주는 기준입니다. 여름과 겨울의 햇빛 세기, 그림자 길이, 낮의 길이와 연결됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "day-night-length",
+    "title": "낮과 밤의 길이",
+    "summary": "낮과 밤의 길이는 지구의 자전축 기울기와 공전 때문에 계절과 지역에 따라 달라집니다.",
+    "definition": "낮과 밤의 길이는 하루 동안 태양이 떠 있는 시간과 태양이 보이지 않는 시간의 길이입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "생활"
+    ],
+    "aliases": [
+      "낮의 길이",
+      "밤의 길이",
+      "일출과 일몰",
+      "동지",
+      "하지"
+    ],
+    "keywords": [
+      "자전",
+      "공전",
+      "자전축",
+      "계절",
+      "일출",
+      "일몰",
+      "위도"
+    ],
+    "searchContexts": [
+      "낮과 밤의 길이가 달라지는 까닭을 찾을 때",
+      "하지와 동지의 차이가 궁금할 때",
+      "계절 변화와 연결할 때"
+    ],
+    "related": [
+      "cause-of-seasons",
+      "solar-altitude-noon",
+      "seasons",
+      "northern-southern-hemisphere"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "태양과 계절"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "태양과 계절"
+      ]
+    ],
+    "abstract": "낮과 밤의 길이는 계절을 느끼게 하는 중요한 변화입니다. 같은 날에도 위도와 반구에 따라 낮의 길이가 다르게 나타납니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "cause-of-seasons",
+    "title": "계절의 변화가 생기는 까닭",
+    "summary": "계절의 변화가 생기는 까닭은 지구의 자전축이 기울어진 채 태양 주위를 공전해 햇빛을 받는 각도와 시간이 달라지기 때문입니다.",
+    "definition": "계절의 변화는 지구가 기울어진 자전축을 유지한 채 태양 주위를 공전하면서 생깁니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경"
+    ],
+    "aliases": [
+      "계절 변화 원인",
+      "지구의 공전",
+      "자전축 기울기",
+      "태양 고도"
+    ],
+    "keywords": [
+      "자전축",
+      "공전",
+      "태양 고도",
+      "낮의 길이",
+      "북반구",
+      "남반구",
+      "계절"
+    ],
+    "searchContexts": [
+      "계절이 왜 바뀌는지 찾을 때",
+      "자전축 기울기와 공전을 연결할 때",
+      "북반구와 남반구의 계절 차이가 궁금할 때"
+    ],
+    "related": [
+      "seasons",
+      "solar-altitude-noon",
+      "day-night-length",
+      "northern-southern-hemisphere"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "태양과 계절"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "태양과 계절"
+      ]
+    ],
+    "abstract": "계절 변화는 지구와 태양 사이의 거리가 가까워지거나 멀어져서만 생기는 현상이 아닙니다. 자전축 기울기와 공전이 핵심입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "northern-southern-hemisphere",
+    "title": "북반구와 남반구",
+    "summary": "북반구와 남반구는 적도를 기준으로 나눈 지구의 북쪽과 남쪽 절반이며, 계절과 별자리, 낮의 길이 변화가 다르게 나타날 수 있습니다.",
+    "definition": "북반구는 적도 북쪽의 지구 절반이고, 남반구는 적도 남쪽의 지구 절반입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경"
+    ],
+    "aliases": [
+      "반구",
+      "적도",
+      "북반구",
+      "남반구",
+      "위도"
+    ],
+    "keywords": [
+      "적도",
+      "위도",
+      "계절",
+      "자전축",
+      "공전",
+      "낮의 길이",
+      "지도"
+    ],
+    "searchContexts": [
+      "북반구와 남반구의 차이를 찾을 때",
+      "남반구 계절이 왜 반대인지 궁금할 때",
+      "지도에서 적도를 기준으로 위치를 볼 때"
+    ],
+    "related": [
+      "cause-of-seasons",
+      "day-night-length",
+      "solar-altitude-noon",
+      "map"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "지구의 위치"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "지구의 위치"
+      ]
+    ],
+    "abstract": "북반구와 남반구는 지구를 적도를 기준으로 나눈 말입니다. 우리나라는 북반구에 있고, 남반구의 여러 지역은 우리나라와 계절이 반대로 나타날 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "seasons",
-    "title": "계절",
-    "summary": "계절은 한 해 동안 햇빛의 세기와 낮의 길이, 기온과 생물의 모습이 달라지는 변화입니다.",
+    "title": "계절의 변화",
+    "summary": "계절의 변화는 한 해 동안 햇빛의 세기와 낮의 길이, 기온과 생물의 모습이 달라지는 현상입니다.",
     "definition": "계절은 한 해 동안 날씨와 자연의 모습이 주기적으로 달라지는 구분입니다.",
     "subjects": [
       "과학",
@@ -1435,6 +1801,7 @@
       "생활"
     ],
     "aliases": [
+      "계절",
       "사계절",
       "봄 여름 가을 겨울",
       "계절 변화",
@@ -1466,12 +1833,14 @@
     "lastReviewed": "2026-05-20",
     "mainTopic": "과학",
     "subTopicPath": [
-      "지구와 우주"
+      "지구와 우주",
+      "계절 변화"
     ],
     "categoryPaths": [
       [
         "과학",
-        "지구와 우주"
+        "지구와 우주",
+        "계절의 변화"
       ],
       [
         "사회",
@@ -1479,7 +1848,7 @@
         "생활과 환경"
       ]
     ],
-    "abstract": "계절은 날씨만의 변화가 아니라 지구의 운동, 햇빛의 각도, 낮의 길이, 생물의 생활 변화가 함께 나타나는 현상입니다.",
+    "abstract": "계절의 변화는 날씨만의 변화가 아니라 지구의 운동, 햇빛의 각도, 낮의 길이, 생물의 생활 변화가 함께 나타나는 현상입니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -1671,6 +2040,62 @@
     ],
     "abstract": "생태계는 생물과 환경이 서로 영향을 주고받는 관계를 먹이 관계, 서식지, 환경 요소와 함께 이해하는 과학 지식입니다.",
     "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "ecosystem-balance",
+    "title": "생태계 평형",
+    "summary": "생태계 평형은 생태계 안의 생물 수와 환경 조건이 서로 영향을 주며 비교적 안정된 관계를 유지하는 상태입니다.",
+    "definition": "생태계 평형은 생물과 환경의 관계가 크게 무너지지 않고 일정한 범위에서 유지되는 상태입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "생태 균형",
+      "생물 수 변화",
+      "먹이그물",
+      "개체 수 조절"
+    ],
+    "keywords": [
+      "생산자",
+      "소비자",
+      "분해자",
+      "먹이 관계",
+      "서식지",
+      "환경 변화",
+      "생물다양성"
+    ],
+    "searchContexts": [
+      "생태계 평형이 무엇인지 찾을 때",
+      "먹이 관계가 무너지면 어떤 변화가 생기는지 궁금할 때",
+      "생태계 보전과 연결해 볼 때"
+    ],
+    "related": [
+      "ecosystem",
+      "food-chain",
+      "biodiversity",
+      "habitat-adaptation"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명과 생태",
+      "생태계"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명과 생태",
+        "생태계"
+      ]
+    ],
+    "abstract": "생태계 평형은 생물이 같은 수로 고정된다는 뜻이 아닙니다. 여러 생물과 환경 조건이 변하면서도 큰 관계가 유지되는 상태를 말합니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2450,8 +2875,8 @@
   },
   {
     "id": "clouds-rain",
-    "title": "구름과 비",
-    "summary": "구름과 비는 공기 중의 수증기가 물방울이나 얼음 알갱이로 변하며 나타나는 날씨 현상입니다.",
+    "title": "구름과 비가 생기는 과정",
+    "summary": "구름과 비가 생기는 과정은 공기 중의 수증기가 물방울이나 얼음 알갱이로 변하고 무거워져 떨어지는 날씨 현상입니다.",
     "definition": "수증기가 물방울이나 얼음 알갱이로 변해 구름과 비로 나타나는 날씨 현상입니다.",
     "subjects": [
       "과학"
@@ -2462,6 +2887,7 @@
       "안전"
     ],
     "aliases": [
+      "구름과 비",
       "구름",
       "비",
       "눈",
@@ -2493,83 +2919,80 @@
     "lastReviewed": "2026-05-14",
     "mainTopic": "과학",
     "subTopicPath": [
-      "지구와 날씨"
+      "지구와 날씨",
+      "구름과 강수"
     ],
     "categoryPaths": [
       [
         "과학",
-        "지구와 날씨"
+        "지구와 날씨",
+        "구름과 비가 생기는 과정"
       ],
       [
         "안전",
         "날씨와 재난"
       ]
     ],
-    "abstract": "구름과 비는 수증기가 물방울이나 얼음 알갱이로 변하며 나타나는 날씨 현상을 설명합니다.",
+    "abstract": "구름과 비가 생기는 과정은 수증기가 작은 물방울이나 얼음 알갱이로 변하고, 구름 속 알갱이가 커져 비나 눈으로 떨어지는 흐름을 설명합니다.",
     "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
   },
   {
     "id": "wind",
-    "title": "바람",
-    "summary": "바람은 공기가 한 곳에서 다른 곳으로 움직이는 현상입니다.",
-    "definition": "공기가 한 곳에서 다른 곳으로 움직이는 현상입니다.",
+    "title": "바람이 부는 까닭",
+    "summary": "바람이 부는 까닭은 지역마다 공기의 온도와 기압이 달라져 공기가 이동하기 때문입니다.",
+    "definition": "바람은 공기가 기압이 높은 곳에서 낮은 곳으로 이동하며 생기는 공기의 흐름입니다.",
     "subjects": [
-      "과학",
-      "사회"
+      "과학"
     ],
     "topicTags": [
       "우주와 날씨",
-      "생활",
-      "안전"
+      "생활"
     ],
     "aliases": [
-      "풍향",
-      "풍속",
-      "강풍",
+      "바람",
+      "공기의 이동",
+      "기압 차",
+      "해풍",
+      "육풍",
       "바람 방향"
     ],
     "keywords": [
-      "공기",
       "기압",
+      "공기",
+      "온도",
+      "해륙풍",
       "풍향",
       "풍속",
-      "날씨",
-      "태풍",
-      "안전"
+      "날씨"
     ],
     "searchContexts": [
-      "풍향이 궁금할 때",
-      "풍속이 궁금할 때",
-      "강풍이 궁금할 때",
-      "바람 방향이 궁금할 때",
-      "공기가 궁금할 때",
-      "기압이 궁금할 때"
+      "바람이 왜 부는지 찾을 때",
+      "기압과 바람의 관계가 궁금할 때",
+      "해풍과 육풍을 비교할 때"
     ],
     "related": [
-      "weather-forecast",
-      "clouds-rain",
-      "typhoon",
-      "fine-dust"
+      "air-pressure-weather",
+      "weather-observation",
+      "weather-climate",
+      "seasonal-weather"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-21",
     "mainTopic": "과학",
     "subTopicPath": [
-      "지구와 날씨"
+      "지구와 우주",
+      "날씨"
     ],
     "categoryPaths": [
       [
         "과학",
-        "지구와 날씨"
-      ],
-      [
-        "안전",
-        "날씨와 재난"
+        "지구와 우주",
+        "날씨"
       ]
     ],
-    "abstract": "바람은 공기가 움직이며 생기는 현상과 생활·안전에 미치는 영향을 설명합니다.",
-    "quizCount": 3,
+    "abstract": "바람은 눈에 보이지 않는 공기의 움직임입니다. 기압 차이, 지형, 바다와 땅의 데워지는 차이가 바람의 방향과 세기에 영향을 줍니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2822,9 +3245,67 @@
     "figureCount": 0
   },
   {
+    "id": "light-properties",
+    "title": "빛의 성질",
+    "summary": "빛의 성질은 빛이 곧게 나아가고, 물체에 부딪히거나 다른 물질을 지날 때 반사·굴절·흡수·통과가 일어나는 특징입니다.",
+    "definition": "빛의 성질은 빛이 나아가고 물체와 만날 때 나타나는 여러 특징입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "빛",
+      "직진",
+      "반사",
+      "굴절",
+      "그림자",
+      "렌즈"
+    ],
+    "keywords": [
+      "빛의 직진",
+      "반사",
+      "굴절",
+      "흡수",
+      "통과",
+      "그림자",
+      "거울"
+    ],
+    "searchContexts": [
+      "빛이 어떻게 나아가는지 찾을 때",
+      "그림자가 생기는 까닭이 궁금할 때",
+      "거울과 렌즈의 원리를 비교할 때"
+    ],
+    "related": [
+      "light-shadow",
+      "light-reflection",
+      "light-refraction-lens",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "빛"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "빛"
+      ]
+    ],
+    "abstract": "빛의 성질은 우리 눈에 물체가 보이는 까닭과 거울, 렌즈, 그림자가 생기는 원리를 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "sound",
-    "title": "소리",
-    "summary": "소리는 물체의 떨림이 공기, 물, 실 같은 물질을 통해 전달되어 귀로 느껴지는 현상입니다.",
+    "title": "소리의 발생과 전달",
+    "summary": "소리는 물체의 떨림에서 만들어지고 공기, 물, 실 같은 물질을 통해 전달되어 귀로 느껴지는 현상입니다.",
     "definition": "소리는 물체의 떨림이 주변 물질을 통해 전달되어 들리는 현상입니다.",
     "subjects": [
       "과학",
@@ -2836,6 +3317,7 @@
       "창작"
     ],
     "aliases": [
+      "소리",
       "음파",
       "진동",
       "소리의 전달",
@@ -2867,19 +3349,2147 @@
     "lastReviewed": "2026-05-20",
     "mainTopic": "과학",
     "subTopicPath": [
-      "소리와 파동"
+      "운동과 에너지",
+      "소리"
     ],
     "categoryPaths": [
       [
         "과학",
-        "소리와 파동"
+        "운동과 에너지",
+        "소리의 발생과 전달"
       ],
       [
         "음악",
         "소리와 표현"
       ]
     ],
-    "abstract": "소리는 떨림이 주변 물질을 통해 퍼지는 현상입니다. 소리의 세기, 높낮이, 전달 매질을 함께 살피면 여러 생활 현상을 설명할 수 있습니다.",
+    "abstract": "소리는 물체의 떨림에서 만들어지고 주변 물질을 통해 퍼지는 현상입니다. 소리의 발생 원인, 전달 매질, 세기와 높낮이를 함께 살피면 여러 생활 현상을 설명할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "temperature-heat",
+    "title": "온도와 열",
+    "summary": "온도와 열은 물체가 얼마나 따뜻한지와 열에너지가 어떻게 이동하는지를 구분해 설명하는 개념입니다.",
+    "definition": "온도는 따뜻하고 차가운 정도이고, 열은 온도 차이 때문에 이동하는 에너지입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "온도",
+      "열",
+      "열에너지",
+      "온도계"
+    ],
+    "keywords": [
+      "온도계",
+      "열",
+      "에너지",
+      "온도 차이",
+      "섭씨",
+      "열평형"
+    ],
+    "searchContexts": [
+      "온도와 열의 차이가 궁금할 때",
+      "온도계가 무엇을 재는지 알고 싶을 때",
+      "따뜻한 물체와 차가운 물체가 만날 때를 설명할 때"
+    ],
+    "related": [
+      "heat-transfer",
+      "thermal-expansion-contraction",
+      "state-change",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "열"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "열"
+      ]
+    ],
+    "abstract": "온도는 따뜻한 정도를 나타내고 열은 온도 차이가 있을 때 이동하는 에너지입니다. 두 말을 구분하면 상태 변화와 열의 이동을 더 정확하게 설명할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "heat-transfer",
+    "title": "열의 이동",
+    "summary": "열의 이동은 온도가 다른 물체나 장소 사이에서 열이 전도, 대류, 복사 방식으로 옮겨 가는 현상입니다.",
+    "definition": "열의 이동은 온도 차이 때문에 열이 한 곳에서 다른 곳으로 옮겨 가는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "전도",
+      "대류",
+      "복사",
+      "열 전달",
+      "단열"
+    ],
+    "keywords": [
+      "온도 차이",
+      "금속",
+      "공기",
+      "물",
+      "햇빛",
+      "단열재"
+    ],
+    "searchContexts": [
+      "열이 어떻게 옮겨 가는지 궁금할 때",
+      "금속 숟가락이 뜨거워지는 까닭을 찾을 때",
+      "따뜻한 공기가 위로 가는 이유를 알고 싶을 때"
+    ],
+    "related": [
+      "temperature-heat",
+      "thermal-expansion-contraction",
+      "energy",
+      "state-change"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "열"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "열"
+      ]
+    ],
+    "abstract": "열은 온도 차이가 있는 곳에서 이동합니다. 전도, 대류, 복사를 구분하면 조리, 냉난방, 보온 같은 생활 현상을 설명할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "specific-heat",
+    "title": "비열",
+    "summary": "비열은 물질 1kg의 온도를 1도 올리는 데 필요한 열에너지의 양으로, 물질마다 온도 변화가 다른 까닭을 설명합니다.",
+    "definition": "비열은 어떤 물질의 온도를 일정하게 올리는 데 필요한 열에너지의 양을 나타내는 값입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "비열용량",
+      "물의 비열",
+      "온도 변화",
+      "열용량"
+    ],
+    "keywords": [
+      "열에너지",
+      "온도",
+      "물질",
+      "물",
+      "모래",
+      "가열",
+      "냉각"
+    ],
+    "searchContexts": [
+      "비열이 무엇인지 찾을 때",
+      "물과 모래의 온도 변화가 다른 까닭이 궁금할 때",
+      "열에너지와 온도 변화를 연결할 때"
+    ],
+    "related": [
+      "thermal-energy",
+      "temperature-heat",
+      "heat-transfer",
+      "thermal-expansion-contraction"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "열"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "열"
+      ]
+    ],
+    "abstract": "비열은 같은 열을 받아도 물질마다 온도가 다르게 변하는 까닭을 설명합니다. 물은 비열이 큰 물질이라 데워지고 식는 데 시간이 많이 걸립니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "thermal-expansion-contraction",
+    "title": "물체의 열팽창과 수축",
+    "summary": "물체의 열팽창과 수축은 물질이 열을 얻거나 잃을 때 부피가 달라지는 현상입니다.",
+    "definition": "열팽창은 물체가 열을 얻어 부피가 커지는 현상이고, 수축은 부피가 작아지는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "열팽창",
+      "열수축",
+      "팽창과 수축",
+      "온도 변화와 부피"
+    ],
+    "keywords": [
+      "부피",
+      "온도",
+      "금속",
+      "액체",
+      "기체",
+      "철도 레일",
+      "온도계"
+    ],
+    "searchContexts": [
+      "열팽창이 무엇인지 궁금할 때",
+      "철도 레일 사이에 틈을 두는 까닭을 찾을 때",
+      "온도계 속 액체가 올라가는 이유를 알고 싶을 때"
+    ],
+    "related": [
+      "temperature-heat",
+      "heat-transfer",
+      "state-change",
+      "material-properties-use"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "열"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "열"
+      ]
+    ],
+    "abstract": "물체는 열을 얻으면 부피가 커지고 열을 잃으면 부피가 작아질 수 있습니다. 이 성질은 온도계, 철도 레일, 다리 이음매와 연결됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "material-properties-use",
+    "title": "물질의 성질과 쓰임",
+    "summary": "물질의 성질과 쓰임은 단단함, 투명함, 전기 전도성 같은 특징이 생활 속 재료 선택과 연결되는 개념입니다.",
+    "definition": "물질의 성질은 물질이 가진 특징이고, 쓰임은 그 특징을 이용하는 방법입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "물질의 성질",
+      "재료의 쓰임",
+      "재료 선택",
+      "고체 물질"
+    ],
+    "keywords": [
+      "단단함",
+      "투명함",
+      "전기 전도성",
+      "열 전도성",
+      "탄성",
+      "방수",
+      "재료"
+    ],
+    "searchContexts": [
+      "재료를 고를 때 어떤 성질을 보는지 궁금할 때",
+      "금속과 플라스틱의 차이를 알고 싶을 때",
+      "물건의 쓰임과 물질의 성질을 연결할 때"
+    ],
+    "related": [
+      "rocks-minerals",
+      "electric-circuit",
+      "heat-transfer",
+      "mixtures-compounds"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "성질과 쓰임"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "성질과 쓰임"
+      ]
+    ],
+    "abstract": "물질은 단단함, 투명함, 물에 젖는 정도, 열과 전기를 전하는 정도 같은 성질이 다릅니다. 물건은 이런 성질을 고려해 알맞은 재료로 만들어집니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "dissolving-solution",
+    "title": "용해와 용액",
+    "summary": "용해와 용액은 어떤 물질이 물 같은 액체에 골고루 섞여 보이지 않게 퍼지는 현상과 그 결과를 설명합니다.",
+    "definition": "용해는 물질이 액체에 골고루 섞이는 현상이고, 용액은 그렇게 만들어진 혼합물입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "용해",
+      "용액",
+      "녹음",
+      "녹는 양",
+      "소금물",
+      "설탕물"
+    ],
+    "keywords": [
+      "용질",
+      "용매",
+      "농도",
+      "물",
+      "소금",
+      "설탕",
+      "포화",
+      "온도"
+    ],
+    "searchContexts": [
+      "소금이 물에 녹는 까닭이 궁금할 때",
+      "용질과 용매를 구분하고 싶을 때",
+      "녹는 양이 왜 달라지는지 찾을 때"
+    ],
+    "related": [
+      "mixtures-compounds",
+      "material-properties-use",
+      "state-change",
+      "water-cycle"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "용해와 용액"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "용해와 용액"
+      ]
+    ],
+    "abstract": "어떤 물질은 물에 넣으면 작은 입자로 퍼져 눈에 보이지 않게 섞입니다. 용해와 용액을 알면 소금물, 설탕물, 바닷물 같은 혼합물을 설명할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "mixtures-compounds",
+    "title": "혼합물과 화합물",
+    "summary": "혼합물과 화합물은 여러 물질이 섞인 상태와 원자들이 일정한 비율로 결합해 새로운 물질이 된 상태를 구분하는 개념입니다.",
+    "definition": "혼합물은 여러 물질이 섞인 것이고, 화합물은 원자들이 결합해 만들어진 물질입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "혼합물",
+      "화합물",
+      "순물질",
+      "물질의 구성",
+      "분리"
+    ],
+    "keywords": [
+      "물질",
+      "성질",
+      "결합",
+      "소금물",
+      "공기",
+      "물",
+      "분리",
+      "원자"
+    ],
+    "searchContexts": [
+      "혼합물과 화합물의 차이가 궁금할 때",
+      "소금물과 물을 비교하고 싶을 때",
+      "물질이 섞인 것과 결합한 것을 구분할 때"
+    ],
+    "related": [
+      "atom-molecule",
+      "dissolving-solution",
+      "material-properties-use",
+      "science-experiment"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "물질의 구성"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "물질의 구성"
+      ]
+    ],
+    "abstract": "혼합물은 여러 물질이 섞여 있으면서 각 물질의 성질이 어느 정도 남아 있는 경우입니다. 화합물은 원자들이 일정한 방식으로 결합해 성질이 다른 물질이 된 경우입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "acid-base",
+    "title": "산과 염기",
+    "summary": "산과 염기는 용액의 성질을 구분하는 대표적인 말이며, 지시약 색 변화와 중화반응을 통해 성질을 확인할 수 있습니다.",
+    "definition": "산은 신맛과 산성을 나타내는 물질이고, 염기는 쓴맛이나 미끄러운 느낌과 염기성을 나타내는 물질입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "산성",
+      "염기성",
+      "지시약",
+      "리트머스 종이",
+      "수용액"
+    ],
+    "keywords": [
+      "산",
+      "염기",
+      "산성",
+      "염기성",
+      "중화",
+      "pH",
+      "지시약"
+    ],
+    "searchContexts": [
+      "산과 염기의 차이를 찾을 때",
+      "지시약 색 변화가 궁금할 때",
+      "중화반응을 배우기 전에 기본 개념을 확인할 때"
+    ],
+    "related": [
+      "neutralization-reaction",
+      "dissolving-solution",
+      "mixtures-compounds",
+      "material-properties-use"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "산과 염기"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "산과 염기"
+      ]
+    ],
+    "abstract": "산과 염기는 수용액의 성질을 나누는 과학 개념입니다. 안전한 실험에서는 맛을 보지 않고 지시약의 색 변화 같은 방법으로 성질을 확인합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "neutralization-reaction",
+    "title": "중화반응",
+    "summary": "중화반응은 산과 염기가 만나 서로의 성질을 약하게 하며 물과 염이 만들어질 수 있는 반응입니다.",
+    "definition": "중화반응은 산과 염기가 반응해 서로의 성질을 약하게 하는 화학 반응입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "중화",
+      "산 염기 반응",
+      "염",
+      "pH 변화"
+    ],
+    "keywords": [
+      "산",
+      "염기",
+      "염",
+      "물",
+      "지시약",
+      "pH",
+      "반응"
+    ],
+    "searchContexts": [
+      "중화반응이 무엇인지 찾을 때",
+      "산과 염기가 만나면 어떤 변화가 생기는지 궁금할 때",
+      "지시약 색 변화와 연결할 때"
+    ],
+    "related": [
+      "acid-base",
+      "dissolving-solution",
+      "mixtures-compounds",
+      "material-properties-use"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "산과 염기"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "산과 염기"
+      ]
+    ],
+    "abstract": "중화반응은 산과 염기 지식이 만나는 화학 반응입니다. 농도와 양에 따라 결과가 달라지므로 안전한 실험 방법과 함께 다룹니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "combustion-fire-extinguishing",
+    "title": "연소와 소화",
+    "summary": "연소와 소화는 물질이 산소와 반응해 빛과 열을 내는 현상과, 연소 조건을 끊어 불을 끄는 방법을 설명합니다.",
+    "definition": "연소는 물질이 산소와 반응해 빛과 열을 내는 현상이고, 소화는 불을 끄는 일입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "안전"
+    ],
+    "aliases": [
+      "연소",
+      "소화",
+      "불 끄기",
+      "불꽃",
+      "산소",
+      "소화기"
+    ],
+    "keywords": [
+      "탈 물질",
+      "산소",
+      "발화점",
+      "열",
+      "불",
+      "소화 방법",
+      "화재 안전"
+    ],
+    "searchContexts": [
+      "불이 붙는 조건이 궁금할 때",
+      "소화가 불을 끄는 뜻인지 확인할 때",
+      "연소와 안전을 함께 배울 때"
+    ],
+    "related": [
+      "oxygen-carbon-dioxide",
+      "material-properties-use",
+      "natural-disasters-preparedness",
+      "acid-base"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "연소와 소화"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "연소와 소화"
+      ]
+    ],
+    "abstract": "연소와 소화는 불이 붙고 꺼지는 원리를 다루는 물질 과학 지식입니다. 여기서 소화는 음식의 소화가 아니라 불을 끄는 일을 뜻합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "oxygen-carbon-dioxide",
+    "title": "산소와 이산화탄소",
+    "summary": "산소와 이산화탄소는 호흡, 연소, 광합성, 공기 환경을 이해하는 데 필요한 대표적인 기체입니다.",
+    "definition": "산소와 이산화탄소는 공기와 생명 활동, 연소에 관련되는 대표적인 기체입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "환경",
+      "몸"
+    ],
+    "aliases": [
+      "산소",
+      "이산화탄소",
+      "공기",
+      "기체",
+      "산소 발생"
+    ],
+    "keywords": [
+      "호흡",
+      "연소",
+      "광합성",
+      "공기",
+      "기체",
+      "온실가스",
+      "생명 활동"
+    ],
+    "searchContexts": [
+      "산소와 이산화탄소를 알고 싶을 때",
+      "산소와 이산화탄소를 생활 속 현상과 연결할 때",
+      "산소와 이산화탄소를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "respiration",
+      "combustion-fire-extinguishing",
+      "photosynthesis",
+      "greenhouse-gas"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "물질",
+      "기체"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "물질",
+        "기체"
+      ]
+    ],
+    "abstract": "산소와 이산화탄소는 호흡, 연소, 광합성, 공기 환경을 이해하는 데 필요한 대표적인 기체입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "electric-current-switch",
+    "title": "전류",
+    "summary": "전류는 전기 회로에서 전하가 흐르는 현상이며, 닫힌 회로가 이루어질 때 전기 기구가 작동할 수 있습니다.",
+    "definition": "전류는 전기 회로에서 전하가 한 방향으로 흐르는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "전류의 흐름",
+      "전기 흐름",
+      "스위치",
+      "닫힌 회로",
+      "전지"
+    ],
+    "keywords": [
+      "전하",
+      "회로",
+      "전선",
+      "전지",
+      "스위치",
+      "전구",
+      "도체"
+    ],
+    "searchContexts": [
+      "전류가 무엇인지 찾을 때",
+      "전기 회로에서 스위치의 역할이 궁금할 때",
+      "전구가 켜지는 조건을 알고 싶을 때"
+    ],
+    "related": [
+      "electric-circuit",
+      "electromagnet",
+      "magnet",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "전기와 자기"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "전기와 자기"
+      ]
+    ],
+    "abstract": "전류는 전기 기구가 작동하게 하는 전하의 흐름입니다. 전지, 전선, 전구, 스위치가 연결되어 닫힌 회로가 되면 전류가 흐를 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "electromagnet",
+    "title": "전자석과 영구자석",
+    "summary": "전자석과 영구자석은 자석의 성질을 나타내는 물체이지만, 전자석은 전류에 따라 자성을 조절할 수 있다는 점이 다릅니다.",
+    "definition": "전자석은 전류가 흐를 때 자석의 성질을 나타내는 장치이고, 영구자석은 전류 없이도 자성을 지닌 자석입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "전자석",
+      "영구자석",
+      "전기 자석",
+      "코일",
+      "철심",
+      "자성"
+    ],
+    "keywords": [
+      "전류",
+      "자기장",
+      "코일",
+      "철심",
+      "극",
+      "자석",
+      "모터"
+    ],
+    "searchContexts": [
+      "전자석과 영구자석의 차이가 궁금할 때",
+      "전류와 자석의 관계를 찾을 때",
+      "전자석이 쓰이는 장치를 알고 싶을 때"
+    ],
+    "related": [
+      "electric-current-switch",
+      "electric-circuit",
+      "magnet",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "전기와 자기"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "전기와 자기"
+      ]
+    ],
+    "abstract": "전자석과 영구자석은 물체를 끌어당기거나 밀어내는 자석의 성질을 다룹니다. 전자석은 전류를 켜고 끄며 자석의 세기를 조절할 수 있어 여러 장치에 쓰입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "light-reflection",
+    "title": "빛의 반사",
+    "summary": "빛의 반사는 빛이 물체 표면에 부딪힌 뒤 방향을 바꾸어 나아가는 현상입니다.",
+    "definition": "빛의 반사는 빛이 물체 표면에서 방향을 바꾸어 나아가는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활",
+      "창작"
+    ],
+    "aliases": [
+      "반사",
+      "거울",
+      "반사각",
+      "입사각",
+      "빛의 방향"
+    ],
+    "keywords": [
+      "빛",
+      "거울",
+      "표면",
+      "입사각",
+      "반사각",
+      "반사판",
+      "눈"
+    ],
+    "searchContexts": [
+      "빛의 반사를 알고 싶을 때",
+      "빛의 반사를 생활 속 현상과 연결할 때",
+      "빛의 반사를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "light-shadow",
+      "light-refraction-lens",
+      "science-experiment",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "빛"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "빛"
+      ]
+    ],
+    "abstract": "빛의 반사는 빛이 물체 표면에 부딪힌 뒤 방향을 바꾸어 나아가는 현상입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "light-refraction-lens",
+    "title": "빛의 굴절과 렌즈",
+    "summary": "빛의 굴절과 렌즈는 빛이 다른 물질로 들어갈 때 방향이 바뀌고 렌즈가 빛을 모으거나 퍼뜨리는 원리를 설명합니다.",
+    "definition": "빛의 굴절은 빛이 다른 물질로 들어갈 때 방향이 꺾이는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "굴절",
+      "렌즈",
+      "볼록렌즈",
+      "오목렌즈",
+      "빛의 꺾임"
+    ],
+    "keywords": [
+      "빛",
+      "물",
+      "유리",
+      "렌즈",
+      "초점",
+      "돋보기",
+      "안경"
+    ],
+    "searchContexts": [
+      "빛의 굴절과 렌즈를 알고 싶을 때",
+      "빛의 굴절과 렌즈를 생활 속 현상과 연결할 때",
+      "빛의 굴절과 렌즈를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "light-reflection",
+      "light-shadow",
+      "science-experiment",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "빛"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "빛"
+      ]
+    ],
+    "abstract": "빛의 굴절과 렌즈는 빛이 다른 물질로 들어갈 때 방향이 바뀌고 렌즈가 빛을 모으거나 퍼뜨리는 원리를 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "simple-machines",
+    "title": "도구와 힘의 원리",
+    "summary": "도구와 힘의 원리는 지레, 도르래, 빗면 같은 도구가 힘의 크기나 방향을 바꾸어 일을 돕는 방식을 설명합니다.",
+    "definition": "도구는 힘의 크기나 방향을 바꾸어 일을 돕는 물건입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "지레",
+      "도르래",
+      "빗면",
+      "간단한 기계",
+      "힘의 방향"
+    ],
+    "keywords": [
+      "힘",
+      "일",
+      "받침점",
+      "작용점",
+      "힘점",
+      "도르래",
+      "마찰"
+    ],
+    "searchContexts": [
+      "도구와 힘의 원리를 알고 싶을 때",
+      "도구와 힘의 원리를 생활 속 현상과 연결할 때",
+      "도구와 힘의 원리를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "force-motion",
+      "energy",
+      "material-properties-use",
+      "science-experiment"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "힘과 도구"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "힘과 도구"
+      ]
+    ],
+    "abstract": "도구와 힘의 원리는 지레, 도르래, 빗면 같은 도구가 힘의 크기나 방향을 바꾸어 일을 돕는 방식을 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "plant-parts-function",
+    "title": "식물의 기관과 기능",
+    "summary": "식물의 기관과 기능은 뿌리, 줄기, 잎, 꽃 같은 부분이 식물의 생장과 번식에 어떤 일을 하는지 설명합니다.",
+    "definition": "식물의 기관은 뿌리, 줄기, 잎, 꽃처럼 식물의 몸을 이루며 각각 일을 맡는 부분입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "뿌리",
+      "줄기",
+      "잎",
+      "꽃",
+      "식물 기관"
+    ],
+    "keywords": [
+      "흡수",
+      "이동",
+      "광합성",
+      "증산",
+      "번식",
+      "열매",
+      "씨"
+    ],
+    "searchContexts": [
+      "식물의 기관과 기능을 알고 싶을 때",
+      "식물의 기관과 기능을 생활 속 현상과 연결할 때",
+      "식물의 기관과 기능을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "plant-life-cycle",
+      "flower-fruit-seed",
+      "photosynthesis",
+      "water-cycle"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "식물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "식물"
+      ]
+    ],
+    "abstract": "식물의 기관과 기능은 뿌리, 줄기, 잎, 꽃 같은 부분이 식물의 생장과 번식에 어떤 일을 하는지 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "flower-fruit-seed",
+    "title": "꽃과 열매와 씨",
+    "summary": "꽃과 열매와 씨는 식물이 번식하고 다음 세대로 이어지는 과정을 보여 주는 기관과 구조입니다.",
+    "definition": "꽃은 씨가 만들어지는 과정에 관여하고, 열매는 씨를 보호하거나 퍼뜨리는 기관입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "꽃",
+      "열매",
+      "씨",
+      "수분",
+      "수정",
+      "씨 퍼뜨리기"
+    ],
+    "keywords": [
+      "꽃가루",
+      "암술",
+      "수술",
+      "열매",
+      "씨",
+      "번식",
+      "동물",
+      "바람"
+    ],
+    "searchContexts": [
+      "꽃과 열매와 씨를 알고 싶을 때",
+      "꽃과 열매와 씨를 생활 속 현상과 연결할 때",
+      "꽃과 열매와 씨를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "plant-parts-function",
+      "plant-life-cycle",
+      "biodiversity"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "식물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "식물"
+      ]
+    ],
+    "abstract": "꽃과 열매와 씨는 식물이 번식하고 다음 세대로 이어지는 과정을 보여 주는 기관과 구조입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "photosynthesis-respiration",
+    "title": "광합성과 호흡의 관계",
+    "summary": "광합성과 호흡의 관계는 식물이 빛으로 양분을 만들고 생물이 양분과 산소를 이용해 에너지를 얻는 과정을 연결해 설명합니다.",
+    "definition": "광합성과 호흡은 생물이 물질과 에너지를 주고받는 대표적인 생명 과정입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경",
+      "몸"
+    ],
+    "aliases": [
+      "광합성",
+      "호흡",
+      "산소",
+      "이산화탄소",
+      "양분"
+    ],
+    "keywords": [
+      "빛",
+      "엽록체",
+      "양분",
+      "산소",
+      "이산화탄소",
+      "에너지"
+    ],
+    "searchContexts": [
+      "광합성과 호흡의 관계를 알고 싶을 때",
+      "광합성과 호흡의 관계를 생활 속 현상과 연결할 때",
+      "광합성과 호흡의 관계를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "photosynthesis",
+      "respiration",
+      "oxygen-carbon-dioxide",
+      "plant-parts-function"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "식물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "식물"
+      ]
+    ],
+    "abstract": "광합성과 호흡의 관계는 식물이 빛으로 양분을 만들고 생물이 양분과 산소를 이용해 에너지를 얻는 과정을 연결해 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "animal-life-cycle",
+    "title": "동물의 한살이",
+    "summary": "동물의 한살이는 태어나고 자라며 어른 동물이 되어 번식하는 생명 과정입니다.",
+    "definition": "동물의 한살이는 동물이 태어나 자라고 번식하는 전체 과정입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "한살이",
+      "동물 성장",
+      "변태",
+      "알",
+      "새끼"
+    ],
+    "keywords": [
+      "알",
+      "새끼",
+      "애벌레",
+      "번데기",
+      "성체",
+      "번식",
+      "성장"
+    ],
+    "searchContexts": [
+      "동물의 한살이를 알고 싶을 때",
+      "동물의 한살이를 생활 속 현상과 연결할 때",
+      "동물의 한살이를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "plant-life-cycle",
+      "animal-classification",
+      "habitat-adaptation",
+      "biodiversity"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "동물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "동물"
+      ]
+    ],
+    "abstract": "동물의 한살이는 태어나고 자라며 어른 동물이 되어 번식하는 생명 과정입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "animal-classification",
+    "title": "동물의 특징과 분류",
+    "summary": "동물의 특징과 분류는 몸의 생김새, 생활 방식, 번식 방법 같은 기준으로 동물을 비교하고 무리 지어 보는 방법입니다.",
+    "definition": "동물의 분류는 동물의 공통점과 차이점을 기준으로 무리 지어 보는 방법입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "동물 분류",
+      "척추동물",
+      "무척추동물",
+      "곤충",
+      "포유류"
+    ],
+    "keywords": [
+      "공통점",
+      "차이점",
+      "몸의 구조",
+      "번식",
+      "서식지",
+      "척추",
+      "날개"
+    ],
+    "searchContexts": [
+      "동물의 특징과 분류를 알고 싶을 때",
+      "동물의 특징과 분류를 생활 속 현상과 연결할 때",
+      "동물의 특징과 분류를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "animal-life-cycle",
+      "habitat-adaptation",
+      "biodiversity",
+      "ecosystem"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "동물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "동물"
+      ]
+    ],
+    "abstract": "동물의 특징과 분류는 몸의 생김새, 생활 방식, 번식 방법 같은 기준으로 동물을 비교하고 무리 지어 보는 방법입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "habitat-adaptation",
+    "title": "생물의 서식지와 적응",
+    "summary": "생물의 서식지와 적응은 생물이 살아가는 장소의 조건과 그곳에서 살아가기에 알맞은 특징이 어떻게 연결되는지 설명합니다.",
+    "definition": "서식지는 생물이 살아가는 곳이고, 적응은 환경에 알맞은 특징이 나타나는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "환경"
+    ],
+    "aliases": [
+      "서식지",
+      "적응",
+      "보호색",
+      "생물 환경",
+      "사는 곳"
+    ],
+    "keywords": [
+      "환경",
+      "먹이",
+      "온도",
+      "물",
+      "보호색",
+      "몸의 특징",
+      "행동"
+    ],
+    "searchContexts": [
+      "생물의 서식지와 적응을 알고 싶을 때",
+      "생물의 서식지와 적응을 생활 속 현상과 연결할 때",
+      "생물의 서식지와 적응을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "ecosystem",
+      "biodiversity",
+      "animal-classification",
+      "food-chain"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "생태계"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "생태계"
+      ]
+    ],
+    "abstract": "생물의 서식지와 적응은 생물이 살아가는 장소의 조건과 그곳에서 살아가기에 알맞은 특징이 어떻게 연결되는지 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "microorganism-life",
+    "title": "작은 생물과 우리 생활",
+    "summary": "작은 생물과 우리 생활은 눈에 잘 보이지 않는 미생물이 음식, 건강, 환경에서 어떤 역할을 하는지 설명합니다.",
+    "definition": "작은 생물은 맨눈으로 보기 어렵지만 살아서 자라고 번식하는 미생물을 포함합니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "동물과 식물",
+      "건강",
+      "환경"
+    ],
+    "aliases": [
+      "미생물",
+      "곰팡이",
+      "세균",
+      "효모",
+      "작은 생물"
+    ],
+    "keywords": [
+      "미생물",
+      "현미경",
+      "발효",
+      "부패",
+      "위생",
+      "분해",
+      "건강"
+    ],
+    "searchContexts": [
+      "작은 생물과 우리 생활을 알고 싶을 때",
+      "작은 생물과 우리 생활을 생활 속 현상과 연결할 때",
+      "작은 생물과 우리 생활을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "bacteria-virus",
+      "nutrition",
+      "ecosystem",
+      "science-experiment"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "생명",
+      "작은 생물"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "생명",
+        "작은 생물"
+      ]
+    ],
+    "abstract": "작은 생물과 우리 생활은 눈에 잘 보이지 않는 미생물이 음식, 건강, 환경에서 어떤 역할을 하는지 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "soil-composition",
+    "title": "흙의 구성",
+    "summary": "흙의 구성은 암석이 잘게 부서진 알갱이, 물, 공기, 생물의 흔적이 섞여 식물과 생물이 살아가는 바탕을 이루는 것을 설명합니다.",
+    "definition": "흙은 암석 알갱이, 물, 공기, 생물의 흔적이 섞여 만들어진 자연 물질입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "동물과 식물",
+      "체험학습"
+    ],
+    "aliases": [
+      "흙",
+      "토양",
+      "모래",
+      "진흙",
+      "부식질"
+    ],
+    "keywords": [
+      "암석",
+      "모래",
+      "진흙",
+      "물",
+      "공기",
+      "부식질",
+      "식물"
+    ],
+    "searchContexts": [
+      "흙의 구성을 알고 싶을 때",
+      "흙의 구성을 생활 속 현상과 연결할 때",
+      "흙의 구성을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "rocks-minerals",
+      "erosion-deposition",
+      "plant-life-cycle",
+      "ecosystem"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 물질",
+      "흙"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 물질",
+        "흙"
+      ]
+    ],
+    "abstract": "흙의 구성은 암석이 잘게 부서진 알갱이, 물, 공기, 생물의 흔적이 섞여 식물과 생물이 살아가는 바탕을 이루는 것을 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "strata-fossil-formation",
+    "title": "지층과 화석",
+    "summary": "지층과 화석은 퇴적물이 층층이 쌓여 암석이 되고, 오래전 생물의 흔적이 그 안에 남아 과거 환경을 알려 주는 개념입니다.",
+    "definition": "지층은 퇴적물이 층을 이루어 굳은 것이고, 화석은 오래전 생물의 몸이나 흔적이 남은 것입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "환경"
+    ],
+    "aliases": [
+      "지층",
+      "화석",
+      "퇴적암",
+      "퇴적물",
+      "공룡 화석",
+      "생흔 화석"
+    ],
+    "keywords": [
+      "층리",
+      "퇴적",
+      "압력",
+      "암석",
+      "과거 생물",
+      "과거 환경",
+      "흔적"
+    ],
+    "searchContexts": [
+      "지층이 어떻게 생기는지 궁금할 때",
+      "화석이 과거 생물을 알려 주는 까닭을 찾을 때",
+      "퇴적암과 화석을 함께 비교할 때"
+    ],
+    "related": [
+      "fossil",
+      "rocks-minerals",
+      "erosion-deposition",
+      "earthquake-volcano-activity"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "지층과 화석"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "지층과 화석"
+      ]
+    ],
+    "abstract": "지층과 화석은 땅속 기록을 읽는 지구과학 지식입니다. 층이 쌓인 순서와 화석의 종류를 살피면 과거에 물이 있었는지, 어떤 생물이 살았는지 추리할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "erosion-deposition",
+    "title": "침식과 퇴적",
+    "summary": "침식과 퇴적은 물, 바람, 얼음이 지표를 깎고 옮긴 물질을 다른 곳에 쌓아 지형을 바꾸는 작용입니다.",
+    "definition": "침식은 지표가 깎이는 작용이고, 퇴적은 옮겨진 물질이 쌓이는 작용입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "체험학습"
+    ],
+    "aliases": [
+      "침식",
+      "퇴적",
+      "운반 작용",
+      "지형 변화",
+      "강가 지형"
+    ],
+    "keywords": [
+      "물",
+      "바람",
+      "빙하",
+      "모래",
+      "자갈",
+      "하천",
+      "해안",
+      "지형"
+    ],
+    "searchContexts": [
+      "침식과 퇴적을 알고 싶을 때",
+      "침식과 퇴적을 생활 속 현상과 연결할 때",
+      "침식과 퇴적을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "river",
+      "strata-fossil-formation",
+      "soil-composition",
+      "water-cycle"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 물질",
+      "지형 변화"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 물질",
+        "지형 변화"
+      ]
+    ],
+    "abstract": "침식과 퇴적은 물, 바람, 얼음이 지표를 깎고 옮긴 물질을 다른 곳에 쌓아 지형을 바꾸는 작용입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "earthquake-volcano-activity",
+    "title": "지진과 화산 활동",
+    "summary": "지진과 화산 활동은 지구 내부의 에너지와 판의 움직임이 지표에 흔들림과 분출로 나타나는 현상입니다.",
+    "definition": "지진은 땅의 흔들림이고, 화산 활동은 마그마와 기체가 지표로 나오는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "안전",
+      "과학기술"
+    ],
+    "aliases": [
+      "지진",
+      "화산 활동",
+      "마그마",
+      "용암",
+      "화산재"
+    ],
+    "keywords": [
+      "진원",
+      "진앙",
+      "마그마",
+      "용암",
+      "화산재",
+      "판",
+      "안전"
+    ],
+    "searchContexts": [
+      "지진과 화산 활동을 알고 싶을 때",
+      "지진과 화산 활동을 생활 속 현상과 연결할 때",
+      "지진과 화산 활동을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "volcano",
+      "plate-tectonics",
+      "earthquake-safety",
+      "natural-disasters-preparedness"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 물질",
+      "지각 변동"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 물질",
+        "지각 변동"
+      ]
+    ],
+    "abstract": "지진과 화산 활동은 지구 내부의 에너지와 판의 움직임이 지표에 흔들림과 분출로 나타나는 현상입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "ocean-tides",
+    "title": "바다와 조석",
+    "summary": "바다와 조석은 바닷물이 주기적으로 높아지고 낮아지는 현상과 달, 태양, 지구의 관계를 설명합니다.",
+    "definition": "조석은 바닷물의 높이가 주기적으로 오르내리는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경",
+      "생활"
+    ],
+    "aliases": [
+      "조석",
+      "밀물",
+      "썰물",
+      "조수",
+      "해수면"
+    ],
+    "keywords": [
+      "달",
+      "태양",
+      "중력",
+      "밀물",
+      "썰물",
+      "해안",
+      "조석표"
+    ],
+    "searchContexts": [
+      "바다와 조석을 알고 싶을 때",
+      "바다와 조석을 생활 속 현상과 연결할 때",
+      "바다와 조석을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "moon-phases",
+      "earth-rotation-revolution",
+      "water-cycle",
+      "weather-forecast"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "바다"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "바다"
+      ]
+    ],
+    "abstract": "바다와 조석은 바닷물이 주기적으로 높아지고 낮아지는 현상과 달, 태양, 지구의 관계를 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "weather-observation",
+    "title": "날씨 관측",
+    "summary": "날씨 관측은 기온, 바람, 구름, 비, 습도, 기압 같은 자료를 재고 기록해 날씨 변화를 이해하는 과정입니다.",
+    "definition": "날씨 관측은 날씨 요소를 재고 기록해 현재 날씨와 변화를 살피는 과정입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "생활",
+      "안전"
+    ],
+    "aliases": [
+      "기상 관측",
+      "날씨 요소",
+      "기온",
+      "강수량",
+      "풍향",
+      "풍속"
+    ],
+    "keywords": [
+      "기온",
+      "습도",
+      "기압",
+      "풍향",
+      "풍속",
+      "구름",
+      "강수량",
+      "관측 장비"
+    ],
+    "searchContexts": [
+      "날씨 관측을 알고 싶을 때",
+      "날씨 관측을 생활 속 현상과 연결할 때",
+      "날씨 관측을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "weather-forecast",
+      "clouds-rain",
+      "wind",
+      "air-pressure-weather"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 날씨",
+      "날씨 자료"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 날씨",
+        "날씨 자료"
+      ]
+    ],
+    "abstract": "날씨 관측은 기온, 바람, 구름, 비, 습도, 기압 같은 자료를 재고 기록해 날씨 변화를 이해하는 과정입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "weather-climate",
+    "title": "날씨와 기후",
+    "summary": "날씨와 기후는 모두 대기 상태와 관련되지만, 날씨는 짧은 시간의 상태이고 기후는 오랜 기간의 평균적인 특징입니다.",
+    "definition": "날씨는 짧은 기간의 대기 상태이고, 기후는 한 지역에서 오랜 기간 나타나는 날씨의 평균적인 특징입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경"
+    ],
+    "aliases": [
+      "날씨",
+      "기후",
+      "기온",
+      "강수",
+      "기후 평균"
+    ],
+    "keywords": [
+      "기온",
+      "비",
+      "눈",
+      "바람",
+      "습도",
+      "평균",
+      "지역",
+      "계절"
+    ],
+    "searchContexts": [
+      "날씨와 기후의 차이를 찾을 때",
+      "기후가 왜 오랜 기간 자료인지 궁금할 때",
+      "지역별 기후를 비교할 때"
+    ],
+    "related": [
+      "weather-observation",
+      "climate-zones",
+      "humidity",
+      "seasonal-weather"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "날씨와 기후"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "날씨와 기후"
+      ]
+    ],
+    "abstract": "오늘 비가 오는지는 날씨이고, 어떤 지역이 여름에 덥고 비가 많은지는 기후와 관련됩니다. 두 말을 구분하면 기상 정보와 기후 변화를 더 정확히 읽을 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "climate-zones",
+    "title": "다양한 기후",
+    "summary": "다양한 기후는 지역마다 위도, 지형, 바다와의 거리, 바람의 흐름이 달라 기온과 강수 특징이 다르게 나타나는 현상입니다.",
+    "definition": "다양한 기후는 지구의 여러 지역에서 기온과 강수의 특징이 다르게 나타나는 것입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경"
+    ],
+    "aliases": [
+      "기후대",
+      "열대 기후",
+      "건조 기후",
+      "온대 기후",
+      "냉대 기후",
+      "한대 기후"
+    ],
+    "keywords": [
+      "위도",
+      "기온",
+      "강수",
+      "바다",
+      "지형",
+      "기후대",
+      "생활 모습"
+    ],
+    "searchContexts": [
+      "세계의 기후가 왜 다른지 찾을 때",
+      "열대와 한대의 차이를 비교할 때",
+      "기후와 생활 모습의 관계를 볼 때"
+    ],
+    "related": [
+      "weather-climate",
+      "seasonal-weather",
+      "climate-change",
+      "our-land"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "날씨와 기후"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "날씨와 기후"
+      ]
+    ],
+    "abstract": "지구에는 덥고 비가 많은 곳, 건조한 곳, 추운 곳처럼 여러 기후가 있습니다. 다양한 기후를 알면 자연환경과 생활 모습의 차이를 연결해 볼 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "humidity",
+    "title": "습도",
+    "summary": "습도는 공기 중에 들어 있는 수증기의 정도를 나타내며, 이슬·안개·구름과 사람의 체감 날씨에 영향을 줍니다.",
+    "definition": "습도는 공기 중에 들어 있는 수증기의 정도를 나타내는 말입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "생활"
+    ],
+    "aliases": [
+      "상대습도",
+      "수증기",
+      "공기 중 물",
+      "습한 날씨"
+    ],
+    "keywords": [
+      "수증기",
+      "상대습도",
+      "이슬점",
+      "기온",
+      "안개",
+      "구름",
+      "체감"
+    ],
+    "searchContexts": [
+      "습도가 무엇인지 찾을 때",
+      "습한 날이 답답하게 느껴지는 까닭이 궁금할 때",
+      "이슬과 안개를 배우기 전에 확인할 때"
+    ],
+    "related": [
+      "dew-fog-cloud",
+      "clouds-rain",
+      "weather-observation",
+      "weather-climate"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "날씨"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "날씨"
+      ]
+    ],
+    "abstract": "습도는 날씨를 느끼는 데 큰 영향을 줍니다. 같은 기온이라도 습도가 높으면 땀이 잘 마르지 않아 더 덥게 느껴질 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "dew-fog-cloud",
+    "title": "이슬·안개·구름",
+    "summary": "이슬·안개·구름은 공기 중 수증기가 식어 작은 물방울이나 얼음 알갱이로 변하며 나타나는 현상입니다.",
+    "definition": "이슬·안개·구름은 수증기가 식어 작은 물방울이나 얼음 알갱이로 변하며 생기는 현상입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "환경"
+    ],
+    "aliases": [
+      "이슬안개구름",
+      "이슬",
+      "안개",
+      "구름",
+      "수증기 응결"
+    ],
+    "keywords": [
+      "수증기",
+      "응결",
+      "물방울",
+      "얼음 알갱이",
+      "이슬점",
+      "습도",
+      "기온"
+    ],
+    "searchContexts": [
+      "이슬 안개 구름의 차이를 찾을 때",
+      "수증기가 물방울로 변하는 까닭이 궁금할 때",
+      "구름과 비를 배우기 전에 확인할 때"
+    ],
+    "related": [
+      "humidity",
+      "clouds-rain",
+      "water-cycle",
+      "weather-observation"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "날씨"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "날씨"
+      ]
+    ],
+    "abstract": "이슬, 안개, 구름은 모두 수증기와 온도 변화가 관련된 날씨 현상입니다. 생기는 높이와 장소가 달라 서로 다른 이름으로 부릅니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "seasonal-weather",
+    "title": "계절별 날씨",
+    "summary": "계절별 날씨는 봄·여름·가을·겨울에 기온, 비, 바람, 습도 등이 다르게 나타나는 날씨의 특징입니다.",
+    "definition": "계절별 날씨는 계절에 따라 다르게 나타나는 기온, 강수, 바람, 습도의 특징입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "생활"
+    ],
+    "aliases": [
+      "봄 날씨",
+      "여름 날씨",
+      "가을 날씨",
+      "겨울 날씨",
+      "계절 날씨"
+    ],
+    "keywords": [
+      "봄",
+      "여름",
+      "가을",
+      "겨울",
+      "기온",
+      "강수",
+      "장마",
+      "한파"
+    ],
+    "searchContexts": [
+      "계절마다 날씨가 다른 까닭을 찾을 때",
+      "봄 여름 가을 겨울 날씨를 비교할 때",
+      "계절과 생활 모습을 연결할 때"
+    ],
+    "related": [
+      "seasons",
+      "weather-climate",
+      "cause-of-seasons",
+      "weather-observation"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 우주",
+      "날씨와 계절"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 우주",
+        "날씨와 계절"
+      ]
+    ],
+    "abstract": "우리나라에서는 계절에 따라 기온과 비의 양, 바람의 성질이 달라집니다. 계절별 날씨를 알면 옷차림, 활동, 재해 대비를 더 잘 설명할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "air-pressure-weather",
+    "title": "기압과 날씨",
+    "summary": "기압과 날씨는 공기가 누르는 힘의 차이가 바람과 구름, 비 같은 날씨 변화와 어떻게 연결되는지 설명합니다.",
+    "definition": "기압은 공기가 누르는 힘이고, 기압 차이는 바람과 날씨 변화에 영향을 줍니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "우주와 날씨",
+      "생활",
+      "안전"
+    ],
+    "aliases": [
+      "기압",
+      "고기압",
+      "저기압",
+      "기압 차이",
+      "날씨 변화"
+    ],
+    "keywords": [
+      "공기",
+      "바람",
+      "구름",
+      "저기압",
+      "고기압",
+      "상승 기류",
+      "하강 기류"
+    ],
+    "searchContexts": [
+      "기압과 날씨를 알고 싶을 때",
+      "기압과 날씨를 생활 속 현상과 연결할 때",
+      "기압과 날씨를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "weather-observation",
+      "wind",
+      "clouds-rain",
+      "weather-forecast"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 날씨",
+      "기압"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 날씨",
+        "기압"
+      ]
+    ],
+    "abstract": "기압과 날씨는 공기가 누르는 힘의 차이가 바람과 구름, 비 같은 날씨 변화와 어떻게 연결되는지 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "natural-disasters-preparedness",
+    "title": "자연재해와 대비",
+    "summary": "자연재해와 대비는 태풍, 홍수, 지진, 폭염 같은 자연 현상이 생활에 피해를 줄 때 위험을 줄이는 방법을 설명합니다.",
+    "definition": "자연재해는 자연 현상으로 사람과 생활 공간에 피해가 생기는 일입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "안전",
+      "환경",
+      "생활"
+    ],
+    "aliases": [
+      "자연재해",
+      "재난 대비",
+      "태풍 대비",
+      "홍수",
+      "폭염",
+      "한파"
+    ],
+    "keywords": [
+      "태풍",
+      "홍수",
+      "지진",
+      "폭염",
+      "한파",
+      "대피",
+      "예보",
+      "비상용품"
+    ],
+    "searchContexts": [
+      "자연재해와 대비를 알고 싶을 때",
+      "자연재해와 대비를 생활 속 현상과 연결할 때",
+      "자연재해와 대비를 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "typhoon",
+      "earthquake-volcano-activity",
+      "earthquake-safety",
+      "weather-forecast"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "지구와 날씨",
+      "자연재해"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "지구와 날씨",
+        "자연재해"
+      ]
+    ],
+    "abstract": "자연재해와 대비는 태풍, 홍수, 지진, 폭염 같은 자연 현상이 생활에 피해를 줄 때 위험을 줄이는 방법을 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "resource-recycling",
+    "title": "자원과 재활용",
+    "summary": "자원과 재활용은 생활에 필요한 물질과 에너지를 아껴 쓰고 다시 사용할 수 있는 물건을 분리해 순환시키는 방법을 설명합니다.",
+    "definition": "재활용은 버려질 물건이나 재료를 다시 쓸 수 있게 처리하는 일입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "생활",
+      "과학기술"
+    ],
+    "aliases": [
+      "자원",
+      "재활용",
+      "분리배출",
+      "자원 순환",
+      "쓰레기 줄이기"
+    ],
+    "keywords": [
+      "종이",
+      "플라스틱",
+      "금속",
+      "유리",
+      "분리배출",
+      "재사용",
+      "자원순환"
+    ],
+    "searchContexts": [
+      "자원과 재활용을 알고 싶을 때",
+      "자원과 재활용을 생활 속 현상과 연결할 때",
+      "자원과 재활용을 다른 개념과 구분할 때"
+    ],
+    "related": [
+      "material-properties-use",
+      "mixtures-compounds",
+      "climate-change",
+      "greenhouse-gas"
+    ],
+    "lastReviewed": "2026-05-20",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "환경과 생태",
+      "자원 순환"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "환경과 생태",
+        "자원 순환"
+      ]
+    ],
+    "abstract": "자원과 재활용은 생활에 필요한 물질과 에너지를 아껴 쓰고 다시 사용할 수 있는 물건을 분리해 순환시키는 방법을 설명합니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -3575,8 +6185,8 @@
   },
   {
     "id": "river",
-    "title": "하천",
-    "summary": "하천은 땅 위를 따라 흐르는 물길로, 지형을 만들고 생태계와 사람의 생활에 영향을 줍니다.",
+    "title": "하천과 지형 변화",
+    "summary": "하천과 지형 변화는 땅 위를 따라 흐르는 물길이 지형을 만들고 생태계와 사람의 생활에 영향을 주는 과정을 설명합니다.",
     "definition": "하천은 비나 지하수 등이 모여 땅 위의 물길을 따라 흐르는 물입니다.",
     "subjects": [
       "사회",
@@ -3588,6 +6198,7 @@
       "체험학습"
     ],
     "aliases": [
+      "하천",
       "강",
       "냇물",
       "물길",
@@ -3622,20 +6233,22 @@
     "mainTopic": "사회",
     "subTopicPath": [
       "지리",
-      "자연환경"
+      "자연환경",
+      "하천"
     ],
     "categoryPaths": [
       [
         "사회",
         "지리",
-        "자연환경"
+        "자연환경",
+        "하천과 지형 변화"
       ],
       [
         "과학",
         "환경과 생태"
       ]
     ],
-    "abstract": "하천은 물이 흐르는 길이면서 지형, 생태계, 도시와 농촌의 생활을 이어 주는 자연환경입니다.",
+    "abstract": "하천과 지형 변화는 물이 흐르는 길, 침식·운반·퇴적 작용, 생태계와 사람의 생활이 어떻게 연결되는지 설명합니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -3656,9 +6269,9 @@
     ],
     "aliases": [
       "에너지 전환",
+      "에너지 형태",
       "전기 에너지",
-      "열에너지",
-      "운동 에너지"
+      "빛 에너지"
     ],
     "keywords": [
       "빛",
@@ -4651,55 +7264,338 @@
   },
   {
     "id": "force-motion",
-    "title": "힘과 운동",
-    "summary": "힘은 물체의 모양이나 움직임을 바꿀 수 있고, 운동은 물체의 위치가 시간에 따라 변하는 것입니다.",
-    "definition": "힘은 물체의 움직임을 바꿀 수 있고, 운동은 물체가 움직이는 상태입니다.",
+    "title": "물체의 운동",
+    "summary": "물체의 운동은 기준점에 대한 물체의 위치가 시간에 따라 어떻게 달라지는지 거리, 시간, 방향, 속력으로 나타내는 개념입니다.",
+    "definition": "물체의 운동은 물체의 위치가 시간에 따라 변하는 현상입니다.",
     "subjects": [
-      "과학",
-      "체육"
+      "과학"
     ],
     "topicTags": [
-      "생활",
-      "안전",
-      "정보읽기"
+      "과학기술",
+      "생활"
     ],
     "aliases": [
-      "힘",
       "운동",
-      "속력",
-      "밀기와 당기기"
+      "위치 변화",
+      "기준점",
+      "거리와 시간",
+      "힘과 운동"
     ],
     "keywords": [
-      "물체",
+      "위치",
+      "거리",
+      "시간",
       "방향",
-      "빠르기",
-      "마찰",
-      "놀이기구",
-      "공"
+      "속력",
+      "속도",
+      "힘"
     ],
     "searchContexts": [
-      "공을 차면 왜 움직이는지 궁금할 때",
-      "힘이 물체에 어떤 영향을 주는지 알고 싶을 때",
-      "속력과 방향을 함께 이해하고 싶을 때"
+      "물체가 운동한다는 뜻을 찾을 때",
+      "위치 변화와 속력을 연결할 때",
+      "거리와 시간을 비교할 때"
     ],
     "related": [
+      "speed-velocity",
       "gravity",
-      "science-experiment",
-      "transportation"
+      "simple-machines",
+      "friction"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-21",
     "mainTopic": "과학",
     "subTopicPath": [
+      "운동과 에너지",
       "힘과 운동"
     ],
     "categoryPaths": [
       [
         "과학",
+        "운동과 에너지",
         "힘과 운동"
       ]
     ],
-    "abstract": "힘과 운동은 물체가 어떻게 움직이고, 밀거나 당기는 힘이 그 움직임을 어떻게 바꾸는지 관찰하는 과학 지식입니다.",
-    "quizCount": 3,
+    "abstract": "물체의 운동은 움직임을 느낌으로만 말하지 않고 기준점, 거리, 시간, 방향으로 나타내는 과학 지식입니다. 같은 움직임도 기준을 어디에 두느냐에 따라 다르게 설명될 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "speed-velocity",
+    "title": "속력과 속도",
+    "summary": "속력과 속도는 물체가 얼마나 빠르게 움직이는지 나타내는 말이며, 속도는 빠르기와 함께 방향까지 포함합니다.",
+    "definition": "속력은 이동 거리를 걸린 시간으로 나눈 빠르기이고, 속도는 빠르기와 방향을 함께 나타낸 값입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "속력",
+      "속도",
+      "빠르기",
+      "거리와 시간",
+      "방향"
+    ],
+    "keywords": [
+      "거리",
+      "시간",
+      "방향",
+      "평균 속력",
+      "이동",
+      "운동"
+    ],
+    "searchContexts": [
+      "속력과 속도의 차이를 찾을 때",
+      "빠르기를 계산하는 방법이 궁금할 때",
+      "방향이 왜 필요한지 알고 싶을 때"
+    ],
+    "related": [
+      "force-motion",
+      "friction",
+      "potential-kinetic-energy",
+      "energy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "힘과 운동"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "힘과 운동"
+      ]
+    ],
+    "abstract": "속력과 속도는 움직임을 비교할 때 쓰입니다. 초등 수준에서는 속력을 먼저 다루고, 방향을 함께 생각하면 속도 개념으로 넓힐 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "potential-kinetic-energy",
+    "title": "위치에너지와 운동에너지",
+    "summary": "위치에너지와 운동에너지는 물체의 위치와 움직임에 따라 저장되거나 나타나는 에너지입니다.",
+    "definition": "위치에너지는 물체의 위치 때문에 가진 에너지이고, 운동에너지는 움직이는 물체가 가진 에너지입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "위치 에너지",
+      "운동 에너지",
+      "역학적 에너지",
+      "높이와 에너지"
+    ],
+    "keywords": [
+      "높이",
+      "질량",
+      "빠르기",
+      "운동",
+      "에너지 전환",
+      "중력"
+    ],
+    "searchContexts": [
+      "높은 곳의 물체가 왜 에너지를 가지는지 찾을 때",
+      "움직이는 물체의 에너지가 궁금할 때",
+      "에너지 전환을 비교할 때"
+    ],
+    "related": [
+      "force-motion",
+      "speed-velocity",
+      "energy",
+      "gravity"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "에너지"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "에너지"
+      ]
+    ],
+    "abstract": "높이 올라간 물체는 떨어질 수 있는 위치에너지를 가지고, 움직이는 물체는 운동에너지를 가집니다. 두 에너지는 놀이기구나 공의 움직임에서 서로 바뀔 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "thermal-energy",
+    "title": "열에너지",
+    "summary": "열에너지는 물체를 이루는 입자의 움직임과 관련된 에너지이며, 온도 변화와 열의 이동을 설명하는 데 쓰입니다.",
+    "definition": "열에너지는 물체를 이루는 입자의 움직임과 관련된 에너지입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "열 에너지",
+      "열",
+      "온도",
+      "입자의 운동",
+      "에너지 이동"
+    ],
+    "keywords": [
+      "온도",
+      "열",
+      "입자",
+      "전도",
+      "대류",
+      "복사",
+      "열평형"
+    ],
+    "searchContexts": [
+      "열에너지가 무엇인지 찾을 때",
+      "온도와 열의 차이를 알고 싶을 때",
+      "열이 이동하는 까닭이 궁금할 때"
+    ],
+    "related": [
+      "temperature-heat",
+      "heat-transfer",
+      "specific-heat",
+      "thermal-expansion-contraction"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "열"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "열"
+      ]
+    ],
+    "abstract": "열에너지는 따뜻함과 차가움을 과학적으로 설명하는 에너지입니다. 물체의 온도가 달라지면 열에너지가 이동하고 물질의 상태나 부피가 달라질 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "friction",
+    "title": "마찰력",
+    "summary": "마찰력은 두 물체의 접촉면 사이에서 물체의 움직임을 방해하거나 움직임을 가능하게 하는 힘입니다.",
+    "definition": "마찰력은 서로 닿아 있는 두 물체의 접촉면에서 움직임을 방해하는 방향으로 작용하는 힘입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "마찰",
+      "접촉면",
+      "끄는 힘",
+      "미끄럼",
+      "저항"
+    ],
+    "keywords": [
+      "접촉면",
+      "운동",
+      "힘",
+      "미끄러짐",
+      "거칠기",
+      "정지마찰력",
+      "운동마찰력"
+    ],
+    "searchContexts": [
+      "마찰력이 무엇인지 찾을 때",
+      "물체가 왜 멈추는지 궁금할 때",
+      "미끄러짐과 접촉면을 비교할 때"
+    ],
+    "related": [
+      "static-kinetic-friction",
+      "force-motion",
+      "speed-velocity",
+      "simple-machines"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "힘과 운동"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "힘과 운동"
+      ]
+    ],
+    "abstract": "마찰력은 움직임을 방해하기도 하지만 걷기, 잡기, 멈추기처럼 필요한 움직임을 가능하게 하기도 합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "static-kinetic-friction",
+    "title": "정지마찰력과 운동마찰력",
+    "summary": "정지마찰력과 운동마찰력은 물체가 미끄러지기 전과 미끄러지는 동안 접촉면에서 작용하는 마찰력입니다.",
+    "definition": "정지마찰력은 물체가 미끄러지기 전의 마찰력이고, 운동마찰력은 미끄러지는 동안의 마찰력입니다.",
+    "subjects": [
+      "과학"
+    ],
+    "topicTags": [
+      "과학기술",
+      "생활"
+    ],
+    "aliases": [
+      "정지 마찰력",
+      "운동 마찰력",
+      "미끄럼 마찰",
+      "최대 정지마찰력"
+    ],
+    "keywords": [
+      "마찰력",
+      "접촉면",
+      "미끄러짐",
+      "정지",
+      "운동",
+      "힘"
+    ],
+    "searchContexts": [
+      "정지마찰력과 운동마찰력의 차이를 찾을 때",
+      "물체가 막 움직이기 시작하는 순간이 궁금할 때",
+      "마찰력을 더 자세히 비교할 때"
+    ],
+    "related": [
+      "friction",
+      "force-motion",
+      "speed-velocity",
+      "simple-machines"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "운동과 에너지",
+      "힘과 운동"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "운동과 에너지",
+        "힘과 운동"
+      ]
+    ],
+    "abstract": "물체가 가만히 버티고 있을 때의 마찰력과 이미 미끄러지고 있을 때의 마찰력은 구분해서 볼 수 있습니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
