@@ -2232,6 +2232,330 @@
     "figureCount": 0
   },
   {
+    "id": "latitude-longitude",
+    "title": "위도와 경도",
+    "summary": "위도와 경도는 지구 위의 위치를 숫자로 나타내는 기준입니다.",
+    "definition": "지구 위의 위치를 북쪽·남쪽, 동쪽·서쪽 기준으로 나타내는 좌표입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "정보읽기",
+      "우주와 날씨"
+    ],
+    "aliases": [
+      "위선과 경선",
+      "좌표",
+      "지리 좌표",
+      "위치 좌표"
+    ],
+    "keywords": [
+      "적도",
+      "본초 자오선",
+      "북위",
+      "남위",
+      "동경",
+      "서경",
+      "지도",
+      "지구본"
+    ],
+    "searchContexts": [
+      "지도에서 위치를 숫자로 나타내는 법이 궁금할 때",
+      "북위와 동경의 뜻을 알고 싶을 때",
+      "위도와 경도의 차이를 찾을 때"
+    ],
+    "related": [
+      "map",
+      "globe-world-map",
+      "satellite-map",
+      "our-land",
+      "earth-rotation-revolution"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "지역과 지도"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "지역과 지도"
+      ],
+      [
+        "정보 읽기",
+        "지도와 공간"
+      ],
+      [
+        "과학",
+        "지구와 날씨"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "globe-world-map",
+    "title": "지구본과 세계 지도",
+    "summary": "지구본과 세계 지도는 지구의 모습을 서로 다른 방식으로 보여 주는 도구입니다.",
+    "definition": "둥근 지구를 입체 모형이나 평면 그림으로 나타낸 지리 도구입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "정보읽기",
+      "우주와 날씨"
+    ],
+    "aliases": [
+      "지구본",
+      "세계지도",
+      "5대양 7대륙",
+      "대륙과 대양"
+    ],
+    "keywords": [
+      "대륙",
+      "대양",
+      "아시아",
+      "아프리카",
+      "유럽",
+      "태평양",
+      "대서양",
+      "인도양",
+      "북극해",
+      "남극해"
+    ],
+    "searchContexts": [
+      "지구본과 세계지도의 차이가 궁금할 때",
+      "5대양 7대륙을 찾고 싶을 때",
+      "세계의 위치 관계를 한눈에 보고 싶을 때"
+    ],
+    "related": [
+      "map",
+      "latitude-longitude",
+      "satellite-map",
+      "world-climate-life",
+      "global-village"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "지역과 지도"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "지역과 지도"
+      ],
+      [
+        "정보 읽기",
+        "지도와 공간"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "satellite-map",
+    "title": "위성지도",
+    "summary": "위성지도는 인공위성이나 항공 촬영 자료를 이용해 땅의 모습을 실제 사진처럼 보여 주는 지도입니다.",
+    "definition": "위성이나 항공 촬영 자료를 바탕으로 지표의 모습을 보여 주는 지도입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "정보읽기",
+      "과학기술"
+    ],
+    "aliases": [
+      "위성 사진 지도",
+      "항공사진 지도",
+      "영상지도",
+      "국토위성지도"
+    ],
+    "keywords": [
+      "인공위성",
+      "항공사진",
+      "정사영상",
+      "국토정보플랫폼",
+      "공간정보",
+      "지도 앱"
+    ],
+    "searchContexts": [
+      "위성지도가 일반 지도와 어떻게 다른지 궁금할 때",
+      "지도 앱의 사진 지도를 이해하고 싶을 때",
+      "위성사진을 볼 때 주의할 점을 찾을 때"
+    ],
+    "related": [
+      "map",
+      "latitude-longitude",
+      "globe-world-map",
+      "our-land",
+      "weather-forecast"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "지역과 지도"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "지역과 지도"
+      ],
+      [
+        "정보 읽기",
+        "지도와 공간"
+      ],
+      [
+        "과학",
+        "지구와 날씨"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "natural-human-environment",
+    "title": "자연환경과 인문환경",
+    "summary": "자연환경과 인문환경은 한 지역의 생활 모습을 이해할 때 함께 살펴야 하는 두 가지 환경입니다.",
+    "definition": "자연이 만든 조건과 사람이 만들거나 바꾼 조건을 나누어 보는 지역 이해의 기준입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "생활",
+      "정보읽기"
+    ],
+    "aliases": [
+      "자연 환경",
+      "인문 환경",
+      "지역 환경",
+      "사람과 자연"
+    ],
+    "keywords": [
+      "지형",
+      "기후",
+      "하천",
+      "산지",
+      "인구",
+      "교통",
+      "산업",
+      "문화",
+      "도시",
+      "촌락"
+    ],
+    "searchContexts": [
+      "자연환경과 인문환경의 차이가 궁금할 때",
+      "지역의 생활 모습을 설명하는 기준을 찾을 때",
+      "사람과 자연이 지역에 미치는 영향을 알고 싶을 때"
+    ],
+    "related": [
+      "our-land",
+      "river",
+      "population",
+      "transportation",
+      "world-climate-life",
+      "korea-industry-development"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "지역과 지도"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "지역과 지도"
+      ],
+      [
+        "사회",
+        "지리",
+        "자연환경과 인문환경"
+      ],
+      [
+        "환경",
+        "생태와 보전"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "world-climate-life",
+    "title": "세계의 기후와 생활",
+    "summary": "세계의 여러 기후는 사람들의 옷차림, 집, 음식, 산업과 연결되어 다양한 생활 모습을 만듭니다.",
+    "definition": "세계 여러 지역의 기온과 강수 차이가 생활 모습과 연결되는 지리 지식입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "환경",
+      "우주와 날씨",
+      "문화"
+    ],
+    "aliases": [
+      "세계 기후",
+      "기후와 생활",
+      "기후대와 생활",
+      "열대 건조 온대 냉대 한대"
+    ],
+    "keywords": [
+      "열대",
+      "건조",
+      "온대",
+      "냉대",
+      "한대",
+      "고산",
+      "강수량",
+      "기온",
+      "의식주",
+      "지역 생활"
+    ],
+    "searchContexts": [
+      "세계의 기후가 생활에 어떤 영향을 주는지 궁금할 때",
+      "열대 건조 온대 냉대 한대 기후의 차이를 알고 싶을 때",
+      "기후와 집, 옷, 음식의 관계를 찾을 때"
+    ],
+    "related": [
+      "climate-zones",
+      "weather-climate",
+      "natural-human-environment",
+      "globe-world-map",
+      "climate-change"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "세계와 환경"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "세계와 환경"
+      ],
+      [
+        "과학",
+        "지구와 날씨"
+      ],
+      [
+        "환경",
+        "기후와 에너지"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "our-land",
     "title": "우리 국토",
     "summary": "우리 국토는 우리나라의 땅과 바다, 섬, 자연환경, 사람들이 살아가는 지역을 함께 가리키는 말입니다.",
@@ -2295,6 +2619,72 @@
     "abstract": "우리 국토는 우리나라의 위치, 땅과 바다, 자연환경과 생활 모습의 연결을 보여 줍니다.",
     "quizCount": 3,
     "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "dokdo",
+    "title": "독도",
+    "summary": "독도는 동해에 있는 우리나라의 섬으로, 위치와 자연환경, 역사 자료를 함께 살펴야 하는 지리 지식입니다.",
+    "definition": "동해에 있는 대한민국의 섬으로, 행정구역상 경상북도 울릉군에 속합니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "역사",
+      "환경",
+      "문화"
+    ],
+    "aliases": [
+      "Dokdo",
+      "독도 섬",
+      "동해 독도",
+      "울릉군 독도"
+    ],
+    "keywords": [
+      "동해",
+      "울릉도",
+      "경상북도 울릉군",
+      "영토",
+      "섬",
+      "해양 생태",
+      "지도",
+      "역사 자료"
+    ],
+    "searchContexts": [
+      "독도가 어디에 있는지 궁금할 때",
+      "독도의 자연환경과 역사 자료를 함께 보고 싶을 때",
+      "독도와 울릉도의 위치 관계를 찾을 때"
+    ],
+    "related": [
+      "our-land",
+      "map",
+      "latitude-longitude",
+      "national-heritage",
+      "natural-human-environment"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "지역과 지도"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "지역과 지도"
+      ],
+      [
+        "역사",
+        "한국사",
+        "영토와 주권"
+      ],
+      [
+        "환경",
+        "생태와 보전"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 2,
     "figureCount": 0
   },
   {
@@ -5871,6 +6261,358 @@
     "figureCount": 0
   },
   {
+    "id": "law-hierarchy",
+    "title": "헌법·법률·명령",
+    "summary": "헌법, 법률, 명령은 나라의 규칙을 이루는 서로 다른 법 형식이며 서로 맞게 이어져야 합니다.",
+    "definition": "나라의 법이 헌법, 법률, 명령처럼 위아래 단계에 따라 정리되는 체계입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치",
+      "생활"
+    ],
+    "aliases": [
+      "헌법",
+      "법률",
+      "명령",
+      "법령 체계",
+      "법의 위계",
+      "상위법"
+    ],
+    "keywords": [
+      "대한민국헌법",
+      "국회",
+      "대통령령",
+      "총리령",
+      "부령",
+      "조례",
+      "규칙",
+      "법제처",
+      "국가법령정보센터"
+    ],
+    "searchContexts": [
+      "헌법과 법률의 차이가 궁금할 때",
+      "법률과 명령이 어떻게 다른지 알고 싶을 때",
+      "헌법, 법률, 명령이 어떤 관계인지 찾을 때"
+    ],
+    "related": [
+      "law-rules",
+      "democracy-election",
+      "separation-of-powers",
+      "national-assembly",
+      "executive-branch",
+      "court"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "민주주의와 법"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ],
+      [
+        "안전",
+        "공공생활 안전"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "separation-of-powers",
+    "title": "삼권분립",
+    "summary": "삼권분립은 국가 권력을 나누어 맡기고 서로 견제하게 하는 민주주의의 중요한 원리입니다.",
+    "definition": "입법, 행정, 사법 권한을 나누어 한 기관에 권력이 몰리지 않게 하는 원리입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치"
+    ],
+    "aliases": [
+      "권력분립",
+      "입법 행정 사법",
+      "국가 권력 분립"
+    ],
+    "keywords": [
+      "입법권",
+      "행정권",
+      "사법권",
+      "견제",
+      "균형",
+      "국회",
+      "정부",
+      "법원"
+    ],
+    "searchContexts": [
+      "국회 행정부 법원이 왜 나뉘는지 궁금할 때",
+      "권력분립과 삼권분립의 관계를 알고 싶을 때",
+      "민주주의에서 견제와 균형이 왜 필요한지 찾을 때"
+    ],
+    "related": [
+      "law-hierarchy",
+      "national-assembly",
+      "executive-branch",
+      "court",
+      "democracy-election",
+      "election"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "민주주의와 법"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "national-assembly",
+    "title": "국회",
+    "summary": "국회는 국민이 뽑은 국회의원들이 모여 법률과 예산, 정부 견제에 관한 일을 하는 국가 기관입니다.",
+    "definition": "국민이 선거로 뽑은 국회의원들이 모여 법률을 만들고 정부를 살피는 기관입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치"
+    ],
+    "aliases": [
+      "대한민국 국회",
+      "입법부",
+      "국회의원",
+      "의회"
+    ],
+    "keywords": [
+      "법률",
+      "예산",
+      "국정감사",
+      "국회의원",
+      "본회의",
+      "위원회",
+      "입법"
+    ],
+    "searchContexts": [
+      "국회가 무슨 일을 하는지 알고 싶을 때",
+      "국회의원과 법률의 관계가 궁금할 때",
+      "정부를 견제한다는 말이 무엇인지 찾을 때"
+    ],
+    "related": [
+      "election",
+      "law-hierarchy",
+      "separation-of-powers",
+      "executive-branch",
+      "court",
+      "democracy-election"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "민주주의와 법"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "executive-branch",
+    "title": "행정부",
+    "summary": "행정부는 법률을 바탕으로 정책을 세우고 국민 생활에 필요한 공공서비스를 실행하는 국가 기관입니다.",
+    "definition": "법률을 집행하고 나라의 정책과 공공서비스를 실제로 운영하는 국가 기관입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치",
+      "생활"
+    ],
+    "aliases": [
+      "정부",
+      "중앙정부",
+      "행정 기관",
+      "행정각부"
+    ],
+    "keywords": [
+      "대통령",
+      "국무총리",
+      "장관",
+      "행정각부",
+      "정책",
+      "공공서비스",
+      "법률 집행"
+    ],
+    "searchContexts": [
+      "행정부가 무슨 일을 하는지 궁금할 때",
+      "정부와 국회의 차이를 알고 싶을 때",
+      "정책이 실제로 실행되는 과정을 찾을 때"
+    ],
+    "related": [
+      "national-assembly",
+      "court",
+      "separation-of-powers",
+      "public-institution",
+      "local-autonomy",
+      "law-hierarchy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "민주주의와 법"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ],
+      [
+        "사회와 생활",
+        "공공기관과 지역사회"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "court",
+    "title": "법원",
+    "summary": "법원은 법에 따라 다툼을 판단하고 국민의 권리를 보호하는 사법 기관입니다.",
+    "definition": "법에 따라 재판을 하며 권리 침해와 다툼을 판단하는 국가 기관입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치",
+      "인권"
+    ],
+    "aliases": [
+      "사법부",
+      "재판소",
+      "대한민국 법원",
+      "재판"
+    ],
+    "keywords": [
+      "재판",
+      "판사",
+      "사법권",
+      "권리 구제",
+      "공정한 절차",
+      "대법원"
+    ],
+    "searchContexts": [
+      "법원이 하는 일이 궁금할 때",
+      "재판이 왜 필요한지 알고 싶을 때",
+      "국회 행정부 법원의 차이를 찾을 때"
+    ],
+    "related": [
+      "law-hierarchy",
+      "separation-of-powers",
+      "national-assembly",
+      "executive-branch",
+      "rules"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "민주주의와 법"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "local-autonomy",
+    "title": "지방자치",
+    "summary": "지방자치는 지역 주민이 지역의 일을 스스로 결정하고 책임지는 민주주의 제도입니다.",
+    "definition": "지역 주민과 지방자치단체가 지역의 일을 스스로 처리하는 제도입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "민주주의",
+      "정치",
+      "생활"
+    ],
+    "aliases": [
+      "지방 자치",
+      "지방자치단체",
+      "지방의회",
+      "주민자치"
+    ],
+    "keywords": [
+      "주민",
+      "지방자치단체",
+      "지방의회",
+      "시장",
+      "도지사",
+      "군수",
+      "구청장",
+      "조례",
+      "지역 문제"
+    ],
+    "searchContexts": [
+      "지방자치단체가 무엇인지 궁금할 때",
+      "지역 주민이 지역 일에 참여하는 방법을 알고 싶을 때",
+      "중앙정부와 지방자치단체의 차이를 찾을 때"
+    ],
+    "related": [
+      "local-community",
+      "public-institution",
+      "executive-branch",
+      "election",
+      "law-hierarchy"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "공공기관과 지역사회"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "공공기관과 지역사회"
+      ],
+      [
+        "사회와 생활",
+        "민주주의와 법"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "public-institution",
     "title": "공공기관",
     "summary": "공공기관은 국민과 지역 주민에게 필요한 공적인 일을 맡아 하는 기관입니다.",
@@ -7093,6 +7835,69 @@
       ]
     ],
     "abstract": "수출과 수입은 나라 사이에 물건과 서비스를 사고파는 활동을 통해 세계 경제가 어떻게 연결되는지 이해하는 지식입니다.",
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "korea-industry-development",
+    "title": "우리나라 산업의 발달 과정",
+    "summary": "우리나라 산업은 농업 중심에서 제조업, 서비스업, 첨단 산업이 함께 발달하는 방향으로 변화해 왔습니다.",
+    "definition": "우리나라의 생산 활동이 시대에 따라 농업, 제조업, 서비스업 등으로 변화해 온 과정입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활",
+      "과학기술"
+    ],
+    "aliases": [
+      "산업 발달",
+      "한국 산업 발달",
+      "우리나라 산업 구조 변화",
+      "산업 구조"
+    ],
+    "keywords": [
+      "농업",
+      "공업",
+      "제조업",
+      "중화학 공업",
+      "서비스업",
+      "정보통신",
+      "수출",
+      "도시화",
+      "일자리"
+    ],
+    "searchContexts": [
+      "우리나라 산업이 어떻게 바뀌었는지 궁금할 때",
+      "농업 제조업 서비스업의 변화를 알고 싶을 때",
+      "산업 발달과 지역 변화의 관계를 찾을 때"
+    ],
+    "related": [
+      "trade-export-import",
+      "market-price",
+      "gross-domestic-product",
+      "population",
+      "transportation",
+      "natural-human-environment"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "생산과 산업"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "생산과 산업"
+      ],
+      [
+        "사회와 생활",
+        "인구와 지역"
+      ]
+    ],
     "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
@@ -12754,6 +13559,140 @@
     "abstract": "국제연합은 창설 사건만이 아니라 국제기구의 목적, 주요 기관, 평화와 인권을 위한 역할과 한계를 함께 이해하는 세계 시민 지식입니다.",
     "quizCount": 4,
     "timelineCount": 4,
+    "figureCount": 0
+  },
+  {
+    "id": "global-village",
+    "title": "지구촌",
+    "summary": "지구촌은 세계 여러 나라와 사람들이 교통, 통신, 무역, 환경 문제로 서로 연결되어 있음을 나타내는 말입니다.",
+    "definition": "세계 여러 지역이 한 마을처럼 서로 영향을 주고받는다는 뜻의 말입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "문화",
+      "국제기구",
+      "민주주의",
+      "환경"
+    ],
+    "aliases": [
+      "세계 시민",
+      "세계 공동체",
+      "글로벌 사회",
+      "세계화"
+    ],
+    "keywords": [
+      "교통",
+      "통신",
+      "무역",
+      "문화 교류",
+      "국제 협력",
+      "감염병",
+      "기후 변화",
+      "난민",
+      "인권"
+    ],
+    "searchContexts": [
+      "지구촌이라는 말의 뜻이 궁금할 때",
+      "세계 여러 나라가 왜 서로 영향을 주는지 알고 싶을 때",
+      "국제 협력이 필요한 문제를 찾을 때"
+    ],
+    "related": [
+      "united-nations",
+      "trade-export-import",
+      "sustainable-future",
+      "world-climate-life",
+      "fake-news"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "사회와 생활",
+    "subTopicPath": [
+      "세계와 환경"
+    ],
+    "categoryPaths": [
+      [
+        "사회와 생활",
+        "세계와 환경"
+      ],
+      [
+        "뉴스와 미디어",
+        "공공 문제 읽기"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "sustainable-future",
+    "title": "지속가능한 미래",
+    "summary": "지속가능한 미래는 현재의 삶을 지키면서도 다음 세대가 살아갈 환경과 사회를 함께 생각하는 방향입니다.",
+    "definition": "현재 세대와 미래 세대가 함께 살아갈 수 있도록 환경, 경제, 사회를 균형 있게 생각하는 방향입니다.",
+    "subjects": [
+      "사회",
+      "과학",
+      "도덕"
+    ],
+    "topicTags": [
+      "환경",
+      "국제기구",
+      "생활",
+      "민주주의"
+    ],
+    "aliases": [
+      "지속가능성",
+      "지속가능발전",
+      "SDGs",
+      "지속 가능한 사회",
+      "지속가능한 지구촌"
+    ],
+    "keywords": [
+      "환경",
+      "경제",
+      "사회",
+      "기후 변화",
+      "자원",
+      "재활용",
+      "에너지",
+      "불평등",
+      "국제 협력",
+      "미래 세대"
+    ],
+    "searchContexts": [
+      "지속가능한 미래가 무슨 뜻인지 궁금할 때",
+      "환경과 경제와 사회를 함께 생각하는 이유를 알고 싶을 때",
+      "SDGs와 지속가능발전을 찾을 때"
+    ],
+    "related": [
+      "climate-change",
+      "renewable-energy",
+      "resource-recycling",
+      "global-village",
+      "united-nations",
+      "greenhouse-gas"
+    ],
+    "lastReviewed": "2026-05-21",
+    "mainTopic": "환경",
+    "subTopicPath": [
+      "지속가능한 생활"
+    ],
+    "categoryPaths": [
+      [
+        "환경",
+        "기후와 에너지"
+      ],
+      [
+        "사회와 생활",
+        "세계와 환경"
+      ],
+      [
+        "도덕",
+        "공동체와 책임"
+      ]
+    ],
+    "quizCount": 3,
+    "timelineCount": 0,
     "figureCount": 0
   },
   {

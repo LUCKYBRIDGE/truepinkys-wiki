@@ -2090,6 +2090,146 @@
         "area": "건강",
         "achievementSupport": "몸의 기능과 건강한 생활 습관을 연결해 설명하는 데 도움이 됩니다"
       }
+    ],
+    "law-hierarchy": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "separation-of-powers": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "national-assembly": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "executive-branch": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "court": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "local-autonomy": [
+      {
+        "subject": "사회",
+        "area": "정치·법",
+        "achievementSupport": "민주주의, 선거, 법과 규칙, 공공기관의 역할을 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "latitude-longitude": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "globe-world-map": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "satellite-map": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학 지식이 사회와 생활 문제를 해결하는 데 쓰이는 방식을 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "natural-human-environment": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "world-climate-life": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "지구와 우주",
+        "achievementSupport": "날씨, 지구 환경, 천체 현상을 관찰 자료와 모형으로 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "korea-industry-development": [
+      {
+        "subject": "사회",
+        "area": "경제",
+        "achievementSupport": "생산과 소비, 시장, 가격, 금융, 공공재정의 기본 원리를 생활 사례로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "dokdo": [
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "한국사의 주요 사건을 시간 흐름 속에서 정리하고 사회 변화와 오늘날의 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "global-village": [
+      {
+        "subject": "사회",
+        "area": "공동체와 매체",
+        "achievementSupport": "사회 문제와 매체 정보를 비판적으로 읽고 근거를 확인하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "지리",
+        "achievementSupport": "지도, 위치, 지역의 자연·인문환경을 읽고 생활 모습과 연결해 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "sustainable-future": [
+      {
+        "subject": "사회",
+        "area": "공동체와 매체",
+        "achievementSupport": "사회 문제와 매체 정보를 비판적으로 읽고 근거를 확인하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학 지식이 사회와 생활 문제를 해결하는 데 쓰이는 방식을 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "타인과 공동체",
+        "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
     ]
   },
   "gradeLinks": {
@@ -3010,6 +3150,72 @@
     ],
     "excretion-elimination": [
       "초5",
+      "초6",
+      "중학교"
+    ],
+    "law-hierarchy": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "separation-of-powers": [
+      "초6",
+      "중학교"
+    ],
+    "national-assembly": [
+      "초6",
+      "중학교"
+    ],
+    "executive-branch": [
+      "초6",
+      "중학교"
+    ],
+    "court": [
+      "초6",
+      "중학교"
+    ],
+    "local-autonomy": [
+      "초4",
+      "초6",
+      "중학교"
+    ],
+    "latitude-longitude": [
+      "초5",
+      "중학교"
+    ],
+    "globe-world-map": [
+      "초5",
+      "중학교"
+    ],
+    "satellite-map": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "natural-human-environment": [
+      "초5",
+      "중학교"
+    ],
+    "world-climate-life": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "korea-industry-development": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "dokdo": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "global-village": [
+      "초6",
+      "중학교"
+    ],
+    "sustainable-future": [
       "초6",
       "중학교"
     ]

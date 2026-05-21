@@ -6,6 +6,8 @@ This repository is a static Korean student wiki. Follow these rules when changin
 
 - Read `docs/wiki-content-guidelines.md` before editing files under `data/source/knowledge`.
 - Follow the terminology map in `docs/wiki-content-guidelines.md`: user-facing entries are `지식`, sources are `자료`, and internal code/file names may keep `document`.
+- Add and revise knowledge entries one by one. Do not bulk-generate knowledge by reusing the same chapter frame, examples, quiz pattern, or source note with only the title changed.
+- Before creating a new knowledge entry, decide whether the idea should be a separate entry, merged into an existing entry, or combined with nearby concepts.
 - Use official, public, or clearly reusable sources first.
 - Use only sources whose reuse, citation, or student-facing rewrite conditions are clear enough for new content.
 - Do not copy source paragraphs, images, tables, charts, worksheets, or diagrams into the wiki.
