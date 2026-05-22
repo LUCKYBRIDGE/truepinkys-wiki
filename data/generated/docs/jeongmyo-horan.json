@@ -191,15 +191,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "정묘호란·병자호란 주요 위치 지도",
-      "asset": "assets/history-maps/qing-invasions-joseon.svg",
-      "alt": "정묘호란과 병자호란의 심양, 의주, 한양, 강화도, 남한산성 위치를 표시한 지도",
-      "caption": "정묘호란과 병자호란에서 북쪽 세력의 남하 방향, 강화도와 남한산성 위치를 표시한 지도입니다. 군사 이동 전체를 복원한 지도는 아닙니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "조선·청 국경 고지도",
+      "asset": "assets/history-maps/imported/joseon-qing-border-gwangyeodo.png",
+      "alt": "광여도에 나타난 조선과 청의 국경 지역",
+      "caption": "광여도에 나타난 조선과 청의 국경 지역입니다. 정묘호란·병자호란의 군사 이동도를 새로 그린 것이 아니라, 관련 지역을 보여 주는 실제 고지도 이미지를 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Joseon-Qing border in Gwangyeodo.png. 저작자: 조선 왕조. 라이선스: Public domain. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:Joseon-Qing border in Gwangyeodo.png",
+        "url": "https://commons.wikimedia.org/wiki/File:Joseon-Qing_border_in_Gwangyeodo.png",
+        "license": "Public domain"
       }
     }
   ]

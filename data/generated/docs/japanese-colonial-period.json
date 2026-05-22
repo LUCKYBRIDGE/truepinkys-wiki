@@ -203,15 +203,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "독립운동 주요 활동 지역 지도",
-      "asset": "assets/history-maps/independence-movement-regions.svg",
-      "alt": "독립운동의 국내, 서간도, 연해주, 상하이, 충칭 활동 지역을 표시한 지도",
-      "caption": "국내, 만주, 연해주, 상하이, 충칭 등 독립운동과 관련된 주요 활동 지역을 표시한 지도입니다. 모든 활동지를 빠짐없이 표시한 지도는 아닙니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "1939년 식민지 조선 지도",
+      "asset": "assets/history-maps/imported/korea-map-1939.svg",
+      "alt": "1939년 일본 제국의 식민지 조선과 주변 지역을 나타낸 지도",
+      "caption": "1939년 일본 제국의 식민지 조선과 주변 지역을 나타낸 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Korea map 1939.svg. 저작자: Emok. 라이선스: CC BY-SA 3.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:Korea map 1939.svg",
+        "url": "https://commons.wikimedia.org/wiki/File:Korea_map_1939.svg",
+        "license": "CC BY-SA 3.0"
       }
     }
   ]

@@ -220,15 +220,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "6·25전쟁 주요 위치 지도",
-      "asset": "assets/history-maps/korean-war-lines.svg",
-      "alt": "6·25전쟁의 38도선, 서울, 인천, 부산, 낙동강 방어선 일대를 표시한 지도",
-      "caption": "38도선, 서울, 인천, 부산, 낙동강 방어선 일대를 표시한 지도입니다. 시기별 전선 변화를 모두 나타낸 정밀 전선도는 아닙니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "낙동강 방어선 지도",
+      "asset": "assets/history-maps/imported/pusan-perimeter.jpg",
+      "alt": "1950년 8월 낙동강 방어선과 부산 교두보를 나타낸 지도",
+      "caption": "1950년 8월 낙동강 방어선과 부산 교두보를 나타낸 지도입니다. 미 육군 군사사센터 자료에서 나온 원본 파일을 그대로 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Pusan Perimeter.jpg. 저작자: United States Army Center of Military History. 라이선스: Public domain. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:Pusan Perimeter.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:Pusan_Perimeter.jpg",
+        "license": "Public domain"
       }
     }
   ]

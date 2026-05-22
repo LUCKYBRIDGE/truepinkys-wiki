@@ -203,15 +203,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "삼국 시대 주요 지역 지도",
-      "asset": "assets/history-maps/three-kingdoms-and-gaya.svg",
-      "alt": "고구려 국내성, 평양, 백제 한성, 웅진, 사비, 신라 금성, 가야 지역을 표시한 한국사 지도",
-      "caption": "삼국 시대의 주요 도읍과 가야 지역을 현대 지형 위에 표시한 지도입니다. 세력권 경계가 아니라 위치 관계를 확인하기 위한 학습용 지도입니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "삼국 시대 지도",
+      "asset": "assets/history-maps/imported/three-kingdoms-of-korea-map.png",
+      "alt": "고구려, 백제, 신라와 가야가 표시된 삼국 시대 지도",
+      "caption": "고구려, 백제, 신라와 가야의 위치 관계를 보여 주는 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Three Kingdoms of Korea Map.png. 저작자: Chris 73 / Wikimedia Commons. 라이선스: CC BY-SA 3.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:Three Kingdoms of Korea Map.png",
+        "url": "https://commons.wikimedia.org/wiki/File:Three_Kingdoms_of_Korea_Map.png",
+        "license": "CC BY-SA 3.0"
       }
     }
   ]

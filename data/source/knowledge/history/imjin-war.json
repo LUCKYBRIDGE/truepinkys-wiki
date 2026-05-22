@@ -235,15 +235,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "임진왜란 주요 전개 지도",
-      "asset": "assets/history-maps/imjin-war-routes.svg",
-      "alt": "임진왜란의 부산, 한양, 평양, 한산도, 진주 위치와 주요 진격 방향을 표시한 지도",
-      "caption": "임진왜란의 부산 상륙, 한양·평양 방면 진격, 한산도와 진주 위치를 표시한 지도입니다. 전투 전체의 정밀 전선도는 아닙니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "임진왜란 전개 지도",
+      "asset": "assets/history-maps/imported/history-of-korea-1592-1597.svg",
+      "alt": "1592년부터 1597년까지 임진왜란의 전개를 나타낸 지도",
+      "caption": "1592년부터 1597년까지 임진왜란의 전개를 나타낸 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:History of Korea-1592-1597.svg. 저작자: Yug. 라이선스: CC0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:History of Korea-1592-1597.svg",
+        "url": "https://commons.wikimedia.org/wiki/File:History_of_Korea-1592-1597.svg",
+        "license": "CC0"
       }
     }
   ]

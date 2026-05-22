@@ -431,8 +431,12 @@ function validateFigures(doc) {
         addError(doc.id, `figures[${index}].asset does not exist: ${figure.asset}`);
       }
     }
-    if (hasText(figure.sourceNote) && !/(직접 만든|직접 제작).*(복제하지 않았|복제 없음|복제한 것이 아닙니다)/.test(figure.sourceNote)) {
-      addError(doc.id, `figures[${index}].sourceNote must state direct creation and no source-map copying`);
+    if (hasText(figure.sourceNote)) {
+      const directCreationNote = /(직접 만든|직접 제작).*(복제하지 않았|복제 없음|복제한 것이 아닙니다)/.test(figure.sourceNote);
+      const importedOriginalNote = /지도 출처:.*라이선스:.*(원본 파일을 사용|원본 이미지를 사용)/.test(figure.sourceNote);
+      if (!directCreationNote && !importedOriginalNote) {
+        addError(doc.id, `figures[${index}].sourceNote must state either direct creation/no copying or imported original source/license`);
+      }
     }
     if (hasText(figure.caption) && /(정확한 국경선|실제 국경선|실제 이동 경로를 정확히)/.test(figure.caption)) {
       addError(doc.id, `figures[${index}].caption must not overstate map precision`);

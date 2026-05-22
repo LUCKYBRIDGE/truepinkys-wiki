@@ -190,15 +190,15 @@
   "figures": [
     {
       "kind": "map",
-      "title": "남북국 시대 주요 위치 지도",
-      "asset": "assets/history-maps/north-south-states.svg",
-      "alt": "발해 상경 용천부와 동모산 일대, 통일 신라 금성을 표시한 한국사 지도",
-      "caption": "발해와 통일 신라의 주요 중심지를 현대 지형 위에 표시한 지도입니다. 실제 영토 경계를 정밀하게 그린 지도는 아닙니다.",
-      "sourceNote": "바탕지도는 Natural Earth Public Domain 데이터를 사용했고, 역사 위치와 흐름은 해당 지식의 공식 출처로 확인했습니다. 지도 편집은 트루핑키스 위키가 직접 제작했으며 원문 지도나 사료 지도를 복제하지 않았습니다.",
+      "title": "통일신라와 발해 지도",
+      "asset": "assets/history-maps/imported/unified-silla-balhae-8th-century.jpg",
+      "alt": "8세기 통일신라와 발해의 위치를 나타낸 지도",
+      "caption": "8세기 통일신라와 발해의 위치 관계를 보여 주는 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Unified Silla and Balhae (8th Century) (4261052261).jpg. 저작자: Korea.net / Korean Culture and Information Service. 라이선스: CC BY-SA 2.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
-        "title": "Natural Earth Admin 0 Countries",
-        "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-        "license": "Public Domain"
+        "title": "File:Unified Silla and Balhae (8th Century) (4261052261).jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:Unified_Silla_and_Balhae_(8th_Century)_(4261052261).jpg",
+        "license": "CC BY-SA 2.0"
       }
     }
   ]
