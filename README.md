@@ -59,6 +59,7 @@ node scripts/build-wiki-data.mjs
 node scripts/build-wiki-data.mjs
 node scripts/validate-wiki-content.mjs
 node scripts/validate-curriculum-map.mjs
+node scripts/validate-search-quality.mjs
 jq empty data/source/taxonomy.json data/source/curriculum-map.json data/source/knowledge/digital/ai.json data/source/knowledge/economy/petrodollar.json data/generated/taxonomy.json data/generated/curriculum-map.json data/generated/knowledge-index.json data/generated/search-index.json data/generated/quiz-index.json data/generated/docs/ai.json data/generated/docs/petrodollar.json
 git diff --check
 ```

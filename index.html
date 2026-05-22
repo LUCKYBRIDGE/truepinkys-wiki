@@ -163,21 +163,38 @@
     let wikiConfig = DEFAULT_WIKI_CONFIG;
 
     const SEARCH_FIELDS = [
-      { id: "title", label: "제목", weight: 5.0, group: "title" },
-      { id: "aliases", label: "비슷한 말", weight: 4.0, group: "searchMeta" },
-      { id: "subjects", label: "교과목", weight: 3.4, group: "category" },
-      { id: "grades", label: "학년", weight: 3.8, group: "grade" },
-      { id: "curriculum", label: "교과 연결", weight: 3.2, group: "category" },
-      { id: "categoryPaths", label: "분류", weight: 3.5, group: "category" },
-      { id: "mainTopic", label: "큰 주제", weight: 3.1, group: "category" },
-      { id: "subTopicPath", label: "작은 주제", weight: 3.0, group: "category" },
-      { id: "topicTags", label: "태그", weight: 3.1, group: "category" },
-      { id: "keywords", label: "함께 찾는 말", weight: 2.7, group: "searchMeta" },
-      { id: "summary", label: "짧은 소개", weight: 2.2, group: "content" },
-      { id: "chapters", label: "본문", weight: 1.4, group: "content" },
-      { id: "timeline", label: "연표", weight: 1.9, group: "content" },
-      { id: "quiz", label: "퀴즈", weight: 1.5, group: "content" },
-      { id: "searchContexts", label: "찾는 상황", weight: 1.8, group: "context" }
+      { id: "title", label: "제목", weight: 5.0, group: "title", tiers: { exact: 100, phrase: 95, token: 76 } },
+      { id: "aliases", label: "비슷한 말", weight: 4.2, group: "searchMeta", tiers: { exact: 92, phrase: 88, token: 72 } },
+      { id: "definition", label: "핵심 뜻", weight: 3.7, group: "content", tiers: { exact: 86, phrase: 82, token: 65 } },
+      { id: "summary", label: "짧은 소개", weight: 2.8, group: "content", tiers: { exact: 80, phrase: 77, token: 62 } },
+      { id: "abstract", label: "첫 설명", weight: 2.5, group: "content", tiers: { exact: 78, phrase: 74, token: 60 } },
+      { id: "chapters", label: "본문", weight: 1.5, group: "content", tiers: { exact: 76, phrase: 72, token: 56 } },
+      { id: "timeline", label: "연표", weight: 1.9, group: "content", tiers: { exact: 73, phrase: 69, token: 54 } },
+      { id: "searchContexts", label: "찾는 상황", weight: 2.0, group: "context", tiers: { exact: 69, phrase: 66, token: 55 } },
+      { id: "grades", label: "학년", weight: 3.4, group: "grade", tiers: { exact: 67, phrase: 64, token: 45 } },
+      { id: "curriculum", label: "교과 연결", weight: 2.8, group: "category", tiers: { exact: 60, phrase: 56, token: 42 } },
+      { id: "subjects", label: "교과목", weight: 2.8, group: "category", tiers: { exact: 58, phrase: 54, token: 40 } },
+      { id: "categoryPaths", label: "분류", weight: 2.7, group: "category", tiers: { exact: 56, phrase: 52, token: 38 } },
+      { id: "mainTopic", label: "큰 주제", weight: 2.5, group: "category", tiers: { exact: 55, phrase: 51, token: 37 } },
+      { id: "subTopicPath", label: "작은 주제", weight: 2.4, group: "category", tiers: { exact: 54, phrase: 50, token: 36 } },
+      { id: "topicTags", label: "태그", weight: 2.4, group: "category", tiers: { exact: 53, phrase: 49, token: 35 } },
+      { id: "keywords", label: "함께 찾는 말", weight: 2.6, group: "searchMeta", tiers: { exact: 74, phrase: 70, token: 57 } },
+      { id: "figures", label: "그림·자료", weight: 1.3, group: "content", tiers: { exact: 66, phrase: 62, token: 48 } }
+    ];
+
+    const SEARCH_INTENT_RULES = [
+      { test: /전기.*흐르|흐르.*전기|전류.*길|불이.*켜지/, terms: ["전기 회로", "전류", "닫힌 회로", "전구"] },
+      { test: /계절.*왜|왜.*계절|계절.*바뀌|여름.*겨울|봄.*가을/, terms: ["계절의 변화", "계절의 변화가 생기는 까닭", "지구의 공전", "자전축"] },
+      { test: /비.*왜|왜.*비|비.*오|구름.*비/, terms: ["구름과 비", "물의 순환", "이슬 안개 구름", "수증기"] },
+      { test: /바람.*왜|왜.*바람|바람.*부/, terms: ["바람이 부는 까닭", "기압", "공기 이동"] },
+      { test: /돈.*빌|빌린.*돈|이자|금리.*왜/, terms: ["금리", "이자", "중앙은행", "대출"] },
+      { test: /물가.*오르|돈.*값|가격.*오르|생활비.*오르/, terms: ["인플레이션", "물가", "화폐 가치", "시장 가격"] },
+      { test: /물가.*내리|가격.*내리|경기.*나빠/, terms: ["디플레이션", "물가", "경기", "소비"] },
+      { test: /나라.*세운|건국|왕.*세운|시조/, terms: ["건국", "시조", "왕", "나라의 성립"] },
+      { test: /독립.*운동|일제.*저항|광복.*전/, terms: ["독립운동", "일제강점기", "대한민국 임시정부", "광복"] },
+      { test: /법.*단계|헌법.*법률|법률.*명령/, terms: ["헌법 법률 명령", "법의 단계", "헌법", "법률", "명령"] },
+      { test: /지도.*위치|위치.*찾|위도|경도/, terms: ["위도와 경도", "지도", "지구본", "위성지도"] },
+      { test: /날씨.*기후|기후.*날씨|오래.*날씨/, terms: ["날씨와 기후", "기후", "날씨", "기후대"] }
     ];
 
     let wikiDocs = [];
@@ -292,6 +309,52 @@
         .filter(token => token.length > 0);
     }
 
+    function uniqueNormalized(values) {
+      const seen = new Set();
+      return values
+        .map(value => String(value || "").trim())
+        .filter(Boolean)
+        .filter(value => {
+          const key = normalize(value);
+          if (!key || seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+    }
+
+    function searchProfile(query) {
+      const loose = normalizeLoose(query);
+      const normalizedQuery = normalize(query);
+      const rawDirectTokens = tokenize(query);
+      const directTokens = rawDirectTokens.filter(token => token.length > 1 || rawDirectTokens.length === 1);
+      const intentTerms = SEARCH_INTENT_RULES
+        .filter(rule => rule.test.test(loose))
+        .flatMap(rule => rule.terms);
+      const intentTokens = intentTerms.flatMap(tokenize);
+      const phraseVariants = uniqueNormalized([query, ...intentTerms]);
+      return {
+        raw: query,
+        loose,
+        normalizedQuery,
+        directTokens: uniqueNormalized(directTokens),
+        intentTokens: uniqueNormalized(intentTokens),
+        allTokens: uniqueNormalized([...directTokens, ...intentTokens]),
+        phraseVariants
+      };
+    }
+
+    function fieldValues(doc, fieldId) {
+      if (fieldId === "categoryPaths") return (doc.categoryPaths || []).map(path => (path || []).join(" "));
+      if (fieldId === "chapters") return [fieldText(doc, fieldId)];
+      if (fieldId === "quiz") return [fieldText(doc, fieldId)];
+      if (fieldId === "timeline") return [fieldText(doc, fieldId)];
+      if (fieldId === "curriculum") return [fieldText(doc, fieldId)];
+      if (fieldId === "grades") return [fieldText(doc, fieldId)];
+      if (fieldId === "figures") return [fieldText(doc, fieldId)];
+      const value = doc[fieldId];
+      return Array.isArray(value) ? value : [value];
+    }
+
     function fieldText(doc, fieldId) {
       if (fieldId === "chapters") {
         if (doc.searchFields && doc.searchFields.chapters) return doc.searchFields.chapters;
@@ -331,6 +394,18 @@
         if (doc.searchFields && doc.searchFields.grades) return doc.searchFields.grades;
         return curriculumGradeSearchText(doc);
       }
+      if (fieldId === "figures") {
+        if (doc.searchFields && doc.searchFields.figures) return doc.searchFields.figures;
+        return (doc.figures || []).map(item => [
+          item.kind,
+          item.title,
+          item.caption,
+          item.alt,
+          item.sourceNote,
+          item.dataSource?.title,
+          item.dataSource?.license
+        ].join(" ")).join(" ");
+      }
       const value = doc[fieldId];
       return Array.isArray(value) ? value.join(" ") : String(value || "");
     }
@@ -349,28 +424,50 @@
       return count;
     }
 
-    function scoreField(text, query, field) {
+    function scoreField(doc, profile, field) {
+      const text = fieldText(doc, field.id);
       const normalizedText = normalize(text);
-      const normalizedQuery = normalize(query);
-      const tokens = tokenize(query);
+      const normalizedValues = fieldValues(doc, field.id).map(normalize).filter(Boolean);
 
       let accuracy = 0;
       let frequency = 0;
-      const matchedTokens = tokens.filter(token => normalizedText.includes(token));
-      const phraseCount = countOccurrences(text, query);
+      let bestTier = 0;
+      const directMatches = profile.directTokens.filter(token => normalizedText.includes(token));
+      const intentMatches = profile.intentTokens.filter(token => normalizedText.includes(token));
+      const phraseCount = profile.phraseVariants.reduce((sum, phrase) => sum + countOccurrences(text, phrase), 0);
+      const hasExactValue = profile.normalizedQuery && normalizedValues.some(value => value === profile.normalizedQuery);
+      const hasPhrase = profile.normalizedQuery && normalizedText.includes(profile.normalizedQuery);
+      const hasIntentPhrase = profile.phraseVariants
+        .map(normalize)
+        .filter(phrase => phrase && phrase !== profile.normalizedQuery)
+        .some(phrase => normalizedText.includes(phrase));
 
-      if (normalizedQuery && normalizedText.includes(normalizedQuery)) {
-        accuracy += 120;
+      if (hasExactValue) {
+        accuracy += 170;
+        bestTier = Math.max(bestTier, field.tiers.exact);
+      } else if (hasPhrase) {
+        accuracy += 130;
+        bestTier = Math.max(bestTier, field.tiers.phrase);
+      } else if (hasIntentPhrase) {
+        accuracy += 96;
+        bestTier = Math.max(bestTier, Math.max(field.tiers.phrase - 8, field.tiers.token));
       }
 
-      if (tokens.length > 0) {
-        const coverage = matchedTokens.length / tokens.length;
-        accuracy += coverage * 70;
-        if (matchedTokens.length === tokens.length && tokens.length > 1) accuracy += 25;
+      if (profile.directTokens.length > 0) {
+        const coverage = directMatches.length / profile.directTokens.length;
+        accuracy += coverage * 76;
+        if (directMatches.length === profile.directTokens.length && profile.directTokens.length > 1) accuracy += 30;
+        if (directMatches.length > 0) bestTier = Math.max(bestTier, field.tiers.token);
+      }
+
+      if (profile.intentTokens.length > 0) {
+        const coverage = intentMatches.length / profile.intentTokens.length;
+        accuracy += coverage * 35;
+        if (intentMatches.length > 0) bestTier = Math.max(bestTier, Math.max(field.tiers.token - 6, 1));
       }
 
       frequency += phraseCount * 12;
-      for (const token of tokens) {
+      for (const token of profile.allTokens) {
         frequency += countOccurrences(text, token) * 3;
       }
       frequency = Math.min(frequency, 60);
@@ -382,15 +479,17 @@
         score: raw * field.weight,
         accuracy,
         frequency,
+        bestTier,
         phraseCount,
-        tokenCount: matchedTokens.length,
-        matchedTokens
+        tokenCount: directMatches.length + intentMatches.length,
+        matchedTokens: uniqueNormalized([...directMatches, ...intentMatches])
       };
     }
 
     function scoreDocument(doc, query) {
+      const profile = searchProfile(query);
       const fieldScores = SEARCH_FIELDS
-        .map(field => scoreField(fieldText(doc, field.id), query, field))
+        .map(field => scoreField(doc, profile, field))
         .filter(result => result.score > 0);
 
       const grouped = fieldScores.reduce((acc, item) => {
@@ -400,28 +499,36 @@
 
       const total = fieldScores.reduce((sum, item) => sum + item.score, 0);
       const frequencyTotal = fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
-      const exactText = [
-        doc.title,
-        doc.summary,
-        ...(doc.subjects || []),
-        fieldText(doc, "grades"),
-        ...(doc.categoryPaths || []).flat(),
-        fieldText(doc, "curriculum"),
-        doc.mainTopic,
-        ...(doc.subTopicPath || []),
-        ...(doc.topicTags || []),
-        ...(doc.aliases || []),
-        ...(doc.keywords || [])
-      ].join(" ");
-      const exactMatchBoost = normalize(query) && normalize(exactText).includes(normalize(query)) ? 10000 : 0;
-      return { doc, total, fieldScores, grouped, frequencyTotal, exactMatchBoost };
+      const bestTier = fieldScores.reduce((max, item) => Math.max(max, item.bestTier || 0), 0);
+      const directScore = (grouped.title || 0) + (grouped.searchMeta || 0) + (grouped.content || 0) + (grouped.context || 0);
+      const matchedTokens = new Set(fieldScores.flatMap(item => item.matchedTokens || []));
+      const hasPhraseMatch = fieldScores.some(item => item.phraseCount > 0);
+      return {
+        doc,
+        total,
+        fieldScores,
+        grouped,
+        frequencyTotal,
+        bestTier,
+        directScore,
+        hasPhraseMatch,
+        matchedTokenCount: matchedTokens.size,
+        directTokenCount: profile.directTokens.length
+      };
+    }
+
+    function isSearchCandidate(result) {
+      if (result.directTokenCount <= 1) return true;
+      if (result.hasPhraseMatch) return true;
+      if (result.matchedTokenCount >= 2) return true;
+      return result.bestTier >= 80;
     }
 
     function searchDocs(query) {
       return wikiDocs
         .map(doc => scoreDocument(doc, query))
-        .filter(result => result.total > 0)
-        .sort((a, b) => b.exactMatchBoost - a.exactMatchBoost || b.total - a.total || b.frequencyTotal - a.frequencyTotal || a.doc.title.localeCompare(b.doc.title, "ko"));
+        .filter(result => result.total > 0 && isSearchCandidate(result))
+        .sort((a, b) => b.bestTier - a.bestTier || b.directScore - a.directScore || b.total - a.total || b.frequencyTotal - a.frequencyTotal || a.doc.title.localeCompare(b.doc.title, "ko"));
     }
 
     function escapeHtml(value) {
@@ -860,10 +967,12 @@
 
     function summarizeMatches(result) {
       const labels = [];
-      if (result.grouped.title) labels.push(`제목 정확도 ${Math.round(result.grouped.title)}`);
-      if (result.grouped.category || result.grouped.searchMeta) labels.push(`분류 ${Math.round((result.grouped.category || 0) + (result.grouped.searchMeta || 0))}`);
-      if (result.grouped.content) labels.push(`내용 ${Math.round(result.grouped.content)}`);
-      if (result.grouped.context) labels.push("검색 맥락 일치");
+      if (result.grouped.title) labels.push("제목에서 찾음");
+      if (result.grouped.searchMeta) labels.push("비슷한 말에서 찾음");
+      if (result.grouped.content) labels.push("본문에서 찾음");
+      if (result.grouped.context) labels.push("찾는 상황과 가까움");
+      if (result.grouped.category) labels.push("분류와 이어짐");
+      if (result.grouped.grade) labels.push("학년 검색과 이어짐");
       const frequent = result.fieldScores.reduce((sum, item) => sum + item.phraseCount + item.tokenCount, 0);
       if (frequent > 0) labels.push(`언급 ${frequent}회`);
       return labels;
@@ -871,12 +980,61 @@
 
     function matchedContexts(result) {
       const query = document.getElementById("search-input").value || "";
-      const tokens = tokenize(query);
-      const normalizedQuery = normalize(query);
+      const profile = searchProfile(query);
       return (result.doc.searchContexts || []).filter(context => {
         const normalizedContext = normalize(context);
-        return normalizedContext.includes(normalizedQuery) || tokens.some(token => normalizedContext.includes(token));
+        return normalizedContext.includes(profile.normalizedQuery) || profile.allTokens.some(token => normalizedContext.includes(token));
       }).slice(0, 2);
+    }
+
+    function relatedSearchResults(results, limit = 6) {
+      const primary = results.slice(0, 8);
+      const primaryIds = new Set(primary.map(result => result.doc.id));
+      const relatedScores = new Map();
+
+      function addCandidate(id, score) {
+        if (!id || primaryIds.has(id)) return;
+        relatedScores.set(id, (relatedScores.get(id) || 0) + score);
+      }
+
+      primary.forEach((result, index) => {
+        const weight = Math.max(8 - index, 1);
+        (result.doc.related || []).forEach(id => addCandidate(id, 28 + weight));
+        wikiDocs.forEach(doc => {
+          if (doc.id === result.doc.id) return;
+          if (doc.mainTopic && result.doc.mainTopic && doc.mainTopic === result.doc.mainTopic) addCandidate(doc.id, 4);
+          const sharedSubjects = (doc.subjects || []).filter(subject => (result.doc.subjects || []).includes(subject)).length;
+          const sharedTags = displayTopicTags(doc).filter(tag => displayTopicTags(result.doc).includes(tag)).length;
+          const sharedCategories = categoryPathTexts(doc).filter(path => categoryPathTexts(result.doc).includes(path)).length;
+          if (sharedSubjects) addCandidate(doc.id, sharedSubjects * 3);
+          if (sharedTags) addCandidate(doc.id, sharedTags * 2);
+          if (sharedCategories) addCandidate(doc.id, sharedCategories * 6);
+        });
+      });
+
+      return Array.from(relatedScores.entries())
+        .map(([id, score]) => ({ doc: wikiDocs.find(doc => doc.id === id), score }))
+        .filter(item => item.doc)
+        .sort((a, b) => b.score - a.score || a.doc.title.localeCompare(b.doc.title, "ko"))
+        .slice(0, limit);
+    }
+
+    function renderRelatedSearchPanel(relatedResults) {
+      if (!relatedResults.length) return "";
+      return `
+        <section class="mt-5 border-t border-slate-100 pt-5">
+          <h3 class="font-black text-slate-950 mb-2">함께 볼 지식</h3>
+          <p class="mb-3 text-sm font-medium leading-relaxed text-slate-600">검색 결과와 주제나 배경이 가까운 지식입니다. 정확한 검색 결과와 따로 보여줍니다.</p>
+          <div class="space-y-2">
+            ${relatedResults.map(item => `
+              <a href="#/doc/${item.doc.id}" class="block rounded-lg border border-slate-100 bg-slate-50 px-3 py-3 transition hover:border-teal-200 hover:bg-teal-50">
+                <strong class="block text-sm font-black text-slate-950">${escapeHtml(item.doc.title)}</strong>
+                <span class="mt-1 block text-xs font-bold leading-relaxed text-slate-500">${escapeHtml(item.doc.summary)}</span>
+              </a>
+            `).join("")}
+          </div>
+        </section>
+      `;
     }
 
     function searchWithinDocumentText(doc) {
@@ -894,8 +1052,7 @@
         ...(doc.aliases || []),
         ...(doc.keywords || []),
         ...(doc.searchContexts || []),
-        fieldText(doc, "chapters"),
-        fieldText(doc, "quiz")
+        fieldText(doc, "chapters")
       ].join(" ");
     }
 
@@ -1404,11 +1561,12 @@
     async function renderSearch(query) {
       await loadSearchIndex();
       const results = searchDocs(query);
+      const relatedResults = relatedSearchResults(results);
       rerenderWithTransition(`
         <section class="mb-6">
           <a href="#/" class="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900 mb-4"><i class="fa-solid fa-arrow-left"></i> 위키 홈</a>
           <h2 class="text-3xl font-black text-slate-950 mb-2">"${escapeHtml(query)}" 검색 결과</h2>
-          <p class="text-slate-600 font-medium">검색한 말이 제목과 내용에 직접 들어 있는 지식을 먼저 보여주고, 비슷한 말과 관련 주제도 함께 살펴봅니다.</p>
+          <p class="text-slate-600 font-medium">검색한 말이 제목·비슷한 말·본문에 직접 들어 있는 지식을 먼저 보여주고, 주제가 가까운 지식은 따로 안내합니다.</p>
         </section>
         ${results.length ? `
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -1428,13 +1586,14 @@
               <h3 class="font-black text-slate-950 mb-3">검색에 반영된 내용</h3>
               <div class="space-y-3 text-sm text-slate-600">
                 <p><strong class="text-slate-900">제목 검색:</strong> 문장 전체와 단어가 제목에 포함되는지 봅니다.</p>
-                <p><strong class="text-slate-900">내용 검색:</strong> 한 줄 설명, 본문, 퀴즈에서 얼마나 자주 나오는지 봅니다.</p>
+                <p><strong class="text-slate-900">내용 검색:</strong> 핵심 뜻, 한 줄 설명, 본문, 연표에 검색한 말이 들어 있는지 봅니다.</p>
                 <p><strong class="text-slate-900">학년 검색:</strong> 3학년, 초5, 중학교처럼 검색해도 교과 내용과 이어진 지식을 함께 봅니다.</p>
                 <p><strong class="text-slate-900">분류 검색:</strong> 교과목, 여러 분류 경로, 태그에 포함되는지 봅니다.</p>
                 <p><strong class="text-slate-900">비슷한 말 검색:</strong> 줄임말이나 함께 자주 쓰는 말도 함께 봅니다.</p>
                 <p><strong class="text-slate-900">상황 검색:</strong> 왜 이 말을 찾는지와 가까운 지식도 함께 봅니다.</p>
-                <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">정확히 검색어가 포함된 결과를 먼저 보여주고, 그다음 맥락이 가까운 결과를 정렬합니다.</p>
+                <p class="rounded-lg bg-teal-50 border border-teal-100 p-3 text-teal-900 font-bold">제목 정확 일치, 제목 부분 일치, 비슷한 말, 본문 일치 순서가 먼저 반영됩니다.</p>
               </div>
+              ${renderRelatedSearchPanel(relatedResults)}
             </aside>
           </div>
         ` : renderNoResults(query)}
