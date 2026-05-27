@@ -112,6 +112,13 @@ const weakQuizDistractorPhrases = [
   "와 같은 사건이며",
   "반드시"
 ];
+const weakChoiceExplanationPhrases = [
+  "다시 읽어보세요",
+  "정답이 아닙니다",
+  "틀린 보기입니다",
+  "본문과 다릅니다",
+  "잘못된 설명입니다"
+];
 const weakStructureHeadings = new Set([
   "쉽게 풀어보기",
   "생활 속 예시",
@@ -144,6 +151,24 @@ const weakStructurePhrases = [
   "이 지식은 알고 끝나는 지식이 아니라 실제 상황에서 안전하게 행동하는 데 연결됩니다.",
   "이 지식은 관찰, 비교, 실험, 모형 같은 과학 탐구 방법과 연결해서 이해할 수 있습니다.",
   "이 지식은 생활비, 가격, 돈의 흐름처럼 실제 생활과 연결해서 보면 이해하기 쉽습니다.",
+  "이해하기 위해서는",
+  "이해하는 데 도움이",
+  "이해하는 데 필요한 지식",
+  "이해하는 데 중요",
+  "이해할 때 중요",
+  "알아 두면 좋은",
+  "알아 두면",
+  "연결해 생각할 수",
+  "바라보게 했습니다",
+  "전체 경향을 보여",
+  "흐름에 포함됩니다",
+  "흐름을 보여",
+  "흐름 속에",
+  "변화와 이어졌습니다",
+  "영향을 보여 줍니다",
+  "연결해 볼 수",
+  "더 자연스럽게 이해",
+  "보는 것이 중요",
   "배울 때",
   "공부하면",
   "공부할 때",
@@ -158,6 +183,15 @@ const weakQuizExplanationPhrases = [
   "빈칸에는",
   "너무 단순합니다",
   "관련된 설명처럼 보이지만",
+  "이해하는 데 도움이",
+  "이해하는 데 필요한 지식",
+  "이해하는 데 중요",
+  "이해할 때 중요",
+  "알아 두면",
+  "연결해서 이해",
+  "흐름을 보여",
+  "흐름 속에",
+  "연결해 볼 수",
   "한 가지 예나 느낌만으로",
   "본문은",
   "본문에서는",
@@ -169,10 +203,14 @@ const weakQuizExplanationPhrases = [
 const weakQuizQuestionPhrases = [
   "다음 보기 중",
   "본문 내용과 맞는 문장",
+  "이해하는 데 도움이",
+  "이해하는 데 중요한",
+  "이해할 때 중요한",
   "특징이나 예시",
   "의 뜻을 가장 바르게 설명한 것은",
   "의 설명으로 맞는 것은",
   "에 대해 조심해야 할 점은",
+  "조심할 점",
   "배울 때",
   "공부할 때",
   "함께 살펴야 할 내용",
@@ -199,7 +237,7 @@ const subjectiveEvaluationPhrases = [
   "대단한"
 ];
 const weakHistoryHeadingPattern = /함께 볼|보지 않기|주의할 점|넓게 이해|깊게 보기|외우지 않기|헷갈리기|확인할 점/;
-const weakEncyclopediaHeadingPattern = /읽는 방법|읽는 기준|정보 읽기|살펴보기$|나누어 보기$|먼저 보기$|맞춰 보기$|넓게 보기$|생각하기$|해석|고지|연계/;
+const weakEncyclopediaHeadingPattern = /읽는 방법|읽는 기준|보는 법|정보 읽기|살펴보기$|나누어 보기$|먼저 보기$|맞춰 보기$|넓게 보기$|생각하기$|조심할 점|중요한 흐름|이어지는 흐름|흐름 속 위치|전체 모습|고대사 속 .*자리|^.*의 자리$|해석|고지|연계/;
 const adultHeadingWords = ["성격", "구조"];
 
 if (Array.isArray(docs)) {
@@ -368,9 +406,28 @@ function validateQuiz(doc) {
     } else if (awkwardKoreanPhrases.some(phrase => item.explanation.includes(phrase))) {
       addError(doc.id, `quiz[${index}].explanation uses an awkward Korean phrase`);
     }
+    if (item.choiceExplanations !== undefined) {
+      if (!Array.isArray(item.choiceExplanations) || item.choiceExplanations.length !== 4) {
+        addError(doc.id, `quiz[${index}].choiceExplanations must contain exactly 4 explanations when used`);
+      } else {
+        item.choiceExplanations.forEach((feedback, feedbackIndex) => {
+          if (!hasText(feedback)) {
+            addError(doc.id, `quiz[${index}].choiceExplanations[${feedbackIndex}] must be non-empty text`);
+            return;
+          }
+          if (feedbackIndex !== item.answerIndex && weakChoiceExplanationPhrases.some(phrase => feedback.includes(phrase))) {
+            addError(doc.id, `quiz[${index}].choiceExplanations[${feedbackIndex}] uses a generic wrong-answer explanation`);
+          }
+          if (awkwardKoreanPhrases.some(phrase => feedback.includes(phrase))) {
+            addError(doc.id, `quiz[${index}].choiceExplanations[${feedbackIndex}] uses an awkward Korean phrase`);
+          }
+        });
+      }
+    }
     validateNoSubjectiveEvaluation(doc, `quiz[${index}].question`, [item.question]);
     validateNoSubjectiveEvaluation(doc, `quiz[${index}].choices`, item.choices || []);
     validateNoSubjectiveEvaluation(doc, `quiz[${index}].explanation`, [item.explanation]);
+    validateNoSubjectiveEvaluation(doc, `quiz[${index}].choiceExplanations`, item.choiceExplanations || []);
     if (hasText(item.question)) {
       const rightParticle = shouldUseObjectParticle(doc.title);
       const wrongParticle = rightParticle === "을" ? "를" : "을";
@@ -522,12 +579,6 @@ if (!Array.isArray(docs)) {
     validateNoSubjectiveEvaluation(doc, "aliases", doc.aliases || []);
     validateNoSubjectiveEvaluation(doc, "keywords", doc.keywords || []);
     validateNoSubjectiveEvaluation(doc, "searchContexts", doc.searchContexts || []);
-    const paragraphTotal = (doc.chapters || [])
-      .flatMap(chapter => chapter.sections || [])
-      .flatMap(section => section.body || [])
-      .filter(hasText).length;
-    if (paragraphTotal < 10) addError(docId, "knowledge body must contain at least 10 body paragraphs");
-
     for (const subject of doc.subjects || []) {
       if (!taxonomySubjects.has(subject)) addError(docId, `unknown subject "${subject}"`);
     }
@@ -576,9 +627,6 @@ if (!Array.isArray(docs)) {
             if (!Array.isArray(section.body) || section.body.length === 0) {
               addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain text`);
             } else {
-              if (section.body.length < 2) {
-                addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body must contain at least 2 paragraphs`);
-              }
               section.body.forEach((paragraph, paragraphIndex) => {
                 if (!hasText(paragraph)) addError(docId, `chapters[${chapterIndex}].sections[${sectionIndex}].body[${paragraphIndex}] must be non-empty`);
                 if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {

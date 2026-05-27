@@ -26,7 +26,8 @@ function textFromQuiz(doc) {
   return (doc.quiz || []).map(item => [
     item.question,
     ...(item.choices || []),
-    item.explanation
+    item.explanation,
+    ...(item.choiceExplanations || [])
   ].join(" ")).join(" ");
 }
 

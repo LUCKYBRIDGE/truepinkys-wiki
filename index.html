@@ -1403,6 +1403,11 @@
       return "";
     }
 
+    function quizChoiceExplanationsAttr(quiz) {
+      const explanations = quiz && Array.isArray(quiz.choiceExplanations) ? quiz.choiceExplanations : [];
+      return escapeHtml(JSON.stringify(explanations));
+    }
+
     function renderQuizChoices(choices, questionId) {
       return `
         <div class="space-y-2">
@@ -1426,7 +1431,7 @@
       modal.id = "today-quiz-modal";
       modal.className = "fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 px-4 py-6";
       modal.innerHTML = `
-        <section class="w-full max-w-2xl rounded-2xl bg-white p-5 shadow-2xl sm:p-6" id="${questionId}" data-explanation="${escapeHtml(quiz.explanation || "")}">
+        <section class="w-full max-w-2xl rounded-2xl bg-white p-5 shadow-2xl sm:p-6" id="${questionId}" data-explanation="${escapeHtml(quiz.explanation || "")}" data-choice-explanations="${quizChoiceExplanationsAttr(quiz)}">
           <div class="mb-4 flex items-start justify-between gap-4">
             <div>
               <p class="text-xs font-black text-teal-700">오늘의 ${escapeHtml(topicLabel || doc.mainTopic || "지식")} 퀴즈</p>
@@ -1990,7 +1995,7 @@
               ${picked.length ? picked.map((item, index) => {
                 const questionId = `practice-${item.doc.id}-${item.quizIndex}-${index}`;
                 return `
-                  <section class="rounded-xl border border-teal-100 bg-white p-5" id="${questionId}" data-explanation="${escapeHtml(item.quiz.explanation || "")}">
+                  <section class="rounded-xl border border-teal-100 bg-white p-5" id="${questionId}" data-explanation="${escapeHtml(item.quiz.explanation || "")}" data-choice-explanations="${quizChoiceExplanationsAttr(item.quiz)}">
                     <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div>
                         <p class="text-xs font-black text-teal-700 mb-1">${escapeHtml(item.doc.title)}</p>
@@ -2016,6 +2021,31 @@
       `);
     }
 
+    function choiceTextForInput(input) {
+      const label = input && input.closest("label");
+      if (!label) return "";
+      return label.innerText.replace(/\s+/g, " ").trim();
+    }
+
+    function parseChoiceExplanations(question) {
+      try {
+        const parsed = JSON.parse(question.getAttribute("data-choice-explanations") || "[]");
+        return Array.isArray(parsed) ? parsed : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function wrongChoiceFallback(question, selectedIndex, answerIndex, explanation) {
+      const selectedInput = question.querySelector(`input[type='radio'][value="${selectedIndex}"]`);
+      const answerInput = question.querySelector(`input[type='radio'][value="${answerIndex}"]`);
+      const selectedText = choiceTextForInput(selectedInput);
+      const answerText = choiceTextForInput(answerInput);
+      const selectedPart = selectedText ? `선택한 보기는 "${selectedText}"라고 했습니다. ` : "";
+      const answerPart = answerText ? `이 문제에서는 "${answerText}"가 맞습니다. ` : "";
+      return `${selectedPart}${answerPart}${explanation}`.trim();
+    }
+
     function checkQuiz(questionId, answerIndex) {
       const question = document.getElementById(questionId);
       if (!question) return;
@@ -2029,11 +2059,14 @@
       }
       const selectedIndex = Number(checked.value);
       const explanation = question.getAttribute("data-explanation") || "";
+      const choiceExplanations = parseChoiceExplanations(question);
+      const selectedExplanation = choiceExplanations[selectedIndex] || "";
+      const answerExplanation = choiceExplanations[answerIndex] || explanation;
       if (selectedIndex === answerIndex) {
-        result.textContent = `정답입니다. ${explanation}`;
+        result.textContent = `정답입니다. ${selectedExplanation || answerExplanation}`;
         result.className = "mt-3 text-sm font-bold text-teal-700";
       } else {
-        result.textContent = `다시 생각해 보세요. ${explanation}`;
+        result.textContent = `오답입니다. ${selectedExplanation || wrongChoiceFallback(question, selectedIndex, answerIndex, explanation)}`;
         result.className = "mt-3 text-sm font-bold text-rose-700";
       }
     }
@@ -2048,7 +2081,7 @@
             ${quiz.map((item, questionIndex) => {
               const questionId = `quiz-${doc.id}-${questionIndex}`;
               return `
-                <section class="rounded-lg border border-teal-100 bg-white p-4" id="${questionId}" data-explanation="${escapeHtml(item.explanation || "")}">
+                <section class="rounded-lg border border-teal-100 bg-white p-4" id="${questionId}" data-explanation="${escapeHtml(item.explanation || "")}" data-choice-explanations="${quizChoiceExplanationsAttr(item)}">
                   <div class="mb-2">${quizTypeBadge(item)}</div>
                   <h4 class="font-black text-slate-950 mb-3">${questionIndex + 1}. ${escapeHtml(item.question)}</h4>
                   ${renderQuizChoices(item.choices, questionId)}

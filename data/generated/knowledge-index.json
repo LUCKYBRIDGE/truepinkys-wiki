@@ -45,7 +45,7 @@
       "privacy",
       "copyright"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
       "AI와 데이터"
@@ -111,9 +111,9 @@
       "statistics",
       "graph",
       "privacy",
-      "marie-curie"
+      "generative-ai"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
       "AI와 데이터"
@@ -130,7 +130,7 @@
     ],
     "abstract": "데이터는 AI, 통계, 그래프를 이해할 때 필요한 자료의 의미와 사용 기준을 설명합니다.",
     "quizCount": 3,
-    "timelineCount": 4,
+    "timelineCount": 0,
     "figureCount": 0
   },
   {
@@ -178,7 +178,7 @@
       "generative-ai",
       "graph"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
       "AI와 데이터"
@@ -246,7 +246,7 @@
       "copyright",
       "privacy"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
       "AI와 데이터"
@@ -263,7 +263,7 @@
     ],
     "abstract": "생성형 AI는 글, 그림, 소리, 코드 생성의 활용 방법과 확인 기준을 설명합니다.",
     "quizCount": 3,
-    "timelineCount": 4,
+    "timelineCount": 0,
     "figureCount": 0
   },
   {
@@ -306,10 +306,12 @@
     ],
     "related": [
       "ai",
+      "generative-ai",
       "graph",
+      "copyright",
       "privacy"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "뉴스와 미디어",
     "subTopicPath": [
       "정보 확인"
@@ -366,10 +368,12 @@
     ],
     "related": [
       "ai",
+      "data",
+      "generative-ai",
       "smartphone-overuse",
       "school-violence"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
       "개인정보와 보안"
@@ -432,7 +436,7 @@
       "fake-news",
       "smartphone-overuse"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "학교와 관계",
     "subTopicPath": [
       "친구 관계"
@@ -490,12 +494,13 @@
       "하늘은 맑은데 미세먼지가 높은 이유가 궁금할 때"
     ],
     "related": [
-      "school-meal",
-      "growth",
+      "respiration",
+      "weather-forecast",
       "graph",
-      "wind"
+      "wind",
+      "climate-change"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "환경",
     "subTopicPath": [
       "대기와 건강"
@@ -554,11 +559,13 @@
       "그래프가 사람을 헷갈리게 만들 수 있는지 알고 싶을 때"
     ],
     "related": [
+      "data",
+      "statistics",
       "fake-news",
       "fine-dust",
       "money"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "정보 읽기",
     "subTopicPath": [
       "자료와 통계"
@@ -619,10 +626,11 @@
     ],
     "related": [
       "ai",
+      "generative-ai",
       "fake-news",
       "graph"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "문화와 표현",
     "subTopicPath": [
       "창작과 저작권"
@@ -639,7 +647,7 @@
     ],
     "abstract": "저작권은 창작물을 존중하고 자료를 바르게 사용하는 방법을 알려 줍니다.",
     "quizCount": 3,
-    "timelineCount": 4,
+    "timelineCount": 0,
     "figureCount": 0
   },
   {
@@ -684,7 +692,7 @@
       "growth",
       "school-violence"
     ],
-    "lastReviewed": "2026-05-13",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "건강과 생활",
     "subTopicPath": [
       "생활 습관"
@@ -746,11 +754,12 @@
       "또래와 키를 비교해서 걱정될 때"
     ],
     "related": [
-      "school-meal",
+      "nutrition",
+      "bones-muscles",
       "smartphone-overuse",
       "fake-news"
     ],
-    "lastReviewed": "2026-05-20",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "건강과 생활",
     "subTopicPath": [
       "성장과 몸"
@@ -810,11 +819,12 @@
     "related": [
       "allowance-management",
       "market-price",
+      "bank",
       "saving-investing",
       "interest-rate",
       "central-bank"
     ],
-    "lastReviewed": "2026-05-17",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "돈과 경제",
     "subTopicPath": [
       "돈의 기본"
@@ -872,12 +882,13 @@
     ],
     "related": [
       "money",
+      "household-budget",
       "saving-investing",
       "market-price",
-      "privacy",
-      "smartphone-overuse"
+      "consumer-rights",
+      "privacy"
     ],
-    "lastReviewed": "2026-05-17",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "돈과 경제",
     "subTopicPath": [
       "돈의 기본"
@@ -936,12 +947,14 @@
     ],
     "related": [
       "money",
+      "bank",
       "interest-rate",
       "bond",
-      "safe-asset",
-      "bitcoin"
+      "credit",
+      "debt",
+      "safe-asset"
     ],
-    "lastReviewed": "2026-05-17",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "돈과 경제",
     "subTopicPath": [
       "금융과 투자"
@@ -952,8 +965,494 @@
         "금융과 투자"
       ]
     ],
-    "abstract": "저축과 투자는 예금, 금리, 주식, 채권, 펀드의 목적과 위험을 비교해 설명합니다.",
     "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "bank",
+    "title": "은행",
+    "summary": "은행은 돈을 맡기고 빌려 주며 결제와 송금을 돕는 금융기관입니다.",
+    "definition": "사람과 기업의 돈을 맡아 보관하고, 필요한 곳에 돈을 빌려 주며 결제와 송금을 돕는 금융기관입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "금융기관",
+      "예금 은행",
+      "통장",
+      "계좌"
+    ],
+    "keywords": [
+      "예금",
+      "대출",
+      "계좌",
+      "송금",
+      "이자",
+      "금리",
+      "금융"
+    ],
+    "searchContexts": [
+      "은행이 하는 일이 궁금할 때",
+      "예금과 대출의 차이를 알고 싶을 때",
+      "계좌와 송금이 무엇인지 찾을 때",
+      "은행과 중앙은행의 차이가 궁금할 때"
+    ],
+    "related": [
+      "money",
+      "interest-rate",
+      "saving-investing",
+      "credit",
+      "debt",
+      "central-bank"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "금융 생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "금융 생활"
+      ]
+    ],
+    "abstract": "은행은 예금, 대출, 이자, 계좌 같은 금융생활의 기본 개념을 이해하는 출발점입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "insurance",
+    "title": "보험",
+    "summary": "보험은 사고나 질병 같은 위험이 생겼을 때 경제적 부담을 나누기 위해 미리 약속하는 제도입니다.",
+    "definition": "사고나 질병 같은 위험이 생겼을 때 경제적 부담을 나누기 위해 미리 돈을 내고 약속하는 제도입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "안전"
+    ],
+    "aliases": [
+      "보험료",
+      "보험금",
+      "위험 보장",
+      "보장"
+    ],
+    "keywords": [
+      "위험",
+      "사고",
+      "질병",
+      "보험료",
+      "보험금",
+      "계약",
+      "보장"
+    ],
+    "searchContexts": [
+      "보험이 무엇인지 궁금할 때",
+      "보험료와 보험금의 차이를 알고 싶을 때",
+      "위험을 나눈다는 말의 뜻을 찾을 때",
+      "보험과 저축의 차이가 궁금할 때"
+    ],
+    "related": [
+      "money",
+      "saving-investing",
+      "household-budget",
+      "consumer-rights",
+      "social-insurance"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "금융 생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "금융 생활"
+      ],
+      [
+        "안전",
+        "생활 안전"
+      ]
+    ],
+    "abstract": "보험은 위험을 없애는 것이 아니라 정해진 조건에서 경제적 손실을 나누는 금융 제도입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "credit",
+    "title": "신용",
+    "summary": "신용은 돈이나 약속을 제때 갚고 지킬 것이라고 믿을 수 있는 정도입니다.",
+    "definition": "돈을 빌리거나 약속을 할 때 제때 갚고 지킬 것이라고 믿을 수 있는 정도입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "금융 신용",
+      "신용도",
+      "신용 관리",
+      "신용 거래"
+    ],
+    "keywords": [
+      "약속",
+      "대출",
+      "카드",
+      "상환",
+      "금융",
+      "기록",
+      "책임"
+    ],
+    "searchContexts": [
+      "신용이 무엇인지 궁금할 때",
+      "신용과 대출의 관계를 알고 싶을 때",
+      "신용을 관리한다는 말의 뜻을 찾을 때",
+      "카드와 할부가 신용과 어떻게 연결되는지 궁금할 때"
+    ],
+    "related": [
+      "bank",
+      "interest-rate",
+      "debt",
+      "household-budget",
+      "consumer-rights"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "금융 생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "금융 생활"
+      ],
+      [
+        "사회",
+        "경제생활"
+      ]
+    ],
+    "abstract": "신용은 대출, 카드, 할부 같은 금융 거래에서 약속을 지키는 기록과 연결되는 중요한 경제 개념입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "debt",
+    "title": "부채",
+    "summary": "부채는 다른 사람이나 기관에 갚아야 할 돈이나 경제적 의무입니다.",
+    "definition": "다른 사람이나 기관에 갚아야 할 돈이나 경제적 의무입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "빚",
+      "채무",
+      "대출금",
+      "갚을 돈"
+    ],
+    "keywords": [
+      "빚",
+      "대출",
+      "이자",
+      "상환",
+      "원금",
+      "금리",
+      "가계"
+    ],
+    "searchContexts": [
+      "부채와 빚의 뜻이 궁금할 때",
+      "대출과 부채의 관계를 알고 싶을 때",
+      "원금과 이자의 차이를 찾을 때",
+      "가계 예산에서 부채를 어떻게 봐야 하는지 궁금할 때"
+    ],
+    "related": [
+      "bank",
+      "interest-rate",
+      "credit",
+      "household-budget",
+      "bond"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "금융 생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "금융 생활"
+      ],
+      [
+        "사회",
+        "경제생활"
+      ]
+    ],
+    "abstract": "부채는 대출, 이자, 상환 계획과 연결되므로 돈의 흐름을 이해할 때 예금이나 자산과 구분해야 합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "income-job",
+    "title": "소득과 직업",
+    "summary": "소득과 직업은 사람들이 일을 통해 돈을 얻고 생활을 이어 가는 경제생활의 기본 개념입니다.",
+    "definition": "소득은 일을 하거나 재산을 이용해 얻는 돈이고, 직업은 사회에서 맡아 지속적으로 하는 일입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "진로",
+      "생활"
+    ],
+    "aliases": [
+      "소득",
+      "직업",
+      "일과 소득",
+      "임금"
+    ],
+    "keywords": [
+      "일",
+      "임금",
+      "소득",
+      "직업",
+      "가계",
+      "생활비",
+      "진로"
+    ],
+    "searchContexts": [
+      "소득과 직업의 뜻이 궁금할 때",
+      "임금과 소득의 차이를 알고 싶을 때",
+      "일이 가계 예산과 어떻게 연결되는지 찾을 때",
+      "직업과 산업의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "household-budget",
+      "enterprise",
+      "service-industry",
+      "manufacturing-industry",
+      "agriculture"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "일과 생활 경제"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "일과 생활 경제"
+      ],
+      [
+        "진로",
+        "직업과 일"
+      ]
+    ],
+    "abstract": "소득과 직업은 가계 예산, 생활비, 진로, 산업을 이해하는 데 필요한 경제생활의 출발점입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "public-goods",
+    "title": "공공재",
+    "summary": "공공재는 여러 사람이 함께 이용하고, 한 사람이 이용해도 다른 사람의 이용이 크게 줄지 않는 재화나 서비스입니다.",
+    "definition": "여러 사람이 함께 이용할 수 있고, 한 사람이 이용해도 다른 사람의 이용이 크게 줄지 않는 재화나 서비스입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "정치",
+      "생활"
+    ],
+    "aliases": [
+      "공공 재화",
+      "공공재와 서비스",
+      "공동 이용 재화",
+      "사회 기반 시설"
+    ],
+    "keywords": [
+      "공원",
+      "도로",
+      "가로등",
+      "국방",
+      "세금",
+      "공공 서비스",
+      "공동체"
+    ],
+    "searchContexts": [
+      "공공재가 무엇인지 궁금할 때",
+      "공공재와 사유재의 차이를 알고 싶을 때",
+      "세금과 공공 서비스의 관계를 찾을 때",
+      "도로와 공원이 왜 공공재로 설명되는지 궁금할 때"
+    ],
+    "related": [
+      "public-service",
+      "tax-budget",
+      "local-autonomy",
+      "public-institution"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "공공경제"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "공공경제"
+      ],
+      [
+        "사회",
+        "공공생활과 행정"
+      ]
+    ],
+    "abstract": "공공재는 도로, 가로등, 공원, 국방처럼 세금과 공공 서비스가 왜 필요한지 설명하는 경제 개념입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "social-insurance",
+    "title": "사회보험",
+    "summary": "사회보험은 질병, 노후, 실업, 산업재해 같은 위험에 대비해 사회가 함께 비용을 모으는 제도입니다.",
+    "definition": "질병, 노후, 실업, 산업재해 같은 사회적 위험에 대비하기 위해 정해진 기준에 따라 비용을 모으고 급여를 제공하는 제도입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활",
+      "인권"
+    ],
+    "aliases": [
+      "4대 보험",
+      "국민연금",
+      "건강보험",
+      "고용보험",
+      "산재보험"
+    ],
+    "keywords": [
+      "보험",
+      "연금",
+      "건강보험",
+      "고용보험",
+      "산재보험",
+      "복지",
+      "위험"
+    ],
+    "searchContexts": [
+      "사회보험이 무엇인지 궁금할 때",
+      "4대 보험의 뜻을 알고 싶을 때",
+      "건강보험과 국민연금이 왜 사회보험인지 찾을 때",
+      "사회보험과 개인 보험의 차이를 이해하고 싶을 때"
+    ],
+    "related": [
+      "insurance",
+      "public-service",
+      "tax-budget",
+      "basic-rights-duties",
+      "human-rights"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "복지와 공공생활"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "복지와 공공생활"
+      ],
+      [
+        "돈과 경제",
+        "공공경제"
+      ]
+    ],
+    "abstract": "사회보험은 개인 보험과 달리 법과 공공 제도를 바탕으로 사회적 위험을 함께 나누는 장치입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "household-budget",
+    "title": "가계 예산",
+    "summary": "가계 예산은 가정의 수입과 지출을 미리 계획해 돈의 흐름을 관리하는 방법입니다.",
+    "definition": "가정의 수입과 지출을 미리 계획해 돈을 어디에 쓸지 정리하는 방법입니다.",
+    "subjects": [
+      "사회",
+      "실과",
+      "수학"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "가정 예산",
+      "생활비 계획",
+      "수입과 지출",
+      "예산 계획"
+    ],
+    "keywords": [
+      "수입",
+      "지출",
+      "저축",
+      "생활비",
+      "계획",
+      "예산",
+      "소비"
+    ],
+    "searchContexts": [
+      "가계 예산이 무엇인지 궁금할 때",
+      "수입과 지출의 차이를 알고 싶을 때",
+      "생활비를 계획하는 방법을 찾을 때",
+      "용돈 관리와 가계 예산의 차이가 궁금할 때"
+    ],
+    "related": [
+      "money",
+      "allowance-management",
+      "saving-investing",
+      "bank",
+      "insurance"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "생활 경제"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "생활 경제"
+      ],
+      [
+        "수학",
+        "자료와 통계"
+      ]
+    ],
+    "abstract": "가계 예산은 생활비, 저축, 소비 선택을 한눈에 보고 돈의 흐름을 조절하게 해 줍니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -1300,6 +1799,249 @@
     "figureCount": 0
   },
   {
+    "id": "circulatory-system",
+    "title": "순환계와 혈액",
+    "summary": "순환계와 혈액은 심장, 혈관, 혈액이 산소와 영양소를 온몸으로 운반하는 몸의 작동 원리입니다.",
+    "definition": "심장, 혈관, 혈액이 함께 작용해 산소와 영양소를 온몸으로 보내고 노폐물 이동을 돕는 몸의 기관계입니다.",
+    "subjects": [
+      "과학",
+      "체육"
+    ],
+    "topicTags": [
+      "몸",
+      "건강"
+    ],
+    "aliases": [
+      "순환계",
+      "혈액 순환",
+      "심장과 혈관",
+      "피의 순환"
+    ],
+    "keywords": [
+      "심장",
+      "혈관",
+      "혈액",
+      "산소",
+      "영양소",
+      "맥박",
+      "순환"
+    ],
+    "searchContexts": [
+      "순환계가 무엇인지 궁금할 때",
+      "심장과 혈관이 하는 일을 알고 싶을 때",
+      "혈액이 산소와 영양소를 운반하는 까닭을 찾을 때",
+      "호흡과 혈액 순환의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "respiration",
+      "digestion",
+      "excretion-elimination",
+      "oxygen-carbon-dioxide",
+      "bones-muscles"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "우리 몸"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "우리 몸"
+      ],
+      [
+        "건강과 생활",
+        "몸의 기능"
+      ]
+    ],
+    "abstract": "순환계와 혈액은 호흡으로 얻은 산소와 소화로 얻은 영양소를 몸 곳곳으로 보내고, 이산화 탄소와 노폐물 이동에도 관여합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "bones-muscles",
+    "title": "뼈와 근육",
+    "summary": "뼈와 근육은 몸을 지탱하고 움직이게 하는 운동 기관입니다.",
+    "definition": "뼈는 몸을 지탱하고 보호하며, 근육은 줄어들고 늘어나면서 몸을 움직이게 하는 기관입니다.",
+    "subjects": [
+      "과학",
+      "체육"
+    ],
+    "topicTags": [
+      "몸",
+      "건강"
+    ],
+    "aliases": [
+      "골격과 근육",
+      "운동 기관",
+      "뼈",
+      "근육"
+    ],
+    "keywords": [
+      "뼈",
+      "근육",
+      "관절",
+      "운동",
+      "몸",
+      "자세",
+      "힘"
+    ],
+    "searchContexts": [
+      "뼈와 근육이 하는 일이 궁금할 때",
+      "몸이 움직이는 원리를 알고 싶을 때",
+      "관절이 무엇인지 찾을 때",
+      "운동과 근육의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "circulatory-system",
+      "respiration",
+      "force-motion",
+      "digestion"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "우리 몸"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "우리 몸"
+      ],
+      [
+        "건강과 생활",
+        "몸의 기능"
+      ]
+    ],
+    "abstract": "뼈와 근육은 몸의 지지, 보호, 움직임, 자세 유지와 관련되며 관절과 함께 운동 기관을 이룹니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "sensory-organs",
+    "title": "감각 기관",
+    "summary": "감각 기관은 눈, 귀, 코, 혀, 피부처럼 주변의 자극을 받아들이는 몸의 기관입니다.",
+    "definition": "빛, 소리, 냄새, 맛, 온도, 압력 같은 자극을 받아들여 몸이 주변을 알게 해 주는 기관입니다.",
+    "subjects": [
+      "과학",
+      "체육"
+    ],
+    "topicTags": [
+      "몸",
+      "건강"
+    ],
+    "aliases": [
+      "오감",
+      "눈과 귀",
+      "감각",
+      "자극과 반응"
+    ],
+    "keywords": [
+      "눈",
+      "귀",
+      "코",
+      "혀",
+      "피부",
+      "자극",
+      "감각"
+    ],
+    "searchContexts": [
+      "감각 기관이 무엇인지 궁금할 때",
+      "눈, 귀, 코, 혀, 피부가 하는 일을 알고 싶을 때",
+      "자극과 반응의 관계를 찾을 때",
+      "오감과 안전 생활의 관계가 궁금할 때"
+    ],
+    "related": [
+      "light-properties",
+      "sound",
+      "first-aid",
+      "respiration"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "과학",
+    "subTopicPath": [
+      "우리 몸"
+    ],
+    "categoryPaths": [
+      [
+        "과학",
+        "우리 몸"
+      ],
+      [
+        "건강과 생활",
+        "몸의 기능"
+      ]
+    ],
+    "abstract": "감각 기관은 빛, 소리, 냄새, 맛, 온도, 압력 같은 자극을 받아들이고 신경을 통해 몸 안으로 정보를 전달합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "infectious-disease-prevention",
+    "title": "감염병 예방",
+    "summary": "감염병 예방은 병원체가 사람 사이에 퍼지는 길을 줄여 건강을 지키는 생활·보건 지식입니다.",
+    "definition": "병원체가 사람 사이에 퍼지는 길을 줄여 감염병에 걸리거나 옮기는 일을 줄이는 방법입니다.",
+    "subjects": [
+      "과학",
+      "체육",
+      "실과"
+    ],
+    "topicTags": [
+      "건강",
+      "안전",
+      "생활습관"
+    ],
+    "aliases": [
+      "전염병 예방",
+      "손씻기",
+      "기침예절",
+      "감염 예방"
+    ],
+    "keywords": [
+      "병원체",
+      "바이러스",
+      "세균",
+      "손씻기",
+      "기침예절",
+      "마스크",
+      "예방접종"
+    ],
+    "searchContexts": [
+      "감염병 예방이 무엇인지 궁금할 때",
+      "손씻기가 감염 예방에 왜 필요한지 알고 싶을 때",
+      "기침예절과 환기의 뜻을 찾을 때",
+      "바이러스와 세균이 퍼지는 길을 알고 싶을 때"
+    ],
+    "related": [
+      "bacteria-virus",
+      "respiration",
+      "privacy",
+      "first-aid"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "건강과 생활",
+    "subTopicPath": [
+      "질병 예방"
+    ],
+    "categoryPaths": [
+      [
+        "건강과 생활",
+        "질병 예방"
+      ],
+      [
+        "안전",
+        "생활 안전"
+      ]
+    ],
+    "abstract": "감염병 예방은 손씻기, 기침예절, 예방접종, 환기처럼 병원체의 이동 경로를 줄이는 기준을 설명합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "body-structure-function",
     "title": "우리 몸의 구조와 기능",
     "summary": "우리 몸은 소화, 호흡, 순환, 배설, 감각, 운동을 맡은 기관계가 서로 연결되어 생명 활동을 이어 갑니다.",
@@ -1434,7 +2176,7 @@
   {
     "id": "weather-forecast",
     "title": "일기예보",
-    "summary": "일기예보는 기온, 비, 바람, 특보 같은 정보를 보고 이동과 안전 계획을 세울 때 활용하는 생활 과학 정보입니다.",
+    "summary": "일기예보는 관측 자료를 분석해 앞으로의 기온, 비, 바람, 특보 같은 날씨 정보를 알려 주는 생활 과학 정보입니다.",
     "definition": "관측한 날씨 자료를 분석해 앞으로의 날씨를 알려 주는 정보입니다.",
     "subjects": [
       "과학",
@@ -1492,7 +2234,7 @@
         "날씨와 재난"
       ]
     ],
-    "abstract": "일기예보는 관측 자료를 바탕으로 앞으로의 날씨를 예상해 이동, 건강, 안전 계획에 활용하게 해 주는 과학·생활 지식입니다.",
+    "abstract": "일기예보는 관측 자료와 계산을 바탕으로 앞으로의 날씨를 예상해 기온, 강수, 바람, 특보 정보를 알려 주는 과학·생활 지식입니다.",
     "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
@@ -1919,6 +2661,193 @@
     "figureCount": 0
   },
   {
+    "id": "water-pollution",
+    "title": "물 오염",
+    "summary": "물 오염은 하천, 호수, 바다의 물에 오염 물질이 들어가 생물과 생활에 영향을 주는 현상입니다.",
+    "definition": "물에 오염 물질이 들어가 하천, 호수, 바다의 생물과 사람의 생활에 영향을 주는 현상입니다.",
+    "subjects": [
+      "과학",
+      "사회"
+    ],
+    "topicTags": [
+      "환경",
+      "안전",
+      "생활"
+    ],
+    "aliases": [
+      "수질 오염",
+      "하천 오염",
+      "물환경",
+      "수질"
+    ],
+    "keywords": [
+      "하천",
+      "호수",
+      "바다",
+      "오염물질",
+      "수질",
+      "생활하수",
+      "생태계",
+      "정화"
+    ],
+    "searchContexts": [
+      "물 오염이 무엇인지 궁금할 때",
+      "수질 오염이 생태계에 주는 영향을 알고 싶을 때",
+      "생활하수와 물 오염의 관계를 찾을 때",
+      "물환경을 관리하는 방법이 궁금할 때"
+    ],
+    "related": [
+      "water-cycle",
+      "ecosystem",
+      "resource-recycling",
+      "natural-disasters-preparedness",
+      "sustainable-future"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "환경",
+    "subTopicPath": [
+      "물환경"
+    ],
+    "categoryPaths": [
+      [
+        "환경",
+        "물환경"
+      ],
+      [
+        "과학",
+        "물과 생태계"
+      ]
+    ],
+    "abstract": "물 오염은 물의 순환, 생태계, 생활하수, 수질 관리가 서로 연결되어 있음을 보여 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "air-pollution",
+    "title": "대기 오염",
+    "summary": "대기 오염은 공기 중에 사람과 생태계에 해로운 물질이 많아지는 현상입니다.",
+    "definition": "공기 중에 사람의 건강과 생태계에 해로운 물질이 많아지는 현상입니다.",
+    "subjects": [
+      "과학",
+      "사회"
+    ],
+    "topicTags": [
+      "환경",
+      "건강",
+      "생활"
+    ],
+    "aliases": [
+      "공기 오염",
+      "대기오염",
+      "오염 물질",
+      "미세먼지와 대기 오염"
+    ],
+    "keywords": [
+      "공기",
+      "오염",
+      "미세먼지",
+      "배출가스",
+      "건강",
+      "환경",
+      "대기"
+    ],
+    "searchContexts": [
+      "대기 오염이 무엇인지 궁금할 때",
+      "미세먼지와 대기 오염의 관계를 알고 싶을 때",
+      "공기가 오염되는 원인을 찾을 때",
+      "대기 오염이 건강과 생활에 주는 영향을 이해하고 싶을 때"
+    ],
+    "related": [
+      "fine-dust",
+      "weather-climate",
+      "climate-change",
+      "resource-recycling",
+      "water-pollution"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "환경",
+    "subTopicPath": [
+      "환경 오염"
+    ],
+    "categoryPaths": [
+      [
+        "환경",
+        "환경 오염"
+      ],
+      [
+        "과학",
+        "날씨와 환경"
+      ]
+    ],
+    "abstract": "대기 오염은 자동차 배출가스, 공장 배출, 먼지, 생활 연료 사용처럼 여러 원인과 연결됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "endangered-species",
+    "title": "멸종위기 야생생물",
+    "summary": "멸종위기 야생생물은 개체 수가 줄어 사라질 위험이 큰 야생 동식물입니다.",
+    "definition": "개체 수가 줄거나 서식지가 훼손되어 사라질 위험이 커 보호가 필요한 야생 동식물입니다.",
+    "subjects": [
+      "과학",
+      "사회"
+    ],
+    "topicTags": [
+      "환경",
+      "동물과 식물",
+      "생태계"
+    ],
+    "aliases": [
+      "멸종위기종",
+      "보호 야생생물",
+      "위기 동식물",
+      "생물 보호"
+    ],
+    "keywords": [
+      "멸종",
+      "야생생물",
+      "서식지",
+      "생태계",
+      "보호",
+      "개체 수",
+      "생물다양성"
+    ],
+    "searchContexts": [
+      "멸종위기 야생생물이 무엇인지 궁금할 때",
+      "멸종위기종과 생물다양성의 관계를 알고 싶을 때",
+      "야생생물의 서식지가 중요한 까닭을 찾을 때",
+      "동식물을 보호하는 방법이 궁금할 때"
+    ],
+    "related": [
+      "biodiversity",
+      "ecosystem",
+      "ecosystem-balance",
+      "habitat-adaptation",
+      "climate-change"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "환경",
+    "subTopicPath": [
+      "생태계와 보호"
+    ],
+    "categoryPaths": [
+      [
+        "환경",
+        "생태계와 보호"
+      ],
+      [
+        "과학",
+        "생물과 환경"
+      ]
+    ],
+    "abstract": "멸종위기 야생생물은 개체 수 감소와 서식지 훼손으로 생존이 어려워져 보호 대상으로 지정되는 동식물입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "state-change",
     "title": "물의 상태 변화",
     "summary": "물은 온도에 따라 얼음, 물, 수증기처럼 상태가 달라질 수 있습니다.",
@@ -2160,6 +3089,68 @@
     ],
     "abstract": "지진 안전은 땅이 흔들릴 때 몸을 먼저 보호하고, 흔들림이 멈춘 뒤 질서 있게 대피하는 방법을 익히는 안전 지식입니다.",
     "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "first-aid",
+    "title": "응급처치",
+    "summary": "응급처치는 갑작스러운 사고나 위급한 상황에서 전문 구조가 오기 전 피해를 줄이는 초기 대응입니다.",
+    "definition": "갑작스러운 사고나 위급한 상황에서 전문 구조가 오기 전 피해를 줄이기 위해 하는 초기 대응입니다.",
+    "subjects": [
+      "체육",
+      "과학",
+      "실과"
+    ],
+    "topicTags": [
+      "안전",
+      "건강",
+      "생활"
+    ],
+    "aliases": [
+      "응급 처치",
+      "구조 구급",
+      "심폐소생술",
+      "119 신고"
+    ],
+    "keywords": [
+      "119",
+      "사고",
+      "안전",
+      "심폐소생술",
+      "상처",
+      "화상",
+      "구급차"
+    ],
+    "searchContexts": [
+      "응급처치가 무엇인지 궁금할 때",
+      "119 신고를 언제 해야 하는지 알고 싶을 때",
+      "상처나 화상 같은 사고에서 먼저 할 일을 찾을 때",
+      "심폐소생술과 응급처치의 관계가 궁금할 때"
+    ],
+    "related": [
+      "earthquake-safety",
+      "school-violence",
+      "infectious-disease-prevention",
+      "respiration"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "안전",
+    "subTopicPath": [
+      "생활 안전"
+    ],
+    "categoryPaths": [
+      [
+        "안전",
+        "생활 안전"
+      ],
+      [
+        "건강과 생활",
+        "응급과 보건"
+      ]
+    ],
+    "abstract": "응급처치는 신고, 안전 확인, 증상 관찰, 기본 조치처럼 위급한 상황에서 순서를 지켜야 하는 안전 지식입니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2416,6 +3407,126 @@
       ]
     ],
     "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "map-scale",
+    "title": "지도 축척",
+    "summary": "지도 축척은 실제 거리를 지도 위 거리로 얼마나 줄였는지 알려 주는 지도 읽기 기준입니다.",
+    "definition": "실제 거리를 지도 위 거리로 얼마나 줄였는지 나타내는 비율입니다.",
+    "subjects": [
+      "사회",
+      "수학"
+    ],
+    "topicTags": [
+      "정보읽기",
+      "생활"
+    ],
+    "aliases": [
+      "축척",
+      "지도 비율",
+      "거리 축척",
+      "지도 거리"
+    ],
+    "keywords": [
+      "지도",
+      "거리",
+      "비율",
+      "실제 거리",
+      "축척 막대",
+      "지도 읽기"
+    ],
+    "searchContexts": [
+      "지도에서 1cm가 실제로 몇 m인지 궁금할 때",
+      "축척 막대를 읽는 방법을 알고 싶을 때",
+      "지도에서 거리를 재는 방법을 찾을 때",
+      "큰 축척과 작은 축척의 차이가 궁금할 때"
+    ],
+    "related": [
+      "map",
+      "latitude-longitude",
+      "globe-world-map",
+      "satellite-map",
+      "ratio"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "지리",
+    "subTopicPath": [
+      "지도 읽기"
+    ],
+    "categoryPaths": [
+      [
+        "지리",
+        "지도 읽기"
+      ],
+      [
+        "수학",
+        "비와 비율"
+      ]
+    ],
+    "abstract": "지도 축척은 지도 위 거리와 실제 거리를 연결해 지역의 크기와 이동 거리를 읽게 해 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "contour-line",
+    "title": "등고선",
+    "summary": "등고선은 같은 높이의 지점을 이은 선으로, 지도에서 산과 골짜기의 모양을 읽게 해 줍니다.",
+    "definition": "지도에서 높이가 같은 곳을 이어 지형의 높낮이를 나타낸 선입니다.",
+    "subjects": [
+      "사회",
+      "과학"
+    ],
+    "topicTags": [
+      "정보읽기",
+      "환경"
+    ],
+    "aliases": [
+      "등고선 지도",
+      "높이선",
+      "지형도",
+      "고도"
+    ],
+    "keywords": [
+      "지도",
+      "높이",
+      "산",
+      "골짜기",
+      "지형",
+      "간격",
+      "경사"
+    ],
+    "searchContexts": [
+      "등고선이 무엇인지 궁금할 때",
+      "등고선 간격이 좁으면 무슨 뜻인지 알고 싶을 때",
+      "지형도에서 산과 골짜기를 읽는 방법을 찾을 때",
+      "지도에서 높이를 표현하는 방법이 궁금할 때"
+    ],
+    "related": [
+      "map",
+      "map-scale",
+      "natural-human-environment",
+      "strata-fossil-formation"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "지리",
+    "subTopicPath": [
+      "지도 읽기"
+    ],
+    "categoryPaths": [
+      [
+        "지리",
+        "지도 읽기"
+      ],
+      [
+        "환경",
+        "지형과 자연환경"
+      ]
+    ],
+    "abstract": "등고선은 산지, 골짜기, 경사 같은 지형을 평면 지도에서 읽을 수 있게 해 줍니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -2823,6 +3934,67 @@
     "figureCount": 0
   },
   {
+    "id": "public-opinion",
+    "title": "여론",
+    "summary": "여론은 사회의 어떤 일에 대해 여러 사람이 가지고 있는 생각과 의견의 흐름입니다.",
+    "definition": "사회 문제나 공공의 일에 대해 여러 사람이 가지고 있는 생각과 의견의 흐름입니다.",
+    "subjects": [
+      "사회",
+      "국어"
+    ],
+    "topicTags": [
+      "민주주의",
+      "뉴스와 미디어",
+      "정보읽기"
+    ],
+    "aliases": [
+      "공공의 의견",
+      "사회 의견",
+      "여론조사",
+      "민심"
+    ],
+    "keywords": [
+      "의견",
+      "사회 문제",
+      "여론조사",
+      "민주주의",
+      "언론",
+      "공론장"
+    ],
+    "searchContexts": [
+      "여론이 무엇인지 궁금할 때",
+      "여론조사 결과를 어떻게 읽어야 하는지 알고 싶을 때",
+      "민주주의와 의견의 관계를 찾을 때",
+      "댓글과 여론이 같은지 궁금할 때"
+    ],
+    "related": [
+      "democracy-election",
+      "election",
+      "statistics",
+      "fake-news",
+      "public-service"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "민주주의와 미디어"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "민주주의와 미디어"
+      ],
+      [
+        "뉴스와 미디어",
+        "정보 확인"
+      ]
+    ],
+    "abstract": "여론은 민주주의에서 의견을 모으고 정책을 논의할 때 중요한 자료가 되지만, 조사 방법과 정보 출처를 함께 보아야 합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "statistics",
     "title": "통계",
     "summary": "통계는 여러 자료를 숫자, 표, 그래프로 정리해 사회와 생활의 모습을 보여 주는 정보입니다.",
@@ -3006,6 +4178,353 @@
       ]
     ],
     "abstract": "비와 비율은 두 양의 관계를 비교하는 수학 개념입니다. 백분율, 그래프, 통계 자료, 가격 비교를 읽을 때 자주 쓰입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "decimal",
+    "title": "소수",
+    "summary": "소수는 1보다 작은 양이나 분수로 나타낼 수 있는 수를 자릿값으로 읽는 방법입니다.",
+    "definition": "소수점 오른쪽의 자릿값을 이용해 1보다 작은 양이나 분수로 나타낼 수 있는 수를 적는 방법입니다.",
+    "subjects": [
+      "수학"
+    ],
+    "topicTags": [
+      "생활",
+      "통계"
+    ],
+    "aliases": [
+      "소수점",
+      "소수 자릿값",
+      "0.1",
+      "0.01"
+    ],
+    "keywords": [
+      "자릿값",
+      "소수점",
+      "분수",
+      "측정",
+      "길이",
+      "무게",
+      "비교"
+    ],
+    "searchContexts": [
+      "0.1과 0.01의 차이가 궁금할 때",
+      "분수와 소수가 어떻게 연결되는지 알고 싶을 때",
+      "소수의 크기를 비교하는 방법을 찾을 때",
+      "측정값에 소수점이 붙는 까닭이 궁금할 때"
+    ],
+    "related": [
+      "fraction",
+      "ratio",
+      "percentage",
+      "average"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "수학",
+    "subTopicPath": [
+      "수와 연산"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "수와 연산"
+      ]
+    ],
+    "abstract": "소수는 길이, 무게, 돈, 통계 자료처럼 정수만으로 나타내기 어려운 양을 읽는 데 쓰입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "percentage",
+    "title": "백분율",
+    "summary": "백분율은 전체를 100으로 보았을 때 어느 정도인지 나타내는 비율 표현입니다.",
+    "definition": "전체를 100으로 보았을 때 어느 정도인지 나타내는 비율입니다.",
+    "subjects": [
+      "수학",
+      "사회"
+    ],
+    "topicTags": [
+      "통계",
+      "정보읽기",
+      "생활"
+    ],
+    "aliases": [
+      "퍼센트",
+      "%",
+      "비율",
+      "할인율"
+    ],
+    "keywords": [
+      "100",
+      "비율",
+      "퍼센트",
+      "통계",
+      "그래프",
+      "할인",
+      "증가율"
+    ],
+    "searchContexts": [
+      "퍼센트가 무슨 뜻인지 궁금할 때",
+      "50%와 0.5가 왜 같은지 알고 싶을 때",
+      "할인율이나 증가율을 읽는 방법을 찾을 때",
+      "그래프에 나온 %를 해석하고 싶을 때"
+    ],
+    "related": [
+      "ratio",
+      "fraction",
+      "decimal",
+      "graph",
+      "statistics"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "수학",
+    "subTopicPath": [
+      "비와 비율"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "비와 비율"
+      ],
+      [
+        "정보 읽기",
+        "자료와 통계"
+      ]
+    ],
+    "abstract": "백분율은 할인, 증가, 설문 결과, 그래프를 읽을 때 전체와 부분의 관계를 보여 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "average",
+    "title": "평균",
+    "summary": "평균은 여러 값을 고르게 나누었을 때의 대표값으로, 자료 전체의 대략적인 수준을 보여 줍니다.",
+    "definition": "여러 값을 모두 더한 뒤 값의 개수로 나누어 구하는 대표값입니다.",
+    "subjects": [
+      "수학",
+      "사회"
+    ],
+    "topicTags": [
+      "통계",
+      "정보읽기"
+    ],
+    "aliases": [
+      "산술평균",
+      "평균값",
+      "대표값"
+    ],
+    "keywords": [
+      "자료",
+      "합계",
+      "나눗셈",
+      "대표값",
+      "통계",
+      "비교",
+      "그래프"
+    ],
+    "searchContexts": [
+      "평균을 어떻게 구하는지 궁금할 때",
+      "평균이 자료 전체를 잘 보여 주는지 알고 싶을 때",
+      "대표값이 무슨 뜻인지 찾을 때",
+      "통계 자료에서 평균을 읽는 방법이 궁금할 때"
+    ],
+    "related": [
+      "statistics",
+      "graph",
+      "data",
+      "percentage"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "정보 읽기",
+    "subTopicPath": [
+      "자료와 통계"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "자료와 통계"
+      ],
+      [
+        "정보 읽기",
+        "자료와 통계"
+      ]
+    ],
+    "abstract": "평균은 자료를 한 숫자로 요약하지만, 자료가 고르게 모여 있는지도 함께 보아야 합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "probability",
+    "title": "가능성",
+    "summary": "가능성은 어떤 일이 일어날 수 있는 정도를 말하며, 경우의 수와 자료를 바탕으로 판단합니다.",
+    "definition": "어떤 일이 일어날 수 있는 정도를 나타내는 말입니다.",
+    "subjects": [
+      "수학"
+    ],
+    "topicTags": [
+      "통계",
+      "생활"
+    ],
+    "aliases": [
+      "확률",
+      "일어날 가능성",
+      "경우의 수"
+    ],
+    "keywords": [
+      "가능성",
+      "확률",
+      "자료",
+      "경우",
+      "예상",
+      "실험",
+      "통계"
+    ],
+    "searchContexts": [
+      "어떤 일이 일어날 가능성이 크다는 말의 뜻이 궁금할 때",
+      "확률과 가능성의 관계를 알고 싶을 때",
+      "동전 던지기나 주사위 결과를 설명하고 싶을 때",
+      "자료로 예상을 하는 방법을 찾을 때"
+    ],
+    "related": [
+      "statistics",
+      "ratio",
+      "percentage",
+      "data"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "수학",
+    "subTopicPath": [
+      "자료와 가능성"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "자료와 가능성"
+      ],
+      [
+        "정보 읽기",
+        "자료와 통계"
+      ]
+    ],
+    "abstract": "가능성은 우연히 일어나는 일을 막연한 느낌이 아니라 경우와 자료를 이용해 설명하게 해 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "area-perimeter",
+    "title": "넓이와 둘레",
+    "summary": "넓이와 둘레는 평면 도형을 볼 때 안쪽을 재는지, 가장자리를 재는지 구분하게 해 줍니다.",
+    "definition": "넓이는 도형 안쪽의 크기이고, 둘레는 도형 가장자리의 길이입니다.",
+    "subjects": [
+      "수학"
+    ],
+    "topicTags": [
+      "생활"
+    ],
+    "aliases": [
+      "넓이",
+      "둘레",
+      "면적",
+      "도형의 둘레"
+    ],
+    "keywords": [
+      "도형",
+      "길이",
+      "면적",
+      "단위",
+      "사각형",
+      "삼각형",
+      "측정"
+    ],
+    "searchContexts": [
+      "넓이와 둘레의 차이가 궁금할 때",
+      "사각형의 넓이와 둘레를 구분하고 싶을 때",
+      "cm와 cm² 단위 차이를 알고 싶을 때",
+      "도형의 안쪽과 가장자리를 어떻게 재는지 찾을 때"
+    ],
+    "related": [
+      "fraction",
+      "ratio",
+      "decimal"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "수학",
+    "subTopicPath": [
+      "도형과 측정"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "도형과 측정"
+      ]
+    ],
+    "abstract": "넓이와 둘레는 같은 도형을 보아도 무엇을 재는지에 따라 단위와 계산 방법이 달라지는 개념입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "symmetry",
+    "title": "대칭",
+    "summary": "대칭은 도형이나 물체의 한쪽과 다른 쪽이 일정한 기준을 두고 서로 맞아떨어지는 관계입니다.",
+    "definition": "기준이 되는 선이나 점을 사이에 두고 모양이 서로 맞아떨어지는 관계입니다.",
+    "subjects": [
+      "수학",
+      "미술",
+      "과학"
+    ],
+    "topicTags": [
+      "생활",
+      "문화"
+    ],
+    "aliases": [
+      "선대칭",
+      "점대칭",
+      "대칭축",
+      "대칭 도형"
+    ],
+    "keywords": [
+      "도형",
+      "대칭축",
+      "접기",
+      "회전",
+      "무늬",
+      "자연",
+      "모양"
+    ],
+    "searchContexts": [
+      "대칭축이 무엇인지 궁금할 때",
+      "선대칭과 점대칭의 차이를 알고 싶을 때",
+      "도형을 접었을 때 겹치는 까닭을 찾을 때",
+      "무늬나 자연물에서 대칭을 찾고 싶을 때"
+    ],
+    "related": [
+      "area-perimeter",
+      "light-reflection",
+      "material-properties-use"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "수학",
+    "subTopicPath": [
+      "도형과 측정"
+    ],
+    "categoryPaths": [
+      [
+        "수학",
+        "도형과 측정"
+      ],
+      [
+        "문화와 표현",
+        "무늬와 조형"
+      ]
+    ],
+    "abstract": "대칭은 도형, 무늬, 자연물의 모양을 설명할 때 한쪽과 다른 쪽의 대응 관계를 보여 줍니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -3390,7 +4909,7 @@
     "id": "typhoon",
     "title": "태풍",
     "summary": "태풍은 따뜻한 바다에서 발달해 강한 바람과 많은 비를 동반할 수 있는 거대한 소용돌이 날씨 현상입니다.",
-    "definition": "따뜻한 바다에서 발달해 강한 바람과 많은 비를 동반하는 거대한 소용돌이 날씨 현상입니다.",
+    "definition": "따뜻한 바다에서 발달해 강한 바람과 많은 비를 동반하는 거대한 열대저기압입니다.",
     "subjects": [
       "과학",
       "사회",
@@ -3408,21 +4927,20 @@
       "재난"
     ],
     "keywords": [
-      "바람",
-      "비",
-      "기상특보",
-      "대피",
-      "안전",
-      "기상청",
-      "재난문자"
+      "열대저기압",
+      "수증기",
+      "저기압",
+      "태풍의 눈",
+      "강풍",
+      "호우",
+      "폭풍해일",
+      "기상특보"
     ],
     "searchContexts": [
-      "태풍 경로가 궁금할 때",
-      "강풍이 궁금할 때",
-      "호우가 궁금할 때",
-      "재난이 궁금할 때",
-      "바람이 궁금할 때",
-      "비가 궁금할 때"
+      "태풍이 무엇인지 궁금할 때",
+      "태풍이 따뜻한 바다에서 강해지는 까닭을 알고 싶을 때",
+      "태풍의 눈과 강한 비바람이 생기는 원리를 찾을 때",
+      "태풍 경로 예보를 어떻게 읽는지 알고 싶을 때"
     ],
     "related": [
       "weather-forecast",
@@ -3430,7 +4948,7 @@
       "clouds-rain",
       "earthquake-safety"
     ],
-    "lastReviewed": "2026-05-14",
+    "lastReviewed": "2026-05-27",
     "mainTopic": "과학",
     "subTopicPath": [
       "지구와 날씨"
@@ -3445,7 +4963,7 @@
         "날씨와 재난"
       ]
     ],
-    "abstract": "태풍은 강한 비와 바람을 동반하는 날씨 현상과 그로 인한 위험을 설명합니다.",
+    "abstract": "태풍은 따뜻한 바다의 열과 수증기를 에너지로 삼아 발달하는 열대저기압이며, 중심 구조와 이동 경로에 따라 바람·비·파도 피해가 달라집니다.",
     "quizCount": 3,
     "timelineCount": 0,
     "figureCount": 0
@@ -5532,7 +7050,7 @@
         "날씨와 기후"
       ]
     ],
-    "abstract": "지구에는 덥고 비가 많은 곳, 건조한 곳, 추운 곳처럼 여러 기후가 있습니다. 다양한 기후를 알면 자연환경과 생활 모습의 차이를 연결해 볼 수 있습니다.",
+    "abstract": "지구에는 덥고 비가 많은 곳, 건조한 곳, 추운 곳처럼 여러 기후가 있으며, 기후는 자연환경과 생활 모습에 영향을 줍니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -5703,7 +7221,7 @@
         "날씨와 계절"
       ]
     ],
-    "abstract": "우리나라에서는 계절에 따라 기온과 비의 양, 바람의 성질이 달라집니다. 계절별 날씨를 알면 옷차림, 활동, 재해 대비를 더 잘 설명할 수 있습니다.",
+    "abstract": "우리나라에서는 계절에 따라 기온, 강수량, 바람, 습도가 달라지며, 장마·한파·건조한 바람 같은 계절별 날씨 특징이 나타납니다.",
     "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
@@ -6130,6 +7648,312 @@
     "figureCount": 0
   },
   {
+    "id": "consumer-producer",
+    "title": "소비자와 생산자",
+    "summary": "소비자와 생산자는 물건과 서비스를 사고파는 경제 활동의 기본 역할입니다.",
+    "definition": "소비자는 물건이나 서비스를 사서 쓰는 사람이고, 생산자는 물건이나 서비스를 만들어 파는 사람입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "소비자",
+      "생산자",
+      "소비와 생산",
+      "경제 주체"
+    ],
+    "keywords": [
+      "소비",
+      "생산",
+      "물건",
+      "서비스",
+      "선택",
+      "가격",
+      "시장"
+    ],
+    "searchContexts": [
+      "소비자와 생산자의 차이가 궁금할 때",
+      "경제 활동에서 사람이 맡는 역할을 알고 싶을 때",
+      "시장과 가격을 배우기 전에 기본 개념을 찾을 때",
+      "소비와 생산의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "market-price",
+      "money",
+      "trade-export-import",
+      "consumer-rights",
+      "enterprise"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "시장과 경제생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "시장과 경제생활"
+      ],
+      [
+        "사회",
+        "경제생활"
+      ]
+    ],
+    "abstract": "소비자와 생산자는 시장에서 서로 만나 선택, 가격, 품질, 책임 같은 경제 문제를 만들어 냅니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "enterprise",
+    "title": "기업",
+    "summary": "기업은 물건이나 서비스를 만들어 팔며 경제 활동을 이어 가는 조직입니다.",
+    "definition": "물건이나 서비스를 만들어 팔고, 그 과정에서 수입을 얻는 경제 조직입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "진로"
+    ],
+    "aliases": [
+      "회사",
+      "사업체",
+      "기업 활동",
+      "생산 조직"
+    ],
+    "keywords": [
+      "회사",
+      "생산",
+      "판매",
+      "이윤",
+      "고용",
+      "노동",
+      "시장"
+    ],
+    "searchContexts": [
+      "기업이 무엇인지 궁금할 때",
+      "회사와 기업의 차이를 알고 싶을 때",
+      "기업이 물건과 서비스를 어떻게 만드는지 찾을 때",
+      "기업과 일자리의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "consumer-producer",
+      "market-price",
+      "service-industry",
+      "manufacturing-industry",
+      "income-job"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "시장과 경제생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "시장과 경제생활"
+      ],
+      [
+        "사회",
+        "경제생활"
+      ]
+    ],
+    "abstract": "기업은 생산, 판매, 고용, 투자처럼 시장에서 돈과 물건이 움직이는 과정과 관련됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "distribution",
+    "title": "유통",
+    "summary": "유통은 생산된 물건이 소비자에게 가기까지 이동하고 판매되는 과정입니다.",
+    "definition": "생산된 물건이 소비자에게 가기까지 운송, 보관, 판매를 거치는 과정입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활"
+    ],
+    "aliases": [
+      "물류",
+      "판매 과정",
+      "상품 이동",
+      "도매와 소매"
+    ],
+    "keywords": [
+      "상품",
+      "운송",
+      "보관",
+      "도매",
+      "소매",
+      "판매",
+      "물류"
+    ],
+    "searchContexts": [
+      "유통이 무엇인지 궁금할 때",
+      "물건이 생산자에서 소비자에게 가는 과정을 알고 싶을 때",
+      "도매와 소매의 차이를 찾을 때",
+      "물류와 유통의 관계가 궁금할 때"
+    ],
+    "related": [
+      "consumer-producer",
+      "enterprise",
+      "transportation",
+      "trade-export-import"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "시장과 경제생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "시장과 경제생활"
+      ],
+      [
+        "사회",
+        "교통과 산업"
+      ]
+    ],
+    "abstract": "유통을 알면 농장이나 공장에서 만든 물건이 가게와 집까지 도착하는 경제 과정을 이해할 수 있습니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "advertising",
+    "title": "광고",
+    "summary": "광고는 상품, 서비스, 생각을 사람들에게 알리고 선택에 영향을 주려는 정보 전달 활동입니다.",
+    "definition": "상품, 서비스, 생각을 사람들에게 알리고 선택에 영향을 주기 위해 만든 정보 전달 활동입니다.",
+    "subjects": [
+      "국어",
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "뉴스와 미디어",
+      "돈과 경제",
+      "정보읽기"
+    ],
+    "aliases": [
+      "광고 문구",
+      "상업 광고",
+      "공익 광고",
+      "표시 광고"
+    ],
+    "keywords": [
+      "상품",
+      "서비스",
+      "홍보",
+      "소비",
+      "정보",
+      "과장",
+      "미디어"
+    ],
+    "searchContexts": [
+      "광고가 무엇인지 궁금할 때",
+      "광고와 정보의 차이를 알고 싶을 때",
+      "과장 광고를 조심해야 하는 까닭을 찾을 때",
+      "공익 광고와 상업 광고의 차이를 알고 싶을 때"
+    ],
+    "related": [
+      "fake-news",
+      "consumer-rights",
+      "consumer-producer",
+      "public-opinion"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "뉴스와 미디어",
+    "subTopicPath": [
+      "매체 정보 읽기"
+    ],
+    "categoryPaths": [
+      [
+        "뉴스와 미디어",
+        "매체 정보 읽기"
+      ],
+      [
+        "돈과 경제",
+        "소비 생활"
+      ]
+    ],
+    "abstract": "광고는 정보를 주기도 하지만 소비자의 관심을 끌기 위해 강조와 생략을 사용할 수 있어 내용 확인이 필요합니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "consumer-rights",
+    "title": "소비자의 권리와 책임",
+    "summary": "소비자의 권리와 책임은 안전하고 공정한 소비 생활을 위해 필요한 기준입니다.",
+    "definition": "소비자가 안전하고 정확한 정보를 바탕으로 선택할 권리와 거래에서 지켜야 할 책임을 함께 이르는 말입니다.",
+    "subjects": [
+      "사회",
+      "실과",
+      "도덕"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활",
+      "인권"
+    ],
+    "aliases": [
+      "소비자 권리",
+      "소비자 책임",
+      "소비자 보호",
+      "현명한 소비"
+    ],
+    "keywords": [
+      "권리",
+      "책임",
+      "피해 구제",
+      "정보",
+      "안전",
+      "선택",
+      "소비"
+    ],
+    "searchContexts": [
+      "소비자 권리가 무엇인지 궁금할 때",
+      "물건을 살 때 소비자가 확인할 점을 알고 싶을 때",
+      "환불이나 피해 구제와 관련된 기본 개념을 찾을 때",
+      "소비자 책임이 무엇인지 알고 싶을 때"
+    ],
+    "related": [
+      "consumer-producer",
+      "advertising",
+      "market-price",
+      "household-budget"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "돈과 경제",
+    "subTopicPath": [
+      "소비 생활"
+    ],
+    "categoryPaths": [
+      [
+        "돈과 경제",
+        "소비 생활"
+      ],
+      [
+        "사회",
+        "경제생활"
+      ]
+    ],
+    "abstract": "소비자의 권리와 책임은 광고, 계약, 환불, 피해 구제 같은 실제 소비 생활을 이해하는 기준이 됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "law-rules",
     "title": "법",
     "summary": "법은 나라와 사회 전체에 적용되도록 정한 공적인 약속이며, 사람들의 권리와 안전을 지키는 기준입니다.",
@@ -6323,6 +8147,127 @@
     ],
     "quizCount": 3,
     "timelineCount": 3,
+    "figureCount": 0
+  },
+  {
+    "id": "human-rights",
+    "title": "인권",
+    "summary": "인권은 사람이 사람답게 살기 위해 누구에게나 인정되어야 하는 기본적인 권리입니다.",
+    "definition": "사람이 사람답게 살기 위해 누구에게나 인정되어야 하는 기본적인 권리입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "인권",
+      "민주주의"
+    ],
+    "aliases": [
+      "사람의 권리",
+      "기본적 인권",
+      "인간의 존엄"
+    ],
+    "keywords": [
+      "존엄",
+      "평등",
+      "차별",
+      "자유",
+      "권리",
+      "책임",
+      "세계인권선언"
+    ],
+    "searchContexts": [
+      "인권이 무엇인지 궁금할 때",
+      "차별과 인권의 관계를 알고 싶을 때",
+      "권리와 책임을 함께 이해하고 싶을 때",
+      "민주주의와 인권이 어떻게 연결되는지 찾을 때"
+    ],
+    "related": [
+      "basic-rights-duties",
+      "democracy-election",
+      "school-violence",
+      "global-village"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "인권과 공동체"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "인권과 공동체"
+      ],
+      [
+        "도덕",
+        "존중과 책임"
+      ]
+    ],
+    "abstract": "인권은 자유, 평등, 존엄, 차별 금지처럼 공동체 생활의 기준이 되는 권리 개념입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "basic-rights-duties",
+    "title": "국민의 권리와 의무",
+    "summary": "국민의 권리와 의무는 헌법 속에서 시민이 누리는 기본 권리와 함께 맡는 공적 책임을 설명합니다.",
+    "definition": "헌법에서 국민에게 보장하는 기본적인 권리와 국민이 함께 지켜야 할 의무입니다.",
+    "subjects": [
+      "사회",
+      "도덕"
+    ],
+    "topicTags": [
+      "인권",
+      "민주주의",
+      "정치"
+    ],
+    "aliases": [
+      "기본권",
+      "국민의 기본권",
+      "국민의 의무",
+      "헌법상 권리"
+    ],
+    "keywords": [
+      "헌법",
+      "권리",
+      "의무",
+      "자유",
+      "평등",
+      "교육",
+      "납세",
+      "국방"
+    ],
+    "searchContexts": [
+      "기본권이 무엇인지 궁금할 때",
+      "국민의 의무에는 어떤 것이 있는지 알고 싶을 때",
+      "헌법과 인권의 관계를 찾을 때",
+      "권리와 책임을 함께 이해하고 싶을 때"
+    ],
+    "related": [
+      "human-rights",
+      "law-hierarchy",
+      "law-rules",
+      "democracy-election"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "법과 인권"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "법과 인권"
+      ],
+      [
+        "정치",
+        "민주주의와 헌법"
+      ]
+    ],
+    "abstract": "국민의 권리와 의무는 민주 국가에서 시민이 보호받는 영역과 공공생활에 참여하는 기준을 알려 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
     "figureCount": 0
   },
   {
@@ -6673,6 +8618,188 @@
     "figureCount": 0
   },
   {
+    "id": "administrative-district",
+    "title": "행정구역",
+    "summary": "행정구역은 나라와 지방자치단체가 행정 업무를 맡기 위해 나눈 지역 단위입니다.",
+    "definition": "행정 업무를 맡고 지역을 관리하기 위해 나눈 나라 안의 지역 단위입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "정치",
+      "생활"
+    ],
+    "aliases": [
+      "시도",
+      "시군구",
+      "읍면동",
+      "지방자치 구역"
+    ],
+    "keywords": [
+      "시",
+      "군",
+      "구",
+      "읍",
+      "면",
+      "동",
+      "지방자치",
+      "주소",
+      "행정"
+    ],
+    "searchContexts": [
+      "시·군·구가 무엇인지 궁금할 때",
+      "주소에 읍·면·동이 들어가는 까닭을 알고 싶을 때",
+      "지방자치와 행정구역의 관계를 찾을 때",
+      "우리 지역이 어떤 단위로 나뉘는지 알고 싶을 때"
+    ],
+    "related": [
+      "local-autonomy",
+      "local-community",
+      "public-institution",
+      "map"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "지역과 공공생활"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "지역과 공공생활"
+      ],
+      [
+        "정치",
+        "지방자치"
+      ]
+    ],
+    "abstract": "행정구역은 주소, 지방자치, 공공 서비스가 어떤 지역 단위로 이루어지는지 이해하게 해 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "resident-registration",
+    "title": "주민등록",
+    "summary": "주민등록은 주민의 거주 관계를 행정적으로 기록해 공공 서비스와 신분 확인에 쓰는 제도입니다.",
+    "definition": "주민의 주소와 거주 관계를 행정적으로 기록해 관리하는 제도입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "생활",
+      "정치",
+      "안전"
+    ],
+    "aliases": [
+      "주민등록표",
+      "주민등록등본",
+      "주민등록초본",
+      "주민등록증"
+    ],
+    "keywords": [
+      "주소",
+      "거주",
+      "주민",
+      "등본",
+      "초본",
+      "신분 확인",
+      "행정"
+    ],
+    "searchContexts": [
+      "주민등록이 무엇인지 궁금할 때",
+      "주민등록등본과 초본이 어떤 자료인지 알고 싶을 때",
+      "주소와 행정 업무가 어떻게 연결되는지 찾을 때",
+      "개인정보와 주민등록의 관계가 궁금할 때"
+    ],
+    "related": [
+      "administrative-district",
+      "privacy",
+      "public-service",
+      "local-autonomy"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "공공생활과 행정"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "공공생활과 행정"
+      ],
+      [
+        "디지털과 정보",
+        "개인정보와 보안"
+      ]
+    ],
+    "abstract": "주민등록은 주소, 신분 확인, 민원 처리와 관련되는 공공생활의 기본 제도입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "public-service",
+    "title": "공공 서비스",
+    "summary": "공공 서비스는 주민의 생활과 안전을 위해 국가나 지방자치단체가 제공하거나 관리하는 서비스입니다.",
+    "definition": "국가나 지방자치단체가 주민의 생활과 안전을 위해 제공하거나 관리하는 서비스입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "생활",
+      "정치",
+      "안전"
+    ],
+    "aliases": [
+      "공공서비스",
+      "행정 서비스",
+      "민원 서비스",
+      "생활 서비스"
+    ],
+    "keywords": [
+      "민원",
+      "복지",
+      "안전",
+      "교통",
+      "환경",
+      "보건",
+      "정부24",
+      "지방자치"
+    ],
+    "searchContexts": [
+      "공공 서비스가 무엇인지 궁금할 때",
+      "민원 서비스와 공공기관의 관계를 알고 싶을 때",
+      "주민 생활에 필요한 서비스 종류를 찾을 때",
+      "지방자치와 공공 서비스가 어떻게 연결되는지 궁금할 때"
+    ],
+    "related": [
+      "public-institution",
+      "local-autonomy",
+      "administrative-district",
+      "resident-registration"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "공공생활과 행정"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "공공생활과 행정"
+      ],
+      [
+        "정치",
+        "지방자치"
+      ]
+    ],
+    "abstract": "공공 서비스는 민원, 안전, 보건, 교통, 환경처럼 개인이 혼자 해결하기 어려운 생활 문제와 연결됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
     "id": "population",
     "title": "인구",
     "summary": "인구는 어떤 지역에 사는 사람의 수와 그 구성에 대한 정보입니다.",
@@ -6858,6 +8985,313 @@
     ],
     "abstract": "교통과 이동은 사람과 물건이 오가는 방법을 살펴 지역 생활, 안전, 환경 문제를 함께 이해하는 사회 지식입니다.",
     "quizCount": 3,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "urban-rural",
+    "title": "도시와 촌락",
+    "summary": "도시와 촌락은 인구, 토지 이용, 산업, 생활 모습이 서로 다른 지역의 형태입니다.",
+    "definition": "도시는 인구와 건물이 밀집한 지역이고, 촌락은 농업·어업·임업 같은 자연환경과 가까운 산업이 많이 나타나는 지역입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "생활",
+      "지리"
+    ],
+    "aliases": [
+      "도시",
+      "촌락",
+      "도시 지역",
+      "농촌"
+    ],
+    "keywords": [
+      "인구",
+      "토지 이용",
+      "농촌",
+      "어촌",
+      "산촌",
+      "교통",
+      "생활권"
+    ],
+    "searchContexts": [
+      "도시와 촌락의 차이가 궁금할 때",
+      "농촌, 어촌, 산촌을 비교하고 싶을 때",
+      "지역의 생활 모습이 달라지는 까닭을 찾을 때",
+      "도시와 촌락의 연결 관계를 알고 싶을 때"
+    ],
+    "related": [
+      "local-community",
+      "population",
+      "agriculture",
+      "service-industry",
+      "transportation"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "지리",
+    "subTopicPath": [
+      "지역과 생활 모습"
+    ],
+    "categoryPaths": [
+      [
+        "지리",
+        "지역과 생활 모습"
+      ],
+      [
+        "사회",
+        "지역과 산업"
+      ]
+    ],
+    "abstract": "도시와 촌락은 어느 한쪽이 더 낫다는 비교가 아니라, 지역의 환경과 산업에 따라 생활 모습이 달라지는 사례입니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "agriculture",
+    "title": "농업",
+    "summary": "농업은 땅과 자연환경을 이용해 곡식, 채소, 과일, 가축 등을 기르는 산업입니다.",
+    "definition": "땅과 물, 햇빛, 기후를 이용해 곡식, 채소, 과일, 가축 등을 생산하는 산업입니다.",
+    "subjects": [
+      "사회",
+      "과학",
+      "실과"
+    ],
+    "topicTags": [
+      "생활",
+      "환경",
+      "돈과 경제"
+    ],
+    "aliases": [
+      "농사",
+      "농업 활동",
+      "농촌 산업",
+      "식량 생산"
+    ],
+    "keywords": [
+      "벼",
+      "밭",
+      "가축",
+      "식량",
+      "농촌",
+      "기후",
+      "토양"
+    ],
+    "searchContexts": [
+      "농업이 무엇인지 궁금할 때",
+      "농촌에서 하는 산업을 알고 싶을 때",
+      "식량이 생산되는 과정을 찾을 때",
+      "기후와 농업의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "urban-rural",
+      "food-chain",
+      "soil-composition",
+      "climate-zones",
+      "distribution"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "지역과 산업"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "지역과 산업"
+      ],
+      [
+        "환경",
+        "자연과 생활"
+      ]
+    ],
+    "abstract": "농업은 식량을 생산하는 산업이면서 토양, 물, 날씨, 유통과도 깊게 연결됩니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "manufacturing-industry",
+    "title": "공업",
+    "summary": "공업은 원료를 가공해 생활에 필요한 물건이나 부품을 만드는 산업입니다.",
+    "definition": "원료나 부품을 가공해 생활에 필요한 제품을 만드는 산업입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "과학기술"
+    ],
+    "aliases": [
+      "제조업",
+      "공장 산업",
+      "물건 만들기",
+      "산업 생산"
+    ],
+    "keywords": [
+      "원료",
+      "가공",
+      "공장",
+      "제품",
+      "기계",
+      "부품",
+      "제조"
+    ],
+    "searchContexts": [
+      "공업이 무엇인지 궁금할 때",
+      "제조업과 공업의 뜻을 알고 싶을 때",
+      "원료가 제품이 되는 과정을 찾을 때",
+      "우리나라 산업 발달과 공업의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "enterprise",
+      "korea-industry-development",
+      "distribution",
+      "energy",
+      "renewable-energy"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "지역과 산업"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "지역과 산업"
+      ],
+      [
+        "돈과 경제",
+        "생산과 산업"
+      ]
+    ],
+    "abstract": "공업은 공장, 기계, 기술, 에너지를 이용해 물건을 생산하며 지역의 일자리와 산업 발달에 영향을 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "service-industry",
+    "title": "서비스업",
+    "summary": "서비스업은 물건을 직접 만드는 것보다 사람에게 필요한 도움과 편의를 제공하는 산업입니다.",
+    "definition": "사람에게 필요한 도움, 정보, 편의, 전문 활동을 제공해 가치를 만드는 산업입니다.",
+    "subjects": [
+      "사회",
+      "실과"
+    ],
+    "topicTags": [
+      "돈과 경제",
+      "생활",
+      "진로"
+    ],
+    "aliases": [
+      "서비스 산업",
+      "3차 산업",
+      "생활 서비스",
+      "전문 서비스"
+    ],
+    "keywords": [
+      "서비스",
+      "상점",
+      "병원",
+      "교육",
+      "관광",
+      "금융",
+      "정보"
+    ],
+    "searchContexts": [
+      "서비스업이 무엇인지 궁금할 때",
+      "물건을 만드는 산업과 서비스를 제공하는 산업의 차이를 알고 싶을 때",
+      "생활 속 서비스업 예시를 찾을 때",
+      "도시에서 서비스업이 많은 까닭을 이해하고 싶을 때"
+    ],
+    "related": [
+      "enterprise",
+      "consumer-producer",
+      "bank",
+      "public-service",
+      "urban-rural"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "사회",
+    "subTopicPath": [
+      "지역과 산업"
+    ],
+    "categoryPaths": [
+      [
+        "사회",
+        "지역과 산업"
+      ],
+      [
+        "돈과 경제",
+        "생산과 산업"
+      ]
+    ],
+    "abstract": "서비스업은 상점, 병원, 교육, 금융, 관광, 정보 통신처럼 생활에서 자주 만나는 산업을 이해하게 해 줍니다.",
+    "quizCount": 2,
+    "timelineCount": 0,
+    "figureCount": 0
+  },
+  {
+    "id": "land-use",
+    "title": "토지 이용",
+    "summary": "토지 이용은 땅을 농업, 주거, 상업, 공업, 교통, 공원 등 여러 목적으로 쓰는 모습입니다.",
+    "definition": "땅을 주거, 상업, 공업, 농업, 교통, 공원 같은 여러 목적으로 쓰는 방식입니다.",
+    "subjects": [
+      "사회"
+    ],
+    "topicTags": [
+      "지리",
+      "생활",
+      "환경"
+    ],
+    "aliases": [
+      "땅의 이용",
+      "토지 활용",
+      "도시 토지 이용",
+      "지역 공간 이용"
+    ],
+    "keywords": [
+      "주거",
+      "상업",
+      "공업",
+      "농업",
+      "교통",
+      "공원",
+      "도시계획"
+    ],
+    "searchContexts": [
+      "토지 이용이 무엇인지 궁금할 때",
+      "도시의 땅이 여러 용도로 나뉘는 까닭을 알고 싶을 때",
+      "지도에서 주거지와 상업지를 구분하고 싶을 때",
+      "지역 개발과 환경의 관계를 이해하고 싶을 때"
+    ],
+    "related": [
+      "map",
+      "urban-rural",
+      "administrative-district",
+      "natural-human-environment",
+      "satellite-map"
+    ],
+    "lastReviewed": "2026-05-27",
+    "mainTopic": "지리",
+    "subTopicPath": [
+      "지역과 공간"
+    ],
+    "categoryPaths": [
+      [
+        "지리",
+        "지역과 공간"
+      ],
+      [
+        "사회",
+        "지역과 생활 모습"
+      ]
+    ],
+    "abstract": "토지 이용은 지역의 생활 모습, 산업, 교통, 환경을 지도와 실제 공간에서 읽는 데 필요한 지식입니다.",
+    "quizCount": 2,
     "timelineCount": 0,
     "figureCount": 0
   },
@@ -9003,7 +11437,7 @@
   {
     "id": "buyeo",
     "title": "부여",
-    "summary": "부여는 고조선 이후 만주 지역에서 성장한 초기 국가로, 고구려와도 깊이 연결되는 고대사의 중요한 흐름입니다.",
+    "summary": "부여는 고조선 이후 만주 지역에서 성장한 초기 고대 국가입니다.",
     "definition": "고조선 이후 만주 지역에서 성장한 초기 고대 국가입니다.",
     "subjects": [
       "사회",
@@ -9039,7 +11473,7 @@
       "고조선 다음에 어떤 나라들이 성장했는지 알고 싶을 때",
       "부여와 고구려의 관계가 궁금할 때",
       "영고나 사출도 같은 부여의 특징을 찾을 때",
-      "삼국 시대 이전 한국사 흐름을 정리할 때"
+      "삼국 시대 이전 한국사를 정리할 때"
     ],
     "related": [
       "gojoseon",
@@ -9059,7 +11493,7 @@
         "고대"
       ]
     ],
-    "abstract": "부여는 고조선 다음 고대 국가의 흐름을 삼국 시대로 이어 주는 지식입니다.",
+    "abstract": "부여는 고조선 이후 만주 쑹화강 유역을 중심으로 성장한 초기 고대 국가입니다.",
     "quizCount": 2,
     "timelineCount": 3,
     "figureCount": 0
@@ -9099,7 +11533,7 @@
     "searchContexts": [
       "고조선 다음 북쪽 지역의 고대 사회가 궁금할 때",
       "옥저와 동예의 생활 모습을 비교하고 싶을 때",
-      "삼국 시대 이전 한국사 흐름을 정리할 때"
+      "삼국 시대 이전 한국사를 정리할 때"
     ],
     "related": [
       "gojoseon",
@@ -9452,7 +11886,7 @@
         "고대"
       ]
     ],
-    "abstract": "신라는 삼국 시대 동남쪽에서 성장해 통일신라로 이어지는 흐름을 보여 주는 고대사 지식입니다.",
+    "abstract": "신라는 경주 지역에서 성장해 삼국 통일의 중심이 된 고대 국가입니다.",
     "quizCount": 4,
     "timelineCount": 4,
     "figureCount": 1
@@ -9700,7 +12134,7 @@
       "삼국 시대가 어떻게 통일 신라로 이어졌는지 궁금할 때",
       "신라가 당과 왜 싸웠는지 알고 싶을 때",
       "삼국 통일의 의의와 한계를 함께 보고 싶을 때",
-      "삼국 시대가 통일신라로 이어지는 흐름을 찾을 때"
+      "삼국 통일 뒤 통일신라가 성립한 과정을 찾을 때"
     ],
     "related": [
       "three-kingdoms",
@@ -9895,7 +12329,7 @@
     ],
     "searchContexts": [
       "발해를 세운 사람이 궁금할 때",
-      "고구려 멸망 뒤 북쪽 지역의 흐름을 알고 싶을 때",
+      "고구려 멸망 뒤 발해가 세워진 과정을 알고 싶을 때",
       "남북국 시대를 인물 중심으로 볼 때"
     ],
     "related": [
@@ -9918,7 +12352,7 @@
         "고대"
       ]
     ],
-    "abstract": "대조영은 고구려 멸망 이후 북쪽 지역의 역사가 발해로 이어지는 흐름을 보여 주는 인물입니다.",
+    "abstract": "대조영은 고구려 멸망 뒤 고구려 유민과 말갈 세력을 이끌고 발해를 세운 인물입니다.",
     "quizCount": 3,
     "timelineCount": 3,
     "figureCount": 1
@@ -10359,7 +12793,7 @@
       "고려 다음에 왜 조선이 세워졌는지 궁금할 때",
       "조선이 어떤 기준으로 나라를 운영했는지 알고 싶을 때",
       "조선 사회가 고려와 어떻게 달라졌는지 찾을 때",
-      "조선이 대한제국으로 이어지는 흐름을 알고 싶을 때"
+      "조선 말 개항과 대한제국을 알고 싶을 때"
     ],
     "related": [
       "goryeo",
@@ -10388,7 +12822,7 @@
         "조선"
       ]
     ],
-    "abstract": "조선은 건국, 유교적 통치 질서, 전기 문화 발전, 전쟁 이후 변화, 개항과 대한제국으로 이어지는 흐름으로 살피는 한국사 지식입니다.",
+    "abstract": "조선은 건국, 유교적 통치 질서, 전기 문화 발전, 전쟁 이후 변화, 개항과 대한제국까지를 다루는 한국사 지식입니다.",
     "quizCount": 4,
     "timelineCount": 5,
     "figureCount": 1
@@ -11341,7 +13775,7 @@
     "searchContexts": [
       "독립협회가 무엇을 주장했는지 궁금할 때",
       "독립신문과 만민공동회를 알고 싶을 때",
-      "대한제국 시기 시민 참여 흐름을 정리할 때"
+      "대한제국 시기 시민 참여 활동을 정리할 때"
     ],
     "related": [
       "korean-empire",
@@ -11363,7 +13797,7 @@
         "근대와 독립운동"
       ]
     ],
-    "abstract": "독립협회는 근대 한국에서 자주독립과 정치 참여 요구가 나타난 흐름을 보여 주는 지식입니다.",
+    "abstract": "독립협회는 1896년에 세워져 자주독립과 국민의 정치 참여를 주장한 근대 단체입니다.",
     "quizCount": 3,
     "timelineCount": 3,
     "figureCount": 0
@@ -11763,7 +14197,7 @@
         "근대"
       ]
     ],
-    "abstract": "전봉준은 조선 말 농민들이 사회 문제와 외세의 간섭에 맞서 개혁을 요구한 흐름을 보여 주는 인물입니다.",
+    "abstract": "전봉준은 조선 말 동학 농민 운동을 이끈 대표 인물입니다.",
     "quizCount": 3,
     "timelineCount": 4,
     "figureCount": 0
@@ -12925,7 +15359,7 @@
     "searchContexts": [
       "대한민국 임시정부에서 활동한 인물을 찾을 때",
       "백범 김구가 누구인지 궁금할 때",
-      "광복 전후 독립운동의 흐름을 인물 중심으로 볼 때"
+      "광복 전후 독립운동가의 활동을 인물 중심으로 볼 때"
     ],
     "related": [
       "provisional-government",
@@ -12947,7 +15381,7 @@
         "근대와 독립운동"
       ]
     ],
-    "abstract": "김구는 대한민국 임시정부와 독립운동의 어려움, 광복 이후 통일 문제까지 이어지는 흐름을 보여 주는 인물입니다.",
+    "abstract": "김구는 대한민국 임시정부에서 활동하며 독립운동을 이끈 인물입니다.",
     "quizCount": 3,
     "timelineCount": 5,
     "figureCount": 0
@@ -15202,7 +17636,7 @@
         "일제강점기"
       ]
     ],
-    "abstract": "홍범도는 봉오동 전투, 대한독립군, 만주 지역 독립운동을 통해 무장 독립운동의 흐름을 보여 주는 인물입니다.",
+    "abstract": "홍범도는 대한독립군을 이끌고 봉오동 전투 등 만주 지역 무장 독립운동에 참여한 인물입니다.",
     "quizCount": 3,
     "timelineCount": 3,
     "figureCount": 0
@@ -15383,7 +17817,7 @@
         "과학과 사회"
       ]
     ],
-    "abstract": "뉴턴은 운동 법칙, 만유인력, 빛 연구를 통해 자연 현상을 수학적으로 설명하는 근대 과학의 흐름을 보여 주는 인물입니다.",
+    "abstract": "뉴턴은 운동 법칙, 만유인력, 빛 연구로 알려진 근대 과학자입니다.",
     "quizCount": 3,
     "timelineCount": 3,
     "figureCount": 0
