@@ -52,6 +52,30 @@
       "license": "공식·공공 자료를 사실 확인용으로만 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 복제 없음",
       "checkedAt": "2026-05-13",
       "usedFor": "기후 변화와 관련된 날씨·기후 개념 확인"
+    },
+    {
+      "publisher": "NASA Science",
+      "title": "Climate Change",
+      "url": "https://science.nasa.gov/climate-change/",
+      "license": "공식 자료를 사실 확인용으로만 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 복제 없음",
+      "checkedAt": "2026-05-27",
+      "usedFor": "푸리에와 아레니우스 관련 기후 과학사, 온실 효과와 장기 관측 자료 설명 확인"
+    },
+    {
+      "publisher": "IPCC",
+      "title": "History of the IPCC",
+      "url": "https://www.ipcc.ch/about/history/",
+      "license": "공식 자료를 사실 확인용으로만 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 복제 없음",
+      "checkedAt": "2026-05-27",
+      "usedFor": "IPCC 설립 연도와 역할 확인"
+    },
+    {
+      "publisher": "UNFCCC",
+      "title": "The Paris Agreement",
+      "url": "https://unfccc.int/process-and-meetings/the-paris-agreement",
+      "license": "공식 자료를 사실 확인용으로만 참고하고 학생용으로 새로 작성, 원문/이미지/표/그래프 복제 없음",
+      "checkedAt": "2026-05-27",
+      "usedFor": "파리협정 채택 연도와 기후 변화 대응 목표 확인"
     }
   ],
   "copyrightNote": "이 지식은 공식 자료의 핵심 사실을 확인한 뒤 트루핑키스 위키가 학생용 문장으로 새로 작성했습니다. 원문 문단, 표, 이미지, 그래프를 복제하지 않았습니다.",
