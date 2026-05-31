@@ -11,6 +11,8 @@ const sourceObjectFields = ["publisher", "title", "url", "usedFor", "license", "
 const figureObjectFields = ["kind", "title", "asset", "alt", "caption", "sourceNote"];
 const validFigureKinds = new Set(["map", "chart", "diagram"]);
 const validQuizTypes = new Set(["choice", "blank"]);
+const validStoryNoteTypes = new Set(["record", "quote", "anecdote", "debated"]);
+const validStoryNoteReliability = new Set(["confirmed", "attributed", "debated"]);
 const requiredDocFields = [
   "id",
   "title",
@@ -335,6 +337,29 @@ function validateCategoryPaths(doc) {
   });
 }
 
+function validateTermNotations(doc) {
+  if (doc.termNotations === undefined) return;
+  if (!Array.isArray(doc.termNotations)) {
+    addError(doc.id, "termNotations must be an array when present");
+    return;
+  }
+  doc.termNotations.forEach((item, index) => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      addError(doc.id, `termNotations[${index}] must be an object`);
+      return;
+    }
+    if (!hasText(item.term)) addError(doc.id, `termNotations[${index}].term must be non-empty text`);
+    if (!hasText(item.hanja) && !hasText(item.english)) {
+      addError(doc.id, `termNotations[${index}] must include hanja or english`);
+    }
+    ["term", "hanja", "english"].forEach(field => {
+      if (item[field] !== undefined && !hasText(item[field])) {
+        addError(doc.id, `termNotations[${index}].${field} must be non-empty text when present`);
+      }
+    });
+  });
+}
+
 function validateQuiz(doc) {
   if (!Array.isArray(doc.quiz) || doc.quiz.length < 1) {
     addError(doc.id || "(missing id)", "quiz must contain at least 1 question");
@@ -463,13 +488,13 @@ function isHistoryDoc(doc) {
 }
 
 function validateTimeline(doc) {
-  if (!("timeline" in doc) && !isHistoryDoc(doc)) return;
+  if (!("timeline" in doc)) return;
   if (!Array.isArray(doc.timeline)) {
-    addError(doc.id || "(missing id)", "timeline must be an array for history knowledge");
+    addError(doc.id || "(missing id)", "timeline must be an array when present");
     return;
   }
-  if (isHistoryDoc(doc) && doc.timeline.length < 2) {
-    addError(doc.id, "history knowledge must contain at least 2 timeline items");
+  if (doc.timeline.length === 1) {
+    addError(doc.id, "timeline should contain at least 2 items when present");
   }
   doc.timeline.forEach((item, index) => {
     if (!item || typeof item !== "object" || Array.isArray(item)) {
@@ -538,6 +563,64 @@ function validateFigures(doc) {
   });
 }
 
+function validateStoryNotes(doc) {
+  if (!("storyNotes" in doc)) return;
+  if (!Array.isArray(doc.storyNotes)) {
+    addError(doc.id || "(missing id)", "storyNotes must be an array when present");
+    return;
+  }
+  const chapterHeadings = new Set(
+    (doc.chapters || []).flatMap(chapter => [
+      chapter.title,
+      ...((chapter.sections || []).map(section => section.heading))
+    ]).filter(hasText).map(text => text.trim())
+  );
+  doc.storyNotes.forEach((item, index) => {
+    if (!item || typeof item !== "object" || Array.isArray(item)) {
+      addError(doc.id, `storyNotes[${index}] must be a structured story object`);
+      return;
+    }
+    ["title", "type", "reliability", "sourceNote"].forEach(field => {
+      if (!hasText(item[field])) addError(doc.id, `storyNotes[${index}].${field} must be non-empty text`);
+    });
+    if (hasText(item.type) && !validStoryNoteTypes.has(item.type)) {
+      addError(doc.id, `storyNotes[${index}].type must be one of ${[...validStoryNoteTypes].join(", ")}`);
+    }
+    if (hasText(item.reliability) && !validStoryNoteReliability.has(item.reliability)) {
+      addError(doc.id, `storyNotes[${index}].reliability must be one of ${[...validStoryNoteReliability].join(", ")}`);
+    }
+    if (hasText(item.title) && chapterHeadings.has(item.title.trim())) {
+      addError(doc.id, `storyNotes[${index}].title must not duplicate a chapter or section heading: ${item.title}`);
+    }
+    if (!Array.isArray(item.body) || item.body.length < 1) {
+      addError(doc.id, `storyNotes[${index}].body must contain text`);
+    } else {
+      item.body.forEach((paragraph, paragraphIndex) => {
+        if (!hasText(paragraph)) addError(doc.id, `storyNotes[${index}].body[${paragraphIndex}] must be non-empty text`);
+        if (hasText(paragraph) && [doc.definition, doc.summary].filter(hasText).some(text => paragraph.trim() === text.trim())) {
+          addError(doc.id, `storyNotes[${index}].body[${paragraphIndex}] must not repeat definition or summary exactly`);
+        }
+        if (hasText(paragraph) && weakStructurePhrases.some(phrase => paragraph.includes(phrase))) {
+          addError(doc.id, `storyNotes[${index}].body[${paragraphIndex}] uses a generic structure filler phrase`);
+        }
+        if (hasText(paragraph) && awkwardKoreanPhrases.some(phrase => paragraph.includes(phrase))) {
+          addError(doc.id, `storyNotes[${index}].body[${paragraphIndex}] uses an awkward Korean phrase`);
+        }
+        validateNoForcedSchoolContext(doc, `storyNotes[${index}].body[${paragraphIndex}]`, [paragraph]);
+        validateNoSubjectiveEvaluation(doc, `storyNotes[${index}].body[${paragraphIndex}]`, [paragraph]);
+      });
+    }
+    if (item.reliability === "debated") {
+      const text = [item.title, ...(item.body || []), item.sourceNote].join(" ");
+      if (!/(의견|논쟁|전해|확실하지|해석|분분)/.test(text)) {
+        addError(doc.id, `storyNotes[${index}] with debated reliability must state uncertainty`);
+      }
+    }
+    validateNoForcedSchoolContext(doc, `storyNotes[${index}]`, [item.title, item.type, item.reliability, item.sourceNote]);
+    validateNoSubjectiveEvaluation(doc, `storyNotes[${index}]`, [item.title, item.type, item.reliability, item.sourceNote]);
+  });
+}
+
 if (!Array.isArray(docs)) {
   errors.push("data/source/knowledge must contain JSON knowledge files");
 } else {
@@ -578,9 +661,11 @@ if (!Array.isArray(docs)) {
     validateArrayOfText(doc, "aliases");
     validateArrayOfText(doc, "keywords");
     validateArrayOfText(doc, "searchContexts");
+    validateTermNotations(doc);
     validateQuiz(doc);
     validateTimeline(doc);
     validateFigures(doc);
+    validateStoryNotes(doc);
     validateNoForcedSchoolContext(doc, "summary", [doc.summary]);
     validateNoForcedSchoolContext(doc, "definition", [doc.definition]);
     validateNoForcedSchoolContext(doc, "mainTopic", [doc.mainTopic]);
@@ -599,6 +684,8 @@ if (!Array.isArray(docs)) {
     validateNoSubjectiveEvaluation(doc, "aliases", doc.aliases || []);
     validateNoSubjectiveEvaluation(doc, "keywords", doc.keywords || []);
     validateNoSubjectiveEvaluation(doc, "searchContexts", doc.searchContexts || []);
+    validateNoForcedSchoolContext(doc, "termNotations", (doc.termNotations || []).flatMap(item => [item.term, item.hanja, item.english]));
+    validateNoSubjectiveEvaluation(doc, "termNotations", (doc.termNotations || []).flatMap(item => [item.term, item.hanja, item.english]));
     for (const subject of doc.subjects || []) {
       if (!taxonomySubjects.has(subject)) addError(docId, `unknown subject "${subject}"`);
     }

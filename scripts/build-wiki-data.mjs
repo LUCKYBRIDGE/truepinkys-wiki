@@ -51,6 +51,24 @@ function textFromFigures(doc) {
   ].join(" ")).join(" ");
 }
 
+function textFromStoryNotes(doc) {
+  return (doc.storyNotes || []).map(item => [
+    item.title,
+    item.type,
+    item.reliability,
+    ...(item.body || []),
+    item.sourceNote
+  ].join(" ")).join(" ");
+}
+
+function textFromTermNotations(doc) {
+  return (doc.termNotations || []).map(item => [
+    item.term,
+    item.hanja,
+    item.english
+  ].join(" ")).join(" ");
+}
+
 function gradeAliases(grade) {
   const value = String(grade || "");
   if (value.startsWith("초")) {
@@ -86,7 +104,9 @@ function indexDoc(doc) {
     mainTopic,
     subTopicPath,
     categoryPaths,
-    abstract
+    abstract,
+    termNotations,
+    storyNotes
   } = doc;
   return {
     id,
@@ -104,6 +124,8 @@ function indexDoc(doc) {
     subTopicPath,
     categoryPaths,
     abstract,
+    termNotations,
+    storyNotes,
     quizCount: (doc.quiz || []).length,
     timelineCount: (doc.timeline || []).length,
     figureCount: (doc.figures || []).length
@@ -134,6 +156,8 @@ const searchIndex = docs.map(doc => {
       quiz: textFromQuiz(doc),
       timeline: textFromTimeline(doc),
       figures: textFromFigures(doc),
+      storyNotes: textFromStoryNotes(doc),
+      termNotations: textFromTermNotations(doc),
       curriculum: curriculumLinks.map(item => [item.subject, item.area, item.achievementSupport].join(" ")).join(" "),
       grades: grades.flatMap(gradeAliases).join(" ")
     }

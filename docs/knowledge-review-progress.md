@@ -2,6 +2,347 @@
 
 트루핑키스 위키의 기존 지식을 `data/source/knowledge-order.json` 순서대로 점검한 기록입니다. 각 지식은 전체 JSON을 읽고 `유지 / 부분 수정 / 재구성` 중 하나로 판정한 뒤, 필요한 경우 본문·퀴즈·출처를 함께 확인합니다.
 
+## 2026-05-31 16:34 KST 이야기·기록 배치 기준 점검
+
+### 점검 결과
+
+- 기존 상세 화면에서는 `storyNotes`가 핵심 뜻 바로 뒤에 노출되어, 본문 목차와 설명보다 이야기를 먼저 읽게 될 수 있었습니다.
+- 백과 지식의 기본 흐름은 `핵심 뜻 → 연표·지도 등 보조 자료 → 목차 → 본문 → 이야기·기록 → 퀴즈 → 함께 보면 좋은 지식·확인한 자료`가 더 적절하다고 판단했습니다.
+- 이야기·기록은 본문을 대신하는 설명이 아니라, 본문을 읽은 뒤 함께 확인하는 보조 읽을거리로 고정했습니다.
+
+### 변경
+
+- 상세 화면의 이야기·기록 영역을 본문 뒤, 퀴즈 앞에 배치했습니다.
+- 화면 문구를 `자료로 확인한 이야기`에서 `본문과 함께 보는 이야기`로 조정해 보조 영역임이 드러나게 했습니다.
+- `docs/wiki-content-guidelines.md`에 `storyNotes` 배치·선정 기준을 추가했습니다. 핵심 기준은 본문 앞 노출 금지, 목차와 본문 사이 삽입 금지, 본문 단원과의 연결성 확인, 정의 반복형 이야기 삭제 또는 보완입니다.
+- 이야기 제목이 본문 장 제목이나 소제목을 그대로 반복하지 않도록 기준을 추가했습니다.
+- `insurance`, `baekje`의 이야기 본문에서 백과식 문장으로 약한 표현을 정리했습니다.
+- `ganghwa-treaty`, `gwon-yul`, `mahatma-gandhi`, `namhansanseong-defense`, `three-kingdoms`, `uiyeoldan`의 이야기 제목을 본문 소제목과 겹치지 않게 조정했습니다.
+- `scripts/validate-wiki-content.mjs`에 storyNotes 검증을 보강했습니다. 이제 이야기 제목이 목차 제목과 완전히 같거나, 이야기 본문이 정의·요약을 그대로 반복하거나, 메타식 약한 표현을 쓰면 검증에서 걸립니다.
+- 원본 지식의 `storyNotes` 128개를 구조 기준으로 점검했고, 의견이 분분한 이야기 11개 모두 불확실성 문구가 포함되어 있음을 확인했습니다.
+
+검증:
+
+- `storyNotes` 전체 128개, `debated` 11개, 불확실성 문구 누락 0개.
+- 정의·요약 반복 0개, 메타식 약한 표현 0개, 목차 제목과 같은 이야기 제목 0개.
+
+## 2026-05-31 16:21 KST 이야기·기록 추가 확장 8
+
+### 개별 검토 후 추가한 항목
+
+- `ai`: 1956년 다트머스 연구 모임과 John McCarthy를 AI 명칭의 초기 기록으로 추가.
+- `data`: 숫자 데이터가 단위, 조사 기간, 출처와 함께 읽혀야 한다는 기록형 설명 추가.
+- `algorithm`: 알콰리즈미 이름과 algorithm이라는 말의 유래를 기록형 설명으로 추가.
+- `generative-ai`: 실제 사진처럼 보이는 AI 이미지와 AI 생성 표시 기준을 기록형 설명으로 추가.
+- `fake-news`: 댓글 수와 공유 수가 사실 확인 자료가 아니라는 점을 기록형 설명으로 추가.
+- `privacy`: 작은 개인정보 단서가 결합될 때 생기는 위험을 기록형 설명으로 추가.
+- `school-violence`: 온라인 괴롭힘의 화면 기록이 상담과 보호 절차의 상황 자료가 될 수 있음을 추가.
+- `fine-dust`: PM10과 PM2.5 숫자의 의미와 대기질 예보 확인 기준을 추가.
+- `graph`: 플로렌스 나이팅게일의 통계 활용 사례를 기록형 설명으로 추가.
+- `copyright`: 공공누리 자료에도 이용 조건이 붙는다는 점을 기록형 설명으로 추가.
+- `smartphone-overuse`: 사용 시간보다 생활 변화가 과의존 판단의 단서가 된다는 점을 추가.
+- `growth`: 성장표와 평균 키는 조건과 범위를 함께 읽는 자료라는 점을 추가.
+- `money`: 상평통보와 시장 거래, 현대 전자 결제 흐름을 기록형 설명으로 추가.
+- `allowance-management`: 한 번 쓴 돈은 다시 쓸 수 없다는 선택과 지출 기록의 의미를 추가.
+- `saving-investing`: 저축과 투자를 가르는 손실 가능성과 금융 상품 비교 기준을 추가.
+- `bank`: 예금과 대출 사이에서 은행이 돈의 이동을 돕는 구조를 추가.
+- `insurance`: 보험이 위험을 없애는 것이 아니라 경제적 부담을 나누는 제도임을 추가.
+- `credit`: 신용이 여러 거래에서 약속을 지킨 기록으로 쌓인다는 점을 추가.
+
+### 기준
+
+- 순서상 앞쪽의 디지털·미디어·건강·경제 항목을 각각 읽고, 항목별로 실제 기억 포인트가 되는 기록만 추가했습니다.
+- 명언이나 흥미성 일화가 출처로 확인되지 않는 항목에는 억지 명언을 넣지 않고, 공공기관 자료로 확인 가능한 제도·용어·판단 기준을 `record/confirmed`로 정리했습니다.
+- 이번 작업 뒤 `storyNotes`가 들어간 원본 지식은 128개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+
+## 2026-05-31 15:58 KST 이야기·기록 추가 확장 7
+
+### 개별 검토 후 추가한 항목
+
+- `ganghwa-treaty`: 운요호 사건과 강화도 조약 체결을 기록형 이야기로 추가.
+- `gapsin-coup`: 우정총국 개국 축하연, 14개조 정강, 삼일천하를 기록형 이야기로 추가.
+- `gabo-reform`: 군국기무처, 신분제·과거제 폐지, 재정·사법 제도 개편을 기록형 이야기로 추가.
+- `yi-seong-gye`: 1388년 위화도 회군과 조선 건국으로 이어지는 권력 변화를 기록형 이야기로 추가.
+- `jeongmyo-horan`: 강화도 피란과 정묘화약을 기록형 이야기로 추가.
+- `manchu-war`: 남한산성 항전, 화의 논쟁, 삼전도 항복을 기록형 이야기로 추가.
+- `mongol-invasions-goryeo`: 1232년 강화도 천도와 고려의 항쟁을 기록형 이야기로 추가.
+- `palman-daejanggyeong`: 몽골 침입기 대장경판 조성과 해인사 보관을 기록형 이야기로 추가.
+- `jinju-fortress-battle`: 1592년 제1차 진주성 전투와 김시민의 지휘를 기록형 이야기로 추가.
+- `king-geunchogo`: 371년 평양성 공격과 고국원왕 전사 기록을 기록형 이야기로 추가.
+- `king-jangsu`: 광개토대왕릉비 건립과 평양 천도를 기록형 이야기로 추가.
+- `king-jinheung`: 진흥왕 순수비와 한강·낙동강 유역 진출을 기록형 이야기로 추가.
+- `cold-war`: 1962년 쿠바 미사일 위기를 냉전의 대표 위기 기록으로 추가.
+- `industrial-revolution`: 1833년 공장법과 어린이 노동 문제를 기록형 이야기로 추가.
+- `world-war-one`: 참호전과 총력전의 특징을 기록형 이야기로 추가.
+- `world-war-two`: 1945년 종전과 국제연합 창설을 기록형 이야기로 추가.
+- `ancient-egypt-civilization`: 나일강 범람과 달력·측량·행정 발달을 기록형 이야기로 추가.
+- `roman-empire`: 아우구스투스와 제정 시작, 팍스 로마나를 기록형 이야기로 추가.
+- `silk-roads`: 비단뿐 아니라 물건·종교·기술·지식이 오간 교류망을 기록형 이야기로 추가.
+- `united-nations`: 유엔 헌장과 1945년 국제연합 창설을 기록형 이야기로 추가.
+- `isaac-newton`: 흑사병으로 대학이 닫힌 시기의 연구와 프린키피아 출간을 기록형 이야기로 추가.
+- `namhansanseong-defense`: 남한산성 항전과 삼전도비를 기록형 이야기로 추가.
+- `national-heritage`: 문화재 체계에서 국가유산 체계로 바뀐 제도 변화를 기록형 이야기로 추가.
+- `oil-shock`: 1973년 석유 가격 충격과 에너지 정책 변화를 기록형 이야기로 추가.
+- `palace`: 경복궁과 창덕궁의 건립 시기와 서로 다른 쓰임을 기록형 이야기로 추가.
+- `jumong`: 알에서 태어났다는 고구려 건국 설화를 `debated` 이야기로 추가.
+- `onjo`: 온조와 비류가 함께 등장하는 백제 건국 전승을 `debated` 이야기로 추가.
+- `park-hyeokgeose`: 알에서 태어났다는 신라 건국 설화를 `debated` 이야기로 추가.
+
+### 기준
+
+- 역사 분야에서 `storyNotes`가 없던 28개 항목을 각각 읽고, 항목 성격에 맞는 기록형 또는 전승형 이야기만 추가했습니다.
+- 공식·권위 자료로 확인되는 사건, 연도, 제도, 인물 활동은 `record/confirmed`로 분류했습니다.
+- 주몽, 온조, 박혁거세처럼 신화적 건국 설화가 포함된 항목은 `debated`로 분류하고, 실제 사실 그대로인지 의견이 분분하다는 점을 본문에 표시했습니다.
+- 이번 작업 뒤 역사 분야 원본 지식 중 `storyNotes`가 없는 항목은 0개이며, `storyNotes`가 들어간 원본 지식은 110개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 15:34 KST 이야기·기록 추가 확장 6
+
+### 개별 검토 후 추가한 항목
+
+- `buyeo`: 영고와 사출도를 부여의 제천 행사와 지역 통치 질서 기록으로 추가.
+- `samhan`: 변한의 철 생산과 교류가 가야 성장과 연결되는 점을 기록형 이야기로 추가.
+- `okjeo-dongye`: 옥저의 민며느리제와 동예의 책화를 가족 관계와 마을 경계 풍습 기록으로 추가.
+- `three-kingdoms`: 삼국이 한강 유역을 두고 경쟁한 까닭을 기록형 이야기로 추가.
+- `three-kingdoms-unification`: 나당 전쟁의 매소성 전투와 기벌포 전투를 기록형 이야기로 추가.
+- `unified-silla`: 신문왕의 제도 정비와 9주 5소경을 기록형 이야기로 추가.
+- `later-three-kingdoms`: 신라의 항복, 후백제 내부 갈등, 일리천 전투를 후삼국 통일 기록으로 추가.
+
+### 기준
+
+- 초기 국가 항목은 풍습과 제도 기록을 중심으로 추가했습니다.
+- 삼국 시대 이후 항목은 전투 이름만 나열하지 않고, 왜 그 사건이 해당 지식의 흐름을 보여 주는지 한두 문장으로 연결했습니다.
+- 이번 작업 뒤 `storyNotes`가 들어간 원본 지식은 82개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 15:31 KST 이야기·기록 추가 확장 5
+
+### 개별 검토 후 추가한 항목
+
+- `gojoseon`: 단군 이야기를 건국 전승으로 추가하되, 이야기 속 장면이 모두 실제 역사 사실로 확인되는 것은 아니라는 점을 함께 표시.
+- `goguryeo`: 고구려 고분 벽화가 생활, 사냥, 의례, 신앙 장면을 전하는 자료라는 기록형 이야기 추가.
+- `baekje`: 무령왕릉 묘지석이 무덤의 주인과 사망 연대를 알려 주는 자료라는 기록형 이야기 추가.
+- `silla`: 경주에 남은 신라 왕릉, 절터, 탑과 문화유산을 기록형 이야기로 추가.
+- `gaya`: 김수로왕 이야기를 금관가야 건국 전승으로 추가하되, 실제 역사 사실과 구분해야 한다는 점을 함께 표시.
+- `balhae`: 발해가 해동성국으로 불릴 만큼 발전했다는 기록형 이야기 추가.
+- `goryeo`: 993년 서희의 담판과 강동 6주 관련 외교 성과를 기록형 이야기로 추가.
+- `joseon`: 한양 천도와 경국대전 완성을 새 왕조의 제도 정비 기록으로 추가.
+
+### 기준
+
+- 건국 설화가 있는 고대 지식은 `debated`로 구분하고, 전승과 확인 가능한 역사 자료를 분리해 썼습니다.
+- 국가·왕조 지식은 흥미 요소가 있더라도 유물, 기록, 제도, 외교 사건처럼 백과 본문과 연결되는 내용만 선택했습니다.
+- 이번 작업 뒤 `storyNotes`가 들어간 원본 지식은 75개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 15:08 KST 이야기·기록 추가 확장 4
+
+### 개별 검토 후 추가한 항목
+
+- `eulsa-treaty`: 고종의 부동의와 1907년 헤이그 특사 파견을 기록형 이야기로 추가.
+- `gwangju-student-independence-movement`: 나주역 사건, 1929년 11월 3일 광주 시위, 전국 확산 과정을 기록형 이야기로 추가.
+- `independence-club`: 독립신문, 독립문, 만민공동회, 의회 설립 요구를 기록형 이야기로 추가.
+- `independence-movement`: 삼원보와 신흥무관학교 등 국외 독립운동 기지의 역할을 기록형 이야기로 추가.
+- `japanese-colonial-period`: 무단 통치, 문화 통치, 전시 동원과 민족 말살 정책 흐름을 기록형 이야기로 추가.
+- `korean-empire`: 환구단에서의 황제 즉위, 대한제국 선포, 광무개혁과 국권 침탈 과정을 기록형 이야기로 추가.
+- `korean-liberation-army`: 광복군 창설, 연합국 협력 활동, 국내 진공 작전 준비와 미실행 사실을 기록형 이야기로 추가.
+- `national-debt-repayment-movement`: 금연과 절약 방식, 여성과 학생의 참여를 기록형 이야기로 추가.
+- `righteous-army`: 평민 출신 의병장 신돌석과 의병 참여층 확대를 기록형 이야기로 추가.
+- `sinminhoe`: 신민회의 비밀 결사 성격, 교육·산업 활동, 국외 독립운동 기지 구상, 105인 사건을 기록형 이야기로 추가.
+- `uiyeoldan`: 의열단 결성, 신채호의 조선혁명선언 작성, 의열단의 활동 방향을 기록형 이야기로 추가.
+
+### 기준
+
+- 근현대사 항목은 전해지는 일화보다 공식 자료로 확인되는 기록을 우선했습니다.
+- 모든 항목은 기존 국사편찬위원회 우리역사넷 자료로 확인 가능한 사실만 사용했고, 원문 표현은 복제하지 않았습니다.
+- 이번 작업 뒤 `storyNotes`가 들어간 원본 지식은 67개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 15:04 KST 이야기·기록 추가 확장 3
+
+### 개별 검토 후 추가한 항목
+
+- `may-eighteen-democratization`: 1980년 광주 시위, 계엄군 진압, 시민 피해와 관련 기록의 성격을 기록형 이야기로 추가.
+- `june-democratic-struggle`: 1987년 대통령 직선제 요구, 박종철 고문치사 사건, 이한열 부상, 6·29 선언과 헌법 개정을 기록형 이야기로 추가.
+- `korean-war`: 1950년 북한의 남침, 유엔군과 중국군 참전, 1953년 정전협정과 분단 지속을 기록형 이야기로 추가.
+- `liberation-korea`: 1945년 광복과 1948년 남북 정부 수립의 날짜·성격 차이를 기록형 이야기로 추가.
+
+### 기준
+
+- 민감한 현대사 항목은 명언이나 극적인 일화보다 공식 자료로 확인되는 기록 중심으로 처리했습니다.
+- 기존 국사편찬위원회 우리역사넷 자료로 확인 가능한 사실만 학생용 새 문장으로 정리했습니다.
+- 이번 작업 뒤 `storyNotes`가 들어간 원본 지식은 56개입니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 13:48 KST 이야기·기록 추가 확장 2
+
+### 개별 검토 후 추가한 항목
+
+- `mahatma-gandhi`: 1930년 소금 행진을 비폭력 시민 불복종의 기록형 이야기로 추가.
+- `martin-luther-king-jr`: 몽고메리 버스 보이콧과 워싱턴 행진을 기록형 이야기로 추가. 유명 연설 문구는 직접 인용하지 않음.
+- `nelson-mandela`: 장기 수감, 1990년 석방, 1994년 대통령 취임을 기록형 이야기로 추가.
+- `helen-keller`: 앤 설리번의 촉각 교육과 헬렌 켈러의 의사소통 학습을 기록형 이야기로 추가.
+- `florence-nightingale`: 크림 전쟁 뒤 사망 원인과 병원 위생을 숫자·도표로 정리한 활동을 기록형 이야기로 추가.
+- `jeon-bong-jun`: 녹두장군 별칭과 고부 농민 봉기를 전해지는 이야기로 추가.
+- `donghak-peasant-movement`: 전주화약과 집강소를 기록형 이야기로 추가.
+- `april-nineteen-revolution`: 3·15 부정선거, 4월 시위 확산, 이승만 하야를 기록형 이야기로 추가.
+
+### 기준
+
+- 유명 인물의 명언은 직접 추가하지 않았습니다. 짧은 문장이라도 출처 확인과 번역 문제가 있어, 이번 작업은 사건과 활동 기록 중심으로 처리했습니다.
+- 전봉준의 `녹두장군`처럼 별칭 성격의 이야기는 `attributed`로 두고, 확인 가능한 고부 봉기와 구분했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 13:32 KST 이야기·기록 추가 확장
+
+### 개별 검토 후 추가한 항목
+
+- `kim-yu-sin`: 황산벌 전투와 백제 멸망 과정에서 김유신의 역할을 기록형 이야기로 추가.
+- `jang-bogo`: 완도 청해진, 해적 단속, 신라·당·일본 바닷길을 기록형 이야기로 추가.
+- `kim-hong-do`: 풍속화에 남은 조선 후기 생활 자료의 성격을 기록형 이야기로 추가.
+- `kim-jeong-ho`: 대동여지도 제작에 얽힌 전승과 실제 지도 제작 방식을 구분해 `debated` 이야기로 추가.
+- `gwak-jae-u`, `gwon-yul`, `hansan-island-battle`, `imjin-war`: 홍의장군 별칭, 행주산성 방어, 한산도 대첩 학익진, 임진왜란 7년 전쟁의 전개를 추가.
+- `wonhyo`: 해골물 이야기를 설화로 분리하고, 실제 여부가 단정되지 않는 점을 `debated`로 표시.
+- `choe-chiwon`, `sin-saimdang`, `queen-seondeok`: 빈공과·토황소격문, 초충도, 첨성대·황룡사 9층 목탑을 기록형 이야기로 추가.
+- `hong-beom-do`, `kim-jwa-jin`, `lee-bong-chang`, `hanein-aegukdan`: 봉오동 전투, 청산리 대첩, 도쿄 의거, 이봉창·윤봉길 의거를 기록형 이야기로 추가.
+
+### 기준
+
+- 기존 출처로 확인 가능한 이야기만 추가했습니다.
+- 명언은 이번 확장에서도 추가하지 않았습니다. 출처가 약한 명언은 짧아도 오해를 만들 수 있어 보류했습니다.
+- 널리 알려졌지만 세부 사실이 흔들리는 이야기는 `debated`로 분리했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 12:36 KST 이야기·기록 구조 도입
+
+- 기준 보강: 일화, 옛날 이야기, 기록 속 말은 `storyNotes` 선택 필드로 분리했습니다. 모든 지식에 억지로 넣지 않고, 공식 자료나 권위 자료로 확인되는 경우에만 씁니다.
+- 구조 보강: `storyNotes`는 `record`, `quote`, `anecdote`, `debated`와 `confirmed`, `attributed`, `debated`를 구분합니다. 의견이 분분한 이야기는 불확실성을 함께 적도록 검증 규칙을 추가했습니다.
+- 화면 보강: 최초 도입 때는 상세 화면의 `핵심 뜻` 아래에 이야기 카드를 두었으나, 2026-05-31 16:34 점검 뒤 백과 흐름에 맞게 본문 뒤·퀴즈 앞으로 옮겼습니다. 우측 바로 가기의 `이야기` 버튼과 검색 인덱스 반영은 유지합니다.
+- `king-sejong`: 부분 수정. 훈민정음 창제 취지를 공식 자료 기반 이야기로 추가했습니다.
+- `hunminjeongeum`: 부분 수정. 해례본이 글자의 원리와 사용 예를 설명한 기록이라는 점을 이야기 카드로 추가했습니다.
+- `yi-sun-sin`: 부분 수정. 난중일기가 전투 승리만이 아니라 전쟁 중 실제 상황을 보여 주는 기록이라는 점을 추가했습니다.
+- `jang-yeong-sil`: 부분 수정. 전해지는 이야기와 사료로 확인되는 활동을 구분하는 `의견이 분분한 이야기` 카드를 추가했습니다.
+- `gwanggaeto-the-great`: 부분 수정. 광개토대왕릉비가 왕의 활동을 돌에 새긴 금석문 자료라는 점을 추가했습니다.
+- `gravity`: 부분 수정. 뉴턴의 사과 이야기는 전해지는 기록이 있으나 머리에 떨어졌다는 장면은 덧붙은 이야기로 구분해 추가했습니다. Royal Society 자료를 출처에 보강했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+- 로컬 화면 확인: `중력` 상세 화면에서 `이야기와 기록` 카드와 `이야기` 바로 가기 버튼이 보임을 확인했습니다.
+
+## 2026-05-31 12:30 KST 겹침 구분과 한자·영어 보조 표기
+
+- 기준 보강: 동음이의어와 교과 용어 구분을 위해 `termNotations` 보조 필드를 추가했습니다. 한자·영어 표기는 제목보다 작게 보이는 보조 정보이며, 검색에도 반영됩니다.
+- `combustion-fire-extinguishing`: 재구성. `연소와 소화`는 음식 소화와 충돌해 제목을 `연소와 불 끄기`로 조정했습니다. 화재에서 말하는 소화는 `소화(消火, fire extinguishing)`로 보조 표기하고, 퀴즈와 본문 표현을 제목 범위에 맞췄습니다.
+- `digestion`: 부분 수정. 몸의 소화는 `소화(消化, digestion)`로 보조 표기를 추가해 화재 소화와 구분했습니다.
+- `fraction`: 부분 수정. 수학의 `분자`가 과학의 `분자`와 충돌하지 않도록 별칭을 `분수의 분자`, `분수 분자`로 좁히고, `분수(分數, fraction)`, `분모(分母, denominator)`, `분수의 분자(分子, numerator)` 표기를 추가했습니다.
+- `atom-molecule`: 부분 수정. 과학의 `분자(分子, molecule)`를 유지하고 `원자(原子, atom)` 표기를 추가했습니다.
+- `ratio`: 부분 수정. 날씨의 비와 충돌하지 않도록 별칭을 `수학의 비`, `비율의 비`로 좁히고 `비(比, ratio)`, `비율(比率, rate)`, `백분율(百分率, percentage)` 표기를 추가했습니다.
+- `clouds-rain`: 부분 수정. 날씨의 `비(雨, rain)`와 `구름(雲, cloud)` 표기를 추가하고, `안개`는 별칭에서 제외해 `이슬·안개·구름` 지식과 역할을 나눴습니다.
+- `temperature-heat`, `thermal-energy`: 부분 수정. `온도와 열`은 비교 지식, `열에너지`는 입자 운동과 에너지 지식으로 유지하되 넓은 별칭 겹침을 줄였습니다.
+- `light-properties`, `light-reflection`, `light-refraction-lens`, `light-shadow`: 유지/부분 수정. `빛의 성질`은 우산 지식으로 유지하고, 반사·굴절·그림자는 별도 지식으로 유지했습니다. 검색 문구만 실제 검색 상황에 맞게 조정했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+- 로컬 화면 확인: `연소와 불 끄기` 상세 화면에서 보조 표기는 11px 칩으로 표시되고, `combustion` 검색으로 해당 지식이 검색됨을 확인했습니다.
+
+## 2026-05-31 11:18 KST 묶음 지식 범위 점검
+
+- `transportation`: 재구성. `교통과 이동`은 `교통` 안에 이미 이동의 뜻이 들어 있어 제목을 `교통`으로 좁혔습니다. 기존 검색 유입을 위해 `교통과 이동`은 별칭으로 유지하고, 검색 맥락과 퀴즈 질문을 제목 범위에 맞게 고쳤습니다.
+- `ocean-tides`: 재구성. `바다와 조석`은 바다가 독립 개념처럼 보이는 제목이라 `조석`으로 바꾸었습니다. `바다와 조석`은 별칭으로 남기고, 밀물·썰물·조석표 중심으로 검색 맥락을 정리했습니다.
+- `digestion`: 재구성. `소화와 소화 기관`은 소화라는 과정 안에 소화 기관 설명이 포함되므로 제목을 `소화`로 좁혔습니다. 기관 설명은 본문에 유지하고 기존 제목은 별칭으로 남겼습니다.
+- `respiration`: 재구성. `호흡과 호흡 기관`은 호흡이라는 과정 안에 호흡 기관 설명이 포함되므로 제목을 `호흡`으로 좁혔습니다. 기관 설명은 본문에 유지하고 기존 제목은 별칭으로 남겼습니다.
+- `mixtures-compounds`: 부분 수정. `혼합물과 화합물`은 비교해야 이해되는 묶음이라 유지했습니다. 다만 `알 수 없는 물질의 반응 위험` 단원은 범위가 안전 안내 쪽으로 흐려져 `섞임과 반응의 구분`으로 바꾸고 분리 방법·새 물질 생성 기준을 보강했습니다.
+- `photosynthesis-respiration`: 부분 수정. 광합성과 호흡은 물질 흐름을 비교해야 하는 묶음이라 유지했습니다. 검색 맥락과 퀴즈 해설에서 `연결해 볼 수 있는` 안내형 표현을 줄였습니다.
+- `oxygen-carbon-dioxide`: 부분 수정. 산소와 이산화탄소는 호흡·광합성·연소를 비교해야 하는 묶음이라 유지했습니다. 검색 맥락과 온실가스 단원의 마지막 문장을 사실 중심으로 고쳤습니다.
+- `income-job`, `excretion-elimination`, `electromagnet`, `strata-fossil-formation`, `earthquake-volcano-activity`, `tax-budget`, `market-price`, `world-climate-life`, `body-structure-function`: 유지. 각각 비교·관계 자체가 학습 범위이므로 이번 작업에서는 분리하지 않았습니다.
+
+## 2026-05-31 11:54 KST 퀴즈 선택지 품질 점검
+
+- 검토 방식: 퀴즈 전체에서 `이름만`, `관계없`, `전혀`, `항상`, `무조건`, `필요합니다` 같은 약한 오답 신호를 먼저 찾고, 실제 수정은 각 지식의 본문과 퀴즈를 읽은 뒤 결정했습니다.
+- 부분 수정: `allowance-management`, `interest-rate`, `petrodollar`, `endangered-species`, `nutrition`, `school-meal`, `digestion`, `seasons`, `state-change`, `ecosystem`, `ecosystem-balance`, `map`, `magnet`, `sound`, `mixtures-compounds`, `photosynthesis-respiration`, `thermal-expansion-contraction`, `simple-machines`, `habitat-adaptation`, `soil-composition`, `earthquake-volcano-activity`, `resource-recycling`, `law-hierarchy`, `separation-of-powers`, `administrative-district`, `local-community`, `urban-rural`, `land-use`, `cold-war`, `buyeo`, `okjeo-dongye`, `goguryeo`, `joseon`, `yi-sun-sin`.
+- 수정 내용: `이름만 다르다`, `전혀 관계없다`, `항상 같다`, `아무 역할도 없다`처럼 바로 지워지는 오답을 줄이고, 본문에서 실제로 헷갈릴 수 있는 개념 비교형 오답으로 바꾸었습니다. 오답 해설도 왜 틀렸는지 구체적 사실을 짚도록 조정했습니다.
+- 유지 판단: 검색에 잡힌 문장 중 `평균만 보면 안 된다`, `하루 날씨만으로 기후를 판단하지 않는다`, `손실 가능성이 전혀 없는 것은 아니다`처럼 오개념을 바로잡는 데 필요한 표현은 유지했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
 ## 진행 기록
 
 ### 1. ai
@@ -4151,3 +4492,1101 @@
 - 보강한 대표 범위: `주몽`, `온조`, `박혁거세`, `삼한`, `옥저와 동예`, `부여`, `고구려`, `백제·신라 관련 인물`, `임진왜란 전투`, `독립운동`, `세계 인물`, `오일 쇼크`, `국가유산`, `헌법·법률·명령`, `국회`, `독도`, `선거`, `지방자치` 등 시간 흐름이 필요한 지식의 연표를 확장했습니다.
 - 정리 결과: `현재`, `오늘날`, `오래전`, `이후`만 단독으로 쓰인 연표 날짜를 없애고, 가능한 경우 실제 연도·월·일 또는 `2020년대`, `2026년 기준`처럼 쓰임을 분명히 했습니다.
 - 검증 보정: 연표 작업 중 검증을 막던 일반 문체 위반 문장도 함께 정리해 `scripts/validate-wiki-content.mjs`가 통과하도록 맞췄습니다.
+
+## 개별 심화 패스 - 한국 고대에서 고려로 이어지는 흐름
+
+- 기준 반영: `docs/wiki-content-guidelines.md`에 역사 국가·시대 지식은 성립, 성장·전성기, 제도·문화, 쇠퇴와 다음 시대로의 변화를 개별 확인한다는 기준을 추가했습니다.
+- 점검 방식: 신라를 예로 든 사용자 지적에 맞춰 한꺼번에 문장을 뿌리지 않고, 한국 고대사에서 고려로 이어지는 핵심 지식 10개를 파일별로 열어 목차, 본문, 연표, 퀴즈를 각각 확인했습니다.
+
+### silla
+
+- id: `silla`
+- 파일: `data/source/knowledge/history/silla.json`
+- 기존 판정: 재구성
+- 보존한 부분: 신라의 성립, 삼국 통일, 경주 문화유산, 퀴즈의 기본 구조는 유지했습니다.
+- 고친 부분: 신라 말 설명이 후고구려와 궁예 쪽에 치우치지 않도록 견훤의 후백제, 궁예의 후고구려·마진·태봉, 왕건의 고려 건국, 경순왕의 항복, 고려의 후삼국 통일까지 이어지는 흐름을 보강했습니다. 신문왕, 9주 5소경, 불국사, 석굴암, 천마총, 첨성대, 황룡사 터, 분황사 모전석탑도 함께 정리했습니다.
+- 퀴즈 변경 여부: 신라 말에서 고려로 이어지는 흐름을 묻는 문항을 추가했습니다.
+- 출처 변경 여부: 없음.
+
+### unified-silla
+
+- id: `unified-silla`
+- 파일: `data/source/knowledge/history/unified-silla.json`
+- 기존 판정: 재구성
+- 보존한 부분: 통일신라의 성립, 행정 제도, 문화, 신라 말 변화의 큰 틀은 유지했습니다.
+- 고친 부분: 676년 통일, 9주 5소경, 혜공왕 이후 왕위 다툼, 장보고, 진성여왕 때의 농민 봉기, 견훤·궁예·왕건의 등장을 각각 사실 중심으로 보강했습니다.
+- 퀴즈 변경 여부: 통일신라 말과 고려 건국으로 이어지는 흐름을 묻는 문항을 추가했습니다.
+- 출처 변경 여부: 없음.
+
+### later-three-kingdoms
+
+- id: `later-three-kingdoms`
+- 파일: `data/source/knowledge/history/later-three-kingdoms.json`
+- 기존 판정: 재구성
+- 보존한 부분: 후백제, 후고구려, 고려가 대립한 시기라는 기본 설명은 유지했습니다.
+- 고친 부분: 진성여왕 시기 정치 혼란, 농민 봉기, 호족 성장, 견훤의 무진주·완산주 활동, 궁예의 후고구려·마진·태봉, 왕건의 고려 건국, 공산 전투, 고창 전투, 일리천 전투를 시간 순서로 보강했습니다.
+- 퀴즈 변경 여부: 후삼국의 전개와 통일 과정을 묻는 문항으로 정리했습니다.
+- 출처 변경 여부: 없음.
+
+### goryeo
+
+- id: `goryeo`
+- 파일: `data/source/knowledge/history/goryeo.json`
+- 기존 판정: 재구성
+- 보존한 부분: 고려의 건국과 조선으로 이어지는 기본 흐름은 유지했습니다.
+- 고친 부분: 왕건의 고려 건국, 후삼국 통일, 태조·광종·성종의 제도 정비, 문벌 귀족, 이자겸의 난, 묘청의 서경 천도 운동, 거란 침입과 서희·강감찬, 몽골 침입과 강화도 천도, 원 간섭기, 공민왕, 위화도 회군, 조선 건국까지 고려 전체 흐름을 넓혔습니다.
+- 퀴즈 변경 여부: 광종의 제도 정비를 묻는 문항을 추가했습니다.
+- 출처 변경 여부: 국사편찬위원회 우리역사넷 자료를 보강하고 접근 가능 여부를 확인했습니다.
+
+### wang-geon
+
+- id: `wang-geon`
+- 파일: `data/source/knowledge/history/wang-geon.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 왕건이 고려를 세운 인물이라는 기본 설명과 훈요십조 설명은 유지했습니다.
+- 고친 부분: 송악과 해상 교통로, 918년 고려 건국, 927년 공산 전투, 930년 고창 전투, 935년 신라 항복, 936년 일리천 전투, 신라 왕실과 후백제 출신 인물 포용, 지방 호족 정책을 보강했습니다.
+- 퀴즈 변경 여부: 일리천 전투와 후삼국 통일을 묻는 문항을 본문과 맞췄습니다.
+- 출처 변경 여부: 없음.
+
+### three-kingdoms-unification
+
+- id: `three-kingdoms-unification`
+- 파일: `data/source/knowledge/history/three-kingdoms-unification.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 신라와 당의 연합, 백제·고구려 멸망, 나당 전쟁의 기본 흐름은 유지했습니다.
+- 고친 부분: 660년 황산벌 전투와 계백, 백제 부흥운동의 복신·도침·부여풍, 663년 백강 전투, 675년 매소성 전투, 676년 기벌포 전투와 통일신라 성립, 698년 발해 건국까지 보강했습니다.
+- 퀴즈 변경 여부: 매소성 전투와 기벌포 전투의 의미를 묻는 문항으로 조정했습니다.
+- 출처 변경 여부: 없음.
+
+### baekje
+
+- id: `baekje`
+- 파일: `data/source/knowledge/history/baekje.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 백제의 한성·웅진·사비 시기 구분, 문화 교류, 멸망 설명은 유지했습니다.
+- 고친 부분: 근초고왕, 개로왕과 475년 한성 함락, 문주왕의 웅진 천도, 성왕의 사비 천도와 남부여, 무령왕릉, 황산벌 전투, 백제 부흥운동과 백강 전투를 보강했습니다.
+- 퀴즈 변경 여부: 기존 문항과 본문 흐름이 충돌하지 않도록 유지했습니다.
+- 출처 변경 여부: 없음.
+
+### goguryeo
+
+- id: `goguryeo`
+- 파일: `data/source/knowledge/history/goguryeo.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 고구려의 성장, 광개토대왕·장수왕, 수·당 전쟁, 멸망 뒤 발해로 이어지는 설명은 유지했습니다.
+- 고친 부분: 소수림왕의 불교·태학·율령, 612년 살수대첩과 을지문덕, 645년 안시성 전투, 연개소문 사후 권력 다툼, 고구려 유민과 말갈 세력이 세운 발해를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### gaya
+
+- id: `gaya`
+- 파일: `data/source/knowledge/history/gaya.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 가야가 여러 나라의 연맹체였다는 설명과 철 생산, 신라 병합의 큰 흐름은 유지했습니다.
+- 고친 부분: 김해 금관가야, 고령 대가야, 낙동강 하류와 남해안 교역, 지산동 고분군, 우륵과 가야금, 532년 금관가야 병합, 562년 대가야 병합을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### balhae
+
+- id: `balhae`
+- 파일: `data/source/knowledge/history/balhae.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 대조영의 건국, 고구려 계승, 당·신라와의 관계, 멸망 설명은 유지했습니다.
+- 고친 부분: 713년 발해군왕 책봉, 무왕·문왕·선왕, 5경 15부 62주, 상경, 정혜공주묘와 정효공주묘, 거란의 공격과 발해 유민의 이동을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 개별 심화 패스 - 조선과 근대 전환
+
+### joseon
+
+- id: `joseon`
+- 파일: `data/source/knowledge/history/joseon.json`
+- 기존 판정: 재구성
+- 보존한 부분: 조선 건국, 한양, 유교 질서, 훈민정음, 임진왜란·병자호란, 개항과 대한제국으로 이어지는 큰 구조는 유지했습니다.
+- 고친 부분: 태종의 왕권 정비, 성종 때 경국대전, 사림의 등장, 붕당, 영조·정조의 탕평책, 규장각, 세도 정치, 홍경래의 난, 임술 농민 봉기를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 사림의 대두와 붕당 정치, 붕당 정치와 탕평책을 확인한 국사편찬위원회 우리역사넷 자료를 추가했습니다.
+
+### yi-seong-gye
+
+- id: `yi-seong-gye`
+- 파일: `data/source/knowledge/history/yi-seong-gye.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 이성계의 조선 건국, 위화도 회군, 한양 천도 설명은 유지했습니다.
+- 고친 부분: 황산대첩, 홍건적과 왜구 격퇴, 우왕·최영의 요동 정벌, 위화도 회군 뒤 권력 변화, 정몽주와 정도전, 태조 즉위와 한양 천도의 실제 흐름을 보강했습니다.
+- 퀴즈 변경 여부: 본문 변경에 맞춰 정답 선택지를 본문 문장과 일치시켰습니다.
+- 출처 변경 여부: 없음.
+
+### king-sejong
+
+- id: `king-sejong`
+- 파일: `data/source/knowledge/history/king-sejong.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 세종대왕, 훈민정음, 집현전, 과학기술, 퀴즈 구조는 유지했습니다.
+- 고친 부분: 훈민정음의 1443년 창제와 1446년 반포, 농사직설, 향약집성방, 칠정산, 자격루, 앙부일구, 측우기, 박연과 음악 제도 정비를 보강했습니다.
+- 퀴즈 변경 여부: 과학기술 문항의 정답 선택지를 보강된 본문에 맞춰 수정했습니다.
+- 출처 변경 여부: 없음.
+
+### imjin-war
+
+- id: `imjin-war`
+- 파일: `data/source/knowledge/history/imjin-war.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 임진왜란의 기간, 조선·일본·명 국제 전쟁, 수군·의병, 정유재란과 피해 설명은 유지했습니다.
+- 고친 부분: 부산진·동래성 전투, 선조의 의주 피란, 1593년 평양성 탈환, 행주대첩, 곽재우 의병 활동, 명량 해전, 노량 해전을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### jeongmyo-horan
+
+- id: `jeongmyo-horan`
+- 파일: `data/source/knowledge/history/jeongmyo-horan.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1627년 후금 침입, 강화도 피란, 정묘화약, 병자호란으로 이어지는 흐름은 유지했습니다.
+- 고친 부분: 광해군 시기 명·후금 사이 외교, 1619년 사르후 전투, 1623년 인조반정, 후금군의 의주·평안도 진격, 형제 관계 화약의 성격을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### manchu-war
+
+- id: `manchu-war`
+- 파일: `data/source/knowledge/history/manchu-war.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 병자호란의 시기, 남한산성 항전, 삼전도 항복, 정묘호란과의 관계는 유지했습니다.
+- 고친 부분: 홍타이지의 청 건국, 청의 군신 관계 요구, 김상헌과 최명길로 대표되는 척화·주화 논쟁, 소현세자·봉림대군의 인질, 포로 피해를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### ganghwa-treaty
+
+- id: `ganghwa-treaty`
+- 파일: `data/source/knowledge/history/ganghwa-treaty.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1876년 조약, 운요호 사건, 부산·원산·인천 개항, 불평등 조약 설명은 유지했습니다.
+- 고친 부분: 조일 수호 조규와 병자수호조약 명칭, 운요호 사건의 성격, 일본 해안 측량권, 일본 거류지와 세관·항구 시설, 개화 정책의 실제 내용을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### gapsin-coup
+
+- id: `gapsin-coup`
+- 파일: `data/source/knowledge/history/gapsin-coup.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1884년 급진 개화파 정변, 우정총국, 청군 개입, 실패 원인은 유지했습니다.
+- 고친 부분: 온건 개화파와 급진 개화파의 차이, 14개조 정강, 청 의존 축소, 문벌 폐지, 재정 일원화, 한성조약, 톈진조약을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### gabo-reform
+
+- id: `gabo-reform`
+- 파일: `data/source/knowledge/history/gabo-reform.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1894년 개혁, 동학 농민 운동과 청일 전쟁 배경, 신분제·과거제 폐지, 일본 영향의 한계는 유지했습니다.
+- 고친 부분: 군국기무처의 역할, 홍범 14조, 노비 제도 폐지, 탁지아문, 재판소, 경찰 제도, 은본위제, 을미개혁과 단발령을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### korean-empire
+
+- id: `korean-empire`
+- 파일: `data/source/knowledge/history/korean-empire.json`
+- 기존 판정: 재구성
+- 보존한 부분: 1897년 대한제국 선포, 광무개혁, 을사늑약과 국권 침탈 흐름은 유지했습니다.
+- 고친 부분: 을미사변, 아관파천, 환구단 황제 즉위, 대한국 국제, 양전 사업과 지계, 근대 시설, 러일전쟁, 헤이그 특사, 고종 퇴위, 대한제국 군대 해산, 1910년 병합까지 시간 흐름을 보강했습니다.
+- 퀴즈 변경 여부: 광무개혁 문항의 정답 선택지를 본문 변경에 맞춰 수정했습니다.
+- 출처 변경 여부: 없음.
+
+## 외부 백과 구조 참고 반영
+
+- 참고 방식: 한국민족문화대백과사전의 공개 항목 구조와 나무위키 공개 검색 결과의 항목 구조를 살펴보되, 원문 문장과 목차명은 가져오지 않았습니다.
+- 반영한 기준: `정의`, `요약`, `키워드`, `본문 목차`, `관련 항목`, `참고문헌 또는 출처`가 분리되는 백과형 구조를 기준 문서에 추가했습니다.
+- 주의한 점: 나무위키식 풍부한 관련 항목 연결은 참고하되, 비공식 말투·취소선·평가성 표현·출처가 약한 서술은 쓰지 않는다는 기준을 명시했습니다.
+
+## 개별 심화 패스 - 일제강점기와 독립운동
+
+### eulsa-treaty
+
+- id: `eulsa-treaty`
+- 파일: `data/source/knowledge/history/eulsa-treaty.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 을사늑약의 강제 체결, 외교권 박탈, 통감부 설치, 항일 운동 확대는 유지했습니다.
+- 고친 부분: 러일전쟁, 포츠머스 조약, 외교권의 실제 의미, 통감부의 성격, 장지연·민영환의 항의, 헤이그 특사를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### righteous-army
+
+- id: `righteous-army`
+- 파일: `data/source/knowledge/history/righteous-army.json`
+- 기존 판정: 재구성
+- 보존한 부분: 의병 운동의 뜻, 을미·을사·정미의병, 독립군 활동으로 이어지는 흐름은 유지했습니다.
+- 고친 부분: 최익현, 민종식, 신돌석, 해산 군인, 13도 창의군, 서울 진공 작전, 만주·연해주 독립군 기반을 보강하고 `저항 의지` 같은 추상 표현을 사실 문장으로 바꾸었습니다.
+- 퀴즈 변경 여부: 본문 변경에 맞춰 정답 선택지를 수정했습니다.
+- 출처 변경 여부: 없음.
+
+### japanese-colonial-period
+
+- id: `japanese-colonial-period`
+- 파일: `data/source/knowledge/history/japanese-colonial-period.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1910~1945년 식민 통치, 무단 통치, 3·1 운동, 민족 말살 정책, 광복 흐름은 유지했습니다.
+- 고친 부분: 조선총독부, 토지 조사 사업, 회사령, 산미 증식 계획, 문화 통치, 신사 참배, 창씨개명, 강제 동원, 광복 뒤 분단 문제로 이어지는 흐름을 보강했습니다.
+- 퀴즈 변경 여부: 1930년대 이후 통치 강화 문항의 정답 선택지를 본문과 일치시켰습니다.
+- 출처 변경 여부: 없음.
+
+### march-first-movement
+
+- id: `march-first-movement`
+- 파일: `data/source/knowledge/history/march-first-movement.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1919년 독립 선언과 만세 시위, 전국·국외 확산, 대한민국 임시정부 수립으로 이어지는 흐름은 유지했습니다.
+- 고친 부분: 2·8 독립 선언, 고종 국장 분위기, 민족대표 33인, 태화관, 탑골공원, 아우내 장터, 문화 통치로 이어지는 변화를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### provisional-government
+
+- id: `provisional-government`
+- 파일: `data/source/knowledge/history/provisional-government.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 1919년 수립, 민주공화국 방향, 독립신문, 한국광복군, 김구 등 주요 인물 설명은 유지했습니다.
+- 고친 부분: 한성정부와 연해주 임시정부 움직임, 1919년 9월 통합, 임시의정원, 윤봉길 의거 뒤 이동 경로, 충칭 정착, 1941년 대일 선전포고를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### independence-movement
+
+- id: `independence-movement`
+- 파일: `data/source/knowledge/history/independence-movement.json`
+- 기존 판정: 재구성
+- 보존한 부분: 독립운동의 뜻, 국내외 활동, 교육·외교·무장 투쟁의 큰 분류는 유지했습니다.
+- 고친 부분: 신민회, 삼원보, 신흥무관학교, 애국 계몽 운동, 봉오동 전투, 청산리 대첩, 의열단, 한인애국단, 한국광복군, 인물별 활동 분야를 보강했습니다.
+- 퀴즈 변경 여부: 본문 변경에 맞춰 독립운동 방식과 인물 활동 문항의 정답 선택지를 수정했습니다.
+- 출처 변경 여부: 없음.
+
+## 외부 백과 참고 기준 보정
+
+- 기준 반영: 외부 백과와 문장 일부가 비슷해지는 것을 무조건 피하지 않는다는 기준을 `docs/wiki-content-guidelines.md`에 추가했습니다.
+- 보정 내용: 공식 명칭, 연도, 제도명, 사건 순서, 과학 용어는 정확성이 우선이며, 원문을 피하려고 부정확한 대체어를 만들지 않는다고 명시했습니다.
+- 저작권 기준: 위험한 것은 일반 사실 배열이 아니라 원문 표현, 독특한 문장, 세부 목차 배열, 예시, 표, 해설 구조를 거의 그대로 옮기는 것이라고 정리했습니다.
+
+## 개별 심화 패스 - 날씨와 기후
+
+### typhoon
+
+- id: `typhoon`
+- 파일: `data/source/knowledge/science/typhoon.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 태풍의 발생, 눈과 눈벽, 강풍·호우·폭풍해일, 예보와 특보 설명은 유지했습니다.
+- 고친 부분: 기상청 태풍백서식 구조를 참고해 북서태평양 태풍, 온대저기압화, 여름·가을 접근, 태풍 이름, 태풍위원회, 국가태풍센터, 관측·예보 자료, 태풍 통계를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 기상청 `태풍백서 2025`를 사실 확인 자료로 추가했습니다.
+
+### climate-change
+
+- id: `climate-change`
+- 파일: `data/source/knowledge/environment/climate-change.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 기후와 날씨의 차이, 온실가스, 폭염·폭우·가뭄, 감축과 적응 설명은 유지했습니다.
+- 고친 부분: 수십 년 이상 쌓인 관측 자료, 지표 기온·해수면 온도·빙하·해빙·생태계 자료, 이산화 탄소·메탄·아산화 질소 배출원, 농업·건강·해안 지역 영향, 파리협정과 감축·적응 차이를 보강했습니다.
+- 퀴즈 변경 여부: 첫 번째 문항의 정답 선택지를 본문 변경에 맞춰 수정했습니다.
+- 출처 변경 여부: 없음.
+
+### weather-observation
+
+- id: `weather-observation`
+- 파일: `data/source/knowledge/science/weather-observation.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 날씨 요소, 풍향·풍속, 관측 도구, 생활 활용, 퀴즈 구조는 유지했습니다.
+- 고친 부분: 기온·습도·기압·풍향·풍속·강수량의 구분, 북풍·남풍 예시, 온도계·습도계·풍향계·풍속계·우량계·기압계, 일기도와 수치예보 자료, 농업 활용을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### clouds-rain
+
+- id: `clouds-rain`
+- 파일: `data/source/knowledge/science/clouds-rain.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 수증기, 응결, 구름에서 비·눈으로 이어지는 기본 원리와 퀴즈는 유지했습니다.
+- 고친 부분: 응결핵, 안개가 생기는 조건, 공기 상승 조건, 적운·층운·권운, 강수 형태를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### wind
+
+- id: `wind`
+- 파일: `data/source/knowledge/science/wind.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 기압 차이, 풍향·풍속, 해풍·육풍, 바람 관측 설명은 유지했습니다.
+- 고친 부분: 기압 차이와 바람 세기, 지구 자전의 영향, 북풍·남풍, 산곡풍, 계절풍을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### air-pressure-weather
+
+- id: `air-pressure-weather`
+- 파일: `data/source/knowledge/science/air-pressure-weather.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 기압 차이와 바람, 고기압·저기압, 등압선과 기상도 설명은 유지했습니다.
+- 고친 부분: 헥토파스칼, 해수면 부근 평균 기압, 등압선 간격, 전선, 태풍의 중심기압과 최대풍속 정보를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### humidity
+
+- id: `humidity`
+- 파일: `data/source/knowledge/science/humidity.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 상대습도, 습한 날과 건조한 날, 습도계, 이슬·안개와의 관계는 유지했습니다.
+- 고친 부분: 포화 수증기량, 이슬점, 장마철 체감 더위, 불쾌지수와 생활 기상 정보를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### dew-fog-cloud
+
+- id: `dew-fog-cloud`
+- 파일: `data/source/knowledge/science/dew-fog-cloud.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 이슬·안개·구름의 응결 원리, 위치 차이, 구름에서 비·눈으로 이어지는 설명은 유지했습니다.
+- 고친 부분: 흰 김, 복사냉각, 시정, 이슬·안개·구름의 위치와 높이 차이를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### seasonal-weather
+
+- id: `seasonal-weather`
+- 파일: `data/source/knowledge/science/seasonal-weather.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 봄·여름·가을·겨울의 날씨 차이, 태양 고도와 낮의 길이, 하루 날씨와 계절 평균의 구분은 유지했습니다.
+- 고친 부분: 황사, 장마, 폭염, 태풍, 한파, 계절풍, 대륙성 공기, 평년값을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### weather-climate
+
+- id: `weather-climate`
+- 파일: `data/source/knowledge/science/weather-climate.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 날씨와 기후의 기본 구분, 지역별 차이, 생활과 기후 자료의 관계는 유지했습니다.
+- 고친 부분: 평년값, 위도·해류·산맥의 영향, 세계 기후대 구분을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### weather-forecast
+
+- id: `weather-forecast`
+- 파일: `data/source/knowledge/science/weather-forecast.json`
+- 기존 판정: 재구성
+- 보존한 부분: 일기예보의 뜻, 강수확률과 강수량, 특보와 공공 안내, 예보와 실제 날씨의 차이는 유지했습니다.
+- 고친 부분: 지상·해상 관측, 위성, 레이더, 수치예보, 예보관 분석, 예보 시간이 멀수록 바뀔 가능성이 커지는 점을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 2026-05-29 지구·우주 과학 항목 개별 점검
+
+### solar-system
+
+- id: `solar-system`
+- 파일: `data/source/knowledge/science/solar-system.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 태양계의 기본 뜻, 행성과 왜소행성 구분, 행성 순서 설명은 유지했습니다.
+- 고친 부분: 여덟 행성의 순서, 왜소행성과 행성의 차이, 소행성대와 카이퍼대 정보를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### earth-rotation-revolution
+
+- id: `earth-rotation-revolution`
+- 파일: `data/source/knowledge/science/earth-rotation-revolution.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 자전과 공전의 기본 뜻, 낮과 밤, 계절 변화 연결은 유지했습니다.
+- 고친 부분: 자전 방향, 공전 기간과 윤년, 계절별 별자리가 달라지는 이유를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### cause-of-seasons
+
+- id: `cause-of-seasons`
+- 파일: `data/source/knowledge/science/cause-of-seasons.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 자전축 기울기와 공전으로 계절이 생기는 설명은 유지했습니다.
+- 고친 부분: 햇빛이 비스듬히 비칠 때 에너지가 넓게 퍼지는 점, 하지·동지·춘분·추분 정보를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### moon-phases
+
+- id: `moon-phases`
+- 파일: `data/source/knowledge/science/moon-phases.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 달빛이 태양빛의 반사라는 설명, 달의 위상과 월식의 구분은 유지했습니다.
+- 고친 부분: 삭과 망, 약 29.5일의 위상 주기, 상현달·하현달의 관찰 시간대, 월식이 매달 일어나지 않는 이유를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### stars-constellations
+
+- id: `stars-constellations`
+- 파일: `data/source/knowledge/science/stars-constellations.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 별과 행성의 차이, 별자리는 사람이 붙인 이름이라는 설명은 유지했습니다.
+- 고친 부분: 88개 별자리 영역, 큰곰자리와 북두칠성, 작은곰자리와 북극성, 별의 밝기 등급과 관찰 조건을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### solar-altitude-noon
+
+- id: `solar-altitude-noon`
+- 파일: `data/source/knowledge/science/solar-altitude-noon.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 남중 고도와 그림자 길이, 계절 변화 연결은 유지했습니다.
+- 고친 부분: 남중 시각과 시계 12시의 차이, 같은 장소·같은 막대 비교 조건, 하지·동지 무렵 남중 고도 차이를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### day-night-length
+
+- id: `day-night-length`
+- 파일: `data/source/knowledge/science/day-night-length.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 일출·일몰, 자전축 기울기와 공전, 위도에 따른 낮과 밤의 길이 차이는 유지했습니다.
+- 고친 부분: 춘분·추분, 백야와 극야 정보를 추가해 계절·위도 설명을 더 구체화했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### northern-southern-hemisphere
+
+- id: `northern-southern-hemisphere`
+- 파일: `data/source/knowledge/science/northern-southern-hemisphere.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 적도를 기준으로 북반구와 남반구를 나누는 설명과 계절 차이는 유지했습니다.
+- 고친 부분: 북극·남극 위치, 북반구와 남반구의 대륙·바다 비율 차이, 반구별 별자리 관찰 차이를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 2026-05-29 힘·운동·열·전기 과학 항목 개별 점검
+
+### friction
+
+- id: `friction`
+- 파일: `data/source/knowledge/science/friction.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 마찰력의 기본 뜻, 접촉면과 운동 방향, 브레이크와 걷기 예시는 유지했습니다.
+- 고친 부분: 공기 저항과의 구분, 물체를 누르는 힘, 스키·스케이트·타이어·신발 밑창의 마찰 활용을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### static-kinetic-friction
+
+- id: `static-kinetic-friction`
+- 파일: `data/source/knowledge/science/static-kinetic-friction.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 정지마찰력과 운동마찰력의 차이, 상자를 밀 때의 예시는 유지했습니다.
+- 고친 부분: 최대 정지마찰력, 운동마찰력과 최대 정지마찰력의 차이, 타이어 무늬와 젖은 바닥의 마찰 변화를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### force-motion
+
+- id: `force-motion`
+- 파일: `data/source/knowledge/science/force-motion.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 기준점, 위치 변화, 거리와 시간, 힘과 운동 변화의 기본 설명은 유지했습니다.
+- 고친 부분: 기준점의 뜻, 힘의 크기와 방향, 마찰력과 중력, 속력과 속도의 구분을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### speed-velocity
+
+- id: `speed-velocity`
+- 파일: `data/source/knowledge/science/speed-velocity.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 속력과 속도의 기본 차이, 거리와 시간의 관계는 유지했습니다.
+- 고친 부분: m/s와 km/h 단위, 평균 속력, 속도 방향의 표현, 일상어와 과학 용어 차이를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### potential-kinetic-energy
+
+- id: `potential-kinetic-energy`
+- 파일: `data/source/knowledge/science/potential-kinetic-energy.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 위치에너지와 운동에너지의 기본 뜻, 그네와 롤러코스터 예시는 유지했습니다.
+- 고친 부분: 질량·속력에 따른 운동에너지, 역학적 에너지, 마찰에 의한 열에너지 전환을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### electric-circuit
+
+- id: `electric-circuit`
+- 파일: `data/source/knowledge/science/electric-circuit.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 닫힌 회로, 전지·전선·전구·스위치, 직렬·병렬 연결, 낮은 전압 실험 설명은 유지했습니다.
+- 고친 부분: 전기와 자기 역사 문단을 제거하고 합선과 과열 설명으로 대체했습니다. 사용하지 않게 된 NASA 배경 출처도 삭제했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: NASA 배경 출처 삭제.
+
+### electric-current-switch
+
+- id: `electric-current-switch`
+- 파일: `data/source/knowledge/science/electric-current-switch.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 닫힌 회로, 스위치, 도체·부도체, 낮은 전압 회로 설명은 유지했습니다.
+- 고친 부분: 전류 정의에서 “한 방향”이라는 좁은 표현을 제거하고, 암페어·합선·전지의 역할을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### energy
+
+- id: `energy`
+- 파일: `data/source/knowledge/science/energy.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 에너지의 뜻, 에너지 형태, 전등·선풍기·자동차 예시는 유지했습니다.
+- 고친 부분: 에너지 보존과 전환, 소리·빛·화학 에너지의 구분을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### temperature-heat
+
+- id: `temperature-heat`
+- 파일: `data/source/knowledge/science/temperature-heat.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 온도와 열의 차이, 열의 이동 방향, 온도계와 생활 안전 설명은 유지했습니다.
+- 고친 부분: 열량, 비열, 물질의 양에 따른 열의 양 차이를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### thermal-energy
+
+- id: `thermal-energy`
+- 파일: `data/source/knowledge/science/thermal-energy.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 열에너지와 입자 운동, 온도 변화, 상태 변화 설명은 유지했습니다.
+- 고친 부분: 메타 설명 문장을 줄이고 비열, 열량, 온도와 입자 운동의 관계를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### heat-transfer
+
+- id: `heat-transfer`
+- 파일: `data/source/knowledge/science/heat-transfer.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 전도·대류·복사, 보온과 단열, 열 이동 안전 설명은 유지했습니다.
+- 고친 부분: 대류의 밀도 변화, 열전도율과 단열재 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### specific-heat
+
+- id: `specific-heat`
+- 파일: `data/source/knowledge/science/specific-heat.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 비열이 큰 물질, 물과 모래의 온도 변화 차이, 바닷가 예시는 유지했습니다.
+- 고친 부분: 비열 정의를 단위 질량 기준으로 정리하고, 열용량과의 구분, 해풍·육풍 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 2026-05-29 물질 과학 항목 개별 점검
+
+### acid-base
+
+- id: `acid-base`
+- 파일: `data/source/knowledge/science/acid-base.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 산과 염기의 기본 구분, 지시약 사용, 생활 속 산성·염기성 예시는 유지했습니다.
+- 고친 부분: pH와 중성, 리트머스 종이와 BTB 용액의 색 변화, 산·염기의 농도와 중화 결과를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### neutralization-reaction
+
+- id: `neutralization-reaction`
+- 파일: `data/source/knowledge/science/neutralization-reaction.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 산과 염기가 만나 성질이 약해지는 설명, 묽게 하는 것과 중화의 차이, 제산제 예시는 유지했습니다.
+- 고친 부분: 수소 이온과 수산화 이온, 물과 염의 생성, 산성화된 토양과 석회 물질 예시를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### dissolving-solution
+
+- id: `dissolving-solution`
+- 파일: `data/source/knowledge/science/dissolving-solution.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 용질·용매·용액, 소금물 예시, 용해와 상태 변화의 구분은 유지했습니다.
+- 고친 부분: 용액이 혼합물이라는 점, 설탕·소금·모래의 용해 차이, 용해도와 포화 용액을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### mixtures-compounds
+
+- id: `mixtures-compounds`
+- 파일: `data/source/knowledge/science/mixtures-compounds.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 혼합물과 화합물의 기본 차이, 공기·소금물·철 가루와 모래 예시는 유지했습니다.
+- 고친 부분: 순물질, 원소, 물의 일정한 결합 비율, 음식·공기·바닷물·합금 예시를 보강했습니다.
+- 퀴즈 변경 여부: 정답 문장이 본문과 어긋나지 않도록 실제 예시 중심 선택지로 조정했습니다.
+- 출처 변경 여부: 없음.
+
+### atom-molecule
+
+- id: `atom-molecule`
+- 파일: `data/source/knowledge/science/atom-molecule.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 원자와 분자의 기본 뜻, 모형의 한계, 상태 변화와 입자 설명은 유지했습니다.
+- 고친 부분: 원자핵과 전자, 원소의 뜻, 물 분자와 산소 분자의 구성, 결합 변화와 물질 변화를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### combustion-fire-extinguishing
+
+- id: `combustion-fire-extinguishing`
+- 파일: `data/source/knowledge/science/combustion-fire-extinguishing.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 연소의 세 조건, 소화의 뜻, 촛불과 소화기 예시는 유지했습니다.
+- 고친 부분: 발화점, 연소 생성물, 질식 소화와 이산화탄소 소화기 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### state-change
+
+- id: `state-change`
+- 파일: `data/source/knowledge/science/state-change.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 물의 세 가지 상태, 증발·끓기·응결, 수증기와 하얀 김의 구분은 유지했습니다.
+- 고친 부분: 융해·응고 용어와 보통 압력에서 물의 어는점·끓는점 정보를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### material-properties-use
+
+- id: `material-properties-use`
+- 파일: `data/source/knowledge/science/material-properties-use.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 재료의 성질과 쓰임, 금속·고무·플라스틱, 우산과 재활용 예시는 유지했습니다.
+- 고친 부분: 밀도, 녹는점, 열·전기 전도성, 구리·알루미늄·냄비 손잡이 예시를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### oxygen-carbon-dioxide
+
+- id: `oxygen-carbon-dioxide`
+- 파일: `data/source/knowledge/science/oxygen-carbon-dioxide.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 산소와 이산화탄소의 호흡·연소·광합성 연결, 석회수 확인, 기체 실험 안전은 유지했습니다.
+- 고친 부분: O2와 CO2 표기, 공기 중 산소의 위치, 광합성에서 이산화탄소와 물 사용, 탄산칼슘 생성 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### thermal-expansion-contraction
+
+- id: `thermal-expansion-contraction`
+- 파일: `data/source/knowledge/science/thermal-expansion-contraction.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 열팽창과 수축, 금속·액체·기체의 부피 변화, 다리와 철도 레일 예시는 유지했습니다.
+- 고친 부분: 기체의 큰 부피 변화, 팽창 이음과 시설 구조를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### science-experiment
+
+- id: `science-experiment`
+- 파일: `data/source/knowledge/science/science-experiment.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 질문, 예상, 조건 비교, 기록과 안전의 기본 흐름은 유지했습니다.
+- 고친 부분: 가설, 변인, 측정 단위, 반복 측정의 필요성을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 2026-05-29 생명·생태·우리 몸 항목 개별 점검
+
+### plant-life-cycle
+
+- id: `plant-life-cycle`
+- 파일: `data/source/knowledge/science/plant-life-cycle.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 씨, 싹, 뿌리, 줄기, 잎, 꽃, 열매, 씨로 이어지는 한살이 설명은 유지했습니다.
+- 고친 부분: 발아, 씨 안의 어린 식물과 저장 양분, 한해살이식물과 여러해살이식물 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### plant-parts-function
+
+- id: `plant-parts-function`
+- 파일: `data/source/knowledge/science/plant-parts-function.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 뿌리·줄기·잎·꽃의 기본 역할과 식물 기관의 연결 설명은 유지했습니다.
+- 고친 부분: 물관, 체관, 기공, 저장 뿌리와 저장 줄기 예시를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### flower-fruit-seed
+
+- id: `flower-fruit-seed`
+- 파일: `data/source/knowledge/science/flower-fruit-seed.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 꽃가루받이, 수정, 열매와 씨의 관계, 씨 퍼뜨리기 설명은 유지했습니다.
+- 고친 부분: 수분, 밑씨, 씨방, 씨 이동의 생태적 의미, 열매 안의 씨 예시를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### photosynthesis
+
+- id: `photosynthesis`
+- 파일: `data/source/knowledge/science/photosynthesis.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 빛, 물, 이산화탄소, 산소, 양분의 기본 흐름은 유지했습니다.
+- 고친 부분: 엽록체와 엽록소, 포도당·녹말 저장, 잎의 녹말 검출, 광합성을 하지 않는 생물 예시를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### photosynthesis-respiration
+
+- id: `photosynthesis-respiration`
+- 파일: `data/source/knowledge/science/photosynthesis-respiration.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 광합성과 호흡의 차이, 낮과 밤의 식물, 생태계 물질 흐름 설명은 유지했습니다.
+- 고친 부분: 엽록체, 미토콘드리아, 포도당, 낮에도 호흡이 함께 일어난다는 점을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### animal-life-cycle
+
+- id: `animal-life-cycle`
+- 파일: `data/source/knowledge/science/animal-life-cycle.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 알과 새끼, 나비와 개구리의 한살이, 번식과 새 세대 설명은 유지했습니다.
+- 고친 부분: 완전 변태와 불완전 변태, 사는 곳과 먹이 변화, 한살이 표현을 더 사실 중심으로 조정했습니다.
+- 퀴즈 변경 여부: 정답 문장이 본문과 일치하도록 선택지를 조정했습니다.
+- 출처 변경 여부: 없음.
+
+### animal-classification
+
+- id: `animal-classification`
+- 파일: `data/source/knowledge/science/animal-classification.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 척추동물과 무척추동물, 곤충의 특징, 분류 기준 설명은 유지했습니다.
+- 고친 부분: 어류·양서류·파충류·조류·포유류의 주요 특징을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### habitat-adaptation
+
+- id: `habitat-adaptation`
+- 파일: `data/source/knowledge/science/habitat-adaptation.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 서식지, 먹이·물·숨을 곳, 서식지 변화의 영향은 유지했습니다.
+- 고친 부분: 구조적 적응, 행동적 적응, 보호색, 계절 이동을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### biodiversity
+
+- id: `biodiversity`
+- 파일: `data/source/knowledge/science/biodiversity.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 생물다양성의 기본 뜻, 서식지와 멸종위기종 보호, 외래종 설명은 유지했습니다.
+- 고친 부분: 종 다양성, 유전적 다양성, 생태계 다양성, 남획·서식지 단절 등 위협 요인을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### ecosystem
+
+- id: `ecosystem`
+- 파일: `data/source/knowledge/science/ecosystem.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 생물과 환경, 먹이 관계, 생산자·소비자·분해자, 생태계 변화 설명은 유지했습니다.
+- 고친 부분: 생물 요소와 비생물 요소, 분해자와 물질 순환, 하천 오염의 먹이 관계 영향을 보강했습니다.
+- 퀴즈 변경 여부: 정답 문장이 본문과 일치하도록 선택지를 조정했습니다.
+- 출처 변경 여부: 없음.
+
+### food-chain
+
+- id: `food-chain`
+- 파일: `data/source/knowledge/science/food-chain.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 먹이 사슬, 생산자·소비자·분해자, 먹이 그물 설명은 유지했습니다.
+- 고친 부분: 화살표의 의미, 사람 활동의 영향, 분해자가 여러 사체와 배설물에 연결된다는 점을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### ecosystem-balance
+
+- id: `ecosystem-balance`
+- 파일: `data/source/knowledge/science/ecosystem-balance.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 평형의 뜻, 먹이 관계 변화, 서식지 훼손과 조사 자료 설명은 유지했습니다.
+- 고친 부분: 회복력, 외래 생물, 계절별 반복 조사의 필요성을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### bones-muscles
+
+- id: `bones-muscles`
+- 파일: `data/source/knowledge/science/bones-muscles.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 뼈와 근육, 관절, 힘줄, 운동과 영양 설명은 유지했습니다.
+- 고친 부분: 인대와 길항 근육의 작용을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### circulatory-system
+
+- id: `circulatory-system`
+- 파일: `data/source/knowledge/science/circulatory-system.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 심장, 혈관, 혈액, 혈액 성분, 호흡과 순환 연결은 유지했습니다.
+- 고친 부분: 동맥, 정맥, 모세혈관의 역할을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### sensory-organs
+
+- id: `sensory-organs`
+- 파일: `data/source/knowledge/science/sensory-organs.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 오감, 감각 정보와 신경, 강한 자극 설명은 유지했습니다.
+- 고친 부분: 망막, 달팽이관, 감각 세포, 감각점, 신경과 뇌의 정보 전달을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### respiration
+
+- id: `respiration`
+- 파일: `data/source/knowledge/health/respiration.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 코·기관·기관지·폐, 산소와 이산화탄소, 운동과 호흡, 폐포와 혈액 설명은 유지했습니다.
+- 고친 부분: 들숨과 날숨에서 횡격막과 가슴 속 공간 변화 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### digestion
+
+- id: `digestion`
+- 파일: `data/source/knowledge/health/digestion.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 입·위·소장·대장, 기계적 소화와 화학적 소화, 소화 이상 신호 설명은 유지했습니다.
+- 고친 부분: 융털, 식도, 이자, 쓸개즙 관련 키워드와 소장 흡수 구조를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### excretion-elimination
+
+- id: `excretion-elimination`
+- 파일: `data/source/knowledge/health/excretion-elimination.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 배설과 배출의 차이, 콩팥·오줌·땀·호흡·대변 설명은 유지했습니다.
+- 고친 부분: 방광, 요관, 요도, 콩팥의 염분과 물 균형 조절을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### nutrition
+
+- id: `nutrition`
+- 파일: `data/source/knowledge/health/nutrition.json`
+- 기존 판정: 부분 수정
+- 보존한 부분: 탄수화물·단백질·지방, 비타민·무기질·물, 균형 잡힌 식사 설명은 유지했습니다.
+- 고친 부분: 에너지를 낼 수 있는 영양소, 칼슘과 철의 역할을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+## 2026-05-29 16:54 KST 추가 개별 점검
+
+### 지구·지질·빛·소리·힘
+
+- `strata-fossil-formation`: 지층 형성 과정에 층리, 다짐·교결, 알갱이 크기로 보는 퇴적 환경 단서를 보강했습니다.
+- `fossil`: 표준화석과 산호 화석의 환경 단서 등 화석 해석 내용을 보강했습니다.
+- `rocks-minerals`: 조흔색, 광택, 쪼개짐, 암석 순환을 보강했습니다.
+- `volcano`: 분화구, 화쇄류, 용암류 등 화산 활동의 실제 용어를 보강했습니다.
+- `earthquake-volcano-activity`: 규모와 진도, 지진계, 지표 변형과 위성 관측을 보강했습니다.
+- `plate-tectonics`: 해령, 해구, 섭입대를 넣어 판 경계 설명을 구체화했습니다.
+- `light-properties`: 투명·반투명·불투명, 색이 보이는 원리, 난반사와 매끄러운 반사를 보강했습니다.
+- `light-shadow`: 그림자가 생기는 조건과 빛·물체·화면 거리 관계를 보강했습니다.
+- `light-reflection`: 입사각과 반사각, 난반사 용어를 보강했습니다.
+- `light-refraction-lens`: 굴절 조건과 볼록렌즈의 초점 용어를 보강했습니다.
+- `sound`: 진폭, 진동수, 헤르츠, 데시벨, 매질별 전달 속도를 보강했습니다.
+- `magnet`: 자기장, 나침반과 지구 자기장, 외르스테드·패러데이·전자석 사례를 보강했습니다.
+- `electromagnet`: 철심, 코일, 전류 방향, 나침반 관찰을 보강했습니다.
+- `simple-machines`: 메타식 목차명을 줄이고 일·힘·이동 거리, 고정 도르래와 움직도르래를 보강했습니다.
+- `gravity`: 뉴턴의 만유인력 발표와 우주정거장의 궤도 운동 설명을 보강했습니다.
+- 퀴즈 변경 여부: `petrodollar` 외 위 과학 항목은 정답 문장 구조를 유지했습니다.
+- 출처 변경 여부: 없음.
+
+### 지표·물·기후·환경
+
+- `erosion-deposition`: 반복되던 강·해안 설명을 침식·운반·퇴적, 하천 지형, 해안과 바람 지형으로 재구성했습니다.
+- `soil-composition`: 풍화, 유기물, 부식질, 토양층과 표토 설명을 보강했습니다.
+- `water-cycle`: 강수, 지하수, 댐과 저수지 설명을 보강했습니다.
+- `ocean-tides`: 하루 조석 반복, 사리·조금, 서해안 조차 설명을 보강했습니다.
+- `climate-zones`: 냉대 기후, 산지·해안·내륙 차이, 건조 기후 지역 생활 예시를 보강했습니다.
+- `natural-disasters-preparedness`: 자연재해 피해 규모를 생활 기반과 연결해 사실 중심으로 재정리했습니다.
+- `resource-recycling`: 재료별 처리 차이와 덜 쓰기·다시 쓰기·재활용하기의 관계를 보강했습니다.
+- `air-pollution`: 질소산화물, 휘발성 유기화합물, 지표 오존, 대기오염 측정망 설명을 보강했습니다.
+- `fine-dust`: PM10과 PM2.5, 대기질 예보 단계 설명을 보강했습니다.
+- `endangered-species`: Ⅰ급·Ⅱ급 설명에 보호종 예시와 복원 활동 범위를 보강했습니다.
+- `greenhouse-gas`: 온실가스 종류와 메탄 배출원을 보강하고 목차명을 사실 중심으로 바꾸었습니다.
+- `renewable-energy`: 신재생에너지 용어와 전력망·저장 장치 설명을 보강했습니다.
+- `water-pollution`: 부영양화, 용존산소, 기름 유출 영향을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### 생명·건강 경계 항목
+
+- `bacteria-virus`: 세균의 세포 구조, 바이러스의 숙주 세포 이용, 환기와 기침 예절 설명을 보강했습니다.
+- `microorganism-life`: 효모의 이산화 탄소 생성, 곰팡이 포자와 습한 환경 설명을 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### 경제 핵심 항목
+
+- `petrodollar`: 퀴즈에서 정답처럼 읽힐 수 있던 오답을 수정했습니다.
+- `interest-rate`: 기준금리와 시장금리, 예금금리·대출금리·채권금리 연결을 보강했습니다.
+- `bond`: 시장금리와 채권 가격의 일반적 관계, 만기와 가격 변동 설명을 보강했습니다.
+- `inflation`: 소비자물가지수 설명을 추가하고 검증 기준에 맞게 문장을 정리했습니다.
+- `deflation`: 빚 부담, 중앙은행 정책 수단 설명을 보강했습니다.
+- `bitcoin`: 블록체인 기록 방식, 개인키와 지갑 주소 설명을 보강했습니다.
+- 퀴즈 변경 여부: `petrodollar` 1문항 오답과 해설을 수정했습니다.
+- 출처 변경 여부: 없음.
+
+검증:
+
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 10:48 KST 연표 적합성 재점검
+
+### 연표 규칙 개편
+
+- 검증 규칙을 수정해 `역사` 주제라고 해서 무조건 연표를 요구하지 않도록 바꾸었습니다.
+- 연표가 있는 경우에는 배열 구조와 항목 내용을 검증하지만, 시간 순서가 핵심이 아닌 지식은 연표를 생략할 수 있게 했습니다.
+- 지침에 `궁궐`처럼 공간의 기능·구조·비교가 중심인 지식은 본문에서 대표 사례의 시기를 설명하고 별도 연표는 생략한다는 기준을 추가했습니다.
+
+### 개별 수정
+
+- `palace`: 별도 연표를 제거했습니다. 궁궐은 사건 흐름보다 왕실 생활·정치·의례 공간, 궁궐의 구조, 조선의 주요 궁궐 비교가 중심이므로 본문 안에서 `1395년 경복궁`, `1405년 창덕궁`, `대한제국 시기 경운궁/덕수궁`처럼 필요한 시기만 설명하는 구조가 더 적절하다고 판단했습니다.
+- `gwanggaeto-the-great`: 연표를 4개에서 6개로 늘렸습니다. 392년 백제 방면 군사 활동, 396년 백제 공격의 내용, 410년 동부여 정벌 기록을 보강해 광개토대왕의 대외 활동 흐름이 더 잘 드러나게 했습니다.
+- `gojoseon`: 연표를 4개에서 5개로 늘리고, `기원전 2333년 전승`의 성격과 청동기 문화 자료, 기원전 4세기 무렵 기록 등장, 위만 조선, 기원전 108년 멸망의 흐름을 더 구체화했습니다.
+- `korean-war`: 연표를 4개에서 6개로 늘렸습니다. 서울 점령과 유엔군 참전, 1950년 9월 15일 인천상륙작전, 중국군 참전, 1951년 7월 정전 회담 시작을 보강했습니다.
+
+### 유지 판단
+
+- 연표 4개인 항목을 다시 목록화해 확인했습니다. 단일 의거, 단일 전투, 전승 인물, 범위가 좁은 인물 지식은 `배경 또는 출생 → 핵심 사건/활동 → 결과`가 이미 들어가 있으면 억지로 늘리지 않았습니다.
+- 비역사 지식의 연표도 확인했습니다. `AI`, `비트코인`, `페트로달러 체제`, `우리나라 산업의 발달 과정`, `기후 변화`, `온실가스`, `재생에너지`, `지속가능한 미래`, `선거`, `국회`, `지방자치`, `헌법·법률·명령`, `독도` 등은 제도·기술·개념의 변화가 이해에 직접 관련되어 유지했습니다.
+
+검증:
+
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 13:05 KST 이야기·기록 추가 적용
+
+### 개별 검토 후 추가한 항목
+
+- `yu-gwan-sun`: 아우내 장터 만세 운동을 지역 주민 참여와 함께 설명하는 기록형 이야기 추가.
+- `yun-bong-gil`: 훙커우 공원 의거가 한인애국단·임시정부 활동 속에서 준비된 사건임을 설명하는 기록형 이야기 추가.
+- `shin-chaeho`: 신문 글, 역사 연구, 조선혁명선언을 글로 한 독립운동 사례로 정리.
+- `jeong-yak-yong`: 강진 유배와 목민심서·경세유표·흠흠신서 저술을 기록형 이야기로 정리.
+- `gang-gam-chan`, `seo-hui`, `choe-mu-seon`: 귀주대첩, 서희 담판, 화통도감과 진포대첩처럼 기록으로 확인되는 장면을 보조 이야기로 추가.
+- `heo-jun`, `wang-geon`, `dae-joyeong`, `kim-gu`: 동의보감, 훈요십조, 천문령 전투, 백범과 임시정부 활동을 추가. `wang-geon`의 훈요십조는 전승·해석 논의가 있어 `debated`로 표시.
+- `albert-einstein`, `marie-curie`, `charles-darwin`, `galileo-galilei`: 노벨상 공식 자료와 박물관 자료로 확인되는 과학사 장면을 기록형 이야기로 추가.
+- `march-first-movement`, `provisional-government`, `bongodong-battle`, `cheongsanri-battle`: 독립 선언, 임시정부 이동과 광복군 창설, 봉오동·청산리 전투의 실제 전개를 기록형 이야기로 추가.
+
+### 기준
+
+- 모든 지식에 억지로 이야기 칸을 붙이지 않고, 공식·권위 자료로 사실 확인이 가능한 항목에만 추가했습니다.
+- 명언처럼 출처가 흔들리거나 후대에 다듬어진 표현은 이번 작업에서 넣지 않았습니다.
+- 전승 자료는 사실 기록과 분리해 신뢰 상태를 표시했습니다.
+
+검증:
+
+- `node scripts/build-wiki-data.mjs`: 294개 생성 완료.
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `node scripts/validate-curriculum-map.mjs`: 294개 지식 통과.
+- `node scripts/validate-search-quality.mjs`: 대표 검색 11개 통과.
+- `jq empty ...`: 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-31 10:42 KST 남은 161개 개별 점검 완료
+
+### 실제 수정한 항목
+
+- 총 72개 지식 파일을 추가로 수정했습니다.
+- 핵심 수정 기준: 메타인지형 문장(`중요합니다`, `필요합니다`, `볼 수 있습니다`, `연결됩니다`, `해야 합니다`)을 사실 중심 문장으로 바꾸고, 퀴즈 오답과 해설도 구체적인 사실 오류를 드러내도록 정리했습니다.
+- `palace`: 궁궐 일반론에 억지로 붙어 있던 연표 문제를 다시 점검해, 검증 규칙에 맞는 조선 궁궐사 핵심 연표로 재구성했습니다.
+- `data`, `ai`, `generative-ai`, `privacy`, `copyright`: 디지털·저작권 설명에서 안내형 문장을 줄이고 데이터, 알고리즘, 개인정보, AI 생성 표시 조건을 사실 중심으로 정리했습니다.
+- `advertising`, `enterprise`, `distribution`, `gross-domestic-product`, `tax-budget`, `consumer-rights`, `korea-industry-development`, `social-insurance`, `trade-export-import`, `household-budget`, `saving-investing`, `market-price`, `money`: 경제 항목의 판단 기준과 퀴즈 문장을 사실형 문장으로 정리했습니다.
+- `school-meal`, `growth`, `body-structure-function`: 건강 항목의 퀴즈 선택지와 해설을 더 자연스러운 표현으로 고쳤습니다.
+- `administrative-district`, `basic-rights-duties`, `democracy-election`, `election`, `global-village`, `human-rights`, `law-hierarchy`, `law-rules`, `local-community`, `manufacturing-industry`, `map`, `population`, `public-service`, `resident-registration`, `river`, `rules`, `transportation`, `urban-rural`: 사회 항목의 안내형 표현을 제도·기준·생활 사실 중심으로 바꾸었습니다.
+- `graph`, `ratio`, `probability`, `symmetry`, `seasons`: 정보읽기·수학·과학 항목의 기준 설명과 퀴즈 문장을 다듬었습니다.
+- 역사 인물·사건 일부(`an-chang-ho`, `donghak-peasant-movement`, `choe-chiwon`, `dae-joyeong`, `hunminjeongeum`, `isaac-newton`, `jumong`, `king-jinheung`, `kim-gu`, `jang-yeong-sil`, `king-jangsu`, `mahatma-gandhi`, `namhansanseong-defense`, `martin-luther-king-jr`, `nelson-mandela`, `park-hyeokgeose`, `marie-curie`, `world-war-two`, `roman-empire`, `oil-shock`, `queen-seondeok`, `united-nations`, `wonhyo`, `three-kingdoms`)의 연결·판단 안내형 표현을 실제 역사적 관계와 결과 중심 문장으로 바꾸었습니다.
+
+### 개별 확인 후 유지한 항목
+
+아래 88개는 목차, 대표 뜻, 연표 필요성, 퀴즈 질문·선택지 요약을 확인했고, 이번 기준에서 즉시 수정할 정도의 중복·억지 목차·메타인지형 표현이 두드러지지 않아 유지했습니다.
+
+- `digital`: `algorithm`
+- `economy`: `allowance-management`, `bank`, `central-bank`, `consumer-producer`, `credit`, `debt`, `exchange-rate`, `income-job`, `insurance`, `public-goods`, `safe-asset`
+- `health`: `infectious-disease-prevention`, `smartphone-overuse`
+- `history`: `albert-einstein`, `an-jung-geun`, `ancient-egypt-civilization`, `april-nineteen-revolution`, `bongodong-battle`, `buyeo`, `charles-darwin`, `cheongsanri-battle`, `choe-mu-seon`, `cold-war`, `florence-nightingale`, `galileo-galilei`, `gang-gam-chan`, `gojoseon`, `gwak-jae-u`, `gwanggaeto-the-great`, `gwangju-student-independence-movement`, `gwon-yul`, `hanein-aegukdan`, `hansan-island-battle`, `helen-keller`, `heo-jun`, `hong-beom-do`, `hwang-hui`, `independence-club`, `industrial-revolution`, `jang-bogo`, `jeon-bong-jun`, `jeong-yak-yong`, `jinju-fortress-battle`, `june-democratic-struggle`, `kim-hong-do`, `kim-jeong-ho`, `kim-jwa-jin`, `kim-yu-sin`, `king-geunchogo`, `korean-liberation-army`, `korean-war`, `lee-bong-chang`, `liberation-korea`, `may-eighteen-democratization`, `mongol-invasions-goryeo`, `national-debt-repayment-movement`, `national-heritage`, `okjeo-dongye`, `onjo`, `palman-daejanggyeong`, `samhan`, `seo-hui`, `shin-chaeho`, `silk-roads`, `sin-saimdang`, `sinminhoe`, `uiyeoldan`, `world-war-one`, `yi-sun-sin`, `yu-gwan-sun`, `yun-bong-gil`
+- `information-literacy`: `statistics`
+- `math`: `area-perimeter`, `average`, `decimal`, `fraction`, `percentage`
+- `media`: `fake-news`
+- `safety`: `first-aid`
+- `school-life`: `school-violence`
+- `society`: `dokdo`, `map-scale`, `natural-human-environment`, `our-land`, `public-opinion`, `service-industry`, `world-climate-life`
+
+검증:
+
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-29 17:14 KST 추가 개별 점검
+
+### 사회: 선거·지방자치·인권·공공기관
+
+- `election`: 선거 절차, 공약, 공정성, 허위 정보 구분이 충분히 정리되어 있어 유지했습니다.
+- `local-autonomy`: 첫 본문에 지방자치의 직접 정의를 추가하고, 지역 결정 판단 자료를 회의록·예산 자료·주민 의견·법령 중심으로 정리했습니다.
+- `basic-rights-duties`: 헌법상 기본권과 국민의 의무 구성이 충분해 유지했습니다.
+- `human-rights`: 인권, 존엄, 평등, 차별 구성이 충분해 유지했습니다.
+- `public-opinion`: 여론과 여론조사, 댓글과 실제 여론의 차이가 충분히 정리되어 있어 유지했습니다.
+- `public-institution`: 안내형 문장을 줄이고 공공기관의 법·제도상 업무, 민원 정보 구성 요소를 보강했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+검증:
+
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `git diff --check`: 통과.
+
+## 2026-05-29 17:05 KST 추가 개별 점검
+
+### 사회: 지도와 공간
+
+- `latitude-longitude`: 본초 자오선의 그리니치 기준, 날짜 변경선과 시간대 관련 설명을 보강했습니다.
+- `globe-world-map`: 지도 투영법과 메르카토르 도법의 특징을 보강했습니다.
+- `satellite-map`: 정사영상, 촬영 해상도, 구름과 그림자가 위성지도 판독에 주는 영향을 보강했습니다.
+- `contour-line`: 굵은 등고선과 고도 숫자 판독 기준을 보강했습니다.
+- `map-scale`: 기존 내용이 지도 축척의 뜻, 큰 축척과 작은 축척, 거리 계산을 충분히 다루고 있어 유지했습니다.
+- `world-climate-life`: 기존 내용이 기후대와 의식주, 산업, 지역 조건을 충분히 다루고 있어 유지했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+### 사회: 민주주의와 법
+
+- `law-hierarchy`: 기존 내용이 헌법·법률·명령의 단계와 연표를 충분히 다루고 있어 유지했습니다.
+- `democracy-election`: 기존 내용이 국민 주권, 다수결과 소수 의견, 권력 견제, 민주주의 연표를 충분히 다루고 있어 유지했습니다.
+- `separation-of-powers`: 국정감사, 재판, 법률 집행, 대통령 거부권, 해임건의, 위헌법률심판 제청 등 절차 예시를 보강했습니다.
+- `national-assembly`: 상임위원회, 법제사법위원회, 본회의 표결, 회의록과 의안 정보 설명을 보강했습니다.
+- `executive-branch`: 행정각부와 장관, 통계·감사·현장 조사 자료를 통한 정책 평가 설명을 보강했습니다.
+- `court`: 사법권 독립과 공정한 재판 절차를 백과식 사실 문장으로 정리했습니다.
+- 퀴즈 변경 여부: 없음.
+- 출처 변경 여부: 없음.
+
+검증:
+
+- `node scripts/validate-wiki-content.mjs`: 294개 지식 통과.
+- `git diff --check`: 통과.

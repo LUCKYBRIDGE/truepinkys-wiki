@@ -9,6 +9,7 @@ const SEARCH_FIELDS = [
   { id: "summary", weight: 2.8, tiers: { exact: 80, phrase: 77, token: 62 } },
   { id: "abstract", weight: 2.5, tiers: { exact: 78, phrase: 74, token: 60 } },
   { id: "chapters", weight: 1.5, tiers: { exact: 76, phrase: 72, token: 56 } },
+  { id: "storyNotes", weight: 1.6, tiers: { exact: 75, phrase: 71, token: 55 } },
   { id: "timeline", weight: 1.9, tiers: { exact: 73, phrase: 69, token: 54 } },
   { id: "searchContexts", weight: 2.0, tiers: { exact: 69, phrase: 66, token: 55 } },
   { id: "grades", weight: 3.4, tiers: { exact: 67, phrase: 64, token: 45 } },
@@ -117,6 +118,7 @@ function fieldText(doc, fieldId) {
   if (fieldId === "categoryPaths") return categoryPathTexts(doc).join(" ");
   if (fieldId === "chapters") return doc.searchFields?.chapters || "";
   if (fieldId === "quiz") return doc.searchFields?.quiz || "";
+  if (fieldId === "storyNotes") return doc.searchFields?.storyNotes || "";
   if (fieldId === "timeline") return doc.searchFields?.timeline || "";
   if (fieldId === "curriculum") return doc.searchFields?.curriculum || "";
   if (fieldId === "grades") return doc.searchFields?.grades || "";
@@ -127,7 +129,7 @@ function fieldText(doc, fieldId) {
 
 function fieldValues(doc, fieldId) {
   if (fieldId === "categoryPaths") return categoryPathTexts(doc);
-  if (["chapters", "quiz", "timeline", "curriculum", "grades", "figures"].includes(fieldId)) return [fieldText(doc, fieldId)];
+  if (["chapters", "quiz", "storyNotes", "timeline", "curriculum", "grades", "figures"].includes(fieldId)) return [fieldText(doc, fieldId)];
   const value = doc[fieldId];
   return Array.isArray(value) ? value : [value];
 }
