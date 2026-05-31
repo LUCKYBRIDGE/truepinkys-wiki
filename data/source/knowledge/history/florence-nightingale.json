@@ -58,7 +58,12 @@
         "그는 깨끗한 물, 환기, 세탁, 배수 같은 병원 환경이 환자 상태와 관련된다는 점을 보건 개혁의 근거로 제시했습니다.",
         "나이팅게일의 활동은 간호와 통계 자료가 병원 제도를 바꾸는 데 함께 쓰인 사례입니다."
       ],
-      "sourceNote": "Florence Nightingale Museum 자료에서 크림 전쟁 간호 활동, 병원 위생 개선, 통계와 도표 활용을 확인했습니다."
+      "sourceNote": "Florence Nightingale Museum 자료에서 크림 전쟁 간호 활동, 병원 위생 개선, 통계와 도표 활용을 확인했습니다.",
+      "placement": {
+        "type": "inline",
+        "chapterTitle": "병원 위생을 바꾼 간호사",
+        "sectionHeading": "크림 전쟁과 간호 활동"
+      }
     }
   ],
   "chapters": [

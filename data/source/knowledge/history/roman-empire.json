@@ -76,7 +76,12 @@
         "로마 제국은 지중해 여러 지역을 연결하며 도로, 도시, 법, 군대를 이용해 넓은 영토를 다스렸습니다.",
         "1~2세기의 비교적 안정된 시기는 팍스 로마나라는 말로 설명되며, 교역과 도시 문화가 넓게 퍼진 시기였습니다."
       ],
-      "sourceNote": "The Metropolitan Museum of Art 자료에서 로마 제국의 제정 시작, 황제 목록, 지중해 세계 통치와 문화 흐름을 확인했습니다."
+      "sourceNote": "The Metropolitan Museum of Art 자료에서 로마 제국의 제정 시작, 황제 목록, 지중해 세계 통치와 문화 흐름을 확인했습니다.",
+      "placement": {
+        "type": "inline",
+        "chapterTitle": "도시 로마에서 제국으로",
+        "sectionHeading": "공화정에서 제정으로"
+      }
     }
   ],
   "chapters": [

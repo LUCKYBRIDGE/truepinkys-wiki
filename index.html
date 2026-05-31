@@ -1759,6 +1759,8 @@
 
     function renderChapters(doc) {
       const chapters = doc.chapters || [];
+      const hasBottomStoryNotes = remainingStoryNotes(doc).length > 0;
+      let inlineStoryIndex = 0;
       return chapters.map((chapter, chapterIndex) => `
         <section class="mb-10" id="${chapterId(chapterIndex)}">
           <h3 class="text-2xl font-black text-slate-950 mb-4">${chapterIndex + 1}. ${escapeHtml(chapter.title)}</h3>
@@ -1766,12 +1768,19 @@
             ${(chapter.sections || []).map((section, sectionIndex) => {
               const comparison = isComparisonSection(chapter, section);
               const connection = !comparison && isConnectionSection(chapter, section);
+              const inlineNotes = storyNotesForSection(doc, chapter, section);
+              const inlineHtml = inlineNotes.map(note => {
+                const anchorId = !hasBottomStoryNotes && inlineStoryIndex === 0 ? "story-notes" : `story-note-${inlineStoryIndex}`;
+                inlineStoryIndex += 1;
+                return renderStoryNoteCard(note, { inline: true, id: anchorId });
+              }).join("");
               return `
                 <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""} ${connection ? "rounded-xl border border-sky-200 bg-sky-50/70 p-4 sm:p-5" : ""}">
                   ${comparison ? `<p class="mb-2 text-xs font-black text-amber-700">비교해서 이해하기</p>` : ""}
                   ${connection ? `<p class="mb-2 text-xs font-black text-sky-700">사람과 흐름 함께 보기</p>` : ""}
                   <h4 class="${comparison || connection ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
                   ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${escapeHtml(paragraph)}</p>`).join("")}
+                  ${inlineHtml}
                 </section>
               `;
             }).join("")}
@@ -2178,14 +2187,58 @@
     }
 
     function storyNoteLabel(item) {
-      if (item.reliability === "debated") return "의견이 분분한 이야기";
+      if (item.reliability === "debated") return "전승으로 전해짐";
       if (item.type === "quote") return "기록 속 말";
       if (item.type === "anecdote") return "전해지는 이야기";
-      return "확인된 기록";
+      return "관련 기록";
+    }
+
+    function renderStoryNoteBadges(item) {
+      const badges = [storyNoteLabel(item)];
+      if (item.reliability === "debated" || item.type === "debated") {
+        badges.push("실제 사실과 구분 필요");
+      }
+      return badges.map(label => `
+        <span class="rounded-full border border-amber-200 bg-white px-2 py-0.5 text-[11px] font-black text-amber-700">${escapeHtml(label)}</span>
+      `).join("");
+    }
+
+    function isInlineStoryNote(item) {
+      return item?.placement?.type === "inline" && Boolean(item.placement.sectionHeading);
+    }
+
+    function storyNotesForSection(doc, chapter, section) {
+      return (doc.storyNotes || []).filter(item => {
+        if (!isInlineStoryNote(item)) return false;
+        const placement = item.placement || {};
+        if (placement.sectionHeading !== section.heading) return false;
+        return !placement.chapterTitle || placement.chapterTitle === chapter.title;
+      });
+    }
+
+    function remainingStoryNotes(doc) {
+      return (doc.storyNotes || []).filter(item => !isInlineStoryNote(item));
+    }
+
+    function renderStoryNoteCard(item, options = {}) {
+      const inline = Boolean(options.inline);
+      const idAttr = options.id ? ` id="${escapeHtml(options.id)}"` : "";
+      return `
+        <article${idAttr} class="${inline ? "mt-4 rounded-lg border border-amber-100 bg-amber-50/70 px-4 py-3" : "rounded-lg border border-amber-100 bg-white px-4 py-3"}">
+          <div class="flex flex-wrap items-center gap-2">
+            ${renderStoryNoteBadges(item)}
+            <h4 class="${inline ? "text-sm" : ""} font-black text-slate-950">${escapeHtml(item.title)}</h4>
+          </div>
+          <div class="mt-2 space-y-2 text-sm font-medium leading-relaxed text-slate-700">
+            ${(item.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+          </div>
+          ${item.sourceNote ? `<p class="mt-2 text-xs font-bold leading-relaxed text-slate-500">자료 확인: ${escapeHtml(item.sourceNote)}</p>` : ""}
+        </article>
+      `;
     }
 
     function renderStoryNotes(doc) {
-      const notes = doc.storyNotes || [];
+      const notes = remainingStoryNotes(doc);
       if (!notes.length) return "";
       return `
         <section class="mb-7 rounded-xl border border-amber-100 bg-amber-50/60 p-4 sm:p-5" id="story-notes">
@@ -2197,18 +2250,7 @@
             <span class="rounded-full bg-white/80 px-2.5 py-1 text-xs font-black text-amber-700">${notes.length}개</span>
           </div>
           <div class="grid gap-3">
-            ${notes.map(item => `
-              <article class="rounded-lg border border-amber-100 bg-white px-4 py-3">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h4 class="font-black text-slate-950">${escapeHtml(item.title)}</h4>
-                  <span class="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-black text-amber-700">${escapeHtml(storyNoteLabel(item))}</span>
-                </div>
-                <div class="mt-2 space-y-2 text-sm font-medium leading-relaxed text-slate-700">
-                  ${(item.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-                </div>
-                ${item.sourceNote ? `<p class="mt-2 text-xs font-bold leading-relaxed text-slate-500">자료 확인: ${escapeHtml(item.sourceNote)}</p>` : ""}
-              </article>
-            `).join("")}
+            ${notes.map(item => renderStoryNoteCard(item)).join("")}
           </div>
         </section>
       `;

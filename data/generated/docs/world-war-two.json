@@ -73,7 +73,12 @@
         "전쟁 뒤 여러 나라는 다시 큰 전쟁을 막고 국제 협력을 강화하기 위해 국제연합을 만들었습니다.",
         "국제연합은 1945년에 창설되었고, 전쟁 뒤 평화 유지와 인권 보호가 국제 질서의 중요한 과제가 되었습니다."
       ],
-      "sourceNote": "미국 국무부 Office of the Historian 자료와 영국 The National Archives 자료에서 제2차 세계 대전 종전과 전후 국제 질서 변화를 확인했습니다."
+      "sourceNote": "미국 국무부 Office of the Historian 자료와 영국 The National Archives 자료에서 제2차 세계 대전 종전과 전후 국제 질서 변화를 확인했습니다.",
+      "placement": {
+        "type": "inline",
+        "chapterTitle": "전쟁 뒤의 세계 변화",
+        "sectionHeading": "국제연합의 창설"
+      }
     }
   ],
   "chapters": [

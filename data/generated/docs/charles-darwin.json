@@ -59,7 +59,12 @@
         "갈라파고스 제도의 생물 차이와 여러 지역의 표본은 생물이 어떻게 달라지는지 생각하는 자료가 되었습니다.",
         "다윈의 진화 설명은 한순간의 떠오른 생각이 아니라 긴 관찰, 기록, 표본 연구를 바탕으로 발전했습니다."
       ],
-      "sourceNote": "Natural History Museum 자료에서 다윈의 비글호 항해, 갈라파고스 관찰, 『종의 기원』 출간 관련 사실을 확인했습니다."
+      "sourceNote": "Natural History Museum 자료에서 다윈의 비글호 항해, 갈라파고스 관찰, 『종의 기원』 출간 관련 사실을 확인했습니다.",
+      "placement": {
+        "type": "inline",
+        "chapterTitle": "생물 변화를 설명한 과학자",
+        "sectionHeading": "비글호 항해와 관찰"
+      }
     }
   ],
   "chapters": [

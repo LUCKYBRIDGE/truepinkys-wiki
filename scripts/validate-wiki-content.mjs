@@ -13,6 +13,7 @@ const validFigureKinds = new Set(["map", "chart", "diagram"]);
 const validQuizTypes = new Set(["choice", "blank"]);
 const validStoryNoteTypes = new Set(["record", "quote", "anecdote", "debated"]);
 const validStoryNoteReliability = new Set(["confirmed", "attributed", "debated"]);
+const validStoryNotePlacementTypes = new Set(["inline", "afterBody"]);
 const requiredDocFields = [
   "id",
   "title",
@@ -569,12 +570,12 @@ function validateStoryNotes(doc) {
     addError(doc.id || "(missing id)", "storyNotes must be an array when present");
     return;
   }
-  const chapterHeadings = new Set(
-    (doc.chapters || []).flatMap(chapter => [
-      chapter.title,
-      ...((chapter.sections || []).map(section => section.heading))
-    ]).filter(hasText).map(text => text.trim())
-  );
+  const chapterHeadings = new Set((doc.chapters || []).flatMap(chapter => [
+    chapter.title,
+    ...((chapter.sections || []).map(section => section.heading))
+  ]).filter(hasText).map(text => text.trim()));
+  const sectionPairs = new Set((doc.chapters || []).flatMap(chapter => (chapter.sections || []).map(section => `${chapter.title}|||${section.heading}`)));
+  const sectionHeadings = new Set((doc.chapters || []).flatMap(chapter => (chapter.sections || []).map(section => section.heading)).filter(hasText));
   doc.storyNotes.forEach((item, index) => {
     if (!item || typeof item !== "object" || Array.isArray(item)) {
       addError(doc.id, `storyNotes[${index}] must be a structured story object`);
@@ -591,6 +592,27 @@ function validateStoryNotes(doc) {
     }
     if (hasText(item.title) && chapterHeadings.has(item.title.trim())) {
       addError(doc.id, `storyNotes[${index}].title must not duplicate a chapter or section heading: ${item.title}`);
+    }
+    if ("placement" in item) {
+      if (!item.placement || typeof item.placement !== "object" || Array.isArray(item.placement)) {
+        addError(doc.id, `storyNotes[${index}].placement must be a structured object`);
+      } else {
+        if (!hasText(item.placement.type) || !validStoryNotePlacementTypes.has(item.placement.type)) {
+          addError(doc.id, `storyNotes[${index}].placement.type must be one of ${[...validStoryNotePlacementTypes].join(", ")}`);
+        }
+        if (item.placement.type === "inline") {
+          if (!hasText(item.placement.sectionHeading)) {
+            addError(doc.id, `storyNotes[${index}].placement.sectionHeading must be non-empty for inline placement`);
+          } else if (hasText(item.placement.chapterTitle)) {
+            const key = `${item.placement.chapterTitle}|||${item.placement.sectionHeading}`;
+            if (!sectionPairs.has(key)) {
+              addError(doc.id, `storyNotes[${index}].placement must match an existing chapter/section`);
+            }
+          } else if (!sectionHeadings.has(item.placement.sectionHeading)) {
+            addError(doc.id, `storyNotes[${index}].placement.sectionHeading must match an existing section`);
+          }
+        }
+      }
     }
     if (!Array.isArray(item.body) || item.body.length < 1) {
       addError(doc.id, `storyNotes[${index}].body must contain text`);

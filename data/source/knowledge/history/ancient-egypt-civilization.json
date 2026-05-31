@@ -73,7 +73,12 @@
         "나일강의 주기적인 범람은 농사 시기와 토지 측량, 세금 관리에 영향을 주었습니다.",
         "이 때문에 고대 이집트에서는 농업, 달력, 문자 기록, 국가 행정이 서로 연결되어 발전했습니다."
       ],
-      "sourceNote": "The Metropolitan Museum of Art 자료에서 고대 이집트의 나일강 환경, 왕조 흐름, 기록 문화의 배경을 확인했습니다."
+      "sourceNote": "The Metropolitan Museum of Art 자료에서 고대 이집트의 나일강 환경, 왕조 흐름, 기록 문화의 배경을 확인했습니다.",
+      "placement": {
+        "type": "inline",
+        "chapterTitle": "나일강과 문명의 시작",
+        "sectionHeading": "강이 만든 생활 터전"
+      }
     }
   ],
   "chapters": [
