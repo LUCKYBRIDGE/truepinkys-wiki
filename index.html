@@ -2131,17 +2131,18 @@
               const comparison = isComparisonSection(chapter, section);
               const connection = !comparison && isConnectionSection(chapter, section);
               const inlineNotes = storyNotesForSection(doc, chapter, section);
+              const sectionUsedTerms = new Set();
               const inlineHtml = inlineNotes.map(note => {
                 const anchorId = !hasBottomStoryNotes && inlineStoryIndex === 0 ? "story-notes" : `story-note-${inlineStoryIndex}`;
                 inlineStoryIndex += 1;
-                return renderStoryNoteCard(note, { inline: true, id: anchorId, glossaryTerms, usedTerms });
+                return renderStoryNoteCard(note, { inline: true, id: anchorId, glossaryTerms, usedTerms: sectionUsedTerms });
               }).join("");
               return `
                 <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""} ${connection ? "rounded-xl border border-sky-200 bg-sky-50/70 p-4 sm:p-5" : ""}">
                   ${comparison ? `<p class="mb-2 text-xs font-black text-amber-700">비교해서 이해하기</p>` : ""}
                   ${connection ? `<p class="mb-2 text-xs font-black text-sky-700">사람과 흐름 함께 보기</p>` : ""}
                   <h4 class="${comparison || connection ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
-                  ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${renderTextWithGlossary(paragraph, glossaryTerms, usedTerms)}</p>`).join("")}
+                  ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${renderTextWithGlossary(paragraph, glossaryTerms, sectionUsedTerms)}</p>`).join("")}
                   ${inlineHtml}
                 </section>
               `;
@@ -2519,13 +2520,13 @@
       `;
     }
 
-    function renderLeadDefinition(doc) {
+    function renderLeadDefinition(doc, glossaryTerms = []) {
       const lead = doc.definition || doc.summary;
       if (!lead) return "";
       return `
         <section class="mb-7 rounded-xl border border-teal-100 bg-teal-50/70 p-4 sm:p-5">
           <p class="text-xs font-black text-teal-700 mb-2">핵심 뜻</p>
-          <p class="text-lg font-black text-slate-900 leading-relaxed">${escapeHtml(lead)}</p>
+          <p class="text-lg font-black text-slate-900 leading-relaxed">${renderTextWithGlossary(lead, glossaryTerms, new Set())}</p>
         </section>
       `;
     }
@@ -2727,7 +2728,7 @@
               </div>
             </header>
 
-            ${renderLeadDefinition(doc)}
+            ${renderLeadDefinition(doc, glossaryTerms)}
             ${renderTimeline(doc)}
             ${renderFigures(doc)}
 
