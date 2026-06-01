@@ -97,6 +97,38 @@
       border-radius: 0.2rem;
     }
 
+    .glossary-term {
+      border-bottom: 2px dotted #0f766e;
+      color: #0f766e;
+      font-weight: 900;
+      cursor: help;
+    }
+
+    .glossary-popover {
+      position: fixed;
+      z-index: 70;
+      width: min(18rem, calc(100vw - 1.5rem));
+      max-height: min(18rem, calc(100vh - 1.5rem));
+      overflow: auto;
+      border: 1px solid #99f6e4;
+      border-radius: 0.625rem;
+      background: #ffffff;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.16);
+    }
+
+    .glossary-popover::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: var(--arrow-left, 1.25rem);
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      border-left: 1px solid #99f6e4;
+      border-top: 1px solid #99f6e4;
+      background: #ffffff;
+    }
+
     .wiki-table th {
       width: 34%;
       background: #f8fafc;
@@ -591,6 +623,230 @@
         .replace(/'/g, "&#039;");
     }
 
+    const BLOCKED_GLOSSARY_LABELS = new Set([
+      "가능성",
+      "과정",
+      "기준",
+      "내용",
+      "대상",
+      "문제",
+      "방법",
+      "변화",
+      "사람",
+      "상황",
+      "생활",
+      "역할",
+      "이유",
+      "자료",
+      "정보",
+      "종류",
+      "특징"
+    ]);
+
+    const STATIC_GLOSSARY_TERMS = [
+      { label: "재위", definition: "왕이나 임금이 자리에 올라 나라를 다스린 기간입니다.", subjects: ["사회"] },
+      { label: "반포", definition: "법, 제도, 책, 글자 등을 널리 알리고 쓰게 하는 일입니다.", subjects: ["사회", "국어"] },
+      { label: "창제", definition: "전에 없던 문자나 제도 등을 새로 만드는 일입니다.", subjects: ["국어", "사회"] },
+      { label: "왕조", definition: "같은 왕실이나 가문이 여러 대에 걸쳐 나라를 다스리는 체제입니다.", subjects: ["사회"] },
+      { label: "제도", definition: "사회나 나라가 일정하게 움직이도록 정해 둔 규칙과 운영 방식입니다.", subjects: ["사회"] },
+      { label: "정책", definition: "정부나 기관이 어떤 목표를 이루기 위해 세우고 실행하는 방침입니다.", subjects: ["사회"] },
+      { label: "의례", definition: "국가, 종교, 생활에서 일정한 절차에 따라 치르는 예식입니다.", subjects: ["사회"] },
+      { label: "즉위", definition: "왕이나 임금이 자리에 오르는 일입니다.", subjects: ["사회"] },
+      { label: "왕위", definition: "왕의 자리나 지위를 뜻합니다.", subjects: ["사회"] },
+      { label: "수도", definition: "한 나라의 정치 중심이 되는 도시입니다.", subjects: ["사회"] },
+      { label: "관료", definition: "나라의 일을 맡아 처리하는 관리입니다.", subjects: ["사회"] },
+      { label: "귀족", definition: "신분이나 지위가 높아 정치와 사회에서 큰 힘을 가진 계층입니다.", subjects: ["사회"] },
+      { label: "신분", definition: "사회 안에서 사람이 속한 지위나 계층입니다.", subjects: ["사회"] },
+      { label: "불교", definition: "석가모니의 가르침에서 시작된 종교입니다.", subjects: ["사회"] },
+      { label: "유교", definition: "공자의 가르침을 바탕으로 예절, 질서, 학문을 중시한 사상입니다.", subjects: ["사회", "도덕"] },
+      { label: "외교", definition: "나라와 나라가 서로 관계를 맺고 문제를 해결하는 활동입니다.", subjects: ["사회"] },
+      { label: "전투", definition: "전쟁 중에 군대가 맞서 싸우는 일입니다.", subjects: ["사회"] },
+      { label: "침략", definition: "다른 나라나 지역을 무력으로 쳐들어가 해치는 일입니다.", subjects: ["사회"] },
+      { label: "항쟁", definition: "부당한 지배나 침략에 맞서 싸우는 일입니다.", subjects: ["사회"] },
+      { label: "주권", definition: "한 나라가 스스로 나라의 일을 결정할 수 있는 권리와 힘입니다.", subjects: ["사회"] },
+      { label: "개항", definition: "항구를 열어 다른 나라와 무역하거나 배가 드나들게 하는 일입니다.", subjects: ["사회"] },
+      { label: "조약", definition: "나라와 나라가 서로 지키기로 약속한 공식 문서입니다.", subjects: ["사회"] },
+      { label: "식민지", definition: "다른 나라의 지배를 받으며 정치와 경제의 큰 결정을 스스로 하기 어려운 지역입니다.", subjects: ["사회"] },
+      { label: "의병", definition: "나라가 위기에 놓였을 때 백성이나 선비 등이 스스로 일어나 싸운 군대입니다.", subjects: ["사회"] },
+      { label: "정부", definition: "나라의 일을 맡아 운영하는 기관과 조직입니다.", subjects: ["사회"] },
+      { label: "법률", definition: "국회가 만들고 국민 모두가 지켜야 하는 법입니다.", subjects: ["사회"] },
+      { label: "권리", definition: "사람이 마땅히 누리거나 요구할 수 있는 힘입니다.", subjects: ["사회", "도덕"] },
+      { label: "의무", definition: "법이나 약속, 역할에 따라 해야 하는 일입니다.", subjects: ["사회", "도덕"] },
+      { label: "지방", definition: "수도나 중심 지역이 아닌 여러 지역을 가리키는 말입니다.", subjects: ["사회"] },
+      { label: "인구", definition: "어떤 지역에 사는 사람의 수입니다.", subjects: ["사회", "수학"] },
+      { label: "산업", definition: "사람들이 필요한 물건이나 서비스를 만들어 내는 경제 활동입니다.", subjects: ["사회"] },
+      { label: "해수면", definition: "바닷물 표면의 높이입니다. 기후와 지형을 설명할 때 기준으로 쓰입니다.", subjects: ["과학", "사회"] },
+      { label: "강수량", definition: "비, 눈, 우박처럼 하늘에서 내린 물의 양입니다.", subjects: ["과학"] },
+      { label: "수증기", definition: "물이 기체 상태로 변한 것입니다. 구름, 비, 습도와 관련됩니다.", subjects: ["과학"] },
+      { label: "기압", definition: "공기가 누르는 힘입니다. 바람과 날씨 변화와 관련됩니다.", subjects: ["과학"] },
+      { label: "대기", definition: "지구를 둘러싸고 있는 공기의 층입니다.", subjects: ["과학"] },
+      { label: "침수", definition: "비나 강물, 바닷물 때문에 땅이나 건물 안으로 물이 차는 일입니다.", subjects: ["과학", "사회"] },
+      { label: "폭염", definition: "매우 심한 더위가 이어지는 현상입니다.", subjects: ["과학", "사회"] },
+      { label: "가뭄", definition: "비가 오랫동안 부족해 물이 모자라는 현상입니다.", subjects: ["과학", "사회"] },
+      { label: "빙하", definition: "오랫동안 쌓인 눈이 눌려 만들어진 거대한 얼음 덩어리입니다.", subjects: ["과학"] },
+      { label: "화석 연료", definition: "석탄, 석유, 천연가스처럼 오래전 생물의 흔적이 땅속에서 변해 만들어진 연료입니다.", subjects: ["과학", "사회"] },
+      { label: "이산화 탄소", definition: "탄소와 산소로 이루어진 기체로, 연소와 호흡, 기후 변화 설명에 자주 나옵니다.", subjects: ["과학"] },
+      { label: "메탄", definition: "천연가스의 주성분인 기체로, 온실가스의 하나입니다.", subjects: ["과학"] },
+      { label: "기체", definition: "일정한 모양과 부피가 없고 공간에 퍼지는 물질의 상태입니다.", subjects: ["과학"] },
+      { label: "액체", definition: "담는 그릇에 따라 모양이 바뀌지만 부피는 비교적 일정한 물질의 상태입니다.", subjects: ["과학"] },
+      { label: "고체", definition: "모양과 부피가 비교적 일정한 물질의 상태입니다.", subjects: ["과학"] },
+      { label: "증발", definition: "액체가 표면에서 기체로 변하는 현상입니다.", subjects: ["과학"] },
+      { label: "응결", definition: "기체가 식어서 액체로 변하는 현상입니다.", subjects: ["과학"] },
+      { label: "용해", definition: "한 물질이 다른 물질에 녹아 고르게 섞이는 현상입니다.", subjects: ["과학"] },
+      { label: "용액", definition: "물질이 녹아 고르게 섞인 액체입니다.", subjects: ["과학"] },
+      { label: "자전", definition: "천체가 자기 축을 중심으로 도는 운동입니다.", subjects: ["과학"] },
+      { label: "공전", definition: "천체가 다른 천체의 둘레를 도는 운동입니다.", subjects: ["과학"] },
+      { label: "자전축", definition: "지구가 자전할 때 중심이 되는 가상의 축입니다.", subjects: ["과학"] },
+      { label: "전류", definition: "전기 회로에서 전하가 흐르는 현상입니다.", subjects: ["과학"] },
+      { label: "전압", definition: "전류가 흐르게 하는 전기적 힘의 차이입니다.", subjects: ["과학"] },
+      { label: "회로", definition: "전류가 흐를 수 있도록 이어진 길입니다.", subjects: ["과학"] },
+      { label: "마찰", definition: "두 물체가 맞닿아 움직이거나 움직이려 할 때 방해하는 작용입니다.", subjects: ["과학"] },
+      { label: "서식지", definition: "생물이 살아가며 먹이와 숨을 곳을 얻는 장소입니다.", subjects: ["과학"] },
+      { label: "공급", definition: "시장에 물건이나 서비스를 팔 수 있도록 내놓는 일입니다.", subjects: ["사회"] },
+      { label: "수요", definition: "사람들이 어떤 물건이나 서비스를 사려고 하는 양입니다.", subjects: ["사회"] },
+      { label: "원금", definition: "처음 빌리거나 맡긴 돈의 본래 금액입니다.", subjects: ["사회"] },
+      { label: "이자", definition: "돈을 빌려 쓰거나 맡긴 대가로 주고받는 돈입니다.", subjects: ["사회"] },
+      { label: "예금", definition: "은행 같은 금융기관에 돈을 맡기는 일 또는 맡긴 돈입니다.", subjects: ["사회"] },
+      { label: "대출", definition: "은행 같은 금융기관에서 돈을 빌리는 일입니다.", subjects: ["사회"] },
+      { label: "예금금리", definition: "은행에 돈을 맡겼을 때 받을 수 있는 이자의 비율입니다.", subjects: ["사회"] },
+      { label: "대출금리", definition: "은행 등에서 돈을 빌릴 때 내야 하는 이자의 비율입니다.", subjects: ["사회"] },
+      { label: "시장금리", definition: "금융시장에서 돈이 거래되며 정해지는 금리입니다.", subjects: ["사회"] },
+      { label: "비용", definition: "어떤 일을 하거나 물건을 얻기 위해 들어가는 돈, 시간, 노력입니다.", subjects: ["사회"] },
+      { label: "수익", definition: "경제 활동을 통해 얻은 돈이나 이익입니다.", subjects: ["사회"] },
+      { label: "물가", definition: "여러 물건과 서비스 가격의 전반적인 수준입니다.", subjects: ["사회"] },
+      { label: "화폐", definition: "물건을 사고팔거나 가치를 저장할 때 쓰는 돈입니다.", subjects: ["사회"] },
+      { label: "소비", definition: "필요한 물건이나 서비스를 사서 쓰는 일입니다.", subjects: ["사회"] },
+      { label: "저축", definition: "앞으로 쓰기 위해 돈을 모아 두는 일입니다.", subjects: ["사회"] },
+      { label: "투자", definition: "앞으로 이익을 얻기 위해 돈이나 자원을 쓰는 일입니다.", subjects: ["사회"] },
+      { label: "자산", definition: "개인이나 기관이 가진 돈, 물건, 권리처럼 경제적 가치가 있는 것입니다.", subjects: ["사회"] },
+      { label: "부채", definition: "갚아야 할 돈이나 빚입니다.", subjects: ["사회"] },
+      { label: "환율", definition: "서로 다른 나라 돈을 바꿀 때의 비율입니다.", subjects: ["사회"] },
+      { label: "수출", definition: "우리나라의 물건이나 서비스를 다른 나라에 파는 일입니다.", subjects: ["사회"] },
+      { label: "수입", definition: "다른 나라의 물건이나 서비스를 우리나라로 사 오는 일입니다.", subjects: ["사회"] },
+      { label: "세금", definition: "국가나 지방자치단체가 공공의 일을 위해 거두는 돈입니다.", subjects: ["사회"] },
+      { label: "예산", definition: "일정 기간 동안 돈을 어디에 쓰고 어디서 마련할지 세운 계획입니다.", subjects: ["사회"] },
+      { label: "원유", definition: "땅속에서 뽑아 올린, 정제하기 전의 석유입니다.", subjects: ["사회", "과학"] },
+      { label: "달러", definition: "미국 등 여러 나라에서 쓰는 화폐 단위입니다.", subjects: ["사회"] },
+      { label: "통화", definition: "한 나라에서 돈으로 쓰이는 화폐와 금융 수단을 가리키는 말입니다.", subjects: ["사회"] },
+      { label: "통계", definition: "여러 자료를 모아 수량으로 정리한 것입니다.", subjects: ["수학", "사회"] },
+      { label: "비율", definition: "두 양을 비교해 나타낸 값입니다.", subjects: ["수학"] }
+    ];
+    const STATIC_GLOSSARY_BY_ID = new Map(STATIC_GLOSSARY_TERMS.map(item => [`term:${normalize(item.label)}`, item]));
+
+    function glossaryLabelAllowed(label, options = {}) {
+      const text = String(label || "").trim();
+      if (!text) return false;
+      if (BLOCKED_GLOSSARY_LABELS.has(text)) return false;
+      if ([...text].length < 2) return false;
+      if (!options.allowShort && [...text].length < 3 && !/[A-Za-z0-9]/.test(text)) return false;
+      return !/^[\d\s.,·~!@#$%^&*()_+=|;:'"<>[\]{}-]+$/.test(text);
+    }
+
+    function glossaryTermsForDoc(doc, relatedDocs) {
+      const candidates = [];
+      const currentDocBodyLimit = Math.min(Math.max((doc.chapters || []).length * 8, 18), 34);
+      const chapterText = (doc.chapters || []).map(chapter => [
+        chapter.title,
+        ...(chapter.sections || []).flatMap(section => [section.heading, ...(section.body || [])])
+      ].join(" ")).join(" ");
+      const bodyText = [
+        doc.summary,
+        doc.definition,
+        doc.abstract,
+        chapterText,
+        ...(doc.storyNotes || []).flatMap(item => [item.title, ...(item.body || [])])
+      ].join(" ");
+      const currentDocLabels = new Set([
+        doc.title,
+        ...(doc.termNotations || []).map(item => item.term)
+      ].map(normalize).filter(Boolean));
+      const relatedIds = new Set((relatedDocs || []).map(item => item.id));
+      const addCandidate = (label, targetDoc, priority = 0, options = {}) => {
+        const text = String(label || "").trim();
+        if (!targetDoc || targetDoc.id === doc.id || !glossaryLabelAllowed(text, options)) return;
+        if (currentDocLabels.has(normalize(text))) return;
+        candidates.push({
+          label: text,
+          doc: targetDoc,
+          priority,
+          key: `${targetDoc.id}:${normalize(text)}`,
+          targetKey: `doc:${targetDoc.id}`,
+          glossaryId: targetDoc.id
+        });
+      };
+      const addStaticCandidate = (term, priority = 0) => {
+        const text = String(term.label || "").trim();
+        if (!glossaryLabelAllowed(text)) return;
+        if (currentDocLabels.has(normalize(text))) return;
+        if (!bodyText.includes(text)) return;
+        const id = `term:${normalize(text)}`;
+        candidates.push({
+          label: text,
+          staticTerm: term,
+          priority,
+          key: id,
+          targetKey: id,
+          glossaryId: id
+        });
+      };
+      (relatedDocs || []).forEach((targetDoc, index) => {
+        addCandidate(targetDoc.title, targetDoc, 100 - index, { allowShort: true });
+        (targetDoc.termNotations || []).forEach(item => addCandidate(item.term, targetDoc, 70 - index));
+        (targetDoc.aliases || [])
+          .filter(alias => bodyText.includes(String(alias || "").trim()))
+          .slice(0, 4)
+          .forEach(alias => addCandidate(alias, targetDoc, 48 - index));
+      });
+      wikiDocs
+        .filter(targetDoc => targetDoc.id !== doc.id && !relatedIds.has(targetDoc.id))
+        .filter(targetDoc => glossaryLabelAllowed(targetDoc.title) && bodyText.includes(targetDoc.title))
+        .sort((a, b) => [...b.title].length - [...a.title].length || a.title.localeCompare(b.title, "ko"))
+        .slice(0, 10)
+        .forEach((targetDoc, index) => addCandidate(targetDoc.title, targetDoc, 30 - index));
+      STATIC_GLOSSARY_TERMS.forEach((term, index) => addStaticCandidate(term, 22 - index / 100));
+      const seen = new Set();
+      const seenLabels = new Set();
+      return candidates
+        .sort((a, b) => [...b.label].length - [...a.label].length || b.priority - a.priority || a.label.localeCompare(b.label, "ko"))
+        .filter(item => {
+          if (seen.has(item.key)) return false;
+          const labelKey = normalize(item.label);
+          if (seenLabels.has(labelKey)) return false;
+          seen.add(item.key);
+          seenLabels.add(labelKey);
+          return true;
+        })
+        .slice(0, currentDocBodyLimit);
+    }
+
+    function renderTextWithGlossary(text, glossaryTerms, usedTerms = new Set()) {
+      const source = String(text || "");
+      if (!source || !(glossaryTerms || []).length) return escapeHtml(source);
+      let output = "";
+      let index = 0;
+      while (index < source.length) {
+        const match = glossaryTerms.find(item => {
+          if (usedTerms.has(item.targetKey)) return false;
+          if (usedTerms.has(item.key)) return false;
+          if (!source.startsWith(item.label, index)) return false;
+          const before = index > 0 ? source[index - 1] : "";
+          const after = source[index + item.label.length] || "";
+          if (/[A-Za-z0-9]/.test(before) || /[A-Za-z0-9]/.test(after)) return false;
+          return true;
+        });
+        if (!match) {
+          output += escapeHtml(source[index]);
+          index += 1;
+          continue;
+        }
+        usedTerms.add(match.key);
+        usedTerms.add(match.targetKey);
+        output += `<button type="button" class="glossary-term rounded-sm px-0.5 hover:bg-teal-50 focus:outline-none focus:ring-2 focus:ring-teal-300" onclick="openGlossaryPopover(event, '${escapeHtml(match.glossaryId)}')" aria-label="${escapeHtml(match.label)} 용어해설 보기">${escapeHtml(match.label)}</button>`;
+        index += match.label.length;
+      }
+      return output;
+    }
+
     function handleSearchSubmit(event) {
       event.preventDefault();
       const query = document.getElementById("search-input").value.trim();
@@ -602,6 +858,7 @@
     }
 
     function rerenderWithTransition(html) {
+      closeGlossaryPopover();
       const app = document.getElementById("app");
       const shouldPreserveScroll = Boolean(window.__preserveQuizScroll);
       const previousScrollY = window.scrollY;
@@ -616,6 +873,111 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
+
+    function closeGlossaryPopover() {
+      const popover = document.getElementById("glossary-popover");
+      if (popover) popover.remove();
+    }
+
+    function positionGlossaryPopover(popover, sourceButton) {
+      const buttonRect = sourceButton.getBoundingClientRect();
+      const margin = 12;
+      popover.style.left = `${margin}px`;
+      popover.style.top = `${margin}px`;
+      document.body.appendChild(popover);
+      const rect = popover.getBoundingClientRect();
+      const preferredLeft = buttonRect.left + (buttonRect.width / 2) - (rect.width / 2);
+      const left = Math.min(
+        Math.max(preferredLeft, margin),
+        window.innerWidth - rect.width - margin
+      );
+      const below = buttonRect.bottom + 8;
+      const above = buttonRect.top - rect.height - 8;
+      const top = below + rect.height + margin <= window.innerHeight
+        ? below
+        : Math.max(above, margin);
+      popover.style.left = `${left}px`;
+      popover.style.top = `${top}px`;
+      const arrowLeft = Math.min(
+        Math.max(buttonRect.left + (buttonRect.width / 2) - left - 6, 12),
+        rect.width - 24
+      );
+      popover.style.setProperty("--arrow-left", `${arrowLeft}px`);
+    }
+
+    function glossaryEntry(identifier) {
+      if (String(identifier || "").startsWith("term:")) {
+        const term = STATIC_GLOSSARY_BY_ID.get(identifier);
+        if (!term) return null;
+        return {
+          id: identifier,
+          title: term.label,
+          definition: term.definition,
+          subjects: term.subjects || [],
+          hasDoc: false
+        };
+      }
+      const doc = docCache.get(identifier) || wikiDocs.find(item => item.id === identifier);
+      if (!doc) return null;
+      return {
+        id: doc.id,
+        title: doc.title,
+        definition: doc.definition || doc.summary || "",
+        subjects: doc.subjects || [],
+        hasDoc: true
+      };
+    }
+
+    function openGlossaryPopover(event, glossaryId) {
+      event.preventDefault();
+      event.stopPropagation();
+      const sourceButton = event.currentTarget;
+      const entry = glossaryEntry(glossaryId);
+      if (!entry) return;
+      const existing = document.getElementById("glossary-popover");
+      if (existing && existing.dataset.glossaryId === glossaryId) {
+        closeGlossaryPopover();
+        return;
+      }
+      closeGlossaryPopover();
+      const popover = document.createElement("aside");
+      popover.id = "glossary-popover";
+      popover.dataset.glossaryId = glossaryId;
+      popover.className = "glossary-popover p-3";
+      popover.setAttribute("role", "dialog");
+      popover.setAttribute("aria-label", `${entry.title} 용어해설`);
+      popover.innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-[10px] font-black text-teal-700">용어해설</p>
+            <h3 class="mt-0.5 text-base font-black leading-tight text-slate-950">${escapeHtml(entry.title)}</h3>
+          </div>
+          <button type="button" class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-200 text-xs text-slate-500 hover:border-slate-400 hover:text-slate-900" onclick="closeGlossaryPopover()" aria-label="용어해설 닫기">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <p class="mt-2 text-sm font-bold leading-relaxed text-slate-700">${escapeHtml(entry.definition)}</p>
+        <div class="mt-2 flex flex-wrap gap-1.5">
+          ${(entry.subjects || []).slice(0, 3).map(subject => `<span class="rounded-full bg-teal-50 px-2 py-1 text-[11px] font-black text-teal-700">${escapeHtml(subject)}</span>`).join("")}
+        </div>
+        ${entry.hasDoc ? `
+          <a href="#/doc/${escapeHtml(entry.id)}" class="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-teal-700 px-3 py-2 text-xs font-black text-white hover:bg-teal-800">
+            전체 지식 보기 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        ` : `<p class="mt-2 text-xs font-bold leading-relaxed text-slate-500">별도 지식 페이지 없이 짧은 뜻만 제공합니다.</p>`}
+      `;
+      positionGlossaryPopover(popover, sourceButton);
+    }
+
+    document.addEventListener("click", event => {
+      if (!event.target.closest("#glossary-popover") && !event.target.closest(".glossary-term")) {
+        closeGlossaryPopover();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeGlossaryPopover();
+    });
 
     async function renderRoute() {
       const hash = decodeURIComponent(location.hash || "#/");
@@ -1757,7 +2119,7 @@
       return renderToc(doc, "");
     }
 
-    function renderChapters(doc) {
+    function renderChapters(doc, glossaryTerms = [], usedTerms = new Set()) {
       const chapters = doc.chapters || [];
       const hasBottomStoryNotes = remainingStoryNotes(doc).length > 0;
       let inlineStoryIndex = 0;
@@ -1772,14 +2134,14 @@
               const inlineHtml = inlineNotes.map(note => {
                 const anchorId = !hasBottomStoryNotes && inlineStoryIndex === 0 ? "story-notes" : `story-note-${inlineStoryIndex}`;
                 inlineStoryIndex += 1;
-                return renderStoryNoteCard(note, { inline: true, id: anchorId });
+                return renderStoryNoteCard(note, { inline: true, id: anchorId, glossaryTerms, usedTerms });
               }).join("");
               return `
                 <section id="${subsectionId(chapterIndex, sectionIndex)}" class="scroll-mt-24 ${comparison ? "rounded-xl border border-amber-200 bg-amber-50/70 p-4 sm:p-5" : ""} ${connection ? "rounded-xl border border-sky-200 bg-sky-50/70 p-4 sm:p-5" : ""}">
                   ${comparison ? `<p class="mb-2 text-xs font-black text-amber-700">비교해서 이해하기</p>` : ""}
                   ${connection ? `<p class="mb-2 text-xs font-black text-sky-700">사람과 흐름 함께 보기</p>` : ""}
                   <h4 class="${comparison || connection ? "text-lg" : "text-xl"} font-black text-slate-900 mb-3">${chapterIndex + 1}-${sectionIndex + 1}. ${escapeHtml(section.heading)}</h4>
-                  ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${escapeHtml(paragraph)}</p>`).join("")}
+                  ${(section.body || []).map(paragraph => `<p class="${comparison || connection ? "text-slate-700" : ""}">${renderTextWithGlossary(paragraph, glossaryTerms, usedTerms)}</p>`).join("")}
                   ${inlineHtml}
                 </section>
               `;
@@ -2223,6 +2585,8 @@
     function renderStoryNoteCard(item, options = {}) {
       const inline = Boolean(options.inline);
       const idAttr = options.id ? ` id="${escapeHtml(options.id)}"` : "";
+      const glossaryTerms = options.glossaryTerms || [];
+      const usedTerms = options.usedTerms || new Set();
       return `
         <article${idAttr} class="${inline ? "mt-4 rounded-lg border border-amber-100 bg-amber-50/70 px-4 py-3" : "rounded-lg border border-amber-100 bg-white px-4 py-3"}">
           <div class="flex flex-wrap items-center gap-2">
@@ -2230,14 +2594,14 @@
             <h4 class="${inline ? "text-sm" : ""} font-black text-slate-950">${escapeHtml(item.title)}</h4>
           </div>
           <div class="mt-2 space-y-2 text-sm font-medium leading-relaxed text-slate-700">
-            ${(item.body || []).map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+            ${(item.body || []).map(paragraph => `<p>${renderTextWithGlossary(paragraph, glossaryTerms, usedTerms)}</p>`).join("")}
           </div>
           ${item.sourceNote ? `<p class="mt-2 text-xs font-bold leading-relaxed text-slate-500">자료 확인: ${escapeHtml(item.sourceNote)}</p>` : ""}
         </article>
       `;
     }
 
-    function renderStoryNotes(doc) {
+    function renderStoryNotes(doc, glossaryTerms = [], usedTerms = new Set()) {
       const notes = remainingStoryNotes(doc);
       if (!notes.length) return "";
       return `
@@ -2250,7 +2614,7 @@
             <span class="rounded-full bg-white/80 px-2.5 py-1 text-xs font-black text-amber-700">${notes.length}개</span>
           </div>
           <div class="grid gap-3">
-            ${notes.map(item => renderStoryNoteCard(item)).join("")}
+            ${notes.map(item => renderStoryNoteCard(item, { glossaryTerms, usedTerms })).join("")}
           </div>
         </section>
       `;
@@ -2344,6 +2708,8 @@
       [doc] = await Promise.all([loadDoc(id), loadCurriculumMap()]);
 
       const relatedDocs = (doc.related || []).map(relatedId => wikiDocs.find(item => item.id === relatedId)).filter(Boolean);
+      const glossaryTerms = glossaryTermsForDoc(doc, relatedDocs);
+      const usedGlossaryTerms = new Set();
       rerenderWithTransition(`
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 xl:gap-6 items-start">
           <article class="lg:col-span-8 xl:col-span-9 bg-white border border-slate-200 rounded-xl p-5 sm:p-7 xl:p-9">
@@ -2370,10 +2736,10 @@
             </div>
 
             <section class="wiki-body">
-              ${renderChapters(doc)}
+              ${renderChapters(doc, glossaryTerms, usedGlossaryTerms)}
             </section>
 
-            ${renderStoryNotes(doc)}
+            ${renderStoryNotes(doc, glossaryTerms, usedGlossaryTerms)}
 
             ${renderQuiz(doc)}
 
@@ -2419,6 +2785,12 @@
                   <p class="text-xs font-black text-slate-400 mb-1">태그</p>
                   <div class="flex flex-wrap gap-1.5">${displayTopicTags(doc).map(tag => `<a href="#/tag/${tag}" class="rounded-full bg-amber-50 border border-amber-100 px-2.5 py-1 text-amber-700 hover:text-amber-900">#${escapeHtml(tag)}</a>`).join("")}</div>
                 </div>
+                ${glossaryTerms.length ? `
+                  <div>
+                    <p class="text-xs font-black text-slate-400 mb-1">본문 용어해설</p>
+                    <p class="text-xs font-bold text-slate-500 leading-relaxed">점선으로 표시된 단어를 누르면 짧은 뜻을 볼 수 있습니다.</p>
+                  </div>
+                ` : ""}
                 ${renderCurriculumLinks(doc)}
               </div>
             </section>
