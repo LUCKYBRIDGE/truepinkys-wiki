@@ -867,12 +867,37 @@
       return [...text].length >= 4 || /[A-Za-z0-9]/.test(text);
     }
 
+    function categoryContextKeys(doc) {
+      return new Set((doc.categoryPaths || [])
+        .filter(path => Array.isArray(path) && path.length)
+        .map(path => path.slice(0, 2).join(" > ")));
+    }
+
+    function sharesNavigationContext(doc, targetDoc) {
+      if (doc.mainTopic && targetDoc.mainTopic && doc.mainTopic === targetDoc.mainTopic) return true;
+      const currentKeys = categoryContextKeys(doc);
+      return [...categoryContextKeys(targetDoc)].some(key => currentKeys.has(key));
+    }
+
+    function bodyMentionsDoc(bodyText, targetDoc) {
+      return glossaryDocLabels(targetDoc)
+        .filter(label => labelIsStrongRelatedSignal(label, targetDoc))
+        .some(label => bodyText.includes(String(label || "").trim()));
+    }
+
     function relatedNavigationDocs(doc, relatedDocs, limit = 14) {
       const bodyText = docBodyTextForLinks(doc);
       const seen = new Set();
       const explicitDocs = (relatedDocs || []).filter(item => {
         if (!item || item.id === doc.id || seen.has(item.id)) return false;
         seen.add(item.id);
+        return true;
+      });
+      const incomingDocs = wikiDocs.filter(targetDoc => {
+        if (!targetDoc || targetDoc.id === doc.id || seen.has(targetDoc.id)) return false;
+        if (!(targetDoc.related || []).includes(doc.id)) return false;
+        if (!sharesNavigationContext(doc, targetDoc) && !bodyMentionsDoc(bodyText, targetDoc)) return false;
+        seen.add(targetDoc.id);
         return true;
       });
       const inferredDocs = wikiDocs
@@ -897,7 +922,7 @@
             || a.targetDoc.title.localeCompare(b.targetDoc.title, "ko");
         })
         .map(item => item.targetDoc);
-      return [...explicitDocs, ...inferredDocs].slice(0, limit);
+      return [...explicitDocs, ...incomingDocs, ...inferredDocs].slice(0, limit);
     }
 
     function renderTextWithGlossary(text, glossaryTerms, usedTerms = new Set()) {
