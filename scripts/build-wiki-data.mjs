@@ -26,7 +26,8 @@ function textFromQuiz(doc) {
   return (doc.quiz || []).map(item => [
     item.question,
     ...(item.choices || []),
-    item.explanation
+    item.explanation,
+    ...(item.choiceExplanations || [])
   ].join(" ")).join(" ");
 }
 
@@ -47,6 +48,24 @@ function textFromFigures(doc) {
     item.sourceNote,
     item.dataSource?.title,
     item.dataSource?.license
+  ].join(" ")).join(" ");
+}
+
+function textFromStoryNotes(doc) {
+  return (doc.storyNotes || []).map(item => [
+    item.title,
+    item.type,
+    item.reliability,
+    ...(item.body || []),
+    item.sourceNote
+  ].join(" ")).join(" ");
+}
+
+function textFromTermNotations(doc) {
+  return (doc.termNotations || []).map(item => [
+    item.term,
+    item.hanja,
+    item.english
   ].join(" ")).join(" ");
 }
 
@@ -85,7 +104,9 @@ function indexDoc(doc) {
     mainTopic,
     subTopicPath,
     categoryPaths,
-    abstract
+    abstract,
+    termNotations,
+    storyNotes
   } = doc;
   return {
     id,
@@ -103,6 +124,8 @@ function indexDoc(doc) {
     subTopicPath,
     categoryPaths,
     abstract,
+    termNotations,
+    storyNotes,
     quizCount: (doc.quiz || []).length,
     timelineCount: (doc.timeline || []).length,
     figureCount: (doc.figures || []).length
@@ -133,6 +156,8 @@ const searchIndex = docs.map(doc => {
       quiz: textFromQuiz(doc),
       timeline: textFromTimeline(doc),
       figures: textFromFigures(doc),
+      storyNotes: textFromStoryNotes(doc),
+      termNotations: textFromTermNotations(doc),
       curriculum: curriculumLinks.map(item => [item.subject, item.area, item.achievementSupport].join(" ")).join(" "),
       grades: grades.flatMap(gradeAliases).join(" ")
     }
