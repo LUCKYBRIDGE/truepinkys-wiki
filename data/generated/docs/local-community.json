@@ -27,9 +27,10 @@
   ],
   "related": [
     "map",
+    "natural-human-environment",
     "public-institution",
     "transportation",
-    "market-price"
+    "administrative-district"
   ],
   "sources": [
     {
@@ -54,12 +55,10 @@
   "definition": "내가 살거나 생활하는 지역과 그곳 사람들의 생활 모습을 함께 이르는 말입니다.",
   "abstract": "우리 고장은 가까운 지역의 자연환경, 인문환경, 교통, 산업, 생활 모습이 함께 나타나는 공간입니다.",
   "searchContexts": [
-    "고장이 궁금할 때",
-    "지역사회가 궁금할 때",
-    "마을이 궁금할 때",
-    "동네가 궁금할 때",
-    "지역 조사가 궁금할 때",
-    "지도가 궁금할 때"
+    "우리 고장의 뜻을 찾을 때",
+    "지역사회와 마을의 뜻을 찾을 때",
+    "고장의 자연환경과 인문환경을 찾을 때",
+    "지역 조사 자료의 종류를 찾을 때"
   ],
   "chapters": [
     {
@@ -105,7 +104,7 @@
       ]
     },
     {
-      "title": "지도와 현장 조사",
+      "title": "지역 조사 자료",
       "sections": [
         {
           "heading": "지도, 사진, 관찰, 인터뷰",

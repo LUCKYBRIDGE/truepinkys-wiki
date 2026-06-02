@@ -32,11 +32,10 @@
   ],
   "related": [
     "rules",
+    "law-hierarchy",
+    "basic-rights-duties",
     "democracy-election",
-    "election",
-    "public-institution",
-    "school-violence",
-    "nelson-mandela"
+    "court"
   ],
   "sources": [
     {
@@ -61,8 +60,8 @@
   "definition": "나라와 사회 전체에 적용되는 공적인 약속으로, 권리와 안전을 지키는 기준입니다.",
   "abstract": "법은 사회 전체에 적용되는 공적인 약속이며 권리와 의무, 공식 법령에 따라 효력이 정해집니다.",
   "searchContexts": [
-    "법이 무엇인지 궁금할 때",
-    "법과 규칙의 차이를 구분하고 싶을 때",
+    "법의 뜻을 찾을 때",
+    "법과 규칙의 차이를 구분할 때",
     "권리와 의무가 법과 어떻게 연결되는지 찾을 때",
     "법령을 공식 자료에서 찾을 때"
   ],
@@ -109,7 +108,7 @@
       ]
     },
     {
-      "title": "권리 보호와 법의 변화",
+      "title": "권리 보호와 법 개정",
       "sections": [
         {
           "heading": "권리를 지키는 약속",

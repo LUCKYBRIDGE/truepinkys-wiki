@@ -1899,7 +1899,7 @@
         "achievementSupport": "흐르는 물과 지표 변화, 지층 형성과 연결되는 범위하는 데 도움이 됩니다"
       }
     ],
-    "earthquake-volcano-activity": [
+    "earthquake": [
       {
         "subject": "과학",
         "area": "지구와 물질",
@@ -3645,7 +3645,7 @@
       "초5",
       "초6"
     ],
-    "earthquake-volcano-activity": [
+    "earthquake": [
       "초5",
       "초6"
     ],
