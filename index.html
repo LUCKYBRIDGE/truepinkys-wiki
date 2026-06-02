@@ -735,6 +735,21 @@
     ];
     const STATIC_GLOSSARY_BY_ID = new Map(STATIC_GLOSSARY_TERMS.map(item => [`term:${normalize(item.label)}`, item]));
 
+    function glossaryDocLabels(doc) {
+      if (!doc) return [];
+      return [
+        doc.title,
+        ...(doc.aliases || []),
+        ...(doc.termNotations || []).flatMap(item => [item.term, item.hanja, item.english])
+      ].map(item => String(item || "").trim()).filter(Boolean);
+    }
+
+    function findDocByGlossaryLabel(label, excludeId = "") {
+      const normalizedLabel = normalize(label);
+      if (!normalizedLabel) return null;
+      return wikiDocs.find(doc => doc.id !== excludeId && glossaryDocLabels(doc).some(item => normalize(item) === normalizedLabel)) || null;
+    }
+
     function glossaryLabelAllowed(label, options = {}) {
       const text = String(label || "").trim();
       if (!text) return false;
@@ -744,22 +759,29 @@
       return !/^[\d\s.,·~!@#$%^&*()_+=|;:'"<>[\]{}-]+$/.test(text);
     }
 
-    function glossaryTermsForDoc(doc, relatedDocs) {
-      const candidates = [];
-      const currentDocBodyLimit = Math.min(Math.max((doc.chapters || []).length * 8, 18), 34);
+    function docBodyTextForLinks(doc) {
       const chapterText = (doc.chapters || []).map(chapter => [
         chapter.title,
         ...(chapter.sections || []).flatMap(section => [section.heading, ...(section.body || [])])
       ].join(" ")).join(" ");
-      const bodyText = [
+      return [
+        doc.title,
         doc.summary,
         doc.definition,
         doc.abstract,
         chapterText,
-        ...(doc.storyNotes || []).flatMap(item => [item.title, ...(item.body || [])])
+        ...(doc.storyNotes || []).flatMap(item => [item.title, ...(item.body || [])]),
+        ...(doc.timeline || []).flatMap(item => [item.year, item.event, item.detail])
       ].join(" ");
+    }
+
+    function glossaryTermsForDoc(doc, relatedDocs) {
+      const candidates = [];
+      const currentDocBodyLimit = Math.min(Math.max((doc.chapters || []).length * 8, 18), 34);
+      const bodyText = docBodyTextForLinks(doc);
       const currentDocLabels = new Set([
         doc.title,
+        ...(doc.aliases || []),
         ...(doc.termNotations || []).map(item => item.term)
       ].map(normalize).filter(Boolean));
       const relatedIds = new Set((relatedDocs || []).map(item => item.id));
@@ -801,11 +823,27 @@
       });
       wikiDocs
         .filter(targetDoc => targetDoc.id !== doc.id && !relatedIds.has(targetDoc.id))
-        .filter(targetDoc => glossaryLabelAllowed(targetDoc.title) && bodyText.includes(targetDoc.title))
-        .sort((a, b) => [...b.title].length - [...a.title].length || a.title.localeCompare(b.title, "ko"))
-        .slice(0, 10)
-        .forEach((targetDoc, index) => addCandidate(targetDoc.title, targetDoc, 30 - index));
-      STATIC_GLOSSARY_TERMS.forEach((term, index) => addStaticCandidate(term, 22 - index / 100));
+        .map(targetDoc => ({
+          targetDoc,
+          labels: glossaryDocLabels(targetDoc)
+            .filter(label => glossaryLabelAllowed(label, { allowShort: label === targetDoc.title }))
+            .filter(label => bodyText.includes(label))
+            .sort((a, b) => [...b].length - [...a].length)
+        }))
+        .filter(item => item.labels.length)
+        .sort((a, b) => [...b.labels[0]].length - [...a.labels[0]].length || a.targetDoc.title.localeCompare(b.targetDoc.title, "ko"))
+        .slice(0, 18)
+        .forEach((item, index) => {
+          item.labels.slice(0, 2).forEach((label, labelIndex) => addCandidate(label, item.targetDoc, 36 - index - labelIndex / 10, { allowShort: label === item.targetDoc.title }));
+        });
+      STATIC_GLOSSARY_TERMS.forEach((term, index) => {
+        const linkedDoc = findDocByGlossaryLabel(term.label, doc.id);
+        if (linkedDoc && bodyText.includes(String(term.label || "").trim())) {
+          addCandidate(term.label, linkedDoc, 34 - index / 100);
+        } else {
+          addStaticCandidate(term, 22 - index / 100);
+        }
+      });
       const seen = new Set();
       const seenLabels = new Set();
       return candidates
@@ -819,6 +857,47 @@
           return true;
         })
         .slice(0, currentDocBodyLimit);
+    }
+
+    function labelIsStrongRelatedSignal(label, targetDoc) {
+      const text = String(label || "").trim();
+      if (!glossaryLabelAllowed(text, { allowShort: text === targetDoc.title })) return false;
+      if (text === targetDoc.title) return true;
+      if ((targetDoc.termNotations || []).some(item => item.term === text || item.hanja === text || item.english === text)) return true;
+      return [...text].length >= 4 || /[A-Za-z0-9]/.test(text);
+    }
+
+    function relatedNavigationDocs(doc, relatedDocs, limit = 14) {
+      const bodyText = docBodyTextForLinks(doc);
+      const seen = new Set();
+      const explicitDocs = (relatedDocs || []).filter(item => {
+        if (!item || item.id === doc.id || seen.has(item.id)) return false;
+        seen.add(item.id);
+        return true;
+      });
+      const inferredDocs = wikiDocs
+        .filter(targetDoc => targetDoc.id !== doc.id && !seen.has(targetDoc.id))
+        .map(targetDoc => {
+          const labels = glossaryDocLabels(targetDoc)
+            .filter(label => labelIsStrongRelatedSignal(label, targetDoc))
+            .filter(label => bodyText.includes(String(label || "").trim()))
+            .sort((a, b) => {
+              if (a === targetDoc.title && b !== targetDoc.title) return -1;
+              if (b === targetDoc.title && a !== targetDoc.title) return 1;
+              return [...b].length - [...a].length;
+            });
+          return { targetDoc, labels };
+        })
+        .filter(item => item.labels.length)
+        .sort((a, b) => {
+          const aTitleMatch = a.labels.includes(a.targetDoc.title) ? 1 : 0;
+          const bTitleMatch = b.labels.includes(b.targetDoc.title) ? 1 : 0;
+          return bTitleMatch - aTitleMatch
+            || [...b.labels[0]].length - [...a.labels[0]].length
+            || a.targetDoc.title.localeCompare(b.targetDoc.title, "ko");
+        })
+        .map(item => item.targetDoc);
+      return [...explicitDocs, ...inferredDocs].slice(0, limit);
     }
 
     function renderTextWithGlossary(text, glossaryTerms, usedTerms = new Set()) {
@@ -964,7 +1043,7 @@
         </div>
         ${entry.hasDoc ? `
           <a href="#/doc/${escapeHtml(entry.id)}" class="mt-3 inline-flex items-center gap-1.5 rounded-lg bg-teal-700 px-3 py-2 text-xs font-black text-white hover:bg-teal-800">
-            전체 지식 보기 <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            ${escapeHtml(entry.title)} 지식으로 이동 <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </a>
         ` : `<p class="mt-2 text-xs font-bold leading-relaxed text-slate-500">별도 지식 페이지 없이 짧은 뜻만 제공합니다.</p>`}
       `;
@@ -2551,6 +2630,44 @@
       `;
     }
 
+    function renderRelatedKnowledgeButtons(relatedDocs, options = {}) {
+      const docs = (relatedDocs || []).filter(Boolean);
+      if (!docs.length) return "";
+      const compact = Boolean(options.compact);
+      const limit = options.limit || docs.length;
+      const visibleDocs = docs.slice(0, limit);
+      return `
+        <div class="${compact ? "space-y-2" : "flex flex-wrap gap-2"}">
+          ${visibleDocs.map(item => `
+            <a href="#/doc/${escapeHtml(item.id)}" class="${compact ? "flex" : "inline-flex"} items-center justify-between gap-2 rounded-lg border border-teal-100 bg-teal-50 px-3 py-2 text-sm font-black text-teal-800 transition hover:border-teal-300 hover:bg-teal-100 hover:text-teal-950">
+              <span class="min-w-0 ${compact ? "line-clamp-1" : ""}">${escapeHtml(item.title)}</span>
+              <i class="fa-solid fa-arrow-right text-[10px] text-teal-600"></i>
+            </a>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderRelatedKnowledgePanel(relatedDocs, options = {}) {
+      const docs = (relatedDocs || []).filter(Boolean);
+      if (!docs.length) return "";
+      const title = options.title || "함께 보면 좋은 지식";
+      const description = options.description || "본문과 관련이 큰 지식으로 바로 이동할 수 있습니다.";
+      const compact = Boolean(options.compact);
+      return `
+        <section class="${options.className || ""}">
+          <div class="${compact ? "" : "rounded-xl border border-teal-100 bg-white p-4 sm:p-5"}">
+            <div class="mb-3">
+              <p class="text-xs font-black text-teal-700">관련 지식</p>
+              <h3 class="${compact ? "text-base" : "text-lg"} font-black text-slate-950">${escapeHtml(title)}</h3>
+              ${description ? `<p class="mt-1 text-xs font-bold leading-relaxed text-slate-500">${escapeHtml(description)}</p>` : ""}
+            </div>
+            ${renderRelatedKnowledgeButtons(docs, { compact, limit: options.limit })}
+          </div>
+        </section>
+      `;
+    }
+
     function storyNoteLabel(item) {
       if (item.reliability === "debated") return "전승으로 전해짐";
       if (item.type === "quote") return "기록 속 말";
@@ -2711,7 +2828,8 @@
       [doc] = await Promise.all([loadDoc(id), loadCurriculumMap()]);
 
       const relatedDocs = (doc.related || []).map(relatedId => wikiDocs.find(item => item.id === relatedId)).filter(Boolean);
-      const glossaryTerms = glossaryTermsForDoc(doc, relatedDocs);
+      const navigationRelatedDocs = relatedNavigationDocs(doc, relatedDocs);
+      const glossaryTerms = glossaryTermsForDoc(doc, navigationRelatedDocs);
       const usedGlossaryTerms = new Set();
       rerenderWithTransition(`
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 xl:gap-6 items-start">
@@ -2731,6 +2849,11 @@
             </header>
 
             ${renderLeadDefinition(doc, glossaryTerms)}
+            ${renderRelatedKnowledgePanel(navigationRelatedDocs, {
+              className: "mb-7",
+              description: "이 지식과 직접 연결되는 개념, 사건, 인물, 제도로 이동합니다.",
+              limit: 8
+            })}
             ${renderTimeline(doc)}
             ${renderFigures(doc)}
 
@@ -2747,11 +2870,12 @@
             ${renderQuiz(doc)}
 
             <section class="mt-8 border-t border-slate-200 pt-5 lg:hidden">
-              <h3 class="text-lg font-black text-slate-950 mb-3">관련 지식</h3>
-              ${relatedDocs.length ? `
-                <div class="grid gap-3 sm:grid-cols-2">
-                  ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-white px-4 py-3 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-1 block text-sm text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
-                </div>
+              ${navigationRelatedDocs.length ? `
+                ${renderRelatedKnowledgePanel(navigationRelatedDocs, {
+                  title: "다음으로 볼 지식",
+                  description: "현재 지식과 이어지는 내용을 더 살펴볼 수 있습니다.",
+                  limit: 10
+                })}
               ` : `<p class="text-sm text-slate-500 font-medium">아직 연결된 지식이 없습니다.</p>`}
             </section>
 
@@ -2802,12 +2926,14 @@
               ${renderSideToc(doc)}
             </section>
 
-            ${relatedDocs.length ? `
+            ${navigationRelatedDocs.length ? `
               <section class="bg-white border border-slate-200 rounded-xl p-5">
-                <h3 class="font-black text-slate-950 mb-3">관련 지식</h3>
-                <div class="space-y-2">
-                  ${relatedDocs.map(item => `<a href="#/doc/${item.id}" class="block rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 hover:border-teal-300 hover:bg-teal-50 transition"><strong class="block text-sm text-teal-800">${escapeHtml(item.title)}</strong><span class="mt-0.5 block text-xs text-slate-600 leading-relaxed">${escapeHtml(item.summary || item.definition || "")}</span></a>`).join("")}
-                </div>
+                ${renderRelatedKnowledgePanel(navigationRelatedDocs, {
+                  title: "이어지는 지식",
+                  description: "버튼을 누르면 해당 지식으로 이동합니다.",
+                  compact: true,
+                  limit: 10
+                })}
               </section>
             ` : ""}
 

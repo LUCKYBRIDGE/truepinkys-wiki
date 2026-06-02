@@ -1389,7 +1389,8 @@
       "saving-investing",
       "credit",
       "debt",
-      "central-bank"
+      "central-bank",
+      "privacy"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -2316,9 +2317,13 @@
       "생활"
     ],
     "related": [
+      "body-structure-function",
       "digestion",
+      "circulatory-system",
+      "oxygen-carbon-dioxide",
       "growth",
       "nutrition",
+      "fine-dust",
       "bacteria-virus"
     ],
     "mainTopic": "건강",
@@ -2822,12 +2827,16 @@
       "생활"
     ],
     "related": [
+      "weather-observation",
+      "air-pressure-weather",
+      "humidity",
       "fine-dust",
       "climate-change",
       "earthquake-safety",
       "clouds-rain",
       "wind",
-      "typhoon"
+      "typhoon",
+      "natural-disasters-preparedness"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -3328,6 +3337,8 @@
     "related": [
       "industrial-revolution",
       "weather-forecast",
+      "greenhouse-gas",
+      "renewable-energy",
       "ecosystem",
       "fine-dust"
     ],
@@ -6297,8 +6308,10 @@
     "related": [
       "air-pressure-weather",
       "weather-observation",
+      "weather-forecast",
       "weather-climate",
-      "seasonal-weather"
+      "seasonal-weather",
+      "typhoon"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -6366,8 +6379,11 @@
     ],
     "related": [
       "weather-forecast",
+      "weather-observation",
+      "air-pressure-weather",
       "wind",
       "clouds-rain",
+      "natural-disasters-preparedness",
       "earthquake-safety"
     ],
     "mainTopic": "과학",
@@ -9091,7 +9107,9 @@
       "humidity",
       "clouds-rain",
       "water-cycle",
-      "weather-observation"
+      "weather-observation",
+      "state-change",
+      "weather-forecast"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -12245,6 +12263,8 @@
     "related": [
       "deflation",
       "interest-rate",
+      "central-bank",
+      "exchange-rate",
       "market-price",
       "money",
       "oil-shock"
@@ -12354,6 +12374,8 @@
       "inflation",
       "market-price",
       "interest-rate",
+      "central-bank",
+      "debt",
       "money"
     ],
     "mainTopic": "돈과 경제",
@@ -12445,6 +12467,7 @@
       "inflation",
       "bond",
       "central-bank",
+      "credit",
       "money"
     ],
     "mainTopic": "돈과 경제",
@@ -12553,6 +12576,8 @@
       "interest-rate",
       "safe-asset",
       "central-bank",
+      "credit",
+      "debt",
       "money"
     ],
     "mainTopic": "돈과 경제",
@@ -12637,6 +12662,8 @@
     "related": [
       "saving-investing",
       "money",
+      "central-bank",
+      "bank",
       "data",
       "algorithm",
       "privacy"
@@ -13004,6 +13031,8 @@
       "trade-export-import",
       "petrodollar",
       "inflation",
+      "interest-rate",
+      "safe-asset",
       "money"
     ],
     "mainTopic": "돈과 경제",
@@ -13094,6 +13123,8 @@
       "bond",
       "interest-rate",
       "exchange-rate",
+      "credit",
+      "money",
       "bitcoin"
     ],
     "mainTopic": "돈과 경제",
@@ -13162,11 +13193,14 @@
       "뉴스와 미디어"
     ],
     "related": [
+      "bank",
       "saving-investing",
       "interest-rate",
       "inflation",
+      "deflation",
       "money",
-      "bond"
+      "bond",
+      "exchange-rate"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -15331,7 +15365,8 @@
       "baekje",
       "silla",
       "three-kingdoms-unification",
-      "balhae"
+      "balhae",
+      "dae-joyeong"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15543,6 +15578,7 @@
     "related": [
       "samhan",
       "three-kingdoms",
+      "gaya",
       "kim-yu-sin",
       "three-kingdoms-unification",
       "unified-silla",
@@ -16351,6 +16387,7 @@
     ],
     "related": [
       "unified-silla",
+      "silla",
       "goryeo",
       "three-kingdoms-unification",
       "wang-geon"

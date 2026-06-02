@@ -36,6 +36,8 @@
     "interest-rate",
     "safe-asset",
     "central-bank",
+    "credit",
+    "debt",
     "money"
   ],
   "sources": [

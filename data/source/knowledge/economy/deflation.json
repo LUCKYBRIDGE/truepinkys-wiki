@@ -33,6 +33,8 @@
     "inflation",
     "market-price",
     "interest-rate",
+    "central-bank",
+    "debt",
     "money"
   ],
   "sources": [

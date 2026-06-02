@@ -35,6 +35,8 @@
     "trade-export-import",
     "petrodollar",
     "inflation",
+    "interest-rate",
+    "safe-asset",
     "money"
   ],
   "sources": [

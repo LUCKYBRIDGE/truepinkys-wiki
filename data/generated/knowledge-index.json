@@ -1044,7 +1044,8 @@
       "saving-investing",
       "credit",
       "debt",
-      "central-bank"
+      "central-bank",
+      "privacy"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "돈과 경제",
@@ -1821,9 +1822,13 @@
       "폐의 역할이 궁금할 때"
     ],
     "related": [
+      "body-structure-function",
       "digestion",
+      "circulatory-system",
+      "oxygen-carbon-dioxide",
       "growth",
       "nutrition",
+      "fine-dust",
       "bacteria-virus"
     ],
     "lastReviewed": "2026-05-20",
@@ -2280,12 +2285,16 @@
       "날씨와 생활 계획의 관계를 알고 싶을 때"
     ],
     "related": [
+      "weather-observation",
+      "air-pressure-weather",
+      "humidity",
       "fine-dust",
       "climate-change",
       "earthquake-safety",
       "clouds-rain",
       "wind",
-      "typhoon"
+      "typhoon",
+      "natural-disasters-preparedness"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "과학",
@@ -2731,6 +2740,8 @@
     "related": [
       "industrial-revolution",
       "weather-forecast",
+      "greenhouse-gas",
+      "renewable-energy",
       "ecosystem",
       "fine-dust"
     ],
@@ -5060,8 +5071,10 @@
     "related": [
       "air-pressure-weather",
       "weather-observation",
+      "weather-forecast",
       "weather-climate",
-      "seasonal-weather"
+      "seasonal-weather",
+      "typhoon"
     ],
     "lastReviewed": "2026-05-21",
     "mainTopic": "과학",
@@ -5124,8 +5137,11 @@
     ],
     "related": [
       "weather-forecast",
+      "weather-observation",
+      "air-pressure-weather",
       "wind",
       "clouds-rain",
+      "natural-disasters-preparedness",
       "earthquake-safety"
     ],
     "lastReviewed": "2026-05-27",
@@ -7414,7 +7430,9 @@
       "humidity",
       "clouds-rain",
       "water-cycle",
-      "weather-observation"
+      "weather-observation",
+      "state-change",
+      "weather-forecast"
     ],
     "lastReviewed": "2026-05-21",
     "mainTopic": "과학",
@@ -9866,6 +9884,8 @@
     "related": [
       "deflation",
       "interest-rate",
+      "central-bank",
+      "exchange-rate",
       "market-price",
       "money",
       "oil-shock"
@@ -9925,6 +9945,8 @@
       "inflation",
       "market-price",
       "interest-rate",
+      "central-bank",
+      "debt",
       "money"
     ],
     "lastReviewed": "2026-05-14",
@@ -9987,6 +10009,7 @@
       "inflation",
       "bond",
       "central-bank",
+      "credit",
       "money"
     ],
     "lastReviewed": "2026-05-14",
@@ -10047,6 +10070,8 @@
       "interest-rate",
       "safe-asset",
       "central-bank",
+      "credit",
+      "debt",
       "money"
     ],
     "lastReviewed": "2026-05-14",
@@ -10103,6 +10128,8 @@
     "related": [
       "saving-investing",
       "money",
+      "central-bank",
+      "bank",
       "data",
       "algorithm",
       "privacy"
@@ -10390,6 +10417,8 @@
       "trade-export-import",
       "petrodollar",
       "inflation",
+      "interest-rate",
+      "safe-asset",
       "money"
     ],
     "lastReviewed": "2026-05-14",
@@ -10450,6 +10479,8 @@
       "bond",
       "interest-rate",
       "exchange-rate",
+      "credit",
+      "money",
       "bitcoin"
     ],
     "lastReviewed": "2026-05-14",
@@ -10506,11 +10537,14 @@
       "중앙은행의 뜻을 찾을 때"
     ],
     "related": [
+      "bank",
       "saving-investing",
       "interest-rate",
       "inflation",
+      "deflation",
       "money",
-      "bond"
+      "bond",
+      "exchange-rate"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "돈과 경제",
@@ -12225,7 +12259,8 @@
       "baekje",
       "silla",
       "three-kingdoms-unification",
-      "balhae"
+      "balhae",
+      "dae-joyeong"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
@@ -12400,6 +12435,7 @@
     "related": [
       "samhan",
       "three-kingdoms",
+      "gaya",
       "kim-yu-sin",
       "three-kingdoms-unification",
       "unified-silla",
@@ -13102,6 +13138,7 @@
     ],
     "related": [
       "unified-silla",
+      "silla",
       "goryeo",
       "three-kingdoms-unification",
       "wang-geon"

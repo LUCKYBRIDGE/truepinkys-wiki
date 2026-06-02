@@ -46,7 +46,9 @@
     "humidity",
     "clouds-rain",
     "water-cycle",
-    "weather-observation"
+    "weather-observation",
+    "state-change",
+    "weather-forecast"
   ],
   "sources": [
     {

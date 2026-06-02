@@ -34,8 +34,11 @@
   ],
   "related": [
     "weather-forecast",
+    "weather-observation",
+    "air-pressure-weather",
     "wind",
     "clouds-rain",
+    "natural-disasters-preparedness",
     "earthquake-safety"
   ],
   "sources": [

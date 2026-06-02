@@ -36,6 +36,8 @@
     "bond",
     "interest-rate",
     "exchange-rate",
+    "credit",
+    "money",
     "bitcoin"
   ],
   "sources": [

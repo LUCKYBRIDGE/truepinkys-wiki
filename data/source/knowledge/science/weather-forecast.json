@@ -35,12 +35,16 @@
     "강수확률"
   ],
   "related": [
+    "weather-observation",
+    "air-pressure-weather",
+    "humidity",
     "fine-dust",
     "climate-change",
     "earthquake-safety",
     "clouds-rain",
     "wind",
-    "typhoon"
+    "typhoon",
+    "natural-disasters-preparedness"
   ],
   "sources": [
     {
