@@ -47,8 +47,7 @@
     "clouds-rain",
     "water-cycle",
     "weather-observation",
-    "state-change",
-    "weather-forecast"
+    "state-change"
   ],
   "sources": [
     {

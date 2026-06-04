@@ -49,8 +49,7 @@
     "decimal",
     "percentage",
     "statistics",
-    "graph",
-    "market-price"
+    "graph"
   ],
   "termNotations": [
     {

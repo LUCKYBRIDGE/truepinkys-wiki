@@ -2725,11 +2725,10 @@
     ],
     "related": [
       "industrial-revolution",
-      "weather-forecast",
+      "weather-climate",
       "greenhouse-gas",
       "renewable-energy",
-      "ecosystem",
-      "fine-dust"
+      "ecosystem"
     ],
     "lastReviewed": "2026-05-13",
     "mainTopic": "환경",
@@ -3941,10 +3940,9 @@
     "related": [
       "election",
       "law-rules",
-      "public-institution",
+      "separation-of-powers",
       "april-nineteen-revolution",
-      "june-democratic-struggle",
-      "nelson-mandela"
+      "june-democratic-struggle"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "사회와 생활",
@@ -4010,7 +4008,6 @@
       "democracy-election",
       "law-rules",
       "national-assembly",
-      "public-institution",
       "april-nineteen-revolution",
       "june-democratic-struggle"
     ],
@@ -4285,8 +4282,7 @@
       "decimal",
       "percentage",
       "statistics",
-      "graph",
-      "market-price"
+      "graph"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "수학",
@@ -5047,8 +5043,6 @@
     ],
     "related": [
       "air-pressure-weather",
-      "weather-observation",
-      "weather-forecast",
       "weather-climate",
       "seasonal-weather",
       "typhoon"
@@ -7407,8 +7401,7 @@
       "clouds-rain",
       "water-cycle",
       "weather-observation",
-      "state-change",
-      "weather-forecast"
+      "state-change"
     ],
     "lastReviewed": "2026-05-21",
     "mainTopic": "과학",
@@ -9921,8 +9914,7 @@
       "market-price",
       "interest-rate",
       "central-bank",
-      "debt",
-      "money"
+      "debt"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "돈과 경제",
@@ -10386,8 +10378,7 @@
       "petrodollar",
       "inflation",
       "interest-rate",
-      "safe-asset",
-      "money"
+      "safe-asset"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "돈과 경제",
@@ -10621,7 +10612,6 @@
     ],
     "related": [
       "trade-export-import",
-      "market-price",
       "gross-domestic-product",
       "population",
       "transportation",
@@ -13693,10 +13683,7 @@
     "related": [
       "joseon",
       "national-heritage",
-      "copyright",
-      "palace",
-      "king-sejong",
-      "jang-yeong-sil"
+      "king-sejong"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",

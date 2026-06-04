@@ -34,8 +34,7 @@
     "market-price",
     "interest-rate",
     "central-bank",
-    "debt",
-    "money"
+    "debt"
   ],
   "sources": [
     {

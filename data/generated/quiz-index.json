@@ -3322,11 +3322,10 @@
     ],
     "related": [
       "industrial-revolution",
-      "weather-forecast",
+      "weather-climate",
       "greenhouse-gas",
       "renewable-energy",
-      "ecosystem",
-      "fine-dust"
+      "ecosystem"
     ],
     "mainTopic": "환경",
     "subTopicPath": [
@@ -4947,10 +4946,9 @@
     "related": [
       "election",
       "law-rules",
-      "public-institution",
+      "separation-of-powers",
       "april-nineteen-revolution",
-      "june-democratic-struggle",
-      "nelson-mandela"
+      "june-democratic-struggle"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -5039,7 +5037,6 @@
       "democracy-election",
       "law-rules",
       "national-assembly",
-      "public-institution",
       "april-nineteen-revolution",
       "june-democratic-struggle"
     ],
@@ -5360,8 +5357,7 @@
       "decimal",
       "percentage",
       "statistics",
-      "graph",
-      "market-price"
+      "graph"
     ],
     "mainTopic": "수학",
     "subTopicPath": [
@@ -6284,8 +6280,6 @@
     ],
     "related": [
       "air-pressure-weather",
-      "weather-observation",
-      "weather-forecast",
       "weather-climate",
       "seasonal-weather",
       "typhoon"
@@ -9084,8 +9078,7 @@
       "clouds-rain",
       "water-cycle",
       "weather-observation",
-      "state-change",
-      "weather-forecast"
+      "state-change"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -12350,8 +12343,7 @@
       "market-price",
       "interest-rate",
       "central-bank",
-      "debt",
-      "money"
+      "debt"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -13000,8 +12992,7 @@
       "petrodollar",
       "inflation",
       "interest-rate",
-      "safe-asset",
-      "money"
+      "safe-asset"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -13332,7 +13323,6 @@
     ],
     "related": [
       "trade-export-import",
-      "market-price",
       "gross-domestic-product",
       "population",
       "transportation",
@@ -16987,10 +16977,7 @@
     "related": [
       "joseon",
       "national-heritage",
-      "copyright",
-      "palace",
-      "king-sejong",
-      "jang-yeong-sil"
+      "king-sejong"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
