@@ -919,8 +919,7 @@
       "household-budget",
       "saving-investing",
       "market-price",
-      "consumer-rights",
-      "privacy"
+      "consumer-rights"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "돈과 경제",
@@ -2654,8 +2653,7 @@
       "earth-rotation-revolution",
       "cause-of-seasons",
       "day-night-length",
-      "weather-forecast",
-      "clouds-rain",
+      "seasonal-weather",
       "climate-change"
     ],
     "lastReviewed": "2026-05-20",
@@ -4010,8 +4008,8 @@
     ],
     "related": [
       "democracy-election",
-      "fake-news",
       "law-rules",
+      "national-assembly",
       "public-institution",
       "april-nineteen-revolution",
       "june-democratic-struggle"
@@ -5120,8 +5118,7 @@
       "air-pressure-weather",
       "wind",
       "clouds-rain",
-      "natural-disasters-preparedness",
-      "earthquake-safety"
+      "natural-disasters-preparedness"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "과학",
@@ -10048,8 +10045,7 @@
       "safe-asset",
       "central-bank",
       "credit",
-      "debt",
-      "money"
+      "debt"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "돈과 경제",
@@ -10106,10 +10102,8 @@
       "saving-investing",
       "money",
       "central-bank",
-      "bank",
       "data",
-      "algorithm",
-      "privacy"
+      "algorithm"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "돈과 경제",
@@ -10453,8 +10447,6 @@
       "bond",
       "interest-rate",
       "exchange-rate",
-      "credit",
-      "money",
       "bitcoin"
     ],
     "lastReviewed": "2026-05-14",
@@ -10567,11 +10559,8 @@
       "무역이 생활에 어떤 영향을 주는지 찾을 때"
     ],
     "related": [
-      "silk-roads",
-      "industrial-revolution",
       "exchange-rate",
       "market-price",
-      "money",
       "petrodollar"
     ],
     "lastReviewed": "2026-05-14",
@@ -12311,8 +12300,7 @@
       "gaya",
       "silla",
       "goguryeo",
-      "three-kingdoms-unification",
-      "national-heritage"
+      "three-kingdoms-unification"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
@@ -12576,11 +12564,10 @@
     ],
     "related": [
       "three-kingdoms",
+      "silla",
+      "baekje",
       "three-kingdoms-unification",
-      "unified-silla",
-      "national-heritage",
-      "map",
-      "buyeo"
+      "unified-silla"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",
@@ -12928,10 +12915,8 @@
       "통일신라와 발해의 남북국 시대를 찾을 때"
     ],
     "related": [
+      "goguryeo",
       "unified-silla",
-      "three-kingdoms-unification",
-      "three-kingdoms",
-      "national-heritage",
       "goryeo",
       "dae-joyeong"
     ],
@@ -13890,10 +13875,8 @@
     ],
     "related": [
       "king-sejong",
-      "hunminjeongeum",
-      "weather-forecast",
+      "weather-observation",
       "science-experiment",
-      "electric-circuit",
       "joseon"
     ],
     "lastReviewed": "2026-05-20",
@@ -13985,8 +13968,7 @@
       "hansan-island-battle",
       "jinju-fortress-battle",
       "yi-sun-sin",
-      "manchu-war",
-      "national-heritage"
+      "manchu-war"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "역사",
@@ -15585,7 +15567,6 @@
       "ganghwa-treaty",
       "righteous-army",
       "march-first-movement",
-      "provisional-government",
       "an-jung-geun"
     ],
     "lastReviewed": "2026-05-20",
@@ -15765,7 +15746,7 @@
     "related": [
       "korean-empire",
       "eulsa-treaty",
-      "ganghwa-treaty",
+      "independence-movement",
       "march-first-movement",
       "provisional-government",
       "an-jung-geun"
@@ -16026,12 +16007,12 @@
       "대한민국 임시정부와 3·1 운동의 관계를 볼 때"
     ],
     "related": [
+      "japanese-colonial-period",
+      "independence-movement",
       "eulsa-treaty",
       "righteous-army",
       "provisional-government",
       "liberation-korea",
-      "donghak-peasant-movement",
-      "democracy-election",
       "yu-gwan-sun"
     ],
     "lastReviewed": "2026-05-19",
@@ -16286,11 +16267,10 @@
     ],
     "related": [
       "march-first-movement",
+      "independence-movement",
       "liberation-korea",
-      "democracy-election",
-      "law-rules",
       "kim-gu",
-      "an-jung-geun"
+      "korean-liberation-army"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",
@@ -17030,14 +17010,12 @@
       "해방과 광복이라는 말을 구분하고 싶을 때"
     ],
     "related": [
-      "march-first-movement",
+      "japanese-colonial-period",
+      "independence-movement",
       "provisional-government",
-      "korean-war",
-      "democracy-election",
       "world-war-two",
-      "yu-gwan-sun",
-      "kim-gu",
-      "an-jung-geun"
+      "korean-war",
+      "democracy-election"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",
@@ -17712,10 +17690,7 @@
     "related": [
       "cold-war",
       "korean-war",
-      "democracy-election",
-      "law-rules",
-      "world-war-two",
-      "nelson-mandela"
+      "world-war-two"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",

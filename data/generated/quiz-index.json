@@ -1215,8 +1215,7 @@
       "household-budget",
       "saving-investing",
       "market-price",
-      "consumer-rights",
-      "privacy"
+      "consumer-rights"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -3249,8 +3248,7 @@
       "earth-rotation-revolution",
       "cause-of-seasons",
       "day-night-length",
-      "weather-forecast",
-      "clouds-rain",
+      "seasonal-weather",
       "climate-change"
     ],
     "mainTopic": "과학",
@@ -5039,8 +5037,8 @@
     ],
     "related": [
       "democracy-election",
-      "fake-news",
       "law-rules",
+      "national-assembly",
       "public-institution",
       "april-nineteen-revolution",
       "june-democratic-struggle"
@@ -6362,8 +6360,7 @@
       "air-pressure-weather",
       "wind",
       "clouds-rain",
-      "natural-disasters-preparedness",
-      "earthquake-safety"
+      "natural-disasters-preparedness"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -12554,8 +12551,7 @@
       "safe-asset",
       "central-bank",
       "credit",
-      "debt",
-      "money"
+      "debt"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -12640,10 +12636,8 @@
       "saving-investing",
       "money",
       "central-bank",
-      "bank",
       "data",
-      "algorithm",
-      "privacy"
+      "algorithm"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -13097,8 +13091,6 @@
       "bond",
       "interest-rate",
       "exchange-rate",
-      "credit",
-      "money",
       "bitcoin"
     ],
     "mainTopic": "돈과 경제",
@@ -13252,11 +13244,8 @@
       "문화"
     ],
     "related": [
-      "silk-roads",
-      "industrial-revolution",
       "exchange-rate",
       "market-price",
-      "money",
       "petrodollar"
     ],
     "mainTopic": "돈과 경제",
@@ -15436,8 +15425,7 @@
       "gaya",
       "silla",
       "goguryeo",
-      "three-kingdoms-unification",
-      "national-heritage"
+      "three-kingdoms-unification"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15773,11 +15761,10 @@
     ],
     "related": [
       "three-kingdoms",
+      "silla",
+      "baekje",
       "three-kingdoms-unification",
-      "unified-silla",
-      "national-heritage",
-      "map",
-      "buyeo"
+      "unified-silla"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -16145,10 +16132,8 @@
       "정보읽기"
     ],
     "related": [
+      "goguryeo",
       "unified-silla",
-      "three-kingdoms-unification",
-      "three-kingdoms",
-      "national-heritage",
       "goryeo",
       "dae-joyeong"
     ],
@@ -17212,10 +17197,8 @@
     ],
     "related": [
       "king-sejong",
-      "hunminjeongeum",
-      "weather-forecast",
+      "weather-observation",
       "science-experiment",
-      "electric-circuit",
       "joseon"
     ],
     "mainTopic": "역사",
@@ -17307,8 +17290,7 @@
       "hansan-island-battle",
       "jinju-fortress-battle",
       "yi-sun-sin",
-      "manchu-war",
-      "national-heritage"
+      "manchu-war"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -19039,7 +19021,6 @@
       "ganghwa-treaty",
       "righteous-army",
       "march-first-movement",
-      "provisional-government",
       "an-jung-geun"
     ],
     "mainTopic": "역사",
@@ -19222,7 +19203,7 @@
     "related": [
       "korean-empire",
       "eulsa-treaty",
-      "ganghwa-treaty",
+      "independence-movement",
       "march-first-movement",
       "provisional-government",
       "an-jung-geun"
@@ -19494,12 +19475,12 @@
       "뉴스와 미디어"
     ],
     "related": [
+      "japanese-colonial-period",
+      "independence-movement",
       "eulsa-treaty",
       "righteous-army",
       "provisional-government",
       "liberation-korea",
-      "donghak-peasant-movement",
-      "democracy-election",
       "yu-gwan-sun"
     ],
     "mainTopic": "역사",
@@ -19791,11 +19772,10 @@
     ],
     "related": [
       "march-first-movement",
+      "independence-movement",
       "liberation-korea",
-      "democracy-election",
-      "law-rules",
       "kim-gu",
-      "an-jung-geun"
+      "korean-liberation-army"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -20627,14 +20607,12 @@
       "뉴스와 미디어"
     ],
     "related": [
-      "march-first-movement",
+      "japanese-colonial-period",
+      "independence-movement",
       "provisional-government",
-      "korean-war",
-      "democracy-election",
       "world-war-two",
-      "yu-gwan-sun",
-      "kim-gu",
-      "an-jung-geun"
+      "korean-war",
+      "democracy-election"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -21388,10 +21366,7 @@
     "related": [
       "cold-war",
       "korean-war",
-      "democracy-election",
-      "law-rules",
-      "world-war-two",
-      "nelson-mandela"
+      "world-war-two"
     ],
     "mainTopic": "역사",
     "subTopicPath": [

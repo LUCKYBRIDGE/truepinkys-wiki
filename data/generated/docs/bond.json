@@ -37,8 +37,7 @@
     "safe-asset",
     "central-bank",
     "credit",
-    "debt",
-    "money"
+    "debt"
   ],
   "sources": [
     {
