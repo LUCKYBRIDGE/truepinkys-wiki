@@ -1389,8 +1389,7 @@
       "saving-investing",
       "credit",
       "debt",
-      "central-bank",
-      "privacy"
+      "central-bank"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -1953,8 +1952,6 @@
       "체험학습"
     ],
     "related": [
-      "hunminjeongeum",
-      "ganghwa-treaty",
       "joseon",
       "imjin-war",
       "manchu-war",
@@ -2318,13 +2315,8 @@
     ],
     "related": [
       "body-structure-function",
-      "digestion",
       "circulatory-system",
-      "oxygen-carbon-dioxide",
-      "growth",
-      "nutrition",
-      "fine-dust",
-      "bacteria-virus"
+      "oxygen-carbon-dioxide"
     ],
     "mainTopic": "건강",
     "subTopicPath": [
@@ -2829,14 +2821,10 @@
     "related": [
       "weather-observation",
       "air-pressure-weather",
-      "humidity",
-      "fine-dust",
-      "climate-change",
-      "earthquake-safety",
       "clouds-rain",
       "wind",
-      "typhoon",
-      "natural-disasters-preparedness"
+      "humidity",
+      "typhoon"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -5853,18 +5841,9 @@
       "생활"
     ],
     "related": [
-      "gojoseon",
-      "balhae",
       "hunminjeongeum",
-      "mongol-invasions-goryeo",
-      "three-kingdoms-unification",
-      "goryeo",
-      "joseon",
-      "imjin-war",
       "palace",
-      "map",
-      "democracy-election",
-      "local-community",
+      "palman-daejanggyeong",
       "king-sejong"
     ],
     "mainTopic": "역사",
@@ -12266,7 +12245,6 @@
       "central-bank",
       "exchange-rate",
       "market-price",
-      "money",
       "oil-shock"
     ],
     "mainTopic": "돈과 경제",
@@ -12467,8 +12445,7 @@
       "inflation",
       "bond",
       "central-bank",
-      "credit",
-      "money"
+      "credit"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -12755,9 +12732,6 @@
       "united-nations",
       "korean-war",
       "liberation-korea",
-      "democracy-election",
-      "law-rules",
-      "national-heritage",
       "world-war-two"
     ],
     "mainTopic": "역사",
@@ -13194,13 +13168,9 @@
     ],
     "related": [
       "bank",
-      "saving-investing",
       "interest-rate",
       "inflation",
-      "deflation",
-      "money",
-      "bond",
-      "exchange-rate"
+      "money"
     ],
     "mainTopic": "돈과 경제",
     "subTopicPath": [
@@ -15265,16 +15235,11 @@
       "정보읽기"
     ],
     "related": [
-      "gojoseon",
-      "buyeo",
+      "goguryeo",
+      "baekje",
+      "silla",
       "gaya",
-      "three-kingdoms-unification",
-      "unified-silla",
-      "balhae",
-      "national-heritage",
-      "map",
-      "gwanggaeto-the-great",
-      "kim-yu-sin"
+      "three-kingdoms-unification"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15364,9 +15329,7 @@
       "gwanggaeto-the-great",
       "baekje",
       "silla",
-      "three-kingdoms-unification",
-      "balhae",
-      "dae-joyeong"
+      "balhae"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15576,17 +15539,14 @@
       "정보읽기"
     ],
     "related": [
-      "samhan",
       "three-kingdoms",
+      "goguryeo",
+      "baekje",
       "gaya",
       "kim-yu-sin",
       "three-kingdoms-unification",
       "unified-silla",
-      "baekje",
-      "goguryeo",
-      "later-three-kingdoms",
-      "wang-geon",
-      "goryeo"
+      "later-three-kingdoms"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15974,11 +15934,9 @@
     ],
     "related": [
       "three-kingdoms",
-      "gaya",
+      "silla",
       "unified-silla",
       "balhae",
-      "national-heritage",
-      "palace",
       "kim-yu-sin"
     ],
     "mainTopic": "역사",
@@ -16083,11 +16041,8 @@
     "related": [
       "three-kingdoms",
       "three-kingdoms-unification",
-      "gaya",
       "balhae",
       "later-three-kingdoms",
-      "national-heritage",
-      "palace",
       "kim-yu-sin"
     ],
     "mainTopic": "역사",
@@ -16552,12 +16507,10 @@
     ],
     "related": [
       "later-three-kingdoms",
-      "balhae",
+      "wang-geon",
       "joseon",
       "mongol-invasions-goryeo",
-      "national-heritage",
-      "palace",
-      "wang-geon"
+      "palman-daejanggyeong"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -16944,14 +16897,8 @@
       "korean-empire",
       "hunminjeongeum",
       "ganghwa-treaty",
-      "eulsa-treaty",
-      "palace",
-      "national-heritage",
       "imjin-war",
-      "king-sejong",
-      "jeong-yak-yong",
-      "jang-yeong-sil",
-      "yi-sun-sin"
+      "king-sejong"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -18838,11 +18785,7 @@
     "related": [
       "joseon",
       "korean-empire",
-      "ganghwa-treaty",
-      "eulsa-treaty",
       "righteous-army",
-      "democracy-election",
-      "law-rules",
       "march-first-movement",
       "jeon-bong-jun"
     ],
@@ -19025,10 +18968,7 @@
       "ganghwa-treaty",
       "donghak-peasant-movement",
       "eulsa-treaty",
-      "righteous-army",
-      "march-first-movement",
-      "provisional-government",
-      "an-jung-geun"
+      "righteous-army"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -20783,13 +20723,8 @@
     ],
     "related": [
       "united-nations",
-      "april-nineteen-revolution",
-      "may-eighteen-democratization",
-      "june-democratic-struggle",
       "liberation-korea",
       "cold-war",
-      "democracy-election",
-      "law-rules",
       "world-war-two"
     ],
     "mainTopic": "역사",

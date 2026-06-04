@@ -37,14 +37,10 @@
   "related": [
     "weather-observation",
     "air-pressure-weather",
-    "humidity",
-    "fine-dust",
-    "climate-change",
-    "earthquake-safety",
     "clouds-rain",
     "wind",
-    "typhoon",
-    "natural-disasters-preparedness"
+    "humidity",
+    "typhoon"
   ],
   "sources": [
     {
