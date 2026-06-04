@@ -6,7 +6,7 @@
   "topicTags": ["환경", "건강", "생활"],
   "aliases": ["공기 오염", "대기오염", "오염 물질", "미세먼지와 대기 오염"],
   "keywords": ["공기", "오염", "미세먼지", "배출가스", "건강", "환경", "대기"],
-  "related": ["fine-dust", "weather-forecast", "climate-change", "resource-recycling", "water-pollution"],
+  "related": ["fine-dust", "climate-change", "resource-recycling", "water-pollution"],
   "sources": [
     {
       "publisher": "환경부",

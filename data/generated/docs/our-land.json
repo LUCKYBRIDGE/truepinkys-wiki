@@ -34,8 +34,7 @@
     "map",
     "local-community",
     "population",
-    "transportation",
-    "national-heritage"
+    "transportation"
   ],
   "sources": [
     {

@@ -1041,8 +1041,7 @@
     "related": [
       "nutrition",
       "bones-muscles",
-      "smartphone-overuse",
-      "fake-news"
+      "smartphone-overuse"
     ],
     "mainTopic": "건강과 생활",
     "subTopicPath": [
@@ -3483,7 +3482,6 @@
     ],
     "related": [
       "fine-dust",
-      "weather-forecast",
       "climate-change",
       "resource-recycling",
       "water-pollution"
@@ -3625,8 +3623,6 @@
       "환경"
     ],
     "related": [
-      "weather-forecast",
-      "climate-change",
       "clouds-rain",
       "water-cycle"
     ],
@@ -3886,9 +3882,7 @@
     ],
     "related": [
       "natural-disasters-preparedness",
-      "typhoon",
-      "weather-forecast",
-      "fake-news"
+      "typhoon"
     ],
     "mainTopic": "안전",
     "subTopicPath": [
@@ -4763,8 +4757,7 @@
       "map",
       "local-community",
       "population",
-      "transportation",
-      "national-heritage"
+      "transportation"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -5198,7 +5191,6 @@
     "related": [
       "graph",
       "fake-news",
-      "map",
       "population"
     ],
     "mainTopic": "정보 읽기",
@@ -8740,8 +8732,7 @@
     "related": [
       "moon-phases",
       "earth-rotation-revolution",
-      "water-cycle",
-      "weather-forecast"
+      "water-cycle"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -11266,7 +11257,6 @@
     "related": [
       "statistics",
       "graph",
-      "map",
       "local-community"
     ],
     "mainTopic": "사회와 생활",
@@ -11437,7 +11427,6 @@
     "related": [
       "map",
       "local-community",
-      "weather-forecast",
       "fine-dust"
     ],
     "mainTopic": "사회와 생활",
@@ -14278,8 +14267,7 @@
     ],
     "related": [
       "earthquake-safety",
-      "volcano",
-      "map"
+      "volcano"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -14366,8 +14354,7 @@
     "related": [
       "plate-tectonics",
       "earthquake",
-      "earthquake-safety",
-      "national-heritage"
+      "earthquake-safety"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -14865,9 +14852,7 @@
     ],
     "related": [
       "buyeo",
-      "three-kingdoms",
-      "national-heritage",
-      "map"
+      "three-kingdoms"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -14952,8 +14937,7 @@
     ],
     "related": [
       "gojoseon",
-      "three-kingdoms",
-      "map"
+      "three-kingdoms"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -15645,9 +15629,7 @@
     ],
     "related": [
       "three-kingdoms",
-      "gojoseon",
       "balhae",
-      "map",
       "national-heritage"
     ],
     "mainTopic": "역사",
@@ -15825,8 +15807,7 @@
       "gaya",
       "three-kingdoms",
       "three-kingdoms-unification",
-      "unified-silla",
-      "national-heritage"
+      "unified-silla"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -17748,8 +17729,7 @@
       "jeongmyo-horan",
       "namhansanseong-defense",
       "imjin-war",
-      "joseon",
-      "national-heritage"
+      "joseon"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -17930,9 +17910,7 @@
     ],
     "related": [
       "joseon",
-      "law-rules",
-      "local-autonomy",
-      "court"
+      "local-autonomy"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -21076,8 +21054,6 @@
     ],
     "related": [
       "gojoseon",
-      "national-heritage",
-      "map",
       "roman-empire"
     ],
     "mainTopic": "역사",
@@ -21462,8 +21438,7 @@
       "united-nations",
       "trade-export-import",
       "sustainable-future",
-      "world-climate-life",
-      "fake-news"
+      "world-climate-life"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -21652,8 +21627,7 @@
       "ancient-egypt-civilization",
       "silk-roads",
       "democracy-election",
-      "law-rules",
-      "national-heritage"
+      "law-rules"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -22021,8 +21995,6 @@
     ],
     "related": [
       "democracy-election",
-      "law-rules",
-      "world-war-two",
       "united-nations"
     ],
     "mainTopic": "역사",
@@ -23232,8 +23204,7 @@
     ],
     "related": [
       "joseon",
-      "king-sejong",
-      "law-rules"
+      "king-sejong"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -24470,8 +24441,7 @@
     ],
     "related": [
       "human-rights",
-      "basic-rights-duties",
-      "law-rules"
+      "basic-rights-duties"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
