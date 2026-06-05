@@ -311,11 +311,16 @@
       "asset": "assets/history-maps/imported/three-kingdoms-of-korea-map.png",
       "alt": "고구려, 백제, 신라와 가야가 표시된 삼국 시대 지도",
       "caption": "고구려, 백제, 신라와 가야의 위치 관계를 보여 주는 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:Three Kingdoms of Korea Map.png. 저작자: Chris 73 / Wikimedia Commons. 라이선스: CC BY-SA 3.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Three Kingdoms of Korea Map.png. 저작자/기관: Chris 73 / Wikimedia Commons. 라이선스: CC BY-SA 3.0. 확인일: 2026-06-05. 사용 조건: 저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
         "title": "File:Three Kingdoms of Korea Map.png",
         "url": "https://commons.wikimedia.org/wiki/File:Three_Kingdoms_of_Korea_Map.png",
-        "license": "CC BY-SA 3.0"
+        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Three_Kingdoms_of_Korea_Map.png",
+        "author": "Chris 73 / Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+        "usage": "저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
+        "checkedAt": "2026-06-05"
       }
     }
   ]

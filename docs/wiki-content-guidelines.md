@@ -453,10 +453,10 @@
 
 - `figures` 배열에 지도, 도표, 그림 자료를 넣습니다.
 - `asset`은 `assets/` 아래의 로컬 파일만 사용합니다. 외부 이미지 핫링크는 쓰지 않습니다.
-- `dataSource`에는 지도 파일 또는 지도 데이터 이름, URL, 이용조건을 적어 지도 카드 안에서 출처가 보이게 합니다.
+- `dataSource`에는 지도 파일 또는 지도 데이터 이름, 출처 페이지 URL, 원본 파일 URL, 저작자/기관, 라이선스, 확인일, 사용 조건을 적어 지도 카드 안에서 출처가 보이게 합니다.
 - `caption`에는 실제 국경선이나 이동 경로를 정밀하게 나타낸 지도가 아니라는 점을 필요하면 짧게 적습니다.
 - 직접 제작한 지도라면 `sourceNote`에 바탕지도 데이터 출처, 역사 위치 확인 출처의 성격, 원문 지도나 사료 지도를 복제하지 않았다는 점을 반드시 적습니다.
-- 외부 지도 이미지를 그대로 사용하는 경우에는 `sourceNote`에 지도 출처, 파일명, 저작자, 라이선스, 원본 파일을 수정 없이 사용했다는 점을 적습니다.
+- 외부 지도 이미지를 그대로 사용하는 경우에는 `sourceNote`에 지도 출처, 파일명, 저작자, 라이선스, 확인일, 사용 조건, 원본 파일을 수정 없이 사용했다는 점을 적습니다.
 - 외부 기관의 이미지, 지도, 삽화, 표, 그래프는 공공누리 등 이용조건이 명확해도 데이터 이용조건과 게시 가능 여부를 먼저 확인합니다. 그대로 사용할 수 있는 조건이 확인된 경우에만 원본 파일을 사용합니다.
 - 세력권 경계, 국경선, 전선처럼 시기별로 변하거나 학술 해석이 필요한 선은 충분히 검증하지 못한 상태에서 그리지 않습니다. 초등학생용 지식에는 주요 도시, 사건 위치, 이동 방향, 활동 지역 중심 지도를 우선 사용합니다.
 - 외부 지도를 반드시 써야 하는 경우에는 원저작권자, 이용조건, 변경 가능 여부, 상업적 이용 가능 여부를 별도로 확인하고 출처 표기 방식을 기록합니다.
@@ -474,9 +474,14 @@
     "dataSource": {
       "title": "File:Three Kingdoms of Korea Map.png",
       "url": "https://commons.wikimedia.org/wiki/File:Three_Kingdoms_of_Korea_Map.png",
-      "license": "CC BY-SA 3.0"
+      "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Three_Kingdoms_of_Korea_Map.png",
+      "author": "Chris 73 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "checkedAt": "2026-06-05",
+      "usage": "저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다."
     },
-    "sourceNote": "지도 출처: Wikimedia Commons, File:Three Kingdoms of Korea Map.png. 저작자: Chris 73 / Wikimedia Commons. 라이선스: CC BY-SA 3.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다."
+    "sourceNote": "지도 출처: Wikimedia Commons, File:Three Kingdoms of Korea Map.png. 저작자/기관: Chris 73 / Wikimedia Commons. 라이선스: CC BY-SA 3.0. 확인일: 2026-06-05. 사용 조건: 저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다."
   }
 ]
 ```

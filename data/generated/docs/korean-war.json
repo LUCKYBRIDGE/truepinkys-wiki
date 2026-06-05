@@ -271,11 +271,16 @@
       "asset": "assets/history-maps/imported/pusan-perimeter.jpg",
       "alt": "1950년 8월 낙동강 방어선과 부산 교두보를 나타낸 지도",
       "caption": "1950년 8월 낙동강 방어선과 부산 교두보를 나타낸 지도입니다. 미 육군 군사사센터 자료에서 나온 원본 파일을 그대로 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:Pusan Perimeter.jpg. 저작자: United States Army Center of Military History. 라이선스: Public domain. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Pusan Perimeter.jpg. 저작자/기관: United States Army Center of Military History. 라이선스: Public domain. 확인일: 2026-06-05. 사용 조건: 미국 육군 군사사센터 자료로 공공 영역에 해당하는 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
         "title": "File:Pusan Perimeter.jpg",
         "url": "https://commons.wikimedia.org/wiki/File:Pusan_Perimeter.jpg",
-        "license": "Public domain"
+        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Pusan_Perimeter.jpg",
+        "author": "United States Army Center of Military History",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "usage": "미국 육군 군사사센터 자료로 공공 영역에 해당하는 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
+        "checkedAt": "2026-06-05"
       }
     }
   ]

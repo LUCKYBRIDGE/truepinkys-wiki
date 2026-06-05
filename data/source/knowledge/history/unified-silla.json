@@ -302,11 +302,16 @@
       "asset": "assets/history-maps/imported/unified-silla-balhae-8th-century.jpg",
       "alt": "8세기 통일신라와 발해의 위치를 나타낸 지도",
       "caption": "8세기 통일신라와 발해의 위치 관계를 보여 주는 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:Unified Silla and Balhae (8th Century) (4261052261).jpg. 저작자: Korea.net / Korean Culture and Information Service. 라이선스: CC BY-SA 2.0. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:Unified Silla and Balhae (8th Century) (4261052261).jpg. 저작자/기관: Korea.net / Korean Culture and Information Service. 라이선스: CC BY-SA 2.0. 확인일: 2026-06-05. 사용 조건: 저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
         "title": "File:Unified Silla and Balhae (8th Century) (4261052261).jpg",
         "url": "https://commons.wikimedia.org/wiki/File:Unified_Silla_and_Balhae_(8th_Century)_(4261052261).jpg",
-        "license": "CC BY-SA 2.0"
+        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Unified_Silla_and_Balhae_%288th_Century%29_%284261052261%29.jpg",
+        "author": "Korea.net / Korean Culture and Information Service",
+        "license": "CC BY-SA 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "usage": "저작자·출처·라이선스 표기와 동일조건변경허락 조건을 지켜 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
+        "checkedAt": "2026-06-05"
       }
     }
   ]

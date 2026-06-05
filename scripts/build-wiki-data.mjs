@@ -47,7 +47,10 @@ function textFromFigures(doc) {
     item.alt,
     item.sourceNote,
     item.dataSource?.title,
-    item.dataSource?.license
+    item.dataSource?.author,
+    item.dataSource?.license,
+    item.dataSource?.checkedAt,
+    item.dataSource?.usage
   ].join(" ")).join(" ");
 }
 

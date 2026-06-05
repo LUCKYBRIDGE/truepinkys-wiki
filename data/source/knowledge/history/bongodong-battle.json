@@ -236,11 +236,16 @@
       "asset": "assets/history-maps/imported/korea-manchuria-1906.jpg",
       "alt": "1906년에 제작된 한국과 만주 일부 지역의 전략 지도",
       "caption": "1906년에 제작된 한국과 만주 일부 지역의 지도입니다. 만주 지역 독립운동·전투의 위치 관계를 볼 때 참고할 수 있는 실제 지도 이미지입니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:1906 Strategical Map of Part of Korea and Manchuria.jpg. 저작자: United States Dept. of the Navy. 라이선스: Public domain. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
+      "sourceNote": "지도 출처: Wikimedia Commons, File:1906 Strategical Map of Part of Korea and Manchuria.jpg. 저작자/기관: United States Dept. of the Navy. 라이선스: Public domain. 확인일: 2026-06-05. 사용 조건: 미국 연방정부 저작물로 공공 영역에 해당하는 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
       "dataSource": {
         "title": "File:1906 Strategical Map of Part of Korea and Manchuria.jpg",
         "url": "https://commons.wikimedia.org/wiki/File:1906_Strategical_Map_of_Part_of_Korea_and_Manchuria.jpg",
-        "license": "Public domain"
+        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/1906_Strategical_Map_of_Part_of_Korea_and_Manchuria.jpg",
+        "author": "United States Dept. of the Navy",
+        "license": "Public domain",
+        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "usage": "미국 연방정부 저작물로 공공 영역에 해당하는 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
+        "checkedAt": "2026-06-05"
       }
     }
   ]

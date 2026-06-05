@@ -9,6 +9,7 @@ const errors = [];
 
 const sourceObjectFields = ["publisher", "title", "url", "usedFor", "license", "checkedAt"];
 const figureObjectFields = ["kind", "title", "asset", "alt", "caption", "sourceNote"];
+const figureDataSourceFields = ["title", "url", "fileUrl", "author", "license", "checkedAt", "usage"];
 const validFigureKinds = new Set(["map", "chart", "diagram"]);
 const validQuizTypes = new Set(["choice", "blank"]);
 const validStoryNoteTypes = new Set(["record", "quote", "anecdote", "debated"]);
@@ -548,16 +549,17 @@ function validateFigures(doc) {
       if (!figure.dataSource || typeof figure.dataSource !== "object" || Array.isArray(figure.dataSource)) {
         addError(doc.id, `figures[${index}].dataSource must be a structured object`);
       } else {
-        ["title", "url", "license"].forEach(field => {
+        figureDataSourceFields.forEach(field => {
           if (!hasText(figure.dataSource[field])) addError(doc.id, `figures[${index}].dataSource.${field} must be non-empty text`);
         });
-        if (hasText(figure.dataSource.url)) {
+        ["url", "fileUrl", "licenseUrl"].forEach(field => {
+          if (!hasText(figure.dataSource[field])) return;
           try {
-            new URL(figure.dataSource.url);
+            new URL(figure.dataSource[field]);
           } catch {
-            addError(doc.id, `figures[${index}].dataSource.url must be a valid URL`);
+            addError(doc.id, `figures[${index}].dataSource.${field} must be a valid URL`);
           }
-        }
+        });
       }
     }
     validateNoSubjectiveEvaluation(doc, `figures[${index}]`, [figure.title, figure.alt, figure.caption, figure.sourceNote]);
