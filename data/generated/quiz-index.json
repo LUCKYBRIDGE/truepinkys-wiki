@@ -4568,8 +4568,7 @@
       "river",
       "population",
       "transportation",
-      "world-climate-life",
-      "korea-industry-development"
+      "world-climate-life"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -10295,7 +10294,6 @@
     ],
     "related": [
       "law-rules",
-      "democracy-election",
       "separation-of-powers",
       "national-assembly",
       "executive-branch",
@@ -10529,8 +10527,7 @@
       "national-assembly",
       "executive-branch",
       "court",
-      "democracy-election",
-      "election"
+      "democracy-election"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -10699,8 +10696,6 @@
       "national-assembly",
       "court",
       "separation-of-powers",
-      "public-institution",
-      "local-autonomy",
       "law-hierarchy"
     ],
     "mainTopic": "사회와 생활",
@@ -19445,7 +19440,6 @@
       "eulsa-treaty",
       "righteous-army",
       "provisional-government",
-      "liberation-korea",
       "yu-gwan-sun"
     ],
     "mainTopic": "역사",
@@ -20576,8 +20570,7 @@
       "independence-movement",
       "provisional-government",
       "world-war-two",
-      "korean-war",
-      "democracy-election"
+      "korean-war"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
