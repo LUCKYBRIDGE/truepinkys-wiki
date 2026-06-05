@@ -228,25 +228,5 @@
       "title": "보급로 견제",
       "description": "조선 수군의 승리는 일본군이 바닷길로 병력과 물자를 옮기는 계획에 부담을 주었습니다."
     }
-  ],
-  "figures": [
-    {
-      "kind": "map",
-      "title": "임진왜란 전개 지도",
-      "asset": "assets/history-maps/imported/history-of-korea-1592-1597.svg",
-      "alt": "1592년부터 1597년까지 임진왜란의 전개를 나타낸 지도",
-      "caption": "1592년부터 1597년까지 임진왜란의 전개를 나타낸 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:History of Korea-1592-1597.svg. 저작자/기관: Yug / Wikimedia Commons. 라이선스: CC0 1.0. 확인일: 2026-06-05. 사용 조건: CC0로 공공 영역에 공개된 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
-      "dataSource": {
-        "title": "File:History of Korea-1592-1597.svg",
-        "url": "https://commons.wikimedia.org/wiki/File:History_of_Korea-1592-1597.svg",
-        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/History_of_Korea-1592-1597.svg",
-        "author": "Yug / Wikimedia Commons",
-        "license": "CC0 1.0",
-        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "usage": "CC0로 공공 영역에 공개된 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
-        "checkedAt": "2026-06-05"
-      }
-    }
   ]
 }

@@ -240,25 +240,5 @@
       "title": "병자호란",
       "description": "청의 요구가 강해지며 병자호란이 일어났습니다."
     }
-  ],
-  "figures": [
-    {
-      "kind": "map",
-      "title": "조선·청 국경 고지도",
-      "asset": "assets/history-maps/imported/joseon-qing-border-gwangyeodo.png",
-      "alt": "광여도에 나타난 조선과 청의 국경 지역",
-      "caption": "광여도에 나타난 조선과 청의 국경 지역입니다. 정묘호란·병자호란의 군사 이동도를 새로 그린 것이 아니라, 관련 지역을 보여 주는 실제 고지도 이미지를 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:Joseon-Qing border in Gwangyeodo.png. 저작자/기관: 조선 왕조. 라이선스: Public domain. 확인일: 2026-06-05. 사용 조건: 저작권 보호기간이 만료된 고지도 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
-      "dataSource": {
-        "title": "File:Joseon-Qing border in Gwangyeodo.png",
-        "url": "https://commons.wikimedia.org/wiki/File:Joseon-Qing_border_in_Gwangyeodo.png",
-        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Joseon-Qing_border_in_Gwangyeodo.png",
-        "author": "조선 왕조",
-        "license": "Public domain",
-        "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "usage": "저작권 보호기간이 만료된 고지도 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
-        "checkedAt": "2026-06-05"
-      }
-    }
   ]
 }

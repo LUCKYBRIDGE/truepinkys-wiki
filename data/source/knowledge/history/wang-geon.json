@@ -258,25 +258,5 @@
       "title": "사망",
       "description": "왕건은 후대 왕에게 남긴 훈요십조로도 알려져 있습니다."
     }
-  ],
-  "figures": [
-    {
-      "kind": "map",
-      "title": "고려 시대 지도",
-      "asset": "assets/history-maps/imported/history-of-korea-960.png",
-      "alt": "960년 무렵 고려와 주변 지역을 나타낸 역사 지도",
-      "caption": "960년 무렵 고려와 주변 지역을 나타낸 지도입니다. 위키미디어 공용의 원본 파일을 그대로 사용했습니다.",
-      "sourceNote": "지도 출처: Wikimedia Commons, File:History of Korea-960.png. 저작자/기관: Historiographer / Wikimedia Commons. 라이선스: Public domain. 확인일: 2026-06-05. 사용 조건: 저작권자가 공공 영역으로 공개한 원본 파일을 수정 없이 로컬 사본으로 사용합니다. 트루핑키스 위키가 새로 그리거나 수정하지 않고 원본 파일을 사용했습니다.",
-      "dataSource": {
-        "title": "File:History of Korea-960.png",
-        "url": "https://commons.wikimedia.org/wiki/File:History_of_Korea-960.png",
-        "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/History_of_Korea-960.png",
-        "author": "Historiographer / Wikimedia Commons",
-        "license": "Public domain",
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:History_of_Korea-960.png",
-        "usage": "저작권자가 공공 영역으로 공개한 원본 파일을 수정 없이 로컬 사본으로 사용합니다.",
-        "checkedAt": "2026-06-05"
-      }
-    }
   ]
 }
