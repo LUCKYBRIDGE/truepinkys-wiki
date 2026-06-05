@@ -175,8 +175,7 @@
     "related": [
       "ai",
       "data",
-      "generative-ai",
-      "graph"
+      "generative-ai"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "디지털과 정보",
@@ -562,8 +561,7 @@
       "data",
       "statistics",
       "fake-news",
-      "fine-dust",
-      "money"
+      "fine-dust"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "정보 읽기",
@@ -645,8 +643,7 @@
     "related": [
       "ai",
       "generative-ai",
-      "fake-news",
-      "graph"
+      "fake-news"
     ],
     "lastReviewed": "2026-05-27",
     "mainTopic": "문화와 표현",
@@ -8315,10 +8312,8 @@
     ],
     "related": [
       "law-rules",
-      "democracy-election",
       "school-violence",
-      "public-institution",
-      "transportation"
+      "public-institution"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "사회와 생활",
@@ -9778,8 +9773,7 @@
     "related": [
       "magnet",
       "electric-circuit",
-      "light-shadow",
-      "statistics"
+      "light-shadow"
     ],
     "lastReviewed": "2026-05-14",
     "mainTopic": "과학",
@@ -12961,9 +12955,7 @@
     "related": [
       "balhae",
       "three-kingdoms-unification",
-      "unified-silla",
-      "three-kingdoms",
-      "goryeo"
+      "unified-silla"
     ],
     "lastReviewed": "2026-05-19",
     "mainTopic": "역사",
@@ -13319,10 +13311,7 @@
     ],
     "related": [
       "goryeo",
-      "joseon",
-      "wang-geon",
-      "palace",
-      "king-sejong"
+      "joseon"
     ],
     "lastReviewed": "2026-05-20",
     "mainTopic": "역사",

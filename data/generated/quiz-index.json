@@ -218,8 +218,7 @@
     "related": [
       "ai",
       "data",
-      "generative-ai",
-      "graph"
+      "generative-ai"
     ],
     "mainTopic": "디지털과 정보",
     "subTopicPath": [
@@ -775,8 +774,7 @@
       "data",
       "statistics",
       "fake-news",
-      "fine-dust",
-      "money"
+      "fine-dust"
     ],
     "mainTopic": "정보 읽기",
     "subTopicPath": [
@@ -865,8 +863,7 @@
     "related": [
       "ai",
       "generative-ai",
-      "fake-news",
-      "graph"
+      "fake-news"
     ],
     "mainTopic": "문화와 표현",
     "subTopicPath": [
@@ -10205,10 +10202,8 @@
     ],
     "related": [
       "law-rules",
-      "democracy-election",
       "school-violence",
-      "public-institution",
-      "transportation"
+      "public-institution"
     ],
     "mainTopic": "사회와 생활",
     "subTopicPath": [
@@ -12127,8 +12122,7 @@
     "related": [
       "magnet",
       "electric-circuit",
-      "light-shadow",
-      "statistics"
+      "light-shadow"
     ],
     "mainTopic": "과학",
     "subTopicPath": [
@@ -16206,9 +16200,7 @@
     "related": [
       "balhae",
       "three-kingdoms-unification",
-      "unified-silla",
-      "three-kingdoms",
-      "goryeo"
+      "unified-silla"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
@@ -16581,10 +16573,7 @@
     ],
     "related": [
       "goryeo",
-      "joseon",
-      "wang-geon",
-      "palace",
-      "king-sejong"
+      "joseon"
     ],
     "mainTopic": "역사",
     "subTopicPath": [
