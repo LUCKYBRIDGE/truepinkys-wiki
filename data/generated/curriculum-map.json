@@ -1899,7 +1899,7 @@
         "achievementSupport": "흐르는 물과 지표 변화, 지층 형성과 연결되는 범위하는 데 도움이 됩니다"
       }
     ],
-    "earthquake-volcano-activity": [
+    "earthquake": [
       {
         "subject": "과학",
         "area": "지구와 물질",
@@ -2229,6 +2229,626 @@
         "subject": "도덕",
         "area": "타인과 공동체",
         "achievementSupport": "자신과 타인, 공동체의 관계를 존중하고 책임 있게 판단하는 데 도움이 됩니다"
+      }
+    ],
+    "jumong": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "onjo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "park-hyeokgeose": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "king-geunchogo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "king-jangsu": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "king-jinheung": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "queen-seondeok": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "jang-bogo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "wonhyo": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "choe-chiwon": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "seo-hui": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "gang-gam-chan": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "choe-mu-seon": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "hwang-hui": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "sin-saimdang": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "heo-jun": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "gwon-yul": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "gwak-jae-u": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "kim-hong-do": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "kim-jeong-ho": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "hong-beom-do": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "kim-jwa-jin": [
+      {
+        "subject": "사회",
+        "area": "역사",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "galileo-galilei": [
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학자의 탐구 과정과 발견이 과학 지식과 사회에 미친 영향을 사실에 근거해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "isaac-newton": [
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학자의 탐구 과정과 발견이 과학 지식과 사회에 미친 영향을 사실에 근거해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "charles-darwin": [
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학자의 탐구 과정과 발견이 과학 지식과 사회에 미친 영향을 사실에 근거해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "albert-einstein": [
+      {
+        "subject": "과학",
+        "area": "과학과 사회",
+        "achievementSupport": "과학자의 탐구 과정과 발견이 과학 지식과 사회에 미친 영향을 사실에 근거해 설명하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "florence-nightingale": [
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "helen-keller": [
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "mahatma-gandhi": [
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "martin-luther-king-jr": [
+      {
+        "subject": "사회",
+        "area": "역사와 세계 시민",
+        "achievementSupport": "인물이 살았던 시대와 활동을 사실에 근거해 살피고, 그 일이 사회와 문화에 남긴 의미를 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "decimal": [
+      {
+        "subject": "수학",
+        "area": "수와 연산",
+        "achievementSupport": "소수와 자릿값을 이해하고 분수·측정값과 연결해 수를 표현하는 데 도움이 됩니다"
+      }
+    ],
+    "percentage": [
+      {
+        "subject": "수학",
+        "area": "비와 비율",
+        "achievementSupport": "전체와 부분의 관계를 백분율로 나타내고 자료를 해석하는 데 도움이 됩니다"
+      }
+    ],
+    "average": [
+      {
+        "subject": "수학",
+        "area": "자료와 가능성",
+        "achievementSupport": "자료의 대표값을 구하고 통계 자료를 비교하는 데 도움이 됩니다"
+      }
+    ],
+    "probability": [
+      {
+        "subject": "수학",
+        "area": "자료와 가능성",
+        "achievementSupport": "경우의 수와 자료를 바탕으로 일이 일어날 가능성을 설명하는 데 도움이 됩니다"
+      }
+    ],
+    "area-perimeter": [
+      {
+        "subject": "수학",
+        "area": "도형과 측정",
+        "achievementSupport": "도형의 안쪽 크기와 가장자리 길이를 구분해 측정하는 데 도움이 됩니다"
+      }
+    ],
+    "symmetry": [
+      {
+        "subject": "수학",
+        "area": "도형과 측정",
+        "achievementSupport": "도형의 대응 관계와 대칭축을 찾아 모양의 성질을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "map-scale": [
+      {
+        "subject": "사회",
+        "area": "지리 인식",
+        "achievementSupport": "지도에서 거리와 위치를 읽고 지역의 공간 정보를 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "수학",
+        "area": "비와 비율",
+        "achievementSupport": "실제 거리와 지도 위 거리의 비율을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "contour-line": [
+      {
+        "subject": "사회",
+        "area": "지리 인식",
+        "achievementSupport": "지도에서 지형의 높낮이와 자연환경을 읽는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "지구와 환경",
+        "achievementSupport": "지표의 모습과 지형 변화를 공간 정보와 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "administrative-district": [
+      {
+        "subject": "사회",
+        "area": "지역과 공공생활",
+        "achievementSupport": "지역을 행정 단위로 나누고 공공기관의 역할을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "resident-registration": [
+      {
+        "subject": "사회",
+        "area": "공공생활과 행정",
+        "achievementSupport": "주소, 주민, 민원 자료가 공공 서비스와 연결되는 방식을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "human-rights": [
+      {
+        "subject": "사회",
+        "area": "인권과 공동체",
+        "achievementSupport": "사람의 존엄과 평등, 차별 문제를 공동체 생활과 연결해 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "도덕",
+        "area": "존중과 책임",
+        "achievementSupport": "서로의 권리를 존중하고 책임 있게 행동하는 기준을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "basic-rights-duties": [
+      {
+        "subject": "사회",
+        "area": "민주주의와 헌법",
+        "achievementSupport": "헌법이 보장하는 국민의 권리와 공동체를 위한 의무를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "public-opinion": [
+      {
+        "subject": "사회",
+        "area": "민주주의와 미디어",
+        "achievementSupport": "사회 문제에 대한 다양한 의견과 여론조사 자료를 비판적으로 읽는 데 도움이 됩니다"
+      },
+      {
+        "subject": "국어",
+        "area": "읽기와 매체",
+        "achievementSupport": "매체 자료의 출처와 조사 방법을 확인하며 의견을 읽는 데 도움이 됩니다"
+      }
+    ],
+    "public-service": [
+      {
+        "subject": "사회",
+        "area": "지역과 공공생활",
+        "achievementSupport": "공공기관과 지방자치단체가 주민 생활을 지원하는 방식을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "bank": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "예금, 대출, 송금 등 금융기관이 돈의 흐름에서 맡는 역할을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 자원 관리",
+        "achievementSupport": "돈과 자원을 계획적으로 관리하는 생활 역량을 기르는 데 도움이 됩니다"
+      }
+    ],
+    "insurance": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "위험과 경제적 부담을 나누는 금융 제도의 역할을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 안전과 자원 관리",
+        "achievementSupport": "생활 속 위험과 비용을 계획적으로 다루는 방법을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "household-budget": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "수입과 지출을 계획하고 합리적인 소비를 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 자원 관리",
+        "achievementSupport": "생활 자원을 계획하고 관리하는 방법을 익히는 데 도움이 됩니다"
+      },
+      {
+        "subject": "수학",
+        "area": "자료와 가능성",
+        "achievementSupport": "수입과 지출 자료를 표와 수로 정리하는 데 도움이 됩니다"
+      }
+    ],
+    "infectious-disease-prevention": [
+      {
+        "subject": "과학",
+        "area": "생물과 건강",
+        "achievementSupport": "병원체와 몸의 건강을 연결해 감염병 예방 원리를 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강한 생활",
+        "achievementSupport": "건강을 지키는 생활 습관과 보건 수칙을 익히는 데 도움이 됩니다"
+      }
+    ],
+    "first-aid": [
+      {
+        "subject": "체육",
+        "area": "안전",
+        "achievementSupport": "생활 속 사고 상황에서 안전하게 도움을 요청하고 초기 대응을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 안전",
+        "achievementSupport": "일상생활에서 위험을 줄이고 필요한 도움을 연결하는 데 도움이 됩니다"
+      }
+    ],
+    "water-pollution": [
+      {
+        "subject": "과학",
+        "area": "환경과 생태계",
+        "achievementSupport": "물환경과 생태계가 오염 물질의 영향을 받는 과정을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "지속가능한 생활",
+        "achievementSupport": "환경 문제와 생활 방식의 관계를 지역사회 관점에서 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "consumer-producer": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "소비자와 생산자의 역할을 구분하고 시장에서 서로 연결되는 과정을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 자원 관리",
+        "achievementSupport": "소비 선택과 생산 활동이 생활 자원 관리와 연결되는 흐름을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "enterprise": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "기업이 생산, 판매, 고용을 통해 경제 활동에 참여하는 방식을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "진로와 일",
+        "achievementSupport": "직업과 기업 활동이 사회의 필요와 연결되는 점을 살피는 데 도움이 됩니다"
+      }
+    ],
+    "distribution": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "생산된 상품이 운송, 보관, 판매를 거쳐 소비자에게 이동하는 과정을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "advertising": [
+      {
+        "subject": "국어",
+        "area": "매체 의사소통",
+        "achievementSupport": "광고 문구와 매체 정보를 목적과 조건에 따라 읽는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "광고가 소비 선택과 시장 활동에 영향을 주는 방식을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "consumer-rights": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "소비자의 권리와 책임, 피해 구제 절차를 생활 속 경제 문제와 연결해 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 자원 관리",
+        "achievementSupport": "현명한 소비와 정보 확인 습관을 기르는 데 도움이 됩니다"
+      }
+    ],
+    "credit": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "신용, 대출, 상환이 금융 생활에서 어떻게 연결되는지 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "생활 자원 관리",
+        "achievementSupport": "돈을 계획적으로 사용하고 약속을 지키는 생활 태도를 살피는 데 도움이 됩니다"
+      }
+    ],
+    "debt": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "부채, 원금, 이자, 상환 계획을 구분해 금융 생활을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "income-job": [
+      {
+        "subject": "사회",
+        "area": "경제생활",
+        "achievementSupport": "일, 소득, 가계 생활의 관계를 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "실과",
+        "area": "진로와 일",
+        "achievementSupport": "직업의 역할과 산업 변화가 생활과 연결되는 점을 살피는 데 도움이 됩니다"
+      }
+    ],
+    "public-goods": [
+      {
+        "subject": "사회",
+        "area": "공동체와 공공생활",
+        "achievementSupport": "공공재, 세금, 공공 서비스가 공동체 생활에 필요한 까닭을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "social-insurance": [
+      {
+        "subject": "사회",
+        "area": "공동체와 공공생활",
+        "achievementSupport": "사회적 위험과 복지 제도가 시민 생활과 연결되는 흐름을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "urban-rural": [
+      {
+        "subject": "사회",
+        "area": "지역의 생활 모습",
+        "achievementSupport": "도시와 촌락의 인구, 산업, 생활 모습 차이와 연결 관계를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "agriculture": [
+      {
+        "subject": "사회",
+        "area": "지역과 산업",
+        "achievementSupport": "농업이 지역의 자연환경과 식생활, 유통 과정에 연결되는 점을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "과학",
+        "area": "생물과 환경",
+        "achievementSupport": "식물의 자람과 기후·토양 조건을 생활 속 생산 활동과 연결해 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "manufacturing-industry": [
+      {
+        "subject": "사회",
+        "area": "지역과 산업",
+        "achievementSupport": "원료가 제품으로 바뀌는 제조 과정과 지역 산업의 입지 조건을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "service-industry": [
+      {
+        "subject": "사회",
+        "area": "지역과 산업",
+        "achievementSupport": "서비스업의 종류와 도시 생활, 공공 서비스, 민간 서비스의 차이를 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "land-use": [
+      {
+        "subject": "사회",
+        "area": "지역과 공간",
+        "achievementSupport": "지도와 지역 자료를 바탕으로 주거, 상업, 공업, 농업 등 토지 이용을 읽는 데 도움이 됩니다"
+      }
+    ],
+    "circulatory-system": [
+      {
+        "subject": "과학",
+        "area": "우리 몸",
+        "achievementSupport": "심장, 혈관, 혈액이 산소와 영양소 운반에 관여하는 과정을 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강",
+        "achievementSupport": "운동과 맥박, 몸의 변화가 건강과 연결되는 점을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "bones-muscles": [
+      {
+        "subject": "과학",
+        "area": "우리 몸",
+        "achievementSupport": "뼈, 관절, 근육이 몸의 지탱과 움직임에 함께 작용하는 원리를 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "체육",
+        "area": "건강",
+        "achievementSupport": "운동, 자세, 휴식이 몸 건강과 연결되는 점을 살피는 데 도움이 됩니다"
+      }
+    ],
+    "sensory-organs": [
+      {
+        "subject": "과학",
+        "area": "우리 몸",
+        "achievementSupport": "감각 기관이 주변 자극을 받아들이고 몸의 반응과 연결되는 과정을 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "air-pollution": [
+      {
+        "subject": "과학",
+        "area": "환경과 생활",
+        "achievementSupport": "대기 오염의 원인과 건강·생태계 영향을 과학적으로 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "환경 문제",
+        "achievementSupport": "환경 문제를 지역과 생활 속 공공 과제로 이해하는 데 도움이 됩니다"
+      }
+    ],
+    "endangered-species": [
+      {
+        "subject": "과학",
+        "area": "생물과 환경",
+        "achievementSupport": "서식지, 생물다양성, 생태계 관계를 멸종위기 야생생물 사례로 이해하는 데 도움이 됩니다"
+      },
+      {
+        "subject": "사회",
+        "area": "환경 문제",
+        "achievementSupport": "야생생물 보호가 공공 정책과 생활 규칙에 연결되는 점을 이해하는 데 도움이 됩니다"
       }
     ]
   },
@@ -3025,7 +3645,7 @@
       "초5",
       "초6"
     ],
-    "earthquake-volcano-activity": [
+    "earthquake": [
       "초5",
       "초6"
     ],
@@ -3216,6 +3836,323 @@
       "중학교"
     ],
     "sustainable-future": [
+      "초6",
+      "중학교"
+    ],
+    "jumong": [
+      "초5",
+      "초6"
+    ],
+    "onjo": [
+      "초5",
+      "초6"
+    ],
+    "park-hyeokgeose": [
+      "초5",
+      "초6"
+    ],
+    "king-geunchogo": [
+      "초5",
+      "초6"
+    ],
+    "king-jangsu": [
+      "초5",
+      "초6"
+    ],
+    "king-jinheung": [
+      "초5",
+      "초6"
+    ],
+    "queen-seondeok": [
+      "초5",
+      "초6"
+    ],
+    "jang-bogo": [
+      "초5",
+      "초6"
+    ],
+    "wonhyo": [
+      "초5",
+      "초6"
+    ],
+    "choe-chiwon": [
+      "초5",
+      "초6"
+    ],
+    "seo-hui": [
+      "초5",
+      "초6"
+    ],
+    "gang-gam-chan": [
+      "초5",
+      "초6"
+    ],
+    "choe-mu-seon": [
+      "초5",
+      "초6"
+    ],
+    "hwang-hui": [
+      "초5",
+      "초6"
+    ],
+    "sin-saimdang": [
+      "초5",
+      "초6"
+    ],
+    "heo-jun": [
+      "초5",
+      "초6"
+    ],
+    "gwon-yul": [
+      "초5",
+      "초6"
+    ],
+    "gwak-jae-u": [
+      "초5",
+      "초6"
+    ],
+    "kim-hong-do": [
+      "초5",
+      "초6"
+    ],
+    "kim-jeong-ho": [
+      "초5",
+      "초6"
+    ],
+    "hong-beom-do": [
+      "초5",
+      "초6"
+    ],
+    "kim-jwa-jin": [
+      "초5",
+      "초6"
+    ],
+    "galileo-galilei": [
+      "중학교"
+    ],
+    "isaac-newton": [
+      "중학교"
+    ],
+    "charles-darwin": [
+      "중학교"
+    ],
+    "albert-einstein": [
+      "중학교"
+    ],
+    "florence-nightingale": [
+      "중학교"
+    ],
+    "helen-keller": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "mahatma-gandhi": [
+      "중학교"
+    ],
+    "martin-luther-king-jr": [
+      "중학교"
+    ],
+    "decimal": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "percentage": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "average": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "probability": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "area-perimeter": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "symmetry": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "map-scale": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "contour-line": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "administrative-district": [
+      "초3",
+      "초4",
+      "초5"
+    ],
+    "resident-registration": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "human-rights": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "basic-rights-duties": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "public-opinion": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "public-service": [
+      "초3",
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "bank": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "insurance": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "household-budget": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "infectious-disease-prevention": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "first-aid": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "water-pollution": [
+      "초4",
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "consumer-producer": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "enterprise": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "distribution": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "advertising": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "consumer-rights": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "credit": [
+      "초6",
+      "중학교"
+    ],
+    "debt": [
+      "초6",
+      "중학교"
+    ],
+    "income-job": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "public-goods": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "social-insurance": [
+      "초6",
+      "중학교"
+    ],
+    "urban-rural": [
+      "초3",
+      "초4",
+      "초5"
+    ],
+    "agriculture": [
+      "초3",
+      "초4",
+      "초5"
+    ],
+    "manufacturing-industry": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "service-industry": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "land-use": [
+      "초4",
+      "초5",
+      "초6"
+    ],
+    "circulatory-system": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "bones-muscles": [
+      "초5",
+      "초6"
+    ],
+    "sensory-organs": [
+      "초5",
+      "초6"
+    ],
+    "air-pollution": [
+      "초5",
+      "초6",
+      "중학교"
+    ],
+    "endangered-species": [
+      "초5",
       "초6",
       "중학교"
     ]

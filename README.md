@@ -30,7 +30,7 @@
 - `aliases`: 검색어의 다른 표현, 쉬운 말, 오타 대응용 표현입니다.
 - `keywords`: 검색 보조 단어입니다.
 - `chapters`: 본문 내용입니다. 큰 단원과 작은 단원으로 나누어 지식의 흐름을 보여 줍니다.
-- `quiz`: 지식을 읽은 뒤 풀어볼 수 있는 객관식 퀴즈입니다. 각 문제는 `question`, `choices`, `answerIndex`, `explanation`을 가집니다. 빈칸 채우기 객관식은 `type: "blank"`를 함께 쓰고 질문에 `____`를 넣습니다.
+- `quiz`: 지식을 읽은 뒤 풀어볼 수 있는 객관식 퀴즈입니다. 각 문제는 `question`, `choices`, `answerIndex`, `explanation`을 가집니다. 선택지별 해설이 필요하면 `choiceExplanations`에 보기 4개의 해설을 같은 순서로 넣습니다. 빈칸 채우기 객관식은 `type: "blank"`를 함께 쓰고 질문에 `____`를 넣습니다.
 - `sources`: 학생이 확인할 수 있는 공공기관·교육 자료 출처입니다. 문자열이 아니라 `publisher`, `title`, `url`, `usedFor`, `license`, `checkedAt`을 가진 객체로 작성합니다.
 
 나중에 데이터베이스나 로그인 시스템을 붙일 수 있도록, 현재는 원본 JSON 데이터와 화면용 생성 데이터를 분리해 둡니다.
@@ -59,6 +59,7 @@ node scripts/build-wiki-data.mjs
 node scripts/build-wiki-data.mjs
 node scripts/validate-wiki-content.mjs
 node scripts/validate-curriculum-map.mjs
+node scripts/validate-search-quality.mjs
 jq empty data/source/taxonomy.json data/source/curriculum-map.json data/source/knowledge/digital/ai.json data/source/knowledge/economy/petrodollar.json data/generated/taxonomy.json data/generated/curriculum-map.json data/generated/knowledge-index.json data/generated/search-index.json data/generated/quiz-index.json data/generated/docs/ai.json data/generated/docs/petrodollar.json
 git diff --check
 ```
